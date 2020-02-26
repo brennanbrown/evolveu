@@ -22,7 +22,7 @@ const functions = {
     },
 
     divide: (num1, num2) => {
-        // Trunication required to
+        // Truncation required to
         // change floats into ints.
         return Math.trunc(num1 / num2);
     },
@@ -37,7 +37,15 @@ const functions = {
 
     powerOf: (num1, num2) => {
         return Math.pow(num1, num2);
-    }
+    },
+
+    isEven: (num1) => {
+        if (num1 % 2 == 0) {
+            return true;
+        }
+
+        return false
+    },
 
     
 };

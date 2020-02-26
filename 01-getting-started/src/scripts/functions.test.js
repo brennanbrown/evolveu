@@ -20,4 +20,11 @@ test('Does that add function work?', () => {
     expect(functions.multiply(9,13)).toBe(117);
     expect(functions.largerNumber(234,235)).toBe(235);
     expect(functions.powerOf(7,3)).toBe(343);
+    
+    expect(functions.isEven(2)).toBe(true);
+    expect(functions.isEven(3)).toBe(false);
 });
+
+/*test('Is that an even number?', () => {
+    expect(functions.evenSteven(4).toBe(true));
+})*/
