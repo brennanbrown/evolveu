@@ -1,6 +1,6 @@
-<p>First Number Input: </p> <input>
+<p>First Number Input: </p> <input id="firstNum">
 <br>
-<p>Second Number Input: </p>  <input>
+<p>Second Number Input: </p>  <input id="secondNum">
 <br>
 <p>Operation Type:</p>
 
@@ -15,4 +15,24 @@
 
  <!-- TODO: Buttons for Operation -->
 
-<button>Calculate!</button>
+<button onclick="calculate()">Calculate!</button>
+
+<script>
+	function add() {
+		num1 = document.getElementById("firstNum").value;
+		num2 = document.getElementById("secondNum").value;
+		answer = num1 + num2;
+	}
+
+	function substract() {
+
+	}
+
+	function multiply() {
+
+	}
+
+	function divide() {
+
+	}
+</script>

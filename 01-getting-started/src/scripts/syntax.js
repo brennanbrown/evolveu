@@ -61,7 +61,7 @@ const syntax = {
 
 	arrayCheck: (input) => {
 		if (Array.isArray(input) === true){
-			input.unshift("test");
+			/*input.unshift("test");*/
 			return true;
 		}
 		return false;
