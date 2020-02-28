@@ -30,4 +30,3 @@ test('Are these functions working?', () => {
 	expect(syntax.undefinedCheck(undefined)).toBe(true);
 
 });
-

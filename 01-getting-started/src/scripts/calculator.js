@@ -4,7 +4,6 @@ const calculator = {
   addFunc: (num1, num2) => {
     var answer = num1 + num2;
     return answer;
-    
   },
 
   addWrite: (num1, num2) => {
