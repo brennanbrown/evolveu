@@ -96,6 +96,8 @@
         <p id="idNumberSizexx"></p>
     </div>
 
+    <hr>
+
     <!-- CALCULATOR -->
 
     <div id="calculator">
@@ -131,9 +133,21 @@
         
     <!-- ENDOF CALCULATOR -->
 
-    <!-- CANADIAN TAXES -->
+    <hr>
 
-    <input id="gross_income">
+    <!-- CANADIAN TAXES -->
+    <script src="scripts/tax.js"></script>
+    <div id="taxDiv">
+        <h1>Canadian Tax Calculator</h1>
+        <p class="inputNums">Enter your annual gross income for 2019: </p> 
+        <input id="gross_income">
+
+        <button id="taxButton">Calculate!</button>
+        <br>
+        <br>
+        <p>You will pay:</p> <div id="tax">...</div>
+        <br>
+    </div>
 
     <!-- ENDOF CANADIAN TAXES -->
 

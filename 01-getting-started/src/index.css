@@ -81,21 +81,20 @@ html {
 #calculator {
     margin: 0 auto;
     width: 15%;
-    background: #eee;
+    /* background: #eee; */
     border-width: 2px;
     border-color: #000;
     font-family: sans-serif;
     font-size: 1.2rem;
 }
 #calculator h1 {
-    font-size: 130%;
+    /* font-size: 130%; */
     text-align: center;
-    text-decoration: underline;
-    color: #000;
+    /* text-decoration: underline;
+    color: #000; */
 }
 #calculator input {
-    border-style: dashed;
-    
+    border-style: dashed; 
 }
 #calculator input[type=radio] {
     border: 0px;
@@ -103,7 +102,8 @@ html {
 }
 #operatorButtons {
     font-size: 150%;
-    background: #ddd;
+    background: rgb(247, 247, 247);
+    text-align:center;
 }
 #calculateButton{
     margin-top: 15px;
@@ -128,4 +128,26 @@ html {
 
 #space {
     margin-bottom: 25;
+}
+
+/* TAXES CSS */
+
+#taxDiv {
+    margin: 0 auto;
+    width: 25%;
+    border-width: 2px;
+    border-color: #000;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+}
+#taxDiv input {
+    border-style: dashed; 
+    text-align: center;
+}
+
+#tax {
+    text-align: center;
+    font-weight: bold;
+    margin-top: -25px;
 }

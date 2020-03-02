@@ -1,13 +1,6 @@
 import functions from './functions.js';
 import calculator from './calculator.js'
-// **********
-//
-// Add the event listeners
-// 
-
-/*idNumber.addEventListener('change', (() => {
-    idNumberSize.textContent = functions.size(idNumber.value);
-}));*/
+import tax from './tax.js'
 
 var num1; var num2;
 var answerDisplay = document.getElementById("answer").innerHTML;
@@ -35,5 +28,9 @@ document.getElementById('calculateButton').onclick = (function(){
 	}
 });
 
+document.getElementById('taxButton').onclick = (function(){
+	let gross_income = parseInt(document.getElementById("gross_income").value);
+	tax.taxCal(gross_income);
+});
 
 /*export default main;*/
