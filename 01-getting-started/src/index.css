@@ -130,6 +130,7 @@ html {
     margin-bottom: 25;
 }
 
+
 /* TAXES CSS */
 
 #taxDiv {
@@ -150,4 +151,37 @@ html {
     text-align: center;
     font-weight: bold;
     margin-top: -25px;
+}
+
+/* ARRAYS CSS */
+
+#arrays {
+    margin: 0 auto;
+    width: 25%;
+    border-width: 2px;
+    border-color: #000;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+#arrays button {
+    display: inline;
+    font-size: 70%;
+    margin-right: -10px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+}
+
+#arrays input {
+    display: block;
+    width: 100%;
+    border-style: dashed; 
+    text-align: center;
+}
+
+#arrayDisplay {
+    text-align: center;
+    font-weight: bold;
+    margin-top: -5px;
 }

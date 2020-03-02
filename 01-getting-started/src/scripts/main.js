@@ -1,10 +1,12 @@
 import functions from './functions.js';
 import calculator from './calculator.js'
 import tax from './tax.js'
+import array from './array.js'
 
 var num1; var num2;
 var answerDisplay = document.getElementById("answer").innerHTML;
 
+/* CALCULATOR */
 
 document.getElementById('calculateButton').onclick = (function(){
 	let num1 = parseInt(document.getElementById("firstNum").value);
@@ -28,9 +30,33 @@ document.getElementById('calculateButton').onclick = (function(){
 	}
 });
 
+/* TAX CALCULATOR */
+
 document.getElementById('taxButton').onclick = (function(){
 	let gross_income = parseInt(document.getElementById("gross_income").value);
 	tax.taxCal(gross_income);
 });
 
+/* ARRAYS */
+
+document.getElementById('addElement').onclick = (function(){
+	let element = parseInt(document.getElementById("element").value);
+	array.addElement(element);
+});
+
+document.getElementById('displayArr').onclick = (function(){
+	let element = parseInt(document.getElementById("element").value);
+	array.displayArray();
+});
+
+document.getElementById('sumArr').onclick = (function(){
+	let element = parseInt(document.getElementById("element").value);
+	array.sumArray();
+});
+
+document.getElementById('clearArr').onclick = (function(){
+	let element = parseInt(document.getElementById("element").value);
+	array.clearArray();
+});
 /*export default main;*/
+
