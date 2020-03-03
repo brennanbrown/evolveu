@@ -12,13 +12,13 @@ const array = {
         return arr;
     },
 
-    displayArray: () => {
+    displayArray: (element) => {
         arr = arr.join(', ');
         arrayWrite(arr);
         return arr;
     },
 
-    sumArray: () => {
+    sumArray: (element) => {
         var sum = 0;
         for (var i = 0; i < arr.length; i++) {
             sum += arr[i]
@@ -27,7 +27,7 @@ const array = {
         return sum;
     },
 
-    clearArray: (arr) => {
+    clearArray: (element) => {
         arr = [];
         clearWrite();
         return arr;

@@ -1,10 +1,11 @@
 import functions from './functions.js';
-import calculator from './calculator.js'
-import tax from './tax.js'
-import array from './array.js'
+import calculator from './calculator.js';
+import tax from './tax.js';
+import array from './array.js';
+import dict from './dict.js';
 
-var num1; var num2;
-var answerDisplay = document.getElementById("answer").innerHTML;
+// var num1; var num2;
+// var answerDisplay = document.getElementById("answer").innerHTML;
 
 /* CALCULATOR */
 
@@ -46,17 +47,23 @@ document.getElementById('addElement').onclick = (function(){
 
 document.getElementById('displayArr').onclick = (function(){
 	let element = parseInt(document.getElementById("element").value);
-	array.displayArray();
+	array.displayArray(element);
 });
 
 document.getElementById('sumArr').onclick = (function(){
 	let element = parseInt(document.getElementById("element").value);
-	array.sumArray();
+	array.sumArray(element);
 });
 
 document.getElementById('clearArr').onclick = (function(){
 	let element = parseInt(document.getElementById("element").value);
-	array.clearArray();
+	array.clearArray(element);
 });
 /*export default main;*/
 
+/* DICTIONARY */
+
+document.getElementById('provFull').onclick = (function(){
+	let abb = document.getElementById("provAbb").value;
+	dict.findProvinceFromAbb(abb);
+});

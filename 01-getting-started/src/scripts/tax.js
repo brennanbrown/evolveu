@@ -20,41 +20,32 @@ const tax = {
 		var r_sum;
 		// var gross_income = parseInt(document.getElementById("gross_income").value);
 
-		const P1 = (100 - 15.0);
-		const P2 = (100 - 20.5);
-		const P3 = (100 - 26.0);
-		const P4 = (100 - 29.0);
-		const P5 = (100 - 33.0);
+		// Calculating the percentage of income taken per bracket.
+		const P = [(100 - 15.0), (100 - 20.5), (100 - 26.0), (100 - 29.0), (100 - 33.0)];
 
-		const TAX1 = ((48535*100 - 48535*P1)/(100)); // BELOW   48K
-		const TAX2 = ((48534*100 - 48534*P2)/(100)); // 48K  -  97K
-		const TAX3 = ((53404*100 - 53404*P3)/(100)); // 97K  - 150K
-		const TAX4 = ((63895*100 - 63895*P4)/(100)); // 150K - 214K
+		// Calculating the tax owed per bracket, if maximum is met.
+		const TAX = [((48535*100 - 48535*P[1])/(100)),  // BELOW   48K
+		             ((48534*100 - 48534*P[2])/(100)),  // 48K  -  97K
+		             ((53404*100 - 53404*P[3])/(100)),  // 97K  - 150K
+		             ((63895*100 - 63895*P[4])/(100))]; // 150K - 214K
 
-		const BR1 = 48535.00;
-		const BR2 = 97069.00;
-		const BR3 = 150473.0;
-		const BR4 = 214368.0;
+		// Calculating the maximum value per bracket.
+		const BR = [48535.00, 97069.00, 150473.0, 214368.0];
 
-		if (gross_income < BR1) {
-			// TAX TOTAL
-			let total_tax_income = ((gross_income*100 - gross_income*P1)/(100));
-			// TAX INCOME TOTAL
-			let total_tax = ((gross_income*100 - gross_income*(100-P1))/(100));
+		if (gross_income < BR[0]) {
+			let total_tax_income = ((gross_income*100 - gross_income*P[1])/(100));
 
 			total_tax_income = Math.round((total_tax_income + Number.EPSILON) * 100) / 100;
 			taxWrite(total_tax_income);
 			return total_tax_income;
 
-		} else if (BR1 < gross_income && gross_income < BR2) {
+		} else if (BR[0] < gross_income && gross_income < BR[1]) {
 			// Subtracts the prior bracket to calculate remaining income.
-			let r_sum = (gross_income - BR1);
+			let r_sum = (gross_income - BR[0]);
 			// Uses kiss-and-flip method of percentile sum to calculate taxes.
-			r_sum = ((r_sum*100 - r_sum*P2)/(100));
+			r_sum = ((r_sum*100 - r_sum*P[2])/(100));
 			// Adds new bracket calculation with prior bracket calculation.
-			let total_tax_income = r_sum + TAX1;
-
-			let total_tax = ((total_tax_income*100 - total_tax_income*(100-P2))/(100));
+			let total_tax_income = r_sum + TAX[1];
 			
 			// Uses the Math.round function to round calculation to
 			// the second decimal place, for monetary value. 
@@ -63,30 +54,29 @@ const tax = {
 			return total_tax_income;
 			
 
-		} else if (BR2 < gross_income && gross_income < BR3) {
-			let r_sum = (gross_income - BR2);
-			r_sum = ((r_sum*100 - r_sum*P3)/(100));
-			let total_tax_income = r_sum + TAX1 + TAX2;
+		} else if (BR[1] < gross_income && gross_income < BR[2]) {
+			let r_sum = (gross_income - BR[1]);
+			r_sum = ((r_sum*100 - r_sum*P[3])/(100));
+			let total_tax_income = r_sum + TAX[0] + TAX[1];
 
 			total_tax_income = Math.round((total_tax_income + Number.EPSILON) * 100) / 100;
 			taxWrite(total_tax_income);
 			return total_tax_income; 
 
 
-		} else if (BR3 < gross_income && gross_income < BR4) {
-			let r_sum = (gross_income - BR3);
-			r_sum = ((r_sum*100 - r_sum*P4)/(100));
-			let total_tax_income = r_sum + TAX1 + TAX2 + TAX3;
+		} else if (BR[2] < gross_income && gross_income < BR[3]) {
+			let r_sum = (gross_income - BR[2]);
+			r_sum = ((r_sum*100 - r_sum*P[4])/(100));
+			let total_tax_income = r_sum + TAX[0] + TAX[1] + TAX[2];
 
 			total_tax_income = Math.round((total_tax_income + Number.EPSILON) * 100) / 100;
 			taxWrite(total_tax_income);
 			return total_tax_income; 
 
-		} else if (gross_income > BR4) {
-			let r_sum = (gross_income - BR4);
-			r_sum = ((r_sum*100 - r_sum*P5)/(100));
-			let total_tax_income = r_sum + TAX1 + TAX2 + TAX3 + TAX4;
-			let total_tax;
+		} else if (gross_income > BR[3]) {
+			let r_sum = (gross_income - BR[3]);
+			r_sum = ((r_sum*100 - r_sum*P[5])/(100));
+			let total_tax_income = r_sum + TAX[0] + TAX[1] + TAX[2] + TAX[3];
 
 			total_tax_income = Math.round((total_tax_income + Number.EPSILON) * 100) / 100;
 			taxWrite(total_tax_income);
