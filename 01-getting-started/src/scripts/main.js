@@ -1,6 +1,6 @@
 import functions from './functions.js';
 import calculator from './calculator.js';
-import tax from './tax.js';
+import taxFunc from './tax.js';
 import array from './array.js';
 import dict from './dict.js';
 
@@ -33,37 +33,61 @@ document.getElementById('calculateButton').onclick = (function(){
 
 /* TAX CALCULATOR */
 
-document.getElementById('taxButton').onclick = (function(){
-	let gross_income = parseInt(document.getElementById("gross_income").value);
-	tax.taxCal(gross_income);
+// document.getElementById('taxButton').onclick = (function(){
+// 	let gross_income = parseInt(document.getElementById("gross_income").value);
+// 	tax.taxCal(gross_income);
+// });
+
+taxButton.addEventListener("click", function() {
+	tax.innerHTML = "$" + taxFunc.taxCal(gross_income.value);
 });
 
 /* ARRAYS */
 
-document.getElementById('addElement').onclick = (function(){
-	let element = parseInt(document.getElementById("element").value);
-	array.addElement(element);
+addElement.addEventListener("click", function(){
+	arrayDisplay.innerHTML = array.addElement(parseInt(element.value));
 });
 
-document.getElementById('displayArr').onclick = (function(){
-	let element = parseInt(document.getElementById("element").value);
-	array.displayArray(element);
+displayArr.addEventListener("click", function(){
+	arrayDisplay.innerHTML = array.displayArray(element.value);
 });
 
-document.getElementById('sumArr').onclick = (function(){
-	let element = parseInt(document.getElementById("element").value);
-	array.sumArray(element);
+sumArr.addEventListener("click", function(){
+	arrayDisplay.innerHTML = array.sumArray(element.value);
 });
 
-document.getElementById('clearArr').onclick = (function(){
-	let element = parseInt(document.getElementById("element").value);
-	array.clearArray(element);
+clearArr.addEventListener("click", function(){
+	arrayDisplay.innerHTML = array.clearArray(element.value);
 });
+
+// document.getElementById('addElement').onclick = (function(){
+// 	let element = parseInt(document.getElementById("element").value);
+// 	array.addElement(element);
+// });
+
+// document.getElementById('displayArr').onclick = (function(){
+// 	let element = parseInt(document.getElementById("element").value);
+// 	array.displayArray(element);
+// });
+
+// document.getElementById('sumArr').onclick = (function(){
+// 	let element = parseInt(document.getElementById("element").value);
+// 	array.sumArray(element);
+// });
+
+// document.getElementById('clearArr').onclick = (function(){
+// 	let element = parseInt(document.getElementById("element").value);
+// 	array.clearArray(element);
+// });
 /*export default main;*/
 
 /* DICTIONARY */
 
-document.getElementById('provFull').onclick = (function(){
-	let abb = document.getElementById("provAbb").value;
-	dict.findProvinceFromAbb(abb);
+// document.getElementById('provFull').onclick = (function(){
+// 	let abb = document.getElementById("provAbb").value;
+// 	dict.findProvinceFromAbb(abb);
+// });
+
+provFull.addEventListener("click", function(){
+	dictDisplay.innerHTML = dict.findProvinceFromAbb(provAbb.value);
 });
