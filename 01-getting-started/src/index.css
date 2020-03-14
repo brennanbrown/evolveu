@@ -69,6 +69,7 @@ html {
 /* Turn off parallax scrolling for tablets and phones */
 
 @media only screen and (min-device-width: 1600px) {
+
     .bgimg-1,
     .bgimg-2,
     .bgimg-3 {
@@ -87,39 +88,47 @@ html {
     font-family: sans-serif;
     font-size: 1.2rem;
 }
+
 #calculator h1 {
     /* font-size: 130%; */
     text-align: center;
     /* text-decoration: underline;
     color: #000; */
 }
+
 #calculator input {
-    border-style: dashed; 
+    border-style: dashed;
 }
+
 #calculator input[type=radio] {
     border: 0px;
     height: 1.5em;
 }
+
 #operatorButtons {
     font-size: 150%;
     background: rgb(247, 247, 247);
-    text-align:center;
+    text-align: center;
 }
-#calculateButton{
+
+#calculateButton {
     margin-top: 15px;
     width: 97%;
     height: 50px;
     font-size: 120%;
 }
-#inputDiv input{
+
+#inputDiv input {
     text-align: center;
     width: 100%;
     font-size: 120%;
 }
+
 #inputDiv p {
     margin-bottom: -2px;
     text-align: center;
 }
+
 #answer {
     text-align: center;
     font-weight: bold;
@@ -142,8 +151,9 @@ html {
     font-size: 1.2rem;
     text-align: center;
 }
+
 #taxDiv input {
-    border-style: dashed; 
+    border-style: dashed;
     text-align: center;
 }
 
@@ -176,7 +186,7 @@ html {
 #arrays input {
     display: block;
     width: 100%;
-    border-style: dashed; 
+    border-style: dashed;
     text-align: center;
 }
 
@@ -209,7 +219,7 @@ html {
 #dictionaries input {
     display: block;
     width: 100%;
-    border-style: dashed; 
+    border-style: dashed;
     text-align: center;
 }
 

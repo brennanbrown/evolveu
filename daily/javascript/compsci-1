@@ -1,0 +1,9 @@
+function and (a b) {
+    let result;
+    if( not(a) or not(b)){
+        result = false;
+    } else {
+        result = true
+    }
+    return true
+}

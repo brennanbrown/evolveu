@@ -1,10 +1,16 @@
-var arr = [];
+let arr = [];
 
 const array = {
-    
+
+    // createArray: () => {
+    //     let arr = [];
+    //     return arr;
+    // }
+
     addElement: (element) => {
+        //createArray();
         arr.push(element);
-        return arr;
+        // return arr;
     },
 
     delElement: (element) => {
@@ -19,7 +25,7 @@ const array = {
 
     sumArray: (element) => {
         let sum = 0;
-        for (var i = 0; i < arr.length; i++) {
+        for (let i = 0; i < arr.length; i++) {
             sum = sum + arr[i];
         }
         return sum;

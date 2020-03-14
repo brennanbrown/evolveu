@@ -14,12 +14,18 @@ const dict = {
         // .entries() returns an array of an object's
         //  own enumerable, string-keyed property 
         //  [key, value] pairs, in the order provided.
+        let result = abb.toUpperCase();
         for (let [key, value] of Object.entries(prov)) {
             // If a key matches the given abbreviation, it
             // will return the corresponding value/name.
-            if (key == abb) {
+            if (key == result) {
                 var provName = value;
                 return provName;
+            }
+        }
+        for (let [key, value] of Object.entries(prov)) {
+            if (key != abb) {
+                return "error!"
             }
         }
     }

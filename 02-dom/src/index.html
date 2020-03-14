@@ -27,7 +27,9 @@
   <meta name="description" content="EvolveU 02: DOM Manipulation">
   <meta name="author" content="Brennan K. Brown">
 
-  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  <!-- 
+  <link rel="stylesheet" href="css/styles.css?v=1.0"> 
+  -->
 
   <style>
       body{
@@ -49,14 +51,21 @@
     <div id=dom>
         <h1>Basic DOM</h1>
         <p>This is a list of stuff:</p>
-        <ol>
-            <li>Item 1</li>
+        <ul id="myList">
+            <li id="myLi">Item 1</li>
             <li>Item 2</li>
             <li>Item 3</li>
-        </ol>
-        <button>Show</button>
-        <button>Add</button>
+        </ul>
+        <button id="show">Display</button>
+        <button id="add">Add</button>
+        <button id="remove">Remove</button>
+        
+        <div id="displayList">...</div>
     </div>
-  <script src="js/scripts.js"></script>
+    <hr>
+    <!-- <div id=cards>
+        <h1<
+    </div> -->
+<script src="main.js"></script>
 </body>
 </html>
