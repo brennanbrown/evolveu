@@ -57,7 +57,7 @@ test("Testing complex data structures.", () => {
     console.log(obj2)
 });
 
-test ("Does the DOM function work?", () => {
+test ("Does the first DOM function work?", () => {
     const div = document.createElement("div");
     let text = document.createTextNode("First");
     
@@ -68,4 +68,25 @@ test ("Does the DOM function work?", () => {
 
     console.log(div.textContent);
     console.log(div.children.length);
+});
+
+test ("Does the second DOM function work?", () => {
+    const group = document.createElement("div");
+
+    let div, txt;
+
+    div = document.createElement("div");
+    txt = document.createTextNode("First");
+
+    div.append(txt);
+    group.append(div);
+
+    div = document.createElement("div");
+    txt = document.createTextNode("Second");
+
+    div.append(txt);
+    group.append(div);
+
+    console.log(group.children.length);
+
 });
