@@ -37,10 +37,24 @@
       }
       #dom {
           margin: 0 auto;
-          width: 50%;
+          width: 70%;
           border: solid;
           text-align: center;
           background: #fff;
+      }
+      .card {
+            box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+            border: solid;
+            padding: 10px;
+            width: 40%;
+            display: inline-block;
+            margin: 15px
+            /* margin: 0 auto; */
+      }
+      button {
+        display: block;
+        margin: 0 auto;
+        width: 40%;
       }
   </style>
 
@@ -51,7 +65,7 @@
     <div id=dom>
         <h1>Basic DOM</h1>
         <p>This is a list of stuff:</p>
-        <ul id="my2List">
+        <ul id="myList">
             <li id="myLi">Item 1</li>
             <li>Item 2</li>
             <li>Item 3</li>
@@ -60,12 +74,18 @@
         <button id="add">Add</button>
         <button id="remove">Remove</button>
         
-        <div id="displayList">...</div>
+        <div id="idDisplayList">...</div>
     </div>
-    <hr>
-    <!-- <div id=cards>
-        <h1<
-    </div> -->
-<script src="main.js"></script>
+    <br>
+    <div id=dom>
+        <h1>Cards DOM</h1>
+        <div class="card">
+            Card 1
+            <button>Add Before</button>
+            <button>Add After</button>
+            <button>Delete</button>
+        </div>
+    </div>
+<script src="main.js" type="module"></script>
 </body>
 </html>
