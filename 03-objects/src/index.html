@@ -23,37 +23,44 @@
     <div class="section">
         <h1>Bank Accounts</h1>
 
-        <div class="row section">
+        <fieldset id=createAccount>
             <h2>Create a New Account</h2>
-                <p>Account Name:</p> 
-                <input type="text" class="form-control input" id="usr">
+            <p id="idAccountName">Account Name:</p> 
+            <input type="text" class="form-control input" placeholder="Account Name" id="inputAccountName">
 
-                <p>Initial Balance:</p>
-                <input type="text" class="form-control input" id="usr">
+            <p id="idInitBalance">Initial Balance:</p>
+            <input type="text" class="form-control input" placeholder="Enter Amount Here" id="inputInitBalance">
 
-                <button class="center">Create</button>
-        </div>
+            <button class="center">Create</button>
+        </fieldset>
 
-        <div class="row section">
+        <fieldset id=transactions>
             <h2>Transactions</h2>
-                
-                <p>Select Account:</p>
-                <select id="usr"> </select>
+            
+            <p>Select Account:</p>
+            <select id="usr"> 
+                <option value="Chequing" id="chequing">Chequing</option>
+                <option value="Savings" id="savings">Savings</option>
+            </select>
 
-                <p>Transaction Amount:</p>
-                <input type="text" class="form-control input" id="usr">
+            <p>Transaction Type:</p>
+            <select id="usr"> 
+                <option value="Withdrawal" id="withdrawal">Withdrawal</option>
+                <option value="Deposit" id="deposit">Deposit</option>
+            </select>
 
-                <p>Transaction Type:</p>
-                <input type="text" class="form-control input" id="usr">
+            <p>Transaction Amount:</p>
+            <input type="text" class="form-control input" placeholder="Enter Amount Here" id="usr">
 
-                <button class="center">Submit</button>
-        </div>
+            <button class="center">Submit</button>
+        </fieldset>
 
         <div class="row section">
             <h2>Account Lists</h2>
-                <p>Largest Account:</p>
-                <p>Smallest Account:</p>
-                <p>Total Sum of Accounts:</p>
+
+            <p>Largest Account:</p>
+            <p>Smallest Account:</p>
+            <p>Total Sum of Accounts:</p>
         </div>
     </div>
 
@@ -62,15 +69,18 @@
     <div class="section">
         <h1>Geography</h1>
 
-        <div class="row section">
-            <h2>Add a City</h2>
+        <fieldset id=addCity>
+                <h2>Add a City</h2>
 
-            <p>City Name:</p>
-            <p>Population:</p>
-            <p>Latitude:</p>
-            <p>Longitude:</p>
-        </div>
-
+                <p>City Name:</p>
+                <input type="text" class="form-control input" placeholder="Eg. Calgary, Edmonton, etc." id="inputCityName">
+                <p>Population:</p>
+                <input type="text" class="form-control input" placeholder="Enter Population Here" id="inputPopulation">
+                <p>Latitude:</p>
+                <input type="text" class="form-control input" placeholder="Enter Latitude Here" id="inputLatitude">
+                <p>Longitude:</p>
+                <input type="text" class="form-control input" placeholder="Enter Longitude Here" id="inputLongitude">
+        </fieldset>
         
 
         <div class="row section">
@@ -82,5 +92,6 @@
         </div>
     </div>
 
+    <script type="module" src="./scripts/main.js"></script>
 </body>
 </html>
