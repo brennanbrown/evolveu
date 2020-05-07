@@ -31,37 +31,39 @@
             <p id="idInitBalance">Initial Balance:</p>
             <input type="text" class="form-control input" placeholder="Enter Amount Here" id="inputInitBalance">
 
-            <button class="center">Create</button>
+            <button class="center" id="buttonCreateAccount">Create</button>
         </fieldset>
 
         <fieldset id=transactions>
             <h2>Transactions</h2>
             
             <p>Select Account:</p>
-            <select id="usr"> 
-                <option value="Chequing" id="chequing">Chequing</option>
-                <option value="Savings" id="savings">Savings</option>
+            <select id="selectAccount"> 
+                <option value="Chequing" id="selectChequing">Chequing</option>
+                <option value="Savings" id="selectSavings">Savings</option>
             </select>
 
             <p>Transaction Type:</p>
-            <select id="usr"> 
-                <option value="Withdrawal" id="withdrawal">Withdrawal</option>
-                <option value="Deposit" id="deposit">Deposit</option>
+            <select id="selectTransaction"> 
+                <option value="Withdrawal" id="selectWithdrawal">Withdrawal</option>
+                <option value="Deposit" id="selectDeposit">Deposit</option>
             </select>
 
             <p>Transaction Amount:</p>
-            <input type="text" class="form-control input" placeholder="Enter Amount Here" id="usr">
+            <input type="text" class="form-control input" placeholder="Enter Amount Here" id="inputTransaction">
 
-            <button class="center">Submit</button>
+            <button class="center" id="buttonSubmitTransaction">Submit</button>
         </fieldset>
 
         <div class="row section">
             <h2>Account Lists</h2>
 
-            <p>Largest Account:</p>
-            <p>Smallest Account:</p>
-            <p>Total Sum of Accounts:</p>
+            <p>Largest Account:</p> <div id="dispLargestAccount"></div>
+            <p>Smallest Account:</p> <div id="dispSmallestAccount"></div>
+            <p>Total Sum of Accounts:</p> <div id="dispTotalSum"></div>
         </div>
+
+        <!-- TODO: DISPLAY ALL ACCOUNTS w/ INFO DYNAMICALLY HERE -->
     </div>
 
     <div id="ad">PLACE YOUR AD HERE!</div>
@@ -86,9 +88,9 @@
         <div class="row section">
             <h2>Population</h2>
 
-            <p>Population Total:</p>
-            <p>Northern Most City:</p>
-            <p>Southern Most City:</p>
+            <p>Population Total:</p> <div id="dispTotalPopulation"></div>
+            <p>Northern Most City:</p> <div id="dispNorthernCity"></div>
+            <p>Southern Most City:</p> <div id="dispSouthernCity"></div>
         </div>
     </div>
 

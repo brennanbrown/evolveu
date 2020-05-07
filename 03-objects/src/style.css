@@ -34,8 +34,8 @@ input {
 }
 
 #ad {
-    margin: 0 auto; 
-    width: 728px; 
+    margin: 15px auto; 
+    width: 50%; 
     height: 90px; 
     background: #333; 
     color: #fff; 
