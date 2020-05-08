@@ -38,9 +38,8 @@
             <h2>Transactions</h2>
             
             <p>Select Account:</p>
-            <select id="selectAccount"> 
-                <option value="Chequing" id="selectChequing">Chequing</option>
-                <option value="Savings" id="selectSavings">Savings</option>
+            <select id="textAccount"> 
+                <option value="Placeholder" id="selectPlaceholder">Placeholder</option>
             </select>
 
             <p>Transaction Type:</p>
@@ -56,14 +55,18 @@
         </fieldset>
 
         <div class="row section">
+            
             <h2>Account Lists</h2>
 
+            <div id="accountHistory"></div>
+
+            <p>Current Balance:</p> <div id="dispCurrentBalance"></div>
+            <br>
             <p>Largest Account:</p> <div id="dispLargestAccount"></div>
             <p>Smallest Account:</p> <div id="dispSmallestAccount"></div>
             <p>Total Sum of Accounts:</p> <div id="dispTotalSum"></div>
         </div>
 
-        <!-- TODO: DISPLAY ALL ACCOUNTS w/ INFO DYNAMICALLY HERE -->
     </div>
 
     <div id="ad">PLACE YOUR AD HERE!</div>

@@ -14,8 +14,8 @@ class Account {
     }
 
     show() {
-        let myAccount = [this.name, ' : $' + this.balance.toFixed(2)];
-        return myAccount.join('');
+        let myAccount = [this.name, " : $" + this.balance.toFixed(2)];
+        return myAccount.join("");
     }
 }
 
@@ -32,8 +32,8 @@ class AccountController {
 
     displayAddedAccount(name) {
         let myAccount = this.account.find(x => x.name === name);
-        myAccount = [myAccount.name, ' : $' + myAccount.balance.toFixed(2)];
-        return myAccount.join('');
+        myAccount = [myAccount.name, " : $" + myAccount.balance.toFixed(2)];
+        return myAccount.join("");
     }
 
     deleteAccount(name) {
@@ -45,33 +45,27 @@ class AccountController {
     accountTotal() {
         let value = this.account.map((x) => x.balance);
         value = value.reduce((a, b) => (Number(a) + Number(b)));
-        return '$' + Number.parseFloat(value).toFixed(2);
+        return "$" + Number.parseFloat(value).toFixed(2);
     }
 
     isNewAccount(name) {
-        for (let v in this.account) {
-            if (this.account[v].name === name) {
-                return console.error();
-            }
-        } return name;
+        return name;
     }
 
     isNewAmount(num) {
-        if (isNaN(num)) {
-            return console.error();
-        } return num;
+        return num;
     }
 
     largestAccount() {
         this.account.sort((a, b) => { return b.balance - a.balance });
-        let value = [this.account[0].name, ' : $' + this.account[0].balance.toFixed(2)];
-        return value.join('');
+        let value = [this.account[0].name, " : $" + this.account[0].balance.toFixed(2)];
+        return value.join("");
     }
 
     smallestAccount() {
         this.account.sort((a, b) => { return a.balance - b.balance });
-        let value = [this.account[0].name, ' : $' + (this.account[0].balance.toFixed(2))];
-        return value.join('');
+        let value = [this.account[0].name, " : $" + (this.account[0].balance.toFixed(2))];
+        return value.join("");
     }
 
 
