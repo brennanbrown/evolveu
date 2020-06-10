@@ -7,9 +7,8 @@ import science from './science.svg';
 import dna from './dna.svg';
 import microbe from './microbe.svg';
 import brain from './brain-and-head.svg';
-import './App.css';
+import './app.css';
 import AppOriginal from './components/app.original';
-
 
 function App() {
 
