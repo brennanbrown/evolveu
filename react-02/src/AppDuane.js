@@ -16,7 +16,7 @@ import React, { useState } from 'react';
 
 import c140b from './containers/c140b';
 import Starter from './components/Starter';
-import TicTacToe from './components/TicTacToe';
+import TicTacToe from './components/Tictactoe';
 
 import './App.css';
 

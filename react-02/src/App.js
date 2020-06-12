@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+
+import c140b from './components/c140b';
+import Starter from './components/Starter';
+import TictacGame from './components/Tictactoe';
 import earth from './earth.svg';
 import smile from './smile.svg';
 import sport from './sport.svg';
@@ -8,76 +11,79 @@ import dna from './dna.svg';
 import microbe from './microbe.svg';
 import brain from './brain-and-head.svg';
 import './App.css';
-import AppOriginal from './components/app.original';
+
 
 
 function App() {
 
+  const [messageArea, setMessage] = useState("Edit src/App.js and save to reload.");
+  const [appToRun, setAppToRun] = useState("Starter");
   const [count, setCount] = useState(10);
 
   function myOnClickCount(e) {
 
-    alert(e.target.id)
-    console.log(e.target.id);
+    let appName = "";
+    const appKey = Number(e.target.getAttribute('ikey'));
 
-    console.log('we just clicked count', count);
+    // alert(e.target.id)
+    console.log(e.target.getAttribute('ikey'));
+
+    // console.log('we just clicked count', count);
     setCount(count + 1);
 
+    appName = c140b.appList.find ( element => appKey === element.key ).appName;
+    
+    setMessage(`Call Application #${appKey} Name is ${appName}`);
+    setAppToRun(appName);
   }
-
 
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <div className="row clearfix">
           <div onClick={myOnClickCount} className="span_4 column"
-            id="Science"> 
-            <img src={science} className="App-logo-reverse" alt="logo" />
+            id="Science" ikey="1" > 
+            <img src={science} className="App-logo-reverse" alt="logo"/>
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
-            id="Earth">
+            id="Earth" ikey="2">
             <img src={earth} className="App-logo" alt="logo" />
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
-            id="Smile">
+            id="Smile" ikey="3" >
             <img src={smile} className="App-logo" alt="logo" />
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
-            id="Ball">
+            id="Ball" ikey="4">
             <img src={sport} className="App-logo" alt="logo" />
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
-            id="DNA">
+            id="DNA" ikey="5">
             <img src={dna} className="App-logo-reverse" alt="logo" />
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
-            id="Virus">
-            <img src={microbe} className="App-logo" alt="logo" />
+            id="Virus" ikey="6">
+            <img src={microbe} className="App-logo" alt="logo"  />
           </div>
           <div onClick={myOnClickCount} className="span_4 column"
-            id="Brain">
+            id="Brain" ikey="7">
             <img src={brain} className="App-logo" alt="logo" />
           </div>
         </div>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
       </header>
-
-
-
-
+      <div className="AppArea">
+            {appToRun !== "Tictactoe" &&
+                <div>
+                    <Starter sMessageArea={messageArea}/>
+                </div>
+            }
+            {appToRun === "Tictactoe" &&
+                <div>
+                    <TictacGame sMessageArea={messageArea}/>
+                </div>
+            }
+        </div>
     </div>
-
 
   );
 }
