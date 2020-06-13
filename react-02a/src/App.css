@@ -1,0 +1,216 @@
+.App-svg-area {
+  background-color: #282c34;
+  min-height: 44vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.App-svg1 {
+  height: 20vmin;
+  margin: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 100%;
+  border: 5px solid;
+}
+
+.App-svg1:hover {
+  height: 24vmin;
+  margin: 32px;
+  border: 10px solid;
+}
+
+.App-svg1:active {
+  height: 24vmin;
+  margin: 22px;
+  border: 20px solid red;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-svg1 {
+    animation: App-logo-spin-CW infinite 2s linear, back2white alternate infinite 20s linear;
+  }
+}
+
+.App-svg2 {
+  height: 20vmin;
+  margin: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  border-radius: 100%;
+  border: 5px solid;}
+  
+  .App-svg2:hover {
+  height: 24vmin;
+  margin: 32px;
+  border: 10px solid;
+}
+
+.App-svg2:active {
+  height: 24vmin;
+  margin: 22px;
+  border: 20px solid red;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-svg2 {
+    animation: App-logo-spin-counterCW infinite 20s linear, back2gray alternate infinite 20s linear;
+  }
+}
+
+.App-svg3 {
+  height: 20vmin;
+  margin: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* border-radius: 100%; */
+  border: 5px solid;
+}
+
+.App-svg3:hover {
+  height: 24vmin;
+  margin: 32px;
+  border: 10px solid;
+}
+
+.App-svg3:active {
+  height: 24vmin;
+  margin: 22px;
+  border: 20px solid red;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-svg3 {
+    animation: App-logo-spin-CW infinite 50s linear, back2blue alternate infinite 20s linear;
+  }
+}
+
+.App-svg4 {
+  height: 20vmin;
+  margin: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* border-radius: 100%; */
+  border: 5px solid;
+}
+
+.App-svg4:hover {
+  height: 24vmin;
+  margin: 32px;
+  border: 10px solid;
+}
+
+.App-svg4:active {
+  height: 24vmin;
+  margin: 22px;
+  border: 20px solid red;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-svg4 {
+    animation: App-logo-spin-counterCW infinite 20s linear, back2yellow alternate infinite 20s linear;
+  }
+}
+
+.App-svg5 {
+  height: 20vmin;
+  margin: 50px;
+  margin-bottom: 0;
+  margin-top: 0;
+  /* border-radius: 100%; */
+  border: 5px solid;
+}
+
+.App-svg5:hover {
+  height: 24vmin;
+  margin: 32px;
+  border: 10px solid;
+}
+
+.App-svg5:active {
+  height: 24vmin;
+  margin: 22px;
+  border: 20px solid red;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-svg5 {
+    animation: App-logo-spin-CW infinite 100s linear, back2greenyellow alternate infinite 20s linear;
+  }
+}
+
+.App-svg6 {
+  height: 20vmin;
+  margin: 50px;
+  margin-top: 0;
+  margin-bottom: 0;
+  /* border-radius: 100%; */
+  border: 5px solid;
+}
+
+.App-svg6:hover {
+  height: 24vmin;
+  margin: 32px;
+  border: 10px solid;
+}
+
+.App-svg6:active {
+  height: 24vmin;
+  margin: 22px;
+  border: 20px solid red;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-svg6 {
+    animation: App-logo-spin-counterCW infinite 20s linear, back2red alternate infinite 20s linear;
+  }
+}
+
+@keyframes App-logo-spin-CW {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes App-logo-spin-counterCW {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@keyframes back2gray {
+  from {background-color: 282c34;}
+  to {background-color: gray;}
+}
+
+@keyframes back2yellow {
+  from {background-color: #282c34;}
+  to {background-color: yellow;}
+}
+
+@keyframes back2red {
+  from {background-color: #282c34;}
+  to {background-color: red;}
+}
+
+@keyframes back2white {
+  from {background-color: #282c34;}
+  to {background-color: white;}
+}
+
+@keyframes back2blue {
+  from {background-color: #282c34;}
+  to {background-color: blue;}
+}
+
+@keyframes back2greenyellow {
+  from {background-color: #282c34;}
+  to {background-color: greenyellow;}
+}
