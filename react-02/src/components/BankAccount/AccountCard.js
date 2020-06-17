@@ -8,14 +8,21 @@ class AccountCard extends Component {
            
           }
     }
-   
+
     render() {
         
         // console.log(this.props)
         return (
-            <div>
-                <h1> {this.props.accountName}  </h1>
-                <h2> {this.props.balance} </h2>
+            
+            
+            
+            <div key={this.props.key} className="leftCard">
+        
+        {/* this.divCard = divCard; */}
+        {/* divCard.setAttribute("class", "leftCard"); */}
+        {/* divCard.setAttribute("key", divCardkey); */}
+        <h2> { this.props.accountName}</h2>
+        <h3> {this.props.balance}</h3>
                 
             </div>
         )

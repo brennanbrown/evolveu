@@ -18,14 +18,14 @@ class AccountController {
         if (balance >= 0) {
             const newAccount = new Account(key, name, balance);
 
-            // this.accountsHolder.push(newAccount);
+            this.accountsHolder.push(newAccount);
 
-            // const newCardID = [newAccount.createAccountCard().getAttribute("key")];
-            // node.appendChild(newAccount.createAccountCard());
+            const newCardID = [newAccount.createAccountCard().getAttribute("key")];
+            newAccount.createAccountCard();
             
             this.accountCards.push(newAccount);
 
-            return key;
+            return this.account;
 
 
         } else {

@@ -17,7 +17,7 @@ import './App.css';
 function App() {
 
   const [messageArea, setMessage] = useState("Edit src/App.js and save to reload.");
-  const [appToRun, setAppToRun] = useState("Starter");
+  const [appToRun, setAppToRun] = useState("");
   const [count, setCount] = useState(10);
 
   function myOnClickCount(e) {
@@ -72,7 +72,7 @@ function App() {
         </div>
       </header>
       <div className="AppArea">
-        {appToRun !== "Tictactoe" &&
+        {appToRun === "Starter" &&
           <div>
             <Starter sMessageArea={messageArea} />
           </div>
@@ -88,8 +88,8 @@ function App() {
           </div>
         }
       </div>
-    </div>
-
+    </div> 
+    
   );
 }
 
