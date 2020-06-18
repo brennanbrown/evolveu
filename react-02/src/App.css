@@ -121,3 +121,8 @@
 .span_4 {
   width: 13.8%;
 }
+
+.leftCard{
+  border: solid black 3px;
+  border-radius: 3px;
+}
