@@ -92,6 +92,9 @@ class AccountController {
     accountSummary() {
         
         const allSummeries = [];
+        if (this.accountsHolder.length===0 && this.accountCards.length===0){
+            alert("Error!You are deleting the last account. Please register for an acount")
+        } else{
         const balancesK = this.accountsHolder.map(temp => ({ "key": temp.key, "balance": temp.balance }));
         
         const allBalances = balancesK.map(d => d.balance);
@@ -123,7 +126,7 @@ class AccountController {
         5 = Largest Amount - Value
     */
 
-           
+        }   
         return allSummeries;
     }
 }
