@@ -44,17 +44,17 @@ class Community {
     }
     getMostSouthern() {
         const sumSouthern = [];
-        console.log(this.cities);
+        // console.log(this.cities);
         const southLatitudes = this.cities.map(tempSouth => ({ "key": tempSouth.key, "latitude": tempSouth.latitude }));
-        console.log(southLatitudes)
+        // console.log(southLatitudes)
         const sLatitudes = southLatitudes.map(d => d.latitude);
-        console.log(sLatitudes);
+        // console.log(sLatitudes);
         const minLatitude = Math.min.apply(Math, sLatitudes);
         const MSouthernCity = this.cities.find(y => y.latitude === minLatitude);
-        console.log(MSouthernCity)
+        // console.log(MSouthernCity)
         sumSouthern[0] = minLatitude;
         sumSouthern[1] = MSouthernCity.name;
-        console.log(sumSouthern);
+        // console.log(sumSouthern);
         return sumSouthern;
     }
 
@@ -63,31 +63,32 @@ class Community {
         const allPop = this.cities.map(tempall => ({ "key": tempall.key, "population": tempall.population }));
         const pops = allPop.map(f => f.population);
         totalCities[0] = pops.reduce((total, num) => total + num, 0);
+        console.log('hello from getPopulation', totalCities);
         // allSummeries[0] = allBalances.reduce((total, num) => total + num, 0);
         totalCities[1] = this.cities.length;
         return totalCities;
     }
 
-   async createCityfromWebPage(name, longitude, latitude, population) {
+   async createCityfromWebPage(name, latitude, longitude, population) {
 
         let key = String(this.nextKey());
 
 
-        const newCity = new City(key, name, longitude, latitude, population);
+        const newCity = new City(key, name, latitude, longitude, population);
         console.log(key);
         this.cities.push(newCity);
         await fetchCities.postData (fetchCities.url+'add', newCity);
 
-        return key;
+        return newCity;
     }
 
-    async deleteCity(key, node) {
+    async deleteCity(key) {
         const deletedCity = this.cities.find(x => x.key === key);
         const deletedIndex = this.cities.indexOf(this.cities.find(x => x.key === key));
         // const deleteKey = this.cities.find(x => x.accountName === name).key;
-        const deleteddiv = deletedCity.divCard;
+        // const deleteddiv = deletedCity.divCard;
 
-        deleteddiv.parentNode.removeChild(deleteddiv);
+        // deleteddiv.parentNode.removeChild(deleteddiv);
         await fetchCities.postData(fetchCities.url + 'delete', {"key":deletedCity.key});
 
         this.cities.splice(deletedIndex, 1);
@@ -104,8 +105,8 @@ class Community {
        
         return this;
     }
-    async addPopulation (key, increasePop) {
-        const currentCity1 = this.findCity(key);
+    async addPopulation (key1, increasePop) {
+        const currentCity1 = this.findCity(key1);
         console.log(currentCity1);
         const cc1 = new City (currentCity1.key, currentCity1.name, currentCity1.latitude, currentCity1.longitude, currentCity1.population);
         console.log (cc1);
@@ -113,8 +114,8 @@ class Community {
             
             cc1.moveIn(Number(increasePop));
             currentCity1.population = Number(cc1.population);
-            currentCity1.divCard.innerText = "City: " + currentCity1.name + '\n' + 'Latitude: ' + currentCity1.latitude +'\n' +'Longitude: '+ currentCity1.longitude +
-            '\n'+ "Population: "+ currentCity1.population;
+            // currentCity1.divCard.innerText = "City: " + currentCity1.name + '\n' + 'Latitude: ' + currentCity1.latitude +'\n' +'Longitude: '+ currentCity1.longitude +
+            // '\n'+ "Population: "+ currentCity1.population;
             await fetchCities.postData(fetchCities.url + 'update', {"key":String(currentCity1.key), "name" :currentCity1.name, "latitude" :currentCity1.latitude, "longitude" : currentCity1.longitude, "population": Number(currentCity1.population)});
             return currentCity1;
         }
@@ -130,8 +131,8 @@ class Community {
             
             cc2.moveOut(Number(decreasePop));
             currentCity2.population = Number(cc2.population);
-            currentCity2.divCard.innerText = "City: " + currentCity2.name + '\n' + 'Latitude: ' + currentCity2.latitude +'\n' +'Longitude: '+ currentCity2.longitude +
-            '\n'+ "Population: "+ currentCity2.population;
+            // currentCity2.divCard.innerText = "City: " + currentCity2.name + '\n' + 'Latitude: ' + currentCity2.latitude +'\n' +'Longitude: '+ currentCity2.longitude +
+            // '\n'+ "Population: "+ currentCity2.population;
             await fetchCities.postData(fetchCities.url + 'update', {"key":String(currentCity2.key), "name" :currentCity2.name,"latitude" :currentCity2.latitude, "longitude" : currentCity2.longitude, "population": Number(currentCity2.population)});
             return currentCity2;
         }

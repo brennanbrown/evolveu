@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Account from './components/BankAccount/AccountReact';
+import City from './components/Cities/CityReact'
 import c140b from './components/c140b';
 import Starter from './components/Starter';
 import TictacGame from './components/Tictactoe';
@@ -85,6 +86,11 @@ function App() {
         {appToRun === "Account" &&
           <div>
             <Account />
+          </div>
+        }
+        {appToRun === "Cities" &&
+          <div>
+            <City />
           </div>
         }
       </div>

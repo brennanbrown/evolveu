@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>City & Communities</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style3.css">
+    
+  </head>
+  <body>
+    <div class="container Right" > 
+    <div class="main-block">
+    <div class= "form">
+     i <h1>Create a City</h1>
+      <!-- <fieldset> -->
+        <legend>
+          <h3>City Registration</h3>
+        </legend>
+        <div  class="account-details">
+          
+
+          <div><label>City Name*</label><input type="text"  id= "idCityName" required></div>
+          <div><label>City Population*</label><input type="number" id= "idCityPopulation"required></div>
+          <div><label>City Latitude*</label><input type="number" id= "idCityLat"required></div>
+          <div><label>City Longitude*</label><input type="number" id= "idCityLong"required></div>
+          <button todo= "register">Register City </button>
+         
+        </div>
+        
+      
+        <legend>
+          <h3>City Population Changes</h3>
+        </legend>
+        <div  class="personal-details">
+          
+            <div><label>City Name*</label><input type="text"  id="idcurrentCity" disabled></div>
+            <div><label>Current POpulation*</label><input type="number"  id= "idcurrentPopulation"disabled></div>
+            <div><label>Key*</label><input type="text"  id= "idKey"disabled></div>
+            <div><label>Which Sphere*</label><input type="text"  id= "idcurrentSphere"disabled></div>
+            <div><label>Move_In Population*</label><input type="number" id="idMoveIn" ></div>
+            <div><label>Move_Out Population*</label><input type="number"  id= "idMOveOut"></div>
+            <button todo= "MoveIn" >Update Moveing In Population</button>
+            <button todo= "MoveOut" >Update Moveing Out Population</button>
+            <button todo="delete">Delete City</button>
+        </div> 
+
+
+
+        <legend>
+          <h3>City Summarries</h3>
+        </legend>
+        <div  class="personal-details">
+          
+            <div><label>Total Cities Population</label><input type="number"  id="idTotalPop" disabled></div>
+            <div><label>Number of Cities</label><input type="number"  id="cityNumbers"disabled ></div>
+            <div><label>Most Southern Latitude</label><input type="number"  id= "idMinLat"disabled></div>
+            <div><label>Most Southern City</label><input type="text"  id= "idMinCity"disabled></div>
+            <div><label>Most Northern Latitude</label><input type="number" id="idMaxLat" disabled></div>
+            <div><label>Most Northern City</label><input type="yexy"  id= "idMaxCity"disabled></div>
+            
+        </div>
+            
+    </div>
+    </div> 
+    </div>
+    <div class="container Left" id="idcontainerLeft">
+      <!-- <div class="main-block">
+        <div class= "form">
+     -->
+      <h1>Cities List</h1>
+      <h3>Click on one of the cities to make any updates needed!</h3>
+      <!-- </div>
+      </div> -->
+    
+      <div id = 'cardList'>
+
+      </div>
+    </div>
+    <script src="./scripts/cityIndex.js" type="module"> </script>
+  </body>
+</html>
