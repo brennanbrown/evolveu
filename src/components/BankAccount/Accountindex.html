@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Account registration form</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600' rel='stylesheet' type='text/css'>
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="style3.css"> 
+    
+  </head>
+  <body>
+    <div class="container Right" > 
+    <div class="main-block">
+    <div class= "form">
+      <h1>Create a free account</h1>
+      <!-- <fieldset> -->
+        <legend>
+          <h3>Account Registration</h3>
+        </legend>
+        <div  class="account-details">
+          
+
+          <div><label>Account Name*</label><input type="text"  id= "idaccountN" required></div>
+          <div><label>Starting Balance*</label><input type="number" id= "idstartingB"required></div>
+          <button todo= "register">Register My Account </button>
+         
+        </div>
+        
+      
+        <legend>
+          <h3>Account Management</h3>
+        </legend>
+        <div  class="personal-details">
+          
+            <div><label>Account Name*</label><input type="text"  id="idcurrentAccount" disabled></div>
+            <div><label>Current Balance*</label><input type="number"  id= "idcurrentBalance"disabled></div>
+            <div><label>Deposite*</label><input type="number" id="iddepositeNow" ></div>
+            <div><label>Withdraw*</label><input type="number"  id= "idwithdrawNow"></div>
+            <button todo= "deposite" >Deposite</button>
+            <button todo= "withdraw" >Withdraw</button>
+            <button todo="delete">Delete Account</button>
+        </div> 
+        <legend>
+          <h3>Account Summary</h3>
+        </legend>
+        <div  class="personal-details">
+          
+            <div><label>Total Balance</label><input type="number"  id="idTotalBalance" disabled></div>
+            <div><label>Accounts Number</label><input type="number"  id="idAccountsNumber"disabled ></div>
+            <div><label>Lowest Value Account</label><input type="text"  id= "idLowestValueName"disabled></div>
+            <div><label>Lowest Value Balance</label><input type="number"  id= "idLowestValueMoney"disabled></div>
+            <div><label>Highest Value Account</label><input type="text" id="idHighestValueName" disabled></div>
+            <div><label>Highest Value Balance</label><input type="number"  id= "idHighestValueMoney"disabled></div>
+            
+        </div>
+            
+    </div>
+    </div> 
+    </div>
+    <div class="container Left" id="idcontainerLeft">
+      <!-- <div class="main-block">
+        <div class= "form">
+     -->
+      <h1>Account List</h1>
+      <h3>Click on the Account, You want to manage </h3>
+      <!-- </div>
+      </div> -->
+    
+    </div>
+    <script src="./scripts/Index.js" type="module"> </script>
+  </body>
+</html>

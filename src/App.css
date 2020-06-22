@@ -6,10 +6,6 @@
   border-width: 2px; */
 }
 
-input {
-  width: 100%;
-}
-
 .App-logo {
   height: 15vmin;
   pointer-events: none;
@@ -70,14 +66,16 @@ input {
 
 
 .App-header {
-  background: #ffffff;
-  color: black;
+  background: #ffffff
+;
+;
   /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
