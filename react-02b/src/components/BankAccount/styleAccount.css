@@ -1,0 +1,198 @@
+html, body {
+    min-height: 100%;
+    }
+    body, div, .form, input, select, p { 
+    padding: 0;
+    margin: 0;
+    outline: none;
+    font-family: Roboto, Arial, sans-serif;
+    font-size: 14px;
+    color: #666;
+    }
+    h1 {
+    margin: 0;
+    /* font-weight: 400; */
+    font-size: 20px;
+    }
+    h3 {
+    margin: 12px ;
+    color: #8ebf42;
+    }
+    .main-block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #fff;
+    }
+    .form {
+    width: 100%;
+    padding: 20px;
+    }
+    fieldset {
+    border: none;
+    border-top: 1px solid #8ebf42;
+    }
+    .account-details, .personal-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    }
+    .account-details >div, .personal-details >div {
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+    }
+    .account-details >div, .personal-details >div , input, label {
+    width: 100%;
+    }
+    label {
+    padding: 0 5px;
+    text-align: right;
+    vertical-align: middle;
+    }
+    input {
+    padding: 5px;
+    vertical-align: middle;
+    }
+    /* .checkbox {
+    margin-bottom: 10px;
+    } */
+    select, .children, .gender, .bdate-block {
+    width: calc(100% + 26px);
+    padding: 5px 0;
+    }
+    select {
+    background: transparent;
+    }
+    .gender input {
+    width: auto;
+    } 
+    .gender label {
+    padding: 0 5px 0 0;
+    } 
+    .bdate-block {
+    display: flex;
+    justify-content: space-between;
+    }
+    .birthdate select.day {
+    width: 35px;
+    }
+    .birthdate select.mounth {
+    width: calc(100% - 94px);
+    }
+    .birthdate input {
+    width: 38px;
+    vertical-align: unset;
+    }
+    
+    button {
+    width: 100%;
+    padding: 10px 0;
+    margin: 10px auto;
+    border-radius: 5px; 
+    border: none;
+    background: #8ebf42; 
+    font-size: 14px;
+    font-weight: 600;
+    color: #fff;
+    }
+    button:hover {
+    background: #82b534;
+    }
+    @media (min-width: 568px) {
+    .account-details >div, .personal-details >div {
+    width: 50%;
+    }
+    label {
+    width: 40%;
+    }
+    input {
+    width: 60%;
+    }
+    select, .children, .gender, .bdate-block {
+    width: calc(60% + 16px);
+    }
+    
+    
+ .leftCard {
+    /* Add shadows to create the "card" effect */
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    text-align: center;
+    display: block;
+    font-size: 17px;
+
+    background-color: rgb(193, 212, 16);
+    transition: 0.3s;
+    height: 70px;
+    width: 550px;
+    margin-bottom: 20px;
+    padding: 20px;
+    padding-bottom: 20px;
+}
+.container  {
+    height: 100%;
+    width: 50%;
+    position: fixed;
+     z-index: 1; 
+    
+    padding-top: 20px;
+   
+    /* padding-top: 20px; */
+  }
+  
+.Left{
+    height:100%;
+    width: 40%;
+    left:0;
+    padding: 10px;
+    display: center;
+    /* justify-content: space-between; */
+    overflow:scroll;  
+  }
+  .Right{
+    Right:0; 
+    position:right;
+    display: right;
+    justify-content: space-between;
+    overflow:scroll;
+    }
+    /* .check {
+        text-align:center;
+        margin: 0px 0px 0px 0px;
+        font-size: large;
+        background-color: lightcoral;
+    } */
+    /* .checkboxlabel {
+        border:1px solid #ccc;
+        padding:10px;
+        margin:0 0 10px;
+        display:block; 
+       }
+       
+       .checkboxlabel:hover {
+        background:#eee;
+        cursor:pointer;
+       } */
+       .checkboxes {
+        text-align:center;
+        margin: 0px;
+    
+        
+      }
+      .checkboxesinput{
+        margin:0px 100px 0px 100px;
+        font-size:60% ;
+       }
+       .checkboxeslabel{
+        margin: 0px 0x 0px 3px;
+        font-weight: bold;
+        font-size:16px;
+        
+      }
+      .accountinfodiv{
+        margin: 0px 0x 0px 3px;
+        font-weight: bold;
+        font-size:20px;
+        
+      }
+} 
