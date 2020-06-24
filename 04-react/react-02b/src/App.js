@@ -4,6 +4,7 @@ import City from './components/Cities/CityReact'
 import c140b from './components/c140b';
 import Starter from './components/Starter';
 import TictacGame from './components/Tictactoe';
+import ToDo from './components/LinkedList/LearnReact';
 import earth from './earth.svg';
 import smile from './smile.svg';
 import sport from './sport.svg';
@@ -91,6 +92,11 @@ function App() {
         {appToRun === "Cities" &&
           <div>
             <City />
+          </div>
+        }
+        {appToRun === "ToDo" &&
+          <div>
+            <ToDo />
           </div>
         }
       </div>
