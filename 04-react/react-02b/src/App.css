@@ -6,6 +6,16 @@
   border-width: 2px; */
 }
 
+.inputTodo {
+  width: 50%;
+  display: inline;
+}
+
+.inputTime {
+  width: 20%;
+  display: inline;
+}
+
 .App-logo {
   height: 15vmin;
   pointer-events: none;
