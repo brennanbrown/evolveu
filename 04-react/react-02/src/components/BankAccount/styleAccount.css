@@ -170,9 +170,7 @@ html, body {
        }
        
        .checkboxlabel:hover {
-        background:#ffffff
-;
-;
+        background:#eee;
         cursor:pointer;
        } */
        .checkboxes {

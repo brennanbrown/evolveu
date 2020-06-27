@@ -30,20 +30,28 @@ class Community {
     }
 
     getMostNorthen() {
-        const sumNorthen = [];
-        const allLatitudes = this.cities.map(temp => ({ "key": temp.key, "latitude": temp.latitude }));
-        // console.log (allLatitudes)
-        const Latitudes = allLatitudes.map(c => c.latitude);
-        // console.log(Latitudes);
-        const maxLatitude = Math.max.apply(Math, Latitudes);
-        const MNorthenCity = this.cities.find(x => x.latitude === maxLatitude);
-        sumNorthen[0] = maxLatitude;
-        sumNorthen[1] = MNorthenCity.name;
-        // console.log (sumNorthen);
-        return sumNorthen;
+        const sumNorthen = [0,"cityName"];
+        if (this.cities.length === 0) {
+            alert("Error!You are deleting the last city. Please create a new city")
+        } else {
+            const allLatitudes = this.cities.map(temp => ({ "key": temp.key, "latitude": temp.latitude }));
+            // console.log (allLatitudes)
+            const Latitudes = allLatitudes.map(c => c.latitude);
+            // console.log(Latitudes);
+            const maxLatitude = Math.max.apply(Math, Latitudes);
+            const MNorthenCity = this.cities.find(x => x.latitude === maxLatitude);
+            sumNorthen[0] = maxLatitude;
+            sumNorthen[1] = MNorthenCity.name;
+            // console.log (sumNorthen);}
+        }
+            return sumNorthen;
+        
     }
     getMostSouthern() {
-        const sumSouthern = [];
+        const sumSouthern = [0,"cityName"];
+        if (this.cities.length === 0) {
+            alert("Error!You are deleting the last city. Please create a new city")
+        } else {
         // console.log(this.cities);
         const southLatitudes = this.cities.map(tempSouth => ({ "key": tempSouth.key, "latitude": tempSouth.latitude }));
         // console.log(southLatitudes)
@@ -55,29 +63,34 @@ class Community {
         sumSouthern[0] = minLatitude;
         sumSouthern[1] = MSouthernCity.name;
         // console.log(sumSouthern);
+        }
         return sumSouthern;
     }
 
     getPopulation() {
-        const totalCities = [];
+        const totalCities = [0,0];
+        if (this.cities.length === 0) {
+            alert("Error!You are deleting the last city. Please create a new city")
+        } else {
         const allPop = this.cities.map(tempall => ({ "key": tempall.key, "population": tempall.population }));
         const pops = allPop.map(f => f.population);
         totalCities[0] = pops.reduce((total, num) => total + num, 0);
         console.log('hello from getPopulation', totalCities);
         // allSummeries[0] = allBalances.reduce((total, num) => total + num, 0);
         totalCities[1] = this.cities.length;
+        }
         return totalCities;
     }
 
-   async createCityfromWebPage(name, latitude, longitude, population) {
+    async createCityfromWebPage(name, latitude, longitude, population, hemisphere, communitySize) {
 
         let key = String(this.nextKey());
 
 
-        const newCity = new City(key, name, latitude, longitude, population);
+        const newCity = new City(key, name, latitude, longitude, population, hemisphere, communitySize);
         console.log(key);
         this.cities.push(newCity);
-        await fetchCities.postData (fetchCities.url+'add', newCity);
+        await fetchCities.postData(fetchCities.url + 'add', newCity);
 
         return newCity;
     }
@@ -89,77 +102,80 @@ class Community {
         // const deleteddiv = deletedCity.divCard;
 
         // deleteddiv.parentNode.removeChild(deleteddiv);
-        await fetchCities.postData(fetchCities.url + 'delete', {"key":deletedCity.key});
+        await fetchCities.postData(fetchCities.url + 'delete', { "key": deletedCity.key });
 
         this.cities.splice(deletedIndex, 1);
     }
     async getCitiesfromServer() {
         //  const thisnode=node;
+
         let newData = await fetchCities.postData(fetchCities.url + 'all')
         console.log(newData);
 
-        this.cities = newData.map(city => new City(city.key, city.name, city.longitude, city.latitude, city.population))
+        this.cities = newData.map(city => new City(city.key, city.name, city.longitude, city.latitude, city.population, city.hemisphere, city.communitySize))
         console.log(this.cities);
         this.counter = (this.cities.length) + 1;
         console.log(this.counter)
-       
+
         return this;
     }
-    async addPopulation (key1, increasePop) {
+    async addPopulation(key1, increasePop) {
         const currentCity1 = this.findCity(key1);
         console.log(currentCity1);
-        const cc1 = new City (currentCity1.key, currentCity1.name, currentCity1.latitude, currentCity1.longitude, currentCity1.population);
-        console.log (cc1);
-        if ( increasePop>= 0) {
-            
+        const cc1 = new City(currentCity1.key, currentCity1.name, currentCity1.latitude, currentCity1.longitude, currentCity1.population);
+        console.log(cc1);
+        if (increasePop >= 0) {
+
             cc1.moveIn(Number(increasePop));
             currentCity1.population = Number(cc1.population);
             // currentCity1.divCard.innerText = "City: " + currentCity1.name + '\n' + 'Latitude: ' + currentCity1.latitude +'\n' +'Longitude: '+ currentCity1.longitude +
             // '\n'+ "Population: "+ currentCity1.population;
-            await fetchCities.postData(fetchCities.url + 'update', {"key":String(currentCity1.key), "name" :currentCity1.name, "latitude" :currentCity1.latitude, "longitude" : currentCity1.longitude, "population": Number(currentCity1.population)});
+            await fetchCities.postData(fetchCities.url + 'update', { "key": String(currentCity1.key), "name": currentCity1.name, "latitude": currentCity1.latitude, "longitude": currentCity1.longitude, "population": Number(currentCity1.population) });
             return currentCity1;
         }
         else if (increasePop < 0) { alert('deposite must be positive!'); }
     }
-    
-    async subtractPopulation (key, decreasePop) {
+
+    async subtractPopulation(key, decreasePop) {
         const currentCity2 = this.findCity(key);
         console.log(currentCity2);
-        const cc2 = new City (currentCity2.key, currentCity2.name, currentCity2.latitude, currentCity2.longitude, currentCity2.population);
-        console.log (cc2);
+        const cc2 = new City(currentCity2.key, currentCity2.name, currentCity2.latitude, currentCity2.longitude, currentCity2.population);
+        console.log(cc2);
         if (decreasePop >= 0) {
-            
+
             cc2.moveOut(Number(decreasePop));
             currentCity2.population = Number(cc2.population);
             // currentCity2.divCard.innerText = "City: " + currentCity2.name + '\n' + 'Latitude: ' + currentCity2.latitude +'\n' +'Longitude: '+ currentCity2.longitude +
             // '\n'+ "Population: "+ currentCity2.population;
-            await fetchCities.postData(fetchCities.url + 'update', {"key":String(currentCity2.key), "name" :currentCity2.name,"latitude" :currentCity2.latitude, "longitude" : currentCity2.longitude, "population": Number(currentCity2.population)});
+            await fetchCities.postData(fetchCities.url + 'update', { "key": String(currentCity2.key), "name": currentCity2.name, "latitude": currentCity2.latitude, "longitude": currentCity2.longitude, "population": Number(currentCity2.population) });
             return currentCity2;
         }
         else if (decreasePop < 0) { alert('deposite must be positive!'); }
     }
     updateDisplay() {
-       let summeries=[];
-      summeries[0]  =this.getPopulation()[0];
-      summeries[1]  =this.getPopulation()[1];
-      summeries[2]  =this.getMostNorthen()[0];
-      summeries[3]  =this.getMostNorthen()[1];
-      summeries[4]  =this.getMostSouthern()[0];
-      summeries[5]  =this.getMostSouthern()[1];
-      return summeries;
+        let summeries = [];
+        summeries[0] = this.getPopulation()[0];
+        summeries[1] = this.getPopulation()[1];
+        summeries[2] = this.getMostNorthen()[0];
+        summeries[3] = this.getMostNorthen()[1];
+        summeries[4] = this.getMostSouthern()[0];
+        summeries[5] = this.getMostSouthern()[1];
+        return summeries;
 
     }
-    
+
 }
 
 class City {
 
-    constructor(key, name, latitude, longitude, population) {
+    constructor(key, name, latitude, longitude, population, hemisphere, communitySize) {
 
         this.name = String(name);
         this.latitude = parseFloat(latitude);
         this.longitude = parseFloat(longitude);
         this.population = Number(population);
+        this.hemisphere = String(hemisphere);
+        this.communitySize = String(communitySize);
         this.key = String(key);
     }
     show() {

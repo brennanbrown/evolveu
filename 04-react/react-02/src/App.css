@@ -6,8 +6,14 @@
   border-width: 2px; */
 }
 
-input {
-  width: 100%;
+.inputTodo {
+  width: 50%;
+  display: inline;
+}
+
+.inputTime {
+  width: 20%;
+  display: inline;
 }
 
 .App-logo {
@@ -70,14 +76,14 @@ input {
 
 
 .App-header {
-  background: #ffffff;
-  color: black;
+  background-color: darkcyan;
   /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+  color: white;
 }
 
 .App-link {
@@ -130,3 +136,29 @@ input {
   border: solid black 3px;
   border-radius: 3px;
 }
+
+.app-todo {
+  background: #209cee;
+  padding: 30px;
+  height: 100vh;
+}
+
+.todo-list {
+  background: #e8e8e8;
+  border-radius: 4px;
+  padding: 5px;
+  max-width: 400px;
+}
+
+.todo {
+  background: #fff;
+  box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.15);
+  padding: 3px 10px;
+  font-size: 12px;
+  margin-bottom: 6px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.todo-list input {width: 100%;}
