@@ -9,10 +9,13 @@ let x = new LinkedList.DoublyLinkedList();
 function Todo({todo, time, index, completeTodo, removeTodo, appendTodo }) {
   return (
     <div
+    
       className="todo"
       style={{ textDecoration: todo.isCompleted ? "line-through" : "" }}
     >
       {todo.text}
+
+      {todo.time}
 
       <div>
         
@@ -38,7 +41,7 @@ function TodoForm({ addTodo }) {
     // if ((!time)) return;
     addTodo(value,time);
     setValue("");
-    // setTime("");
+    setTime(0);
   };
 
   return (
@@ -50,6 +53,13 @@ function TodoForm({ addTodo }) {
           value={value}
           placeholder="enter a todo"
           onChange={e => setValue(e.target.value)}
+        />
+        <input
+          type="number"
+          className="input"
+          time={time}
+          placeholder="enter time"
+          onChange={e => setValue(e.target.time)}
         />
       </div>
     </form>
@@ -128,7 +138,15 @@ function App() {
     - Display a total of all amounts (Eg. all minutes)
     - Figure out how to properly define Time !!
   */
-
+// display() {
+  //   let current = this.head;
+  //   let elements = [];
+  //   while (current !== null) {
+  //     elements.push(current.data);
+  //     current = current.next
+  //   }
+  //   return elements.join(" ");
+  // }
   return (
     <div className="app">
       <div className="todo-list">
@@ -138,7 +156,7 @@ function App() {
             index={index}
             todo={todo}
             // Add time here
-            // time = {time} ?
+            // time = {time}
             completeTodo={completeTodo}
             removeTodo={removeTodo}
             appendTodo={appendTodo}

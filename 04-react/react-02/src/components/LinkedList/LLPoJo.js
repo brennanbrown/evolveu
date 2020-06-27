@@ -133,15 +133,15 @@ class DoublyLinkedList {
     return counter;
   }
 
-  // display() {
-  //   let current = this.head;
-  //   let elements = [];
-  //   while (current !== null) {
-  //     elements.push(current.data);
-  //     current = current.next
-  //   }
-  //   return elements.join(" ");
-  // }
+  display() {
+    let current = this.head;
+    let elements = [];
+    while (current !== null) {
+      elements.push(current.data);
+      current = current.next
+    }
+    return elements.join(" ");
+  }
 
   isEmpty() {
     return this.length() < 1
