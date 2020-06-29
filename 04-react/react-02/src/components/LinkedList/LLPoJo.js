@@ -136,10 +136,11 @@ class DoublyLinkedList {
     let current = this.head;
     let elements = [];
     while (current !== null) {
-      elements.push(current.data);
+      elements.push("Task: " + current.todo + " " + "Estimated Time: " + current.time);
       current = current.next
     }
-    return elements.join(" ");
+    return elements;
+    // return elements.join(" ");
   }
 
   isEmpty() {

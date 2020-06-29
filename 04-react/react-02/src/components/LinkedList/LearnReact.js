@@ -138,15 +138,7 @@ function App() {
     - Display a total of all amounts (Eg. all minutes)
     - Figure out how to properly define Time !!
   */
-// display() {
-  //   let current = this.head;
-  //   let elements = [];
-  //   while (current !== null) {
-  //     elements.push(current.data);
-  //     current = current.next
-  //   }
-  //   return elements.join(" ");
-  // }
+
   return (
     <div className="app">
       <div className="todo-list">
