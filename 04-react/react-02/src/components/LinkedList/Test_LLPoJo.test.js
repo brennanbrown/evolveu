@@ -15,7 +15,6 @@ test('Our DoublyLinkedList Class', () => {
     const ourList = new funcs.DoublyLinkedList();
     expect(ourList.get()).toBeNull();
 
-    let node;
     ourList.append(120, "Lets learn React");
     expect(ourList.get().id).toBe('k1');
 
@@ -35,8 +34,8 @@ test('Our DoublyLinkedList Class', () => {
     expect(ourList.nextNode().id).toBe('k2');
     expect(ourList.prevNode().id).toBe('k1');
 
-    
 
+    // APPEND
     ourList.append(180, "Driving to Edmonton");
     expect(ourList.get().id).toBe('k3');
     expect(ourList.nextNode().id).toBe('k3');
@@ -46,6 +45,7 @@ test('Our DoublyLinkedList Class', () => {
     expect(ourList.current.id).toBe('k1');
     expect(ourList.head.id).toBe('k1');
 
+    // APPENDAT
     ourList.appendAt(0,30, "Going for a walk");
     expect(ourList.head.id).toBe('k4')
     expect(ourList.current.time).toBe(120)
@@ -63,7 +63,9 @@ test('Our DoublyLinkedList Class', () => {
     expect(ourList.search('k1')).toBe(1);
     expect(ourList.search('k4')).toBe(0);
     expect(ourList.search('k5')).toBe(2);
-// k4,k1,k5,k2,k3
+
+    // REMOVE
+    // k4,k1,k5,k2,k3
     ourList.remove('k5')
     expect(ourList.prevNode().id).toBe('k1');
     ourList.remove('k3')
@@ -74,10 +76,10 @@ test('Our DoublyLinkedList Class', () => {
     expect(ourList.tail).toBe(null);
     expect(ourList.current).toBe(null);
     expect(ourList.isEmpty()).toBe(true);
-    expect(ourList).toBeFalsy;
+    // expect(ourList).toBeFalsy;
     expect(ourList.length()).toBe(0);
 });
 
-test('Testing X function within DoublyLinkedList', () => { 
+// test('Testing X function within DoublyLinkedList', () => { 
 
-});
+// });
