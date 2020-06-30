@@ -46,7 +46,7 @@ test('Our DoublyLinkedList Class', () => {
     expect(ourList.head.id).toBe('k1');
 
     // APPENDAT
-    ourList.appendAt(0,30, "Going for a walk");
+    ourList.0
     expect(ourList.head.id).toBe('k4')
     expect(ourList.current.time).toBe(120)
     expect(ourList.current.todo).toBe('Lets learn React');
