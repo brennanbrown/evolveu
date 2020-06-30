@@ -136,12 +136,26 @@ class DoublyLinkedList {
     let current = this.head;
     let elements = [];
     while (current !== null) {
-      elements.push("Task: " + current.todo + " " + "Estimated Time: " + current.time);
+      elements.push([current.id, current.todo ,current.time]);
       current = current.next
     }
     return elements;
     // return elements.join(" ");
   }
+  // display() {
+  //   let current = this.head;
+  //   let elements = [];
+  //   // let br = document.createElement("br");
+  //   while (current !== null) {
+  // //     elements.push(
+  //   <currentList 
+    
+    // current.todo + " Estimated Time: " + current.time + " Minutes.");
+  //     current = current.next
+  //   }
+  //   return elements;
+  //   // return elements.join(" ");
+  // }
 
   isEmpty() {
     return this.length() < 1
