@@ -82,9 +82,7 @@ html {
 #calculator {
     margin: 0 auto;
     width: 15%;
-    /* background: #ffffff
-;
-; */
+    /* background: #ffffff; */
     border-width: 2px;
     border-color: #000;
     font-family: sans-serif;
