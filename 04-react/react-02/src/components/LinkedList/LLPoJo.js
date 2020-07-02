@@ -83,62 +83,111 @@ class DoublyLinkedList {
 
   get() {
     // console.log(this.current);
-   if (this.head == null) {
+   if (this.head === null) {
      console.log("This is an empty!");
-     return null;
+     return "null";
    } else {
     console.log(this.current.todo)
     return this.current.todo;
    }
   }
-
+  gethead() {
+    // console.log(this.current);
+   if (this.head == null) {
+     console.log("This is an empty!");
+     return "Null";
+   } else {
+     let current =this.head
+    return (current.todo);
+   }
+  }
   // appendAfter(item) {
   //   // 
   // }
-
+  gettail() {
+    // console.log(this.current);
+   if (this.tail == null) {
+     console.log("This is an empty!");
+     return "Null";
+   } else {
+     let current =this.tail
+    return (current.todo);
+   }
+  }
+  // appendAfter(item) {
+  //   // 
+  // }
   //  Can we just removing item by clicking on 
   //  it in React by putting it in state?
   //  Or should we find it first?
-  remove(id) {
-    let current = this.head;
-    while (current) {
-      if (current.id === id) {
-        // If there is only one node.
-        if (current === this.head && current === this.tail) {
-          this.head = null;
-          this.current = null;
-          this.tail = null;
-        // If the node being removed is the first node.
-        } else if (current === this.head) {
-          this.head = this.head.next
-          this.head.prev = null
-        // If the node being removed is the last node.
-        } else if (current === this.tail) {
-          this.tail = this.tail.prev;
-          this.tail.next = null;
-        // If the node is somewhere in the middle.
-        // Will place the next node in its place,
-        // and the previous node afterwards.
-        // Essentially collapses the node element.
-        } else {
-          current.prev.next = current.next;
-          current.next.prev = current.prev;
-        }
+  remove() {
+    // if (this.length() ===0) {
+    //   alert("All Tasks are done")
+    //   return null}
+    if(!this.head) {return null}
+    else if (this.length()===1){
+      console.log(this.length())
+     alert ("last task is removed")
+      // single node  so we assign head and tail to null
+        this.head= null
+        this.tail = null
+        this.current= null
+        return null
       }
-      // Updates the node placement.
-      current = current.next
+    else if (this.length()>1){ 
+        // If the node being removed is the first node.
+        if (this.current === this.head) {
+          this.head = this.head.next
+          this.current=this.head.next
+          
+          this.head.prev = null
+         
+        // If the node being removed is the last node.
+        } else if (this.current === this.tail) {
+          console.log(this.length())
+          this.tail = this.tail.prev;
+          this.current=this.tail
+          this.tail.next = null;
+      
+        }else{
+          
+         this.current.prev.next = this.current.next;
+        this.current.next.prev = this.current.prev;
+        this.current=this.current.next;
+        }
+      
+     
+      console.log(this.current)
+      return this.current.todo
+     }
     }
-  }
+  
 
   length() {
+    
     let current = this.head;
-    let counter = 0;
+    let count = 0;
+    if (current===null) return count;
+    else{
     while (current !== null) {
-      counter++
+      count++
       current = current.next
     }
-    return counter;
   }
+    return count;
+  }
+  total(){
+    let current = this.head;
+    let total = Number(0);
+    if (current===null) return total;
+    else{
+    while (current !== null) {
+      total=Number(current.time)+Number(total)
+      current = current.next
+    }
+    return total
+  }
+}
 
   display() {
     let current = this.head;
@@ -187,30 +236,36 @@ class DoublyLinkedList {
   }
 
   nextNode() {
-    if (this.head == null) {
-      return null;
+    if (this.tail == null) {
+      return "Null";
     }
     else if ((this.current) && (this.current !== this.tail)) {
-      this.current = this.current.next;
-      return this.current.todo;
+    console.log(this.current);
+    console.log(this.tail);
+      this.current=this.current.next
+      console.log(this.current);
+      return "Null";
     }
-    else if(this.current === this.tail) {
-      // alert("you are at last item in todo list.")
-      return this.tail.todo;
-    }
+          else  {
+         
+            
+            // alert("you are at last item in todo list.")
+            return "Null";
+          }
   }
 
   prevNode() {
     if (this.head == null) {
-      return null;
+      return "Null";
     }
     else if ((this.current) && (this.current !== this.head)) {
       this.current = this.current.prev;
+      console.log(this.current)
     return this.current.todo;
     }
     else if (this.current === this.head) {
       // alert("you are at first item in todo list")
-      return this.head.tod;
+      return "Null";
     }
   }
 

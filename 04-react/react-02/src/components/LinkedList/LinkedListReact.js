@@ -7,7 +7,7 @@ add: const [counter, setCounter] = useState(0);
 in order to auto-update! (For debugging only.)
 */
 
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import LinkedList from "./LLPoJo.js";
 import "../../App.css";
 
@@ -38,7 +38,7 @@ June 30:
 website key warnings are resolved
 */
 
-function LinkedListForm({ onSaveNode,todoLinkedList }) {
+function LinkedListForm({ onSaveNode, todoLinkedList,onPrevNode, onNextNode, onRemoveNode }) {
   // Initial State
   const [task, setTask] = useState("");
   const [time, setTime] = useState(0);
@@ -72,14 +72,20 @@ function LinkedListForm({ onSaveNode,todoLinkedList }) {
         // Update the state of the list
         // whenever the button is pressed.
         console.log("Do Save Stuff");
-      } else if (todo === "delete") {
-        console.log("Do Delete Stuff");
+      } else if (todo === "prev") {
+       onPrevNode();
+        console.log("Do prev Stuff");
       }
-      // else if (todo === 'next') {
-      //     this.pipeLine.next();
-      // } else if (todo === 'prev') {
-      //     this.pipeLine.prev();
-      // }
+
+      else if(todo ==="next"){
+        onNextNode();
+        console.log("Do Next stuff")
+      }
+      
+     else if (todo === "delete") {
+       onRemoveNode();
+       console.log("do delete stuff")
+       }
     }
   };
 
@@ -100,30 +106,26 @@ function LinkedListForm({ onSaveNode,todoLinkedList }) {
         onChange={(e) => setTask(e.target.value)}
       />
       <button todo="save">Create New Task</button>
-      {/* <Show/> */}
+      <button  todo="prev"> {`<==`} Previous Task</button>
+        <button todo="next"> {`==>`} Next Task</button>
+        
+        <button todo="delete">Remove Task</button>
+      
     </div>
   );
 }
-// function Show(node){
-//   const currentTask=todoLinkedList.get()
-//   return (
-//     <div>
-//     <h3>{currentTask} </h3>
-//     </div>
-//   )
-// }
 
-function CurrentList (id, task, time) {
+function CurrentList(id, task, time) {
   return (
-    
+
     <div className="todo" /* style={{ textDecoration: todo.isCompleted ? "line-through" : "" }} */>
       {/* {this.task}
 
       {this.time} */}
 
       <div>
-       <h1> Inside the CurrentList Component! </h1>
-       <h3>{this.task}Estimated Time: {this.time}</h3> 
+        <h1> Inside the CurrentList Component! </h1>
+        <h3>{this.task}Estimated Time: {this.time}</h3>
         {/* <button onClick={() => completeTodo(index)}>Complete</button>
             <button onClick={() => removeTodo(index)}>x</button>
         <button onClick={() => appendTodo(index)}>+</button> */}
@@ -135,59 +137,51 @@ function CurrentList (id, task, time) {
 function App() {
   // For debugging only.
   const [counter, setCounter] = useState(0);
+  const[todo,setTodo]=useState("")
   // Initalizes the functions of the DoublyLinkedList object.
 
   // Will currently noit update the state, since it's
   // within the app itself.
   const [todoLinkedList, setTodoLinkedList] = useState(
     new LinkedList.DoublyLinkedList()
-    
+
   );
+  useEffect(() =>{
+    console.log("from useEffect")
+    onPrevNode();
+  },[todo==="prev"]);
 
   // const [operate, setOperate] = useState({ todo: "" });
 
   // Called "Save" even though it uses Append.
   const onSaveNode = (task, time) => {
-  
+
     todoLinkedList.append(task, time);
     // const newNode= new LinkedList.Node (newID,task,time);
     // const newLL=todoLinkedList.push(newNode);
 
     setTodoLinkedList(todoLinkedList);
     // This counter is set in state and used to override React's default override
-    setCounter(counter+1);
+    setCounter(counter + 1);
     console.log("V2", counter);
-    console.log("In the onSaveNode function.",todoLinkedList.get());
-    
-    
-    // return(
-    //   <div>
-    // Functioning List Display (Requires Icon-click):
-    // <h2>List of To-dos from Savenode:</h2>
-    // <span>
-    //   <ol>
-      
-    //     {todoLinkedList.display().map((task,index) => (
-    //       <li key= {index}> 
-    //           {task.todo}
-    //           </li>
-    //     ))}
+    console.log("In the onSaveNode function.", todoLinkedList.get());
 
-    //   </ol>
-    // </span> 
-    // </div>
-    // )
-    
   };
-// const Show = () =>{
-//     const currentTask=todoLinkedList.get()
-//     return (
-//       <div>
-//       <h3>{currentTask} </h3>
-//       </div>
-//     )
-//   }
-
+  const onPrevNode=() =>{
+  let current=  todoLinkedList.prevNode();
+  setCounter(counter + 1)
+  return current
+  }
+  
+  const onNextNode=() =>{
+    let current=  todoLinkedList.nextNode();
+    setCounter(counter + 1)
+    return current
+    }
+    const onRemoveNode =() =>{
+      todoLinkedList.remove();
+      setCounter(counter+1)
+    }
   // How do display?
   const DisplayNode = () => {
     // State Problem?
@@ -219,25 +213,44 @@ function App() {
   };
 
   return (
-    <div>
-      <div>
-        
-        Functioning List Display (Requires Icon-click):
-        <h2>List of To-dos:</h2>
-        <span>
-          <ol>
-          
-            {todoLinkedList.display().map((task) => (
-              <li> {task}
-              </li>
-            ))}
-          </ol>
-        </span> 
 
+    <div style={{textAlign: "center"}}>
+      <div style={{textAlign: "center"}}>
+        <div className="app" style={{textAlign: "center"},{display: "inline-block"}}>
+          <div className="todo-list">
+            <div
+    
+             className="todo">
+                 {/* style={text-align:center}> */}
+
+            
+        <h2>List of To-dos:</h2>
+            <span>
+              <ol>
+
+                {todoLinkedList.display().map((task) => (
+                  <li>{task[1]} takes {task[2]} minutes. </li>
+                ))}
+              </ol>
+            </span>
+            </div>
+          </div>
         
-        <p> Next: { todoLinkedList.nextNode() }</p>
-        <p> Current: { todoLinkedList.get() } </p>
-        <p> Previous: { todoLinkedList.prevNode() } </p>
+        
+          <div className="todo-list" >
+        {/* <p> Next: {todoLinkedList.nextNode()}</p> */}
+        
+        <p> Current: {todoLinkedList.get()} </p>
+    
+        {/* <p> Previous: {todoLinkedList.prevNode()} </p> */}
+        <h3> Head: {todoLinkedList.gethead()} </h3>
+        <h3> Tail: {todoLinkedList.gettail()} </h3>
+        <h4> Total time (min) to do everything: {todoLinkedList.total()} </h4>
+
+        {/* <button onClick={() => todoLinkedList.prevNode()} todo="prev"> {`<==`} Previous Task</button>
+        <button todo="next"> {`==>`} Next Task</button> */}
+        </div>
+        </div>
         {/* {todoLinkedList.map} */}
         {/* {todoLinkedList.display().map((id,task,time) => (
         <CurrentList 
@@ -250,12 +263,11 @@ function App() {
         ))}
          */}
 
-        <LinkedListForm onSaveNode={onSaveNode} />
-        <button>Next Task</button>
-        <button>Previous Task</button>
-        <button onClick={() => DisplayNode()}>Display Tasks</button>
-        <button onClick={() => removeNode()}>Remove Task</button>
-        <button onClick={() => displayLengthNode()}>Display # of Tasks</button>
+        <LinkedListForm onSaveNode={onSaveNode}  onPrevNode={onPrevNode} onNextNode={onNextNode} onRemoveNode={onRemoveNode}/>
+        
+        
+        
+        
       </div>
     </div>
   );
