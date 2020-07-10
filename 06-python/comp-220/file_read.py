@@ -1,3 +1,6 @@
+#!/usr/bin/env python
+# -*- coding: utf-8 -*-
+
 # file_read.py
 # Exercise - Reading Dictionaries
 
