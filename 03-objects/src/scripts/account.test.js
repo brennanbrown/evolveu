@@ -32,13 +32,13 @@ test("Does the Show function work?", () => {
 
 test("Does the addAccount function work?", () => {
     const control = new AccountController;
-
+    
     control.addAccount("Savings", 50);
     control.addAccount("Credit", 60);
-
+    
     expect(control.account[0].name).toBe("Savings");
     expect(control.account[0].balance).toBe(50);
-
+    
     expect(control.account[1].name).toBe("Credit");
     expect(control.account[1].balance).toBe(60);
 });
@@ -48,53 +48,53 @@ test("Does the displayAddedAccount function work?", () => {
     const control0 = new AccountController;
     control0.addAccount("Savings", 50);
     control0.addAccount("Credit", 60);
-
+    
     expect(control0.displayAddedAccount("Savings")).toStrictEqual("Savings : $50.00");
     expect(control0.displayAddedAccount("Credit")).toStrictEqual("Credit : $60.00");
 });
 
 test("Does the deleteAccount function work?", () => {
     const control1 = new AccountController;
-  
+    
     control1.addAccount("Savings", "50.00");
     control1.addAccount("Credit", "60.00");
-
+    
     control1.deleteAccount("Credit");
     expect(control1.account).toEqual([{ "name": "Savings", "balance": 50 }]);
-
+    
     control1.deleteAccount("Savings");
     expect(control1.account).toEqual([]);
 });
 
 test("Does the accountTotal function work?", () => {
     const control2 = new AccountController;
-
+    
     control2.addAccount("Chequing", 20);
     control2.addAccount("Credit", 30);
     expect(control2.accountTotal()).toBe("$50.00");
-
+    
     control2.deleteAccount("Chequing");
     expect(control2.accountTotal()).toBe("$30.00");
 });
 
 test("Does the largestAccount function work?", () => {
     const control3 = new AccountController;
-
+    
     control3.addAccount("Chequing", 20);
     control3.addAccount("Credit", 30);
     expect(control3.largestAccount()).toBe("Credit : $30.00");
-
+    
     control3.addAccount("Savings", 100);
     expect(control3.largestAccount()).toBe("Savings : $100.00");
 });
 
 test("Does the smallestAccount function work?", () => {
     const control4 = new AccountController;
-
+    
     control4.addAccount("Chequing", 20);
     control4.addAccount("Credit", 30);
     expect(control4.smallestAccount()).toBe("Chequing : $20.00");
-
+    
     control4.addAccount("Savings", 10);
     expect(control4.smallestAccount()).toBe("Savings : $10.00");
 });
@@ -103,7 +103,7 @@ test("Does the isNewAccount function work?", () => {
     const control5 = new AccountController;
     control5.addAccount("Chequing", 50);
     control5.addAccount("Savings", 50);
-
+    
     expect(control5.isNewAccount("Chequing")).toEqual("Chequing");
     expect(control5.isNewAccount("Savings")).toEqual("Savings");
     expect(control5.isNewAccount("Credit")).toEqual("Credit");

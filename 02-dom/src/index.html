@@ -1,48 +1,29 @@
-<!--
-    Using css create a page that looks like the page shown. It can look better but no worse
-
-    use “border: solid;” on the <div> so you can see where the <div> is
-
-    add a click event to the <div> using a “addEventListener” in the JavaScript
-
-    show on the console the parameter passed to the event listener
-
-    notice that depending on where you click on the <div> you get different targets 
-
-    add an event on the show button that displays all the “Children” of the <ol> tag
-
-    add an event on the add button that will add a <li> tag to the end of the list
-
-    play lots; try adding to the start; try a delete
-
--->
-
 <!doctype html>
 
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-
-  <title>DOM Manipulation</title>
-  <meta name="description" content="EvolveU 02: DOM Manipulation">
-  <meta name="author" content="Brennan K. Brown">
-
-  <!-- 
-  <link rel="stylesheet" href="css/styles.css?v=1.0"> 
-  -->
-
-  <style>
-      body{
-          background: #ffffff;
-      }
-      #dom {
-          margin: 0 auto;
-          width: 70%;
-          border: solid;
-          text-align: center;
-          background: #fff;
-      }
-      .card {
+    <meta charset="utf-8">
+    
+    <title>DOM Manipulation</title>
+    <meta name="description" content="EvolveU 02: DOM Manipulation">
+    <meta name="author" content="Brennan K. Brown">
+    
+    <!-- 
+        <link rel="stylesheet" href="css/styles.css?v=1.0"> 
+    -->
+    
+    <style>
+        body{
+            background: #ffffff;
+        }
+        #dom {
+            margin: 0 auto;
+            width: 70%;
+            border: solid;
+            text-align: center;
+            background: #fff;
+        }
+        .card {
             box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
             border: solid;
             padding: 10px;
@@ -50,18 +31,18 @@
             display: inline-block;
             margin: 15px
             /* margin: 0 auto; */
-      }
-      button {
-        display: block;
-        margin: 0 auto;
-        width: 40%;
-      }
-  </style>
-
+        }
+        button {
+            display: block;
+            margin: 0 auto;
+            width: 40%;
+        }
+    </style>
+    
 </head>
 
 <body>
-
+    
     <div id=dom>
         <h1>Basic DOM</h1>
         <p>This is a list of stuff:</p>
@@ -86,6 +67,6 @@
             <button>Delete</button>
         </div>
     </div>
-<script src="main.js" type="module"></script>
+    <script src="main.js" type="module"></script>
 </body>
 </html>

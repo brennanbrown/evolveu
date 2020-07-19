@@ -73,5 +73,5 @@ test("Does the retrieveAllNames function work?", () => {
 test("Does the retrieveAllNames function work?", () => {
     let dummyData = functions.infoTestFunc();
     expect(dummyData.length).toBe(9);
-
+    
 });

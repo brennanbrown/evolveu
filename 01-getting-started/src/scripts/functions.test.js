@@ -2,8 +2,8 @@
 import functions from './functions'
 
 test('Check the sizes', () => {
-	// Goes through the returned result of each
-	// parameter that is tested here.
+    // Goes through the returned result of each
+    // parameter that is tested here.
     expect(functions.size(-1)).toBe("negative"); // Consider the edge cases
     expect(functions.size(0)).toBe("small");
     expect(functions.size(10)).toBe("medium");

@@ -23,18 +23,18 @@ window.addEventListener("change", (e) => {
 
 window.addEventListener("click", (e) => {
   if (e.target.id === "buttonCreateAccount") {
-
+    
     domfunc.deleteNumberErrorMessage();
     domfunc.deleteStrErrorMessage();
-
+    
     if (domfunc.inputIsError(initalAmount) === "ERROR") {
       initalAmount = domfunc.checkAmountUserInput(initalAmount);
     }
-
+    
     if (domfunc.inputIsError(newAccountName) === "ERROR") {
       newAccountName = domfunc.checkAccountNameUserInput(newAccountName);
     } else if (domfunc.inputNotAnError(initalAmount) != "ERROR" &&
-      domfunc.inputNotAnError(newAccountName) != "ERROR") {
+    domfunc.inputNotAnError(newAccountName) != "ERROR") {
       domfunc.addAccountToDom(newAccountName, initalAmount);
       domfunc.showSummary();
       domfunc.resetUserInputs();

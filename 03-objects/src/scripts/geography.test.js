@@ -60,7 +60,7 @@ test("Does the getCommunity function work?", async () => {
     const community = new Community;
     let info = await community.createCity("Winnipeg", 49.895138, 97.138374, 749534);
     expect(info.status).toBe(200);
-
+    
     info = await community.getCommunity();
     expect(info[0].name).toBe("Winnipeg");
 });
@@ -69,10 +69,10 @@ test("Does the getLocalData function work?", async () => {
     const community = new Community;
     let info = await community.createCity("Winnipeg", 49.895138, 97.138374, 749534);
     expect(info.status).toBe(200);
-
+    
     info = await community.getCommunity();
     expect(info[0].name).toBe("Winnipeg");
-
+    
     info = await community.getLocalData();
     expect(info[0].name).toBe("Winnipeg");
 });
@@ -83,7 +83,7 @@ test("Does the updatePopulation function work?", async () => {
     expect(info.status).toBe(200);
     info = await community.getCommunity();
     expect(info[0].name).toBe("Winnipeg");
-
+    
     let testCity = new City("Winnipeg", 49.895138, 97.138374, 749534);
     await community.updatePopulation(testCity);
     let update = await community.getCommunity();
@@ -96,7 +96,7 @@ test("Does the whichHemiphere function work?", async () => {
     expect(info.status).toBe(200);
     info = await community.getCommunity();
     if (info.status == 200)
-        expect(community.whichHemiphere("Winnipeg")).toBe("Northern Hemisphere");
+    expect(community.whichHemiphere("Winnipeg")).toBe("Northern Hemisphere");
 });
 
 test("Does the getNorthMost function work?", async () => {
@@ -105,7 +105,7 @@ test("Does the getNorthMost function work?", async () => {
     expect(info.status).toBe(200);
     info = await community.createCity("Rainbow Lake", 58.4999, 119.3996, 795);
     expect(info.status).toBe(200);
-
+    
     expect(await community.getNorthMost()).toBe("Rainbow Lake");
 });
 
@@ -115,7 +115,7 @@ test("Does the getSouthMost function work?", async () => {
     expect(info.status).toBe(200);
     info = await community.createCity("Rainbow Lake", 58.4999, 119.3996, 795);
     expect(info.status).toBe(200);
-
+    
     expect(await community.getSouthMost()).toBe("Gadsby");
 });
 
@@ -125,7 +125,7 @@ test("Does the getTotalPopulation function work?", async () => {
     expect(info.status).toBe(200);
     info = await community.createCity("Rainbow Lake", 58.4999, 119.3996, 795);
     expect(info.status).toBe(200);
-
+    
     expect(await community.getPopulation()).toBe("835");
 });
 
@@ -135,7 +135,7 @@ test("Does the deleteCity function work?", async () => {
     expect(info.status).toBe(200);
     info = await community.createCity("Rainbow Lake", 58.4999, 119.3996, 795);
     expect(info.status).toBe(200);
-
+    
     info = await community.deleteCity("Rainbow Lake");
     expect(info.status).toBe(200);
 });
@@ -148,7 +148,7 @@ test("Does the isNewCity function work?", async () => {
     expect(info.status).toBe(200);
     let duplicateCity = await community.getCommunity();
     if (duplicateCity.status == 200)
-        expect(community.isNewCity("Rainbow Lake")).toBe("ERROR");
+    expect(community.isNewCity("Rainbow Lake")).toBe("ERROR");
     expect(community.isNewCity("Edmonton")).toBe("Edmonton");
 });
 

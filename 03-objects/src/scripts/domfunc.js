@@ -14,39 +14,39 @@ const newAccountField = document.getElementById("createAccount");
 const accountHistory = document.getElementById("accountHistory");
 
 const domfunc = {
-
+  
   addAccountToDom: (name, number) => {
     MyAccountController.addAccount(name, number);
     i++;
-
+    
     let accountCardName = document.createElement("p");
     accountCardName.className = name + "accountCardClass";
     accountCardName.textContent = "Account #";
     let accountNumberSpan = document.createElement("span");
     accountNumberSpan.className = "accountNumberSpan";
     accountCardName.appendChild(accountNumberSpan);
-
+    
     accountHistory.insertBefore(accountCardName, accountHistory.firstChild);
-
+    
     let accountList = document.createElement("ol");
     let accountItem = document.createElement("li");
     accountItem.id = name + "id";
     accountItem.textContent = " (Initial Balance) ";
-
+    
     let addedAccount = document.createElement("span");
     addedAccount.className = name + "added";
     addedAccount.textContent = name + " : $" + Number(number).toFixed(2);
     accountItem.insertBefore(addedAccount, accountItem.lastChild);
-
+    
     accountCardName.appendChild(accountList);
     accountList.insertBefore(accountItem, accountList.lastChild);
-
+    
     let span = document.createElement("span");
     let text = document.createTextNode("\u00D7");
     span.className = "close";
     span.appendChild(text);
     accountCardName.appendChild(span);
-
+    
     let selectAccount = document.createElement("option");
     selectAccount.value = name;
     selectAccount.textContent = name;
@@ -54,14 +54,14 @@ const domfunc = {
     textAccount.insertBefore(selectAccount, textAccount.lastChild);
     domfunc.setAccountTitleNumbers();
   },
-
+  
   setAccountTitleNumbers: () => {
     let accountTitleNumber = document.getElementsByClassName("accountNumberSpan");
     for (let i = accountTitleNumber.length - 1; i >= 0; i--) {
       accountTitleNumber[i].textContent = i + 1;
     }
   },
-
+  
   resetUserInputs: () => {
     document.getElementById("inputInitBalance").value = "";
     document.getElementById("inputAccountName").value = "";
@@ -69,7 +69,7 @@ const domfunc = {
     document.getElementById("textAccount").value = "";
     document.getElementById("transactions").value = "";
   },
-
+  
   showSummary: () => {
     if (i >= 1) {
       document.getElementById("dispCurrentBalance").textContent = MyAccountController.accountTotal();
@@ -81,19 +81,19 @@ const domfunc = {
       document.getElementById("dispSmallestAccount").textContent = "";
     }
   },
-
+  
   inputIsError(userInput) {
     if (userInput === "" || userInput === "ERROR") {
       return "ERROR"
     } return userInput;
   },
-
+  
   inputNotAnError(userInput) {
     if (userInput != "" || userInput != "ERROR") {
       return userInput
     } return "ERROR";
   },
-
+  
   showNumberErrorMessage: () => {
     domfunc.deleteNumberErrorMessage();
     numberMessage = document.createElement("P");
@@ -101,7 +101,7 @@ const domfunc = {
     numberMessage.style.color = "red";
     newAccountField.appendChild(numberMessage);
   },
-
+  
   showStrErrorMessage: () => {
     domfunc.deleteStrErrorMessage();
     stringMessage = document.createElement("P");
@@ -109,19 +109,19 @@ const domfunc = {
     stringMessage.style.color = "red";
     newAccountField.appendChild(stringMessage);
   },
-
+  
   deleteNumberErrorMessage: () => {
     if (numberMessage) {
       numberMessage.remove();
     }
   },
-
+  
   deleteStrErrorMessage: () => {
     if (stringMessage) {
       stringMessage.remove();
     }
   },
-
+  
   checkTextUserInput: (number) => {
     number = MyAccountController.isNewAmount(number);
     if (number === "ERROR") {
@@ -132,7 +132,7 @@ const domfunc = {
       return number;
     }
   },
-
+  
   makeTransaction: (number, name, type) => {
     if (i > 0) {
       let myAccount = MyAccountController.account.find((a) => { return a.name === name });
@@ -147,23 +147,23 @@ const domfunc = {
       }
     }
   },
-
+  
   addTextToDom: (myAccount, type, number) => {
     myAccount = MyAccountController.account.find((el) => { return el.name === myAccount });
-
+    
     let textItem = document.createElement("li");
     textItem.className = myAccount.name + "myAppend";
     textItem.textContent = "      (" + type + " " + number + ")";
-
+    
     let addedAccount = document.createElement("span");
     addedAccount.className = myAccount.name + "added";
     addedAccount.textContent = myAccount.show();
     textItem.insertBefore(addedAccount, textItem.lastChild);
-
+    
     const existingItem = document.getElementById(myAccount.name + "id");
     existingItem.insertBefore(textItem, existingItem.firstChild);
   },
-
+  
   showTextNumberErrMessage: () => {
     domfunc.deleteTextNumberErrMessage();
     textNumberMessage = document.createElement("P");
@@ -171,13 +171,13 @@ const domfunc = {
     textNumberMessage.style.color = "red";
     textField.appendChild(textNumberMessage);
   },
-
+  
   deleteTextNumberErrMessage: () => {
     if (textNumberMessage) {
       textNumberMessage.remove();
     }
   },
-
+  
   checkAmountUserInput: (number) => {
     if (number === "") {
       domfunc.showNumberErrorMessage();
@@ -194,7 +194,7 @@ const domfunc = {
       }
     }
   },
-
+  
   checkAccountNameUserInput: (name) => {
     if (name === "") {
       domfunc.showStrErrorMessage();
@@ -212,8 +212,8 @@ const domfunc = {
       }
     }
   },
-
-
+  
+  
   closeButton: window.addEventListener("click", (e) => {
     if (e.target.className === "close") {
       if (i > 0) { i--; }
