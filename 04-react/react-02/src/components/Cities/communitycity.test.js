@@ -10,55 +10,55 @@ test ('test the plumbing comunitycity', ()=> {
 })
 
 test('test that the fetchCity works', async () => {
-
+    
     const allCities = [
         {key :'1',name:'Calgary', latitude:51.0447, longitude:114.0719 ,population :1547484} 
         ,{key:'2',name:'Edmonton',latitude:53.5461,longitude:113.4938,population: 981280},
     ]
-
+    
     let data = await stuff.fetchCities.postData(url + 'clear');
     data = await stuff.fetchCities.postData(url + 'all');
     console.log(data.status);
     expect(data.status).toEqual(200);
     expect(data.length).toBe(0);
-
+    
     data = await stuff.fetchCities.postData(url + 'add', allCities[0]);
     expect(data.status).toEqual(200);
-
+    
     data = await stuff.fetchCities.postData(url + 'all');
     expect(data.status).toEqual(200);
     expect(data.length).toBe(1);
     expect(data[0].name).toBe("Calgary");
-
+    
     data = await stuff.fetchCities.postData(url + 'add', allCities[0]);
     expect(data.status).toEqual(400);
-
+    
     data = await stuff.fetchCities.postData(url + 'add', allCities[1]);
     expect(data.status).toEqual(200);
-
+    
     data = await stuff.fetchCities.postData(url + 'all');
     expect(data.status).toEqual(200);
     expect(data.length).toBe(2);
     expect(data[1].name).toBe("Edmonton");
-
+    
     data = await stuff.fetchCities.postData(url + 'read', {key:'1'});
     expect(data.status).toEqual(200);
     expect(data.length).toBe(1);
     expect(data[0].name).toBe("Calgary");
-
+    
     data = await stuff.fetchCities.postData(url + 'update', {key:'1', name:"CALGARY"});
     expect(data.status).toEqual(200);
-
+    
     data = await stuff.fetchCities.postData(url + 'delete', {key:'1'});
     expect(data.status).toEqual(200);
     data = await stuff.fetchCities.postData(url + 'delete', {key:'2'});
     expect(data.status).toEqual(200);
-
+    
     data = await stuff.fetchCities.postData(url + 'read', {key:'1'});
     expect(data.status).toEqual(400);
 })
 test('test the  getCitiesfromServer ', async () => {
-
+    
     const allCities2 = [
         {key: '1',name:'Calgary', latitude:51.0447, longitude:114.0719 ,population :1547484 } 
         ,{key: '2', name:'Edmonton',latitude:53.5461,longitude:113.4938,population: 981280},
@@ -66,22 +66,20 @@ test('test the  getCitiesfromServer ', async () => {
     ]
     let data = await stuff.fetchCities.postData(url + 'clear');
     data = await stuff.fetchCities.postData(url + 'all');
-    // console.log(data.status);
     expect(data.status).toEqual(200);
     expect(data.length).toBe(0);
-    // console.log(allCities2);
-
+    
     data = await stuff.fetchCities.postData(url + 'add', allCities2[0]);
     data = await stuff.fetchCities.postData(url + 'add', allCities2[1]);
     data = await stuff.fetchCities.postData(url + 'add', allCities2[2]);
     data = await stuff.fetchCities.postData(url + 'all');
     
     expect(data.status).toEqual(200);
-  
+    
     expect(data.length).toBe(3);
-
-   let community1 =new stuff.Community();
-  
+    
+    let community1 =new stuff.Community();
+    
     await community1.getCitiesfromServer();
     expect (community1.cities.length).toBe(3);
     expect (community1.counter).toBe(4);
@@ -92,7 +90,7 @@ test('test the  getCitiesfromServer ', async () => {
     community1.addPopulation("2",600000 );
     expect (community1.getPopulation()).toStrictEqual([3093632,3]);
     const divReferenceTest1=document.createElement("div");
-     
+    
 })
 
 
@@ -105,7 +103,6 @@ test ('test the class City', async() => {
     console.log (city1);
     expect ((city3.population)>0). toBe(true);
     const Card2=city2.show();
-    // expect (Card2.getAttribute("key")).toBe (2);
     const Card1 =city1.show();
     expect (Card1.innerText).toBe ("City: Calgary"+'\n'+'Latitude: 51.0447' +'\n'+"Longitude: 114.0719"+'\n'+ "Population: 1547484");
     city4.moveIn(50000)
@@ -122,7 +119,6 @@ test ('test the class City', async() => {
 test ('test Community', async() => {
     const divReferenceTest=document.createElement("div");
     const thecities= new stuff.Community();
-    // console.log (thecities);
     expect(thecities.counter).toBe (1);
     
     
@@ -130,7 +126,7 @@ test ('test Community', async() => {
     expect (thecities.cities.length).toBe (1);
     thecities.createCityfromWebPage('Edmonton',53.5461,113.4938,981280);
     
-   
+    
     expect (thecities.cities[1].name).toBe("Edmonton");
     expect (thecities.cities[0].population).toBe(1547484);
     expect (thecities.nextKey()).toBe('3');
@@ -153,7 +149,7 @@ test ('test Community', async() => {
 test ('130E Object reference', () => {
     const myCity = new stuff.City (4, 'Red Deer', 52.26, 113.81, 128000);
     const myFav = myCity;
-
+    
     expect(myCity.population).toBe(128000);
     expect(myFav.population).toBe(128000);
     myCity.moveIn(2500);

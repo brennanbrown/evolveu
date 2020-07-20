@@ -2,14 +2,14 @@ import React, { useState } from 'react';
 import postdata from '../pipebusiness/postdata';
 
 function ProjectComp(props) {
-
+    
     const url = 'http://localhost:5000/';
-
+    
     const [msg, setMsg] = useState("");
     const [pls, setPls] = useState([]);
-
+    
     async function onTestGet() {
-
+        
         // console.log("onTalk");
         try {
             setPls(await postdata(url + 'list'));
@@ -20,7 +20,7 @@ function ProjectComp(props) {
         }
         setMsg("List Complete");
     }
-
+    
     async function onTestSend() {
         console.log("We are testing send");
         try {
@@ -35,7 +35,7 @@ function ProjectComp(props) {
         setMsg("Test Send Complete");
         
     }
-
+    
     const plsToDisplay = pls.map((p,i) => {
         return <div key={i} todo="load"> {p} </div>;
     })
@@ -48,18 +48,18 @@ function ProjectComp(props) {
             const proj = e.target.textContent;
             console.log("Do some work on :", proj);
         }
-
+        
     }
-
+    
     return (
         <div onClick={onProjClick}>
-            <h1>Project Component</h1>
-            {msg}
-            {plsToDisplay}
-            <button onClick={onTestGet}>Test Get</button>
-            <button onClick={onTestSend}>Test Send</button>
+        <h1>Project Component</h1>
+        {msg}
+        {plsToDisplay}
+        <button onClick={onTestGet}>Test Get</button>
+        <button onClick={onTestSend}>Test Send</button>
         </div>
-    )
-}
-
-export default ProjectComp;
+        )
+    }
+    
+    export default ProjectComp;

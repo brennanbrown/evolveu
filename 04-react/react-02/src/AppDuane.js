@@ -28,37 +28,37 @@ import kittyKL from './svg/klingon_kitty_geeksvgs.com.svg';
 import spockHI from './svg/star_trek_27_geeksvgs.com.svg';
 
 function App() {
-
+  
   const [messageArea, setMessage] = useState("Edit src/App.js and save to reload.");
   const [appToRun, setAppToRun] = useState("Starter");
-
+  
   const onPushMe = (e) => {
-
+    
     let appName = "";
     const appKey = Number(e.target.getAttribute("ikey"));
-
+    
     // **for** (let i = 0; i < c140b.appList.length; i++) {
     //     if (appKey === c140b.appList[i].key) {
     //         appName = c140b.appList[i].appName;
     //         break;
     //     }
     // }
-
+    
     // c140b.appList.**forEach**( (element, idx, arr) => {
     //   if (appKey === arr[idx].key)
     //       appName = arr[idx].appName;
     // });
-
+    
     // c140b.appList.**forEach**( (element) => {
     //   if (appKey === element.key)
     //       appName = element.appName;
     // });
-
+    
     // const appNameDict = c140b.appList.**find** ( element => appKey === element.key );
     // appName = appNameDict.appName;
     
     appName = c140b.appList.find ( element => appKey === element.key ).appName;
-
+    
     setMessage(`Call Application #${appKey} Name is ${appName}`);
     setAppToRun(appName);
     
@@ -66,40 +66,40 @@ function App() {
   // Enhancement: Add AppName below each svg.
   return (
     <div>
-        <div className="App-svg-area">
-            <div>
-              <img src={shipST} className="App-svg1" alt="shipST" ikey="1" onClick={onPushMe} />
-            </div>
-            <div>
-              <img src={insigniaST} className="App-svg2" alt="insigniaST" ikey="2" onClick={onPushMe} />
-            </div>
-            <div>
-              <img src={insigniaKL1} className="App-svg3" alt="insigniaKL1" ikey="3" onClick={onPushMe} />
-            </div>
-            <div>
-              <img src={insigniaKL2} className="App-svg4" alt="insigniaKL2" ikey="4" onClick={onPushMe} />
-            </div>
-            <div>
-              <img src={kittyKL} className="App-svg5" alt="kittyKL" ikey="5" onClick={onPushMe} />
-            </div>
-            <div>
-              <img src={spockHI} className="App-svg6" alt="spockHI" ikey="6" onClick={onPushMe} />
-            </div>
-        </div>
-        <div className="AppArea">
-            {appToRun !== "TicTacToe" &&
-                <div>
-                    <Starter sMessageArea={messageArea}/>
-                </div>
-            }
-            {appToRun === "TicTacToe" &&
-                <div>
-                    <TicTacToe sMessageArea={messageArea}/>
-                </div>
-            }
-        </div>
+    <div className="App-svg-area">
+    <div>
+    <img src={shipST} className="App-svg1" alt="shipST" ikey="1" onClick={onPushMe} />
     </div>
-  );
+    <div>
+    <img src={insigniaST} className="App-svg2" alt="insigniaST" ikey="2" onClick={onPushMe} />
+    </div>
+    <div>
+    <img src={insigniaKL1} className="App-svg3" alt="insigniaKL1" ikey="3" onClick={onPushMe} />
+    </div>
+    <div>
+    <img src={insigniaKL2} className="App-svg4" alt="insigniaKL2" ikey="4" onClick={onPushMe} />
+    </div>
+    <div>
+    <img src={kittyKL} className="App-svg5" alt="kittyKL" ikey="5" onClick={onPushMe} />
+    </div>
+    <div>
+    <img src={spockHI} className="App-svg6" alt="spockHI" ikey="6" onClick={onPushMe} />
+    </div>
+    </div>
+    <div className="AppArea">
+    {appToRun !== "TicTacToe" &&
+    <div>
+    <Starter sMessageArea={messageArea}/>
+    </div>
+  }
+  {appToRun === "TicTacToe" &&
+  <div>
+  <TicTacToe sMessageArea={messageArea}/>
+  </div>
+}
+</div>
+</div>
+);
 }
 
 export default App;

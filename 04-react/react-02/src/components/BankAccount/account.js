@@ -1,34 +1,25 @@
 class AccountController {
-
+    
     constructor() {
         this.accountsHolder = [];
         this.accountCards = []
         this.counter = 1;
     }
-
+    
     nextKey() {
         return `k${this.counter++}`;
-
     }
-
+    
     createAccount(name, balance) {
-        
         const key = this.nextKey();
-        
         if (balance >= 0) {
             const newAccount = new Account(key, name, balance);
-
             this.accountsHolder.push(newAccount);
-
             const newCardID = [newAccount.createAccountCard().getAttribute("key")];
             newAccount.createAccountCard();
             
             this.accountCards.push(newAccount);
-
-            // return this.account;
-            // return newAccount;
-
-
+    
         } else {
             alert('Amount must be positive!');
         }
@@ -43,7 +34,7 @@ class AccountController {
         const changingAccount = this.accountsHolder.find(x => x.accountName === name);
         return (changingAccount);
     }
-
+    
     depositeIT(name, depositAmount) {
         const currentAccount1 = this.findAccount(name);
         const acc1 = new Account(currentAccount1.key, currentAccount1.accountName, currentAccount1.balance);
@@ -63,7 +54,7 @@ class AccountController {
         const acc2 = new Account(currentAccount2.key, currentAccount2.accountName, currentAccount2.balance);
         console.log(acc2);
         console.log(acc2.balance);
-
+        
         if (withdrawamount >= 0) {
             acc2.accountWithdraw(withdrawamount);
             currentAccount2.balance = acc2.balance;
@@ -76,56 +67,39 @@ class AccountController {
         }
         else if (withdrawamount < 0) { alert('Withdraw must be positive') }
     }
-
+    
     deleteAccount(key1) {
-            const deletedAccount = this.accountsHolder.find(x => x.key === key1);
-            const deleteIndex = this.accountsHolder.indexOf(this.accountsHolder.find(x => x.key === key1));
-            // const deleteKey = this.accountsHolder.find(x => x.accountName === name).key;
-            // const deletedivZunt.divCard;
-            
-            // deletediv.parentNode.removeChild(deletediv);
-
-            this.accountsHolder.splice(deleteIndex, 1);
-            
-            this.accountCards.splice(deleteIndex, 1);
+        const deletedAccount = this.accountsHolder.find(x => x.key === key1);
+        const deleteIndex = this.accountsHolder.indexOf(this.accountsHolder.find(x => x.key === key1));
+        this.accountsHolder.splice(deleteIndex, 1);        
+        this.accountCards.splice(deleteIndex, 1);
     }
+
     accountSummary() {
-        
-        const allSummeries = [];
-        if (this.accountsHolder.length===0 && this.accountCards.length===0){
-            alert("Error!You are deleting the last account. Please register for an acount")
-        } else{
-        const balancesK = this.accountsHolder.map(temp => ({ "key": temp.key, "balance": temp.balance }));
-        
-        const allBalances = balancesK.map(d => d.balance);
-        
-        allSummeries[0] = allBalances.reduce((total, num) => total + num, 0);
-        allSummeries[1] = this.accountsHolder.length;
-
-
-        const minBalance = Math.min.apply(Math, allBalances);
-       
-        const minAccount = this.accountsHolder.find(x => x.balance === minBalance);
-     
-        allSummeries[2] = minAccount.accountName;
-        allSummeries[3] = minBalance;
-
-        const maxBalance = Math.max.apply(Math, allBalances);
-      
-        const maxAccount = this.accountsHolder.find(x => x.balance === maxBalance);
-      
-        allSummeries[4] = maxAccount.accountName;
-        allSummeries[5] = maxBalance;
-
-    /*  ELEMENT KEY:
+        /*  ELEMENT KEY:
         0 = Total Amount from all accounts 
         1 = Total Number of accounts
         2 = Smallest Amount - Account Name
         3 = Smallest Amount - Value
         4 = Largest Amount - Account Name
         5 = Largest Amount - Value
-    */
-
+        */
+        const allSummeries = [];
+        if (this.accountsHolder.length===0 && this.accountCards.length===0){
+            alert("Error! You are deleting the last account. Please register for an acount. ")
+        } else {
+            const balancesK = this.accountsHolder.map(temp => ({ "key": temp.key, "balance": temp.balance }));
+            const allBalances = balancesK.map(d => d.balance);
+            allSummeries[0] = allBalances.reduce((total, num) => total + num, 0);
+            allSummeries[1] = this.accountsHolder.length;
+            const minBalance = Math.min.apply(Math, allBalances);
+            const minAccount = this.accountsHolder.find(x => x.balance === minBalance);
+            allSummeries[2] = minAccount.accountName;
+            allSummeries[3] = minBalance;
+            const maxBalance = Math.max.apply(Math, allBalances);
+            const maxAccount = this.accountsHolder.find(x => x.balance === maxBalance);
+            allSummeries[4] = maxAccount.accountName;
+            allSummeries[5] = maxBalance;
         }   
         return allSummeries;
     }
@@ -138,7 +112,7 @@ class Account {
         this.accountName = String(_accountName);
         this.balance = Number(StartingBalance);
     }
-
+    
     createAccountCard() {
         const divCardkey = this.key;
         const divCard = document.createElement("div");
@@ -149,7 +123,6 @@ class Account {
         return divCard;
     }
     accountDeposite(amount) {
-        // this.balance += parseFloat(amount)
         return (this.balance += parseFloat(amount));
     }
     accountWithdraw(amount) {

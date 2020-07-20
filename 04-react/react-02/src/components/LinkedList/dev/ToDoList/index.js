@@ -8,29 +8,30 @@ import './styles.css';
 
 const ToDoApp = () => {
   const { todos, addTodo, deleteTodo } = useTodoState([]);
-
+  
   return (
     <div className="App">
-      <Typography component="h1" variant="h2">
-        Todos
-      </Typography>
-
-      <TodoForm
-        saveTodo={todoText => {
-          const trimmedText = todoText.trim();
-
-          if (trimmedText.length > 0) {
-            addTodo(trimmedText);
-          }
-        }}
-      />
-
-      <TodoList todos={todos} deleteTodo={deleteTodo} />
+    <Typography component="h1" variant="h2">
+    Todos
+    </Typography>
+    
+    <TodoForm
+    saveTodo={todoText => {
+      const trimmedText = todoText.trim();
+      
+      if (trimmedText.length > 0) {
+        addTodo(trimmedText);
+      }
+    }}
+    />
+    
+    <TodoList todos={todos} deleteTodo={deleteTodo} />
     </div>
-  );
-};
-
-const rootElement = document.getElementById('root');
-ReactDOM.render(<ToDoApp />, rootElement);
-
-export default ToDoApp;
+    );
+  };
+  
+  const rootElement = document.getElementById('root');
+  ReactDOM.render(<ToDoApp />, rootElement);
+  
+  export default ToDoApp;
+  

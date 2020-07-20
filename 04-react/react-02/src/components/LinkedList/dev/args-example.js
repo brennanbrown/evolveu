@@ -18,30 +18,30 @@ class App extends React.Component {
       [target.name]: target.value
     });
   }
-
+  
   publish() {
     console.log( this.state.topicBox, this.state.payloadBox );
   }
   
   render() {
     return <div>
-      <input 
-        type="text" 
-        name="topicBox" 
-        placeholder="Enter topic here..." 
-        value={ this.state.topicBox }
-        onChange={ this.handleChange } 
-      />
-      
-      <input 
-        type="text" 
-        name="payloadBox" 
-        placeholder="Enter payload here..."
-        value={ this.state.payloadBox } 
-        onChange={ this.handleChange } 
-      />
-      
-      <button value="Send" onClick={ this.publish }>Publish</button>
+    <input 
+    type="text" 
+    name="topicBox" 
+    placeholder="Enter topic here..." 
+    value={ this.state.topicBox }
+    onChange={ this.handleChange } 
+    />
+    
+    <input 
+    type="text" 
+    name="payloadBox" 
+    placeholder="Enter payload here..."
+    value={ this.state.payloadBox } 
+    onChange={ this.handleChange } 
+    />
+    
+    <button value="Send" onClick={ this.publish }>Publish</button>
     </div>
   }
 }

@@ -3,33 +3,28 @@ import stuff from './comunitycity.js';
 
 const divReference = document.getElementById('cardList')
 const theCommunity = new stuff.Community();
-// theCommunity. getCitiesfromServer();
 addEventListener("load", myloadScript());
 async function myloadScript() {
     await theCommunity.getCitiesfromServer();
-    // console.log(theCommunity);
     let cards = theCommunity.cities.map(tempcity => tempcity.show())
-    //    console.log(cards);
-    //    console.log( typeof cards);
     cards.forEach(thediv => {
         divReference.appendChild(thediv);
     });
     updateGUI();
 }
-// updateGUI();
 
 document.body.addEventListener('click', async e => {
-
-
+    
+    
     const el = e.target;
     const elID = el.id;
     const todo = el.getAttribute("todo");
     const key = el.getAttribute("key");
-
+    
     if (todo === "register") {
         console.log(theCommunity)
         let newKey = await theCommunity.createCityfromWebPage(idCityName.value, idCityLat.value, idCityLong.value, idCityPopulation.value);
-
+        
         console.log(newKey);
         let newCity = theCommunity.findCity(newKey);
         console.log(newCity);
@@ -44,18 +39,18 @@ document.body.addEventListener('click', async e => {
         const chosenCity = theCommunity.findCity(key)
         idcurrentCity.value = chosenCity.name;
         idcurrentPopulation.value = chosenCity.population;
-
+        
         idcurrentSphere.value = theCommunity.whichSphere(key);
         idKey.value = key;
     }
     if (todo === "MoveIn") {
-
-
+        
+        
         let ourCity1 = theCommunity.findCity(idKey.value);
         await theCommunity.addPopulation(idKey.value, idMoveIn.value)
         idcurrentPopulation.value = ourCity1.population;
     }
-
+    
     if (todo === "MoveOut") {
         let ourCity2 = theCommunity.findCity(idKey.value);
         await theCommunity.subtractPopulation(idKey.value, idMOveOut.value)
@@ -63,8 +58,7 @@ document.body.addEventListener('click', async e => {
     }
     if (todo === "delete") {
         
-          await  theCommunity.deleteCity(idKey.value, divReference);
-            // console.log(theCommunity)
+        await  theCommunity.deleteCity(idKey.value, divReference);
         
         idcurrentCity.value = "";
         idcurrentPopulation.value = "";
@@ -74,9 +68,9 @@ document.body.addEventListener('click', async e => {
         idMOveOut.value="";
     }
     if (todo){
-       updateGUI();
+        updateGUI();
     }
-
+    
 })
 
 

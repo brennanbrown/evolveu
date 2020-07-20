@@ -85,7 +85,7 @@ html {
     /* background: #ffffff; */
     border-width: 2px;
     border-color: #000;
-    font-family: sans-serif;
+    font-family: monospace;
     font-size: 1.2rem;
 }
 
@@ -147,7 +147,7 @@ html {
     width: 25%;
     border-width: 2px;
     border-color: #000;
-    font-family: sans-serif;
+    font-family: monospace;
     font-size: 1.2rem;
     text-align: center;
 }
@@ -170,7 +170,7 @@ html {
     width: 25%;
     border-width: 2px;
     border-color: #000;
-    font-family: sans-serif;
+    font-family: monospace;
     font-size: 1.2rem;
     text-align: center;
 }
@@ -203,7 +203,7 @@ html {
     width: 25%;
     border-width: 2px;
     border-color: #000;
-    font-family: sans-serif;
+    font-family: monospace;
     font-size: 1.2rem;
     text-align: center;
 }

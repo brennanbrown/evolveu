@@ -14,13 +14,13 @@ class App extends React.Component {
     this.state = { todo: "" };
     this.pipeLine = new funcs.PipeLine();
   }
-
+  
   onSavePipe = (l, w, q) => {
     // console.log(l, w, q);
     this.pipeLine.insert(l, w, q);
     this.setState({ todo: null });
   }
-
+  
   onClick = (e) => {
     const todo = e.target.getAttribute('todo');
     // console.log('Should do a click thing', this.todo);
@@ -43,12 +43,12 @@ class App extends React.Component {
   getPipeLine = () => {
     return this.pipeLine;
   }
-
+  
   render() {
     // console.log("!!! - in App.rendor", this.state.todo);
-
+    
     let output = [];
-
+    
     if (this.state.todo === "new") {
       output.push(<NewPipeComp key="new" onSave={this.onSavePipe} />);
     } else {
@@ -58,16 +58,17 @@ class App extends React.Component {
         output.push(<ButtonsComp key="buttons" />);
       }
     }
-
-
+    
+    
     return (
       <div onClick={this.onClick} className="App">
-        <h1>Pipe Linked List v.03</h1>
-        {output}
-        <ProjectComp/>
+      <h1>Pipe Linked List v.03</h1>
+      {output}
+      <ProjectComp/>
       </div>
-    )
+      )
+    }
   }
-}
-
-export default App;
+  
+  export default App;
+  

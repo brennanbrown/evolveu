@@ -1,9 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+
 .App {
   text-align: center;
-  margin-bottom: -50px;
-  /* border-top: black;
-  border-style: solid;
-  border-width: 2px; */
+  margin-bottom: 50px;
+  font-family: 'Roboto Mono', monospace;
 }
 
 .inputTodo {
@@ -30,41 +30,41 @@
   .App-logo {
     animation: App-logo-spin infinite 10s linear;
   }
-
+  
   .App-logo-reverse {
     animation: App-logo-spin reverse infinite 10s linear;
   }
-
+  
 }
-#Science:hover{transform: scale(1.1);}
+#one:hover{transform: scale(1.1);}
 
-#Earth:hover{transform: skewY(20deg);}
+#two:hover{transform: skewY(20deg);}
 
-#Smile:hover{transform: skewY(20deg);}
+#three:hover{transform: skewY(20deg);}
 
 #Ball:hover{transform: translate(20px,10px);}
 
-#DNA:hover{transform: scale(1.2);}
+#five:hover{transform: scale(1.2);}
 
 #Virus:hover{transform: rotate(90deg) translate(20px,0px);}
 
 #Brain:hover{transform: rotate(15deg) translate(-20px,0px);}
 
-#Science:active {
+#one:active {
   background-color: lightblue;
 }
 
-#Earth:active {
+#two:active {
   background-color: darkblue;
 }
 
-#Smile:active {
+#three:active {
   background-color: mediumpurple;
 }
 #Ball:active {
   background-color: goldenrod;
 }
-#DNA:active {
+#five:active {
   background-color: cyan;
 }
 #Virus:active {
@@ -76,14 +76,14 @@
 
 
 .App-header {
-  background-color: darkcyan;
+  background-color: #ffffff;
   /* min-height: 100vh; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: #000000;
 }
 
 .App-link {
@@ -106,13 +106,13 @@
 }
 
 .clearfix:after {
-   visibility: hidden;
-   display: block;
-   font-size: 0;
-   content: " ";
-   clear: both;
-   height: 0;
-   }
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
 .clearfix { display: inline-block; }
 * html .clearfix { height: 1%; }
 .clearfix { display: block; }
@@ -120,7 +120,7 @@
 .row {
   margin: 0 auto;
   max-width: 1000px;
-  width: 98%;
+  width: 150%;
 }
 
 .column {
@@ -129,7 +129,7 @@
 }
 
 .span_4 {
-  width: 13.8%;
+  width: 14%;
 }
 
 .leftCard{

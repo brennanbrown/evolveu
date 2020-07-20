@@ -39,10 +39,10 @@ class LinkedList {
         if (this.current) { 
             task.nextNode = this.current.nextNode;
             task.nextNode.prevNode = task;
-
+            
             this.current.nextNode = task;
             task.prevNode = this.current;
-
+            
             this.current = task;
         } else {
             task.nextNode = task;
