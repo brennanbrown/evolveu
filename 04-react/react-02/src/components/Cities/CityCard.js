@@ -47,7 +47,7 @@ class CityCard extends Component {
             <input value={this.state.mOutValue} onChange={this.moveOutValue} type="number"></input>
             <button onClick={this.moveOutCityCard}>Move Out Population: </button><br/>
             
-            <button class="city-button" onClick={this.deleteCityCard}>Remove City</button>
+            <button className="city-button" onClick={this.deleteCityCard}>Remove City</button>
             
             
             </div>

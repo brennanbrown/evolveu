@@ -16,24 +16,22 @@ import six from "./six.svg";
 import seven from "./seven.svg";
 import "./App.css";
 
-
-
 function App() {
-  
+
     const [messageArea, setMessage] = useState("Edit src/App.js and save to reload.");
     const [appToRun, setAppToRun] = useState("");
     const [count, setCount] = useState(10);
-  
+
     function myOnClickCount(e) {
-    
         let appName = "";
         const appKey = Number(e.target.getAttribute("ikey"));
         setCount(count + 1)
-        // Requires Deprication:
+        // Requires Depreciation:
         appName = c140b.appList.find(element => appKey === element.key).appName;
         setMessage(`Application #${appKey} is ${appName}`);
         setAppToRun(appName);
     }
+
     return (
         <div className="App">
             <header className="App-header">
@@ -69,6 +67,7 @@ function App() {
                     </div>
                 </div>
             </header>
+
             <div className="AppArea">
                 {appToRun === "Starter" &&
                 <div>
@@ -96,7 +95,7 @@ function App() {
                 </div>
                 }
                 <footer>
-                  Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                    Icons made by <a href="https://www.flaticon.com/authors/roundicons" title="Roundicons">Roundicons</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
                 </footer>
             </div>
         </div> 

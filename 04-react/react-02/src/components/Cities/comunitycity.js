@@ -157,7 +157,7 @@ class City {
         this.divCard = divCard;
         divCard.setAttribute("class", "card");
         divCard.setAttribute("key", divCardkey);
-        divCard.innerText = "City: " + this.name + "\n" + "Latitude: " + this.latitude + "\n" + "Longitude: " + this.longitude + "\n" + "Population: " + this.population;
+        divCard.innerText = "City: " + this.name + "\n Latitude: " + this.latitude + "\n Longitude: " + this.longitude + "\n Population: " + this.population;
         return divCard;
     }
     
@@ -174,7 +174,7 @@ class City {
         if (cityPopulation < 0) {
             return "[Error! Negative Population]";
         }
-        else if (cityPopulation == 0) {
+        else if (cityPopulation === 0) {
             return "Ghost Town"
         }
         else if (cityPopulation >= 1 && cityPopulation < 100) {

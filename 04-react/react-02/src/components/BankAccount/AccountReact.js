@@ -21,12 +21,12 @@ class AccountCTRL extends Component {
     mySave() {
         const acName = get("idaccountN");
         const acBalance = get("idstartingB");
-        const theAC = x.createAccount(acName, acBalance);
+        x.createAccount(acName, acBalance);
         this.CreateReactComponents();
     }
     
     CreateReactComponents = () => {
-        let cards = this.state.x.accountCards;
+        // this.state.x.accountCards;
         let array1 = []
         let size = x.accountCards.length;
         for (let i=0;i<size;i++){
@@ -56,7 +56,7 @@ class AccountCTRL extends Component {
             
             deposit = (amt,key1) => {
                 const changingAccount = this.state.x.accountsHolder.find(x => x.key === key1);
-                const changingAccountCards = this.state.x.accountCards.find(x => x.key === key1);
+                // this.state.x.accountCards.find(x => x.key === key1);
                 changingAccount.accountDeposit(amt)
                 this.CreateReactComponents();
                 this.totalBalance();
@@ -64,7 +64,7 @@ class AccountCTRL extends Component {
             
             withdraw = (amt,key1) => {
                 const changingAccount1 = this.state.x.accountsHolder.find(x => x.key === key1);
-                const changingAccountCards1 = this.state.x.accountCards.find(x => x.key === key1);
+                // const changingAccountCards1 = this.state.x.accountCards.find(x => x.key === key1);
                 changingAccount1.accountWithdraw(amt);
                 this.CreateReactComponents();
                 this.totalBalance();

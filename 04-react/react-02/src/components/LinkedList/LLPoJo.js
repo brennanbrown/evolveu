@@ -22,7 +22,7 @@ class DoublyLinkedList {
         this.head = null;
         this.tail = null;
     }
-  
+
     append(todo,time) {
         this.count++;
         const id = "k" + this.count;
@@ -39,7 +39,7 @@ class DoublyLinkedList {
         }
         return id;
     }
-  
+
     appendAt(pos, todo, time) {
         this.count++;
         const id1 = "k" + this.count;
@@ -172,6 +172,7 @@ class DoublyLinkedList {
     }
 
     nextNode() {
+        console.log(this.current.next);
         if (this.tail == null) {
             return "(Currently Empty)";
         }

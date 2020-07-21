@@ -7,7 +7,7 @@ add: const [counter, setCounter] = useState(0);
 in order to auto-update! (For debugging only.)
 */
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import LinkedList from "./LLPoJo.js";
 import "../../App.css";
 
@@ -69,12 +69,12 @@ function App() {
     // For debugging only!
     // Initalizes the functions of the DoublyLinkedList object.
     const [counter, setCounter] = useState(0);
-    const [todo, setTodo]=useState("");
+    // const [todo, setTodo] = useState("");
   
     // Will currently noit update the state, since it"s
     // within the app itself.
     const [todoLinkedList, setTodoLinkedList] = useState( new LinkedList.DoublyLinkedList() );
-    useEffect(() => { onPrevNode(); }, [todo==="prev"]);
+    // useEffect(() => { onPrevNode(); }, [todo ==="prev"]);
     
     // Called "Save" even though it uses Append.
     const onSaveNode = (task, time) => {
@@ -101,25 +101,24 @@ function App() {
         setCounter(counter+1);
     };
 
-    const DisplayNode = () => {
-        const display = todoLinkedList.display();
-        return display;
-    };
+    // const DisplayNode = () => {
+    //     const display = todoLinkedList.display();
+    //     return display;
+    // };
     
-    const removeNode = (id) => {
-        todoLinkedList.remove(id);
-        todoLinkedList.remove("k1");
-      
-    };
+    // const removeNode = (id) => {
+    //     todoLinkedList.remove(id);
+    //     todoLinkedList.remove("k1");
+    // };
     
-    const displayLengthNode = () => {
-        let amount = todoLinkedList.length();
-    };
+    // const displayLengthNode = () => {
+    //     let amount = todoLinkedList.length();
+    // };
     
     return (
         <div style={{textAlign: "center"}}>
             <p>Application #5 is Linked Lists</p><br/>
-            <div className="app" style={{textAlign: "center"},{display: "inline-block"}}>
+            <div className="app" style={{textAlign: "center", display: "inline-block"}}>
                 <div className="todo-list">
                 
                     <div className="todo">
@@ -127,8 +126,8 @@ function App() {
                         <h2>List of To-dos:</h2><br/>
                     </div>
                     <ol>
-                        {todoLinkedList.display().map((task) => (
-                            <li>{task[1]} - {task[2]} minutes </li> 
+                        {todoLinkedList.display().map((task, index) => (
+                            <li key={index}>{task[1]} - {task[2]} minutes </li> 
                         ))}
                     </ol>
                 </div>

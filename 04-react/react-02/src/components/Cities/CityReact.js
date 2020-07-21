@@ -22,7 +22,7 @@ function populationSize(cityPopulation) {
     if (cityPopulation < 0) {
         return "[Error! Negative Population]";
     }
-    else if (cityPopulation == 0) {
+    else if (cityPopulation === 0) {
         return "Ghost Town"
     }
     else if (cityPopulation >= 1 && cityPopulation < 100) {
@@ -77,12 +77,12 @@ class CityCTRL extends Component {
         const cityLong = get("idCityLong");
         const cityHemisphere = whichSphere(cityLat);
         const citySize=populationSize(cityPopulation);
-        const theCity = await x.createCityfromWebPage(cityName, cityLat, cityLong, cityPopulation,cityHemisphere,citySize);
+        await x.createCityfromWebPage(cityName, cityLat, cityLong, cityPopulation,cityHemisphere,citySize);
         await this.CreateReactComponents();
     }
     
     CreateReactComponents = () => {
-        let cards = this.state.x.cities;
+        // this.state.x.cities;
         let array1 = []
         let size = x.cities.length;
         for (let i = 0; i < size; i++) {
@@ -118,7 +118,7 @@ class CityCTRL extends Component {
         }
         
         async  moveInPopulation (key1, pop) {
-            const movingPeople =  await this.state.x.addPopulation(key1, pop)
+            await this.state.x.addPopulation(key1, pop)
             this.CreateReactComponents();
             this.cityPopulation();
             this.cityNorthern();
@@ -126,7 +126,7 @@ class CityCTRL extends Component {
         }
         
         async moveOutPopulation (key1, pop) {
-            const movingPeople1 = await this.state.x.subtractPopulation(key1,pop)
+            await this.state.x.subtractPopulation(key1,pop)
             this.CreateReactComponents();
             this.cityPopulation();
             this.cityNorthern();
@@ -171,7 +171,7 @@ class CityCTRL extends Component {
                 <p><strong>Most Southern City: </strong>{this.state.southernArray[1]} </p>
                 
                 <h3>City Creation</h3>
-                <div class="city">
+                <div className="city">
                 <div><label>City Name: </label>
                     <input type="text" id="idCityName" required /></div>
                 <div><label>Population: </label>
@@ -181,7 +181,7 @@ class CityCTRL extends Component {
                 <div><label>City Longitude: </label>
                     <input type="number" id="idCityLong" required /></div>
                 </div>
-                <button class="city-button" todo="register">Create City </button>
+                <button className="city-button" todo="register">Create City </button>
                 {this.state.cities}
                 </div>
                 )

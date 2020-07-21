@@ -19,13 +19,20 @@ class AccountCard extends Component {
     }
     
     depositInAcctCard = () => {
-        this.props.deposit(this.state.depValue, this.props.key1)
-        this.setState({depValue: 0})
+        const depositValue = Number(this.state.depValue);
+        // This also checks for apples.
+        if (depositValue > 0) {
+            this.props.deposit(depositValue, this.props.key1);
+            this.setState({depValue: 0});
+        }
     }
     
     withdrawInAcctCard = () => {
-        this.props.withdraw(this.state.withValue, this.props.key1)
-        this.setState({withValue: 0})
+        const withdrawValue = Number(this.state.withValue);
+        if (withdrawValue > 0) {
+            this.props.withdraw(withdrawValue, this.props.key1);
+            this.setState({withValue: 0});
+        }
     }
     
     deleteAcctCard = () => {
