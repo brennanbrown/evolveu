@@ -1,7 +1,7 @@
 /* TAX CALCULATOR */
 
 /* 
-- 15% on the first $48,535 of taxable income.
+- 14% on the first $48,535 of taxable income.
 - 20.5% on the next $48,534 of taxable income 
 on the portion of taxable income over 48,535 up to 
 $97,069.
@@ -78,15 +78,15 @@ const taxFunc = {
         } else if (gross_income > BR[3]) {
             let r_sum = (gross_income - BR[3]);
             r_sum = ((r_sum*100 - r_sum*P[4])/(100));
-            console.log(r_sum)
+            
             let total_tax_income = r_sum + TAX[0] + TAX[1] + TAX[2] + TAX[3];
-            console.log(total_tax_income)
+            
             total_tax_income = Math.round((total_tax_income + Number.EPSILON) * 100) / 100;
-            console.log(total_tax_income);
+            
             return total_tax_income;
             
         } else {
-            console.log("error!");
+            
         }
     }
 }

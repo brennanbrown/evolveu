@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import { Book } from "./Book"
 import { Hiring } from "./Hiring"
 import { NotHiring } from "./NotHiring"
+import './App.css';
 
 class Library extends Component {
     // Default Props
@@ -24,14 +25,14 @@ class Library extends Component {
     componentDidMount() {
         this.setState({loading: true})
         // Fetching data from a REST API
-        fetch("https://hplussport.com/api/products/order/price/sort/asc/qty1")
+        fetch("https://hplussport.com/api/products/order/price/sort/asc/qty/1")
             .then(data => data.json())
             .then(data => this.setState({data, loading: false}))
-        console.log("This component has now mounted!")
+        
     }
 
     componentDidUpdate() { 
-        console.log("This component has now updated!") 
+        
     }
 
     toggleOpenClosed = () => {
@@ -43,28 +44,31 @@ class Library extends Component {
     }
 
     render() {
-        console.log(this.state)
+        
         const { books } = this.props
         return (
             // Using component lifecycle to fetch some remote data and display it:
-            <div class="Advertisement">
+            <div class="library">
+                <h1>Welcome to the Library Website!</h1>
                 {this.state.hiring ? <Hiring /> : <NotHiring />}
                 {this.state.loading
                     ? "Loading..."
                     : <div>
                         {this.state.data.map(product => {
                             return (
-                                <div>
-                                    <h3>Library Product of the Week!</h3>
+                                <div class="advertisement">
+                                    <h3><small>[Advertisement]</small> Library Product of the Week:</h3>
                                     <h4>{product.name}</h4>
                                     <img src={product.image} height={100}/>
+                                    <hr/>
                                 </div>
                             )
                         })}
                     </div>
                 }
-				<h1>The library is {this.state.open ? 'open' : 'closed'}</h1>
-				<button onClick={this.toggleOpenClosed}>Change</button>
+				<h1>The library is currently {this.state.open ? 'open' : 'closed'}!</h1>
+				<button onClick={this.toggleOpenClosed}>Change</button>  <hr/>
+                <h1>Current Book Selection: </h1>
 				{books.map(
 					(book, i) => 
 						<Book 

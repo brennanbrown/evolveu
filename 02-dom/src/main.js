@@ -17,14 +17,14 @@ show.addEventListener("click", function() {
     idDisplayList.textContent = myList.textContent;
 });
 
-console.log("Success!")
+
 
 let cardCounter = 2;
 
 document.body.addEventListener("click", e => {
     
     if (e.target.nodeName === 'BUTTON') {
-        console.log(e.target.textContent);
+        
         
         if (e.target.textContent === "Add After") {
             dom.addAfter(e.target.parentElement, "Card " + cardCounter++);

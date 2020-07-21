@@ -1,18 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&display=swap");
 
 .App {
   text-align: center;
   margin-bottom: 50px;
-  font-family: 'Roboto Mono', monospace;
+  font-family: "Roboto Mono", monospace;
 }
 
 .inputTodo {
-  width: 50%;
   display: inline;
 }
 
 .inputTime {
-  width: 20%;
   display: inline;
 }
 
@@ -42,13 +40,13 @@
 
 #three:hover{transform: skewY(20deg);}
 
-#Ball:hover{transform: translate(20px,10px);}
+#four:hover{transform: translate(20px,10px);}
 
 #five:hover{transform: scale(1.2);}
 
-#Virus:hover{transform: rotate(90deg) translate(20px,0px);}
+#six:hover{transform: rotate(90deg) translate(20px,0px);}
 
-#Brain:hover{transform: rotate(15deg) translate(-20px,0px);}
+#seven:hover{transform: rotate(15deg) translate(-20px,0px);}
 
 #one:active {
   background-color: lightblue;
@@ -61,16 +59,16 @@
 #three:active {
   background-color: mediumpurple;
 }
-#Ball:active {
+#four:active {
   background-color: goldenrod;
 }
 #five:active {
   background-color: cyan;
 }
-#Virus:active {
+#six:active {
   background-color: tan;
 }
-#Brain:active {
+#seven:active {
   background-color: tomato;
 }
 
@@ -87,7 +85,7 @@
 }
 
 .App-link {
-  color: #61dafb;
+  color: #32a6a8;
 }
 
 @keyframes App-logo-spin {
@@ -119,7 +117,7 @@
 
 .row {
   margin: 0 auto;
-  max-width: 1000px;
+  max-width: 1200px;
   width: 150%;
 }
 
@@ -132,9 +130,11 @@
   width: 14%;
 }
 
-.leftCard{
-  border: solid black 3px;
+.card{
+  border: solid black 1px;
   border-radius: 3px;
+  width: 50%;
+  margin: 0 auto;
 }
 
 .app-todo {
@@ -162,3 +162,39 @@
   justify-content: space-between;
 }
 .todo-list input {width: 100%;}
+
+.account-details button {
+  margin-bottom: 10px;
+}
+
+button {
+  background-color: #e3e3e3;
+  padding: 5px;
+  font-weight: bold;
+}
+input {
+  width: 20%;
+}
+
+li {
+  font-size: 14px;
+  text-align: left;
+}
+
+footer {
+  margin-top: 25px;
+}
+
+.city {
+  width: 50%;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.city input {
+  width: 100%;
+}
+
+.city-button {
+  margin-top: 15px;
+}

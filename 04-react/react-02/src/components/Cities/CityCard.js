@@ -10,26 +10,26 @@ class CityCard extends Component {
         }
     }
     
-    moveInValue=(e)=>{
+    moveInValue= (e) => {
         this.setState({mInValue: e.target.value})
     }
     
-    moveOutValue=(e)=>{
+    moveOutValue= (e) => {
         this.setState({mOutValue: e.target.value})
     }
     
-    moveInCityCard=()=>{
-        console.log(this.state.mInValue)
+    moveInCityCard= () => {
+        
         this.props.moveInPopulation(this.props.key1, this.state.mInValue)
         this.setState({mInValue: 0})
     }
     
-    moveOutCityCard=()=>{
+    moveOutCityCard= () => {
         this.props.moveOutPopulation(this.props.key1 , this.state.mOutValue)
         this.setState({mOutValue: 0})
     }
     
-    deleteCityCard=()=>{
+    deleteCityCard= () => {
         this.props.delete (this.props.key1)
     }
     
@@ -47,7 +47,7 @@ class CityCard extends Component {
             <input value={this.state.mOutValue} onChange={this.moveOutValue} type="number"></input>
             <button onClick={this.moveOutCityCard}>Move Out Population: </button><br/>
             
-            <button onClick={this.deleteCityCard}>Remove City</button>
+            <button class="city-button" onClick={this.deleteCityCard}>Remove City</button>
             
             
             </div>

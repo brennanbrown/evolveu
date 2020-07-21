@@ -1,6 +1,6 @@
 import React, { Component } from "react"
 import AccountCard from "./AccountCard.js"
-import accounts from './account.js'
+import accounts from "./account.js"
 
 
 let x = new accounts.AccountController();
@@ -12,7 +12,6 @@ class AccountCTRL extends Component {
     
     constructor(props) {
         super(props)
-        
         this.state = {
             x : x,
             totalArray:[0,0,"Chequing",0,"Savings",0],
@@ -20,16 +19,14 @@ class AccountCTRL extends Component {
     }
     
     mySave() {
-        
         const acName = get("idaccountN");
         const acBalance = get("idstartingB");
         const theAC = x.createAccount(acName, acBalance);
         this.CreateReactComponents();
     }
     
-    CreateReactComponents=()=>{
-        let cards= this.state.x.accountCards;
-        console.log(cards); 
+    CreateReactComponents = () => {
+        let cards = this.state.x.accountCards;
         let array1 = []
         let size = x.accountCards.length;
         for (let i=0;i<size;i++){
@@ -44,7 +41,6 @@ class AccountCTRL extends Component {
                 deposit ={this.deposit}
                 withdraw = {this.withdraw}
                 delete = {this.delete}
-                
                 />
                 )}
                 this.setState({ accountCards: array1 })
@@ -58,22 +54,18 @@ class AccountCTRL extends Component {
                 }
             }
             
-            deposit =(amt,key1)=>{
+            deposit = (amt,key1) => {
                 const changingAccount = this.state.x.accountsHolder.find(x => x.key === key1);
                 const changingAccountCards = this.state.x.accountCards.find(x => x.key === key1);
-                changingAccount.accountDeposite(amt)
-                console.log(`deposited ${amt} to`);
-                console.log(changingAccount);
+                changingAccount.accountDeposit(amt)
                 this.CreateReactComponents();
                 this.totalBalance();
             }
             
-            withdraw =(amt,key1)=>{
+            withdraw = (amt,key1) => {
                 const changingAccount1 = this.state.x.accountsHolder.find(x => x.key === key1);
                 const changingAccountCards1 = this.state.x.accountCards.find(x => x.key === key1);
                 changingAccount1.accountWithdraw(amt);
-                console.log(`withdrew ${amt} to`);
-                console.log(changingAccount1);
                 this.CreateReactComponents();
                 this.totalBalance();
                 
@@ -87,10 +79,9 @@ class AccountCTRL extends Component {
                 this.state.x.accountCards.splice(deleteIndex, 1);
                 this.CreateReactComponents();
                 this.totalBalance();
-                
             }
 
-            totalBalance =() =>{
+            totalBalance = () => {
                 const total= this.state.x.accountSummary();
                 this.setState({totalArray:total})
             }
@@ -101,16 +92,22 @@ class AccountCTRL extends Component {
                     
                     <div className="account-details" onClick={this.clickMe}>
                     
-                    <p><strong>Total Accounts Value:</strong>${this.state.totalArray[0]}</p>
-                    <p><strong>Total Number of Accounts:</strong>{this.state.totalArray[1]}</p>
+                    <p><strong>Total Accounts Value:
+                            </strong>${this.state.totalArray[0]}</p>
+                    <p><strong>Total Number of Accounts:
+                            </strong>{this.state.totalArray[1]}</p>
                     
-                    <p><strong>Smallest Account Name:</strong>{this.state.totalArray[2]} <strong>Value:</strong>${this.state.totalArray[3]}</p>
+                    <p><strong>Smallest Account Name:</strong>{this.state.totalArray[2]} 
+                        <strong>Value:</strong>${this.state.totalArray[3]}</p>
                     
-                    <p><strong>Largest Account Name:</strong>{this.state.totalArray[4]} <strong>Value:</strong>${this.state.totalArray[5]}</p>
+                    <p><strong>Largest Account Name:</strong>{this.state.totalArray[4]} 
+                        <strong>Value:</strong>${this.state.totalArray[5]}</p>
                     
                     <h3>Account Registration</h3>
-                    <div><label>Account Name: </label><input type="text" id="idaccountN" required /></div>
-                    <div><label>Starting Balance: </label><input type="number" id="idstartingB" required /></div>
+                    <div><label>Account Name: </label>
+                        <input type="text" id="idaccountN" required /></div>
+                    <div><label>Starting Balance: </label>
+                    <input type="number" id="idstartingB" required /></div>
                     <button todo="register">Register My Account </button>
                     {this.state.accountCards}
                     </div>

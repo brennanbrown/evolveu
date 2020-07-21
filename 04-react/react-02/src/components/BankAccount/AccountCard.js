@@ -10,32 +10,31 @@ class AccountCard extends Component {
         }
     }
     
-    depositValue=(e)=>{
+    depositValue = (e) => {
         this.setState({depValue: e.target.value})
     }
     
-    withdrawValue=(e)=>{
+    withdrawValue = (e) => {
         this.setState({withValue: e.target.value})
     }
     
-    depositInAcctCard=()=>{
+    depositInAcctCard = () => {
         this.props.deposit(this.state.depValue, this.props.key1)
         this.setState({depValue: 0})
     }
     
-    withdrawInAcctCard=()=>{
+    withdrawInAcctCard = () => {
         this.props.withdraw(this.state.withValue, this.props.key1)
         this.setState({withValue: 0})
     }
     
-    deleteAcctCard=()=>{
+    deleteAcctCard = () => {
         this.props.delete (this.props.key1)
     }
     
     render() {
         return (
-            
-            <div className="leftCard">
+            <div className="card">
             
             <h2> {this.props.name}</h2>
             <h3> ${this.props.balance}</h3>
@@ -47,7 +46,6 @@ class AccountCard extends Component {
             <button onClick={this.withdrawInAcctCard}>Withdraw</button><br/>
             
             <button onClick={this.deleteAcctCard}>Delete</button>
-            
             
             </div>
             )

@@ -2,11 +2,11 @@ import React from 'react';
 
 function FuncComp(props) {
 
-    // console.log(props.parm);
-    // console.log(props.func);
+    
+    
 
     function myOnClick(e) {
-        console.log(e.target);
+        
         props.func('This is from my FuncComp.myOnClick');
     }
 

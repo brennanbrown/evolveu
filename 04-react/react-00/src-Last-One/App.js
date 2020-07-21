@@ -24,7 +24,7 @@ function App() {
 
   const onDoStuff = ((e) => {
     setFullName(fName + " @ " + lName);
-    console.log("onDoStuff", fName, lName, fullName);
+    
     // idFullName.value = fullName;
 
     // setCount(count + 1)

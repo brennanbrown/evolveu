@@ -1,7 +1,6 @@
 import React, { Component } from "react"
 import CityCard from "./CityCard.js"
-import comunitycity from './comunitycity.js'
-
+import comunitycity from "./comunitycity.js"
 
 let x = new comunitycity.Community();
 
@@ -19,7 +18,7 @@ function whichSphere(latitude) {
     else return "on the Equator.";
 }
 
-function howBig(thepopulation) {
+function populationSize(thepopulation) {
     
     if (thepopulation > 1 && thepopulation < 100) {
         return "Hamlet"
@@ -37,9 +36,6 @@ function howBig(thepopulation) {
         return "City";
     }
 }
-
-
-
 
 class CityCTRL extends Component {
     
@@ -61,26 +57,24 @@ class CityCTRL extends Component {
         this.CreateReactComponents();
     }
     componentDidMount() {
-        console.log("in component")
+        
         this.loadScript();
         this.CreateReactComponents();
     }
     
     async mySave() {
-        
         const cityName = get("idCityName");
         const cityPopulation = get("idCityPopulation");
         const cityLat = get("idCityLat");
         const cityLong = get("idCityLong");
         const cityHemisphere = whichSphere(cityLat);
-        const citySize=howBig(cityPopulation);
+        const citySize=populationSize(cityPopulation);
         const theCity = await x.createCityfromWebPage(cityName, cityLat, cityLong, cityPopulation,cityHemisphere,citySize);
         await this.CreateReactComponents();
     }
     
     CreateReactComponents = () => {
         let cards = this.state.x.cities;
-        console.log(cards);
         let array1 = []
         let size = x.cities.length;
         for (let i = 0; i < size; i++) {
@@ -117,9 +111,6 @@ class CityCTRL extends Component {
         
         async  moveInPopulation (key1, pop) {
             const movingPeople =  await this.state.x.addPopulation(key1, pop)
-
-            console.log(`move In ${pop} to`);
-            console.log(movingPeople);
             this.CreateReactComponents();
             this.cityPopulation();
             this.cityNorthern();
@@ -128,8 +119,6 @@ class CityCTRL extends Component {
         
         async moveOutPopulation (key1, pop) {
             const movingPeople1 = await this.state.x.subtractPopulation(key1,pop)
-            console.log(`moved out ${pop} to`);
-            console.log(movingPeople1);
             this.CreateReactComponents();
             this.cityPopulation();
             this.cityNorthern();
@@ -144,48 +133,46 @@ class CityCTRL extends Component {
             this.cityPopulation();
             this.cityNorthern();
             this.citySouthern();
-            
         }
+
         async cityPopulation () {
-            console.log("from total pop, most N/S")
             const totalPopulation = this.state.x.getPopulation();
-            console.log(totalPopulation)
             this.setState({ populationArray: totalPopulation })
         }
         
-        cityNorthern = () => {
-            console.log("from city Northern, most N/S")
-            const cNorthern = this.state.x.getMostNorthen();
-            console.log(cNorthern)
+        cityNorthern = () => { 
+            const cNorthern = this.state.x.getMostNorthen(); 
             this.setState({ northernArray: cNorthern })
         }
         
         citySouthern = () => {
-            console.log("from city southern")
             const cSouthern = this.state.x.getMostSouthern();
-            console.log(cSouthern)
             this.setState({ southernArray: cSouthern })
         }
         
         render() {
-            
             return (
-                
                 <div onClick={this.clickMe}>
+
+                <p><strong>Total Population: </strong>{this.state.populationArray[0]}</p>
+                <p><strong>Total Number of Cities: </strong>{this.state.populationArray[1]} </p>
                 
-                <p><strong>Total Population:</strong>{this.state.populationArray[0]}</p>
-                <p><strong>Total Number of Cities:</strong>{this.state.populationArray[1]} </p>
+                <p><strong>Most Northern City: </strong>{this.state.northernArray[1]} </p>
                 
-                <p><strong>Most Northern City:</strong>{this.state.northernArray[1]} </p>
-                
-                <p><strong>Most Southern City:</strong>{this.state.southernArray[1]} </p>
+                <p><strong>Most Southern City: </strong>{this.state.southernArray[1]} </p>
                 
                 <h3>City Creation</h3>
-                <div><label>City Name: </label><input type="text" id="idCityName" required /></div>
-                <div><label>Population: </label><input type="number" id="idCityPopulation" required /></div>
-                <div><label>City Latitude: </label><input type="number" id="idCityLat" required /></div>
-                <div><label>City Longitude: </label><input type="number" id="idCityLong" required /></div>
-                <button todo="register">Create City </button>
+                <div class="city">
+                <div><label>City Name: </label>
+                    <input type="text" id="idCityName" required /></div>
+                <div><label>Population: </label>
+                    <input type="number" id="idCityPopulation" required /></div>
+                <div><label>City Latitude: </label>
+                    <input type="number" id="idCityLat" required /></div>
+                <div><label>City Longitude: </label>
+                    <input type="number" id="idCityLong" required /></div>
+                </div>
+                <button class="city-button" todo="register">Create City </button>
                 {this.state.cities}
                 </div>
                 )

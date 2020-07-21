@@ -12,11 +12,11 @@ function App() {
   // const asdf = "What Ever";
   const arr = [1,2,3,5,7,8,9];
 
-  // console.log("in the App");
+  
 
   function newFunction(a) {
-    console.log("I'm in newFunction at the App level");
-    console.log("and what you sent me was:", a);
+    
+    
   }
 
   POJO.doSomething('$1,000,000');
@@ -33,7 +33,7 @@ function App() {
     } else {
       setNewStuff("this")
     };
-    console.log("onConditional", newStuff);
+    
     
   }
 

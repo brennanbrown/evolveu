@@ -2,7 +2,7 @@ class AccountController {
     
     constructor() {
         this.accountsHolder = [];
-        this.accountCards = []
+        this.accountCards = [];
         this.counter = 1;
     }
     
@@ -15,13 +15,10 @@ class AccountController {
         if (balance >= 0) {
             const newAccount = new Account(key, name, balance);
             this.accountsHolder.push(newAccount);
-            const newCardID = [newAccount.createAccountCard().getAttribute("key")];
             newAccount.createAccountCard();
-            
             this.accountCards.push(newAccount);
-    
         } else {
-            alert('Amount must be positive!');
+            alert("Amount must be positive!");
         }
     }
     
@@ -30,42 +27,37 @@ class AccountController {
         const finding = this.accountsHolder.find(x => x.key === theKey);
         return finding;
     }
+
     findAccount(name) {
         const changingAccount = this.accountsHolder.find(x => x.accountName === name);
         return (changingAccount);
     }
     
-    depositeIT(name, depositAmount) {
+    depositIT(name, depositAmount) {
         const currentAccount1 = this.findAccount(name);
         const acc1 = new Account(currentAccount1.key, currentAccount1.accountName, currentAccount1.balance);
-        
         if (depositAmount >= 0) {
-            
-            acc1.accountDeposite(depositAmount);
+            acc1.accountDeposit(depositAmount);
             currentAccount1.balance = acc1.balance;
-            currentAccount1.divCard.innerText = "Account: " + currentAccount1.accountName + '\n' + 'Balance: ' + currentAccount1.balance + '$';
+            currentAccount1.divCard.innerText = "Account: " + currentAccount1.accountName + "\n" + "Balance: " + currentAccount1.balance + "$";
             return currentAccount1;
         }
-        else if (depositAmount < 0) { alert('deposite must be positive!'); }
+        else if (depositAmount < 0) { alert("deposit must be positive!"); }
     }
+
     withdrawIT(name, withdrawamount) {
         const currentAccount2 = this.findAccount(name);
-        console.log(currentAccount2);
         const acc2 = new Account(currentAccount2.key, currentAccount2.accountName, currentAccount2.balance);
-        console.log(acc2);
-        console.log(acc2.balance);
-        
         if (withdrawamount >= 0) {
             acc2.accountWithdraw(withdrawamount);
             currentAccount2.balance = acc2.balance;
-            currentAccount2.divCard.innerText = "Account: " + currentAccount2.accountName + '\n' + 'Balance: ' + currentAccount2.balance + '$';
-            
+            currentAccount2.divCard.innerText = "Account: " + currentAccount2.accountName + "\n" + "Balance: " + currentAccount2.balance + "$";
             if (acc2.balance < 0) {
-                alert('You have negative balancee! Please deposite money or bank charges will be applied in 5 business days.');
+                alert("You have negative balancee! Please deposit money or bank charges will be applied in 5 business days.");
             }
             return currentAccount2;
         }
-        else if (withdrawamount < 0) { alert('Withdraw must be positive') }
+        else if (withdrawamount < 0) { alert("Withdraw must be positive"); }
     }
     
     deleteAccount(key1) {
@@ -84,29 +76,30 @@ class AccountController {
         4 = Largest Amount - Account Name
         5 = Largest Amount - Value
         */
-        const allSummeries = [];
+        const allsummaries = [];
         if (this.accountsHolder.length===0 && this.accountCards.length===0){
-            alert("Error! You are deleting the last account. Please register for an acount. ")
+            alert("Error! You are deleting the last account. Please register for an acount. ");
         } else {
             const balancesK = this.accountsHolder.map(temp => ({ "key": temp.key, "balance": temp.balance }));
             const allBalances = balancesK.map(d => d.balance);
-            allSummeries[0] = allBalances.reduce((total, num) => total + num, 0);
-            allSummeries[1] = this.accountsHolder.length;
+            allsummaries[0] = allBalances.reduce((total, num) => total + num, 0);
+            allsummaries[1] = this.accountsHolder.length;
             const minBalance = Math.min.apply(Math, allBalances);
             const minAccount = this.accountsHolder.find(x => x.balance === minBalance);
-            allSummeries[2] = minAccount.accountName;
-            allSummeries[3] = minBalance;
+            allsummaries[2] = minAccount.accountName;
+            allsummaries[3] = minBalance;
             const maxBalance = Math.max.apply(Math, allBalances);
             const maxAccount = this.accountsHolder.find(x => x.balance === maxBalance);
-            allSummeries[4] = maxAccount.accountName;
-            allSummeries[5] = maxBalance;
+            allsummaries[4] = maxAccount.accountName;
+            allsummaries[5] = maxBalance;
         }   
-        return allSummeries;
+        return allsummaries;
     }
 }
 
 
 class Account {
+    
     constructor(key, _accountName, StartingBalance) {
         this.key = key;
         this.accountName = String(_accountName);
@@ -117,16 +110,18 @@ class Account {
         const divCardkey = this.key;
         const divCard = document.createElement("div");
         this.divCard = divCard;
-        divCard.setAttribute("class", "leftCard");
+        divCard.setAttribute("class", "card");
         divCard.setAttribute("key", divCardkey);
-        divCard.innerText = "Account: " + this.accountName + '\n' + 'Balance: ' + this.balance + '$';
+        divCard.innerText = "Account: " + this.accountName + "\n" + "Balance: " + this.balance + "$";
         return divCard;
     }
-    accountDeposite(amount) {
+    
+    accountDeposit(amount) {
         return (this.balance += parseFloat(amount));
     }
+    
     accountWithdraw(amount) {
         return (this.balance -= parseFloat(amount));
     }
 }
-export default { Account, AccountController }
+export default { Account, AccountController };

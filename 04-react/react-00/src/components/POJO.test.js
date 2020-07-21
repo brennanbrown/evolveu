@@ -4,7 +4,7 @@ import { render } from '@testing-library/react';
 import POJO from './POJO';
 
 test('test our POJO', () => {
-    // console.log("in first test");
+    
 
     const ans = POJO.doSomething('my value');
     expect(ans).toBe('my value');

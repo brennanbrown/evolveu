@@ -9,6 +9,6 @@ const c140b = {
         {key:6, appName: "TBD6"},
         {key:7, appName: "TBD7"}
     ]
-}
+};
 
 export default c140b;

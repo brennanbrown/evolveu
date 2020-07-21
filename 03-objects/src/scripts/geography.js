@@ -102,8 +102,12 @@ class Community {
         try {
             let data = await functions.postData(this.url + 'all');
             if (data.status === 200) {
-                data = await functions.postData(this.url + 'update', { key: city.key, name: city.name, 
-                    latitude: city.latitude, longitude: city.longitude, population: city.population });
+                data = await functions.postData(this.url + 'update', { 
+                    key: city.key, 
+                    name: city.name, 
+                    latitude: city.latitude, 
+                    longitude: city.longitude, 
+                    population: city.population });
                     return data;
                 } return 'SERVER ERROR';
             } catch (error) {

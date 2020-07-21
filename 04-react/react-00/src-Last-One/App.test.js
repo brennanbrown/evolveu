@@ -10,11 +10,11 @@ test('renders learn react link', () => {
 
 test('Test the counter', () => {
 
-  // console.log('Before the render');
+  
   // screen.debug();
 
   render(<App />);
-  // console.log('After the render');
+  
   // screen.debug();
 
   const idCount = document.getElementById("idCount");
@@ -35,7 +35,7 @@ test('Test the counter', () => {
 
   // The count should have changed
   expect(idCount.textContent).not.toBe(value);
-  console.log(value,idCount.textContent);
+  
 
 })
 

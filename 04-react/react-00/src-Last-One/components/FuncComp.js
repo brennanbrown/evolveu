@@ -3,7 +3,7 @@ import React from 'react';
 function FuncComp(parms) {
 
     function onClick(e) {
-        console.log("onClick FuncComp");
+        
         parms.callback('something Important');
     }
 

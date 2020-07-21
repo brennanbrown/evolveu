@@ -54,9 +54,6 @@ input {
   padding: 5px;
   vertical-align: middle;
 }
-/* .checkbox {
-  margin-bottom: 10px;
-} */
 select, .children, .gender, .bdate-block {
   width: calc(100% + 26px);
   padding: 5px 0;
@@ -84,7 +81,6 @@ select {
   width: 38px;
   vertical-align: unset;
 }
-
 button {
   width: 100%;
   padding: 10px 0;
@@ -112,15 +108,11 @@ button:hover {
   select, .children, .gender, .bdate-block {
     width: calc(60% + 16px);
   }
-  
-  
-  .leftCard {
-    /* Add shadows to create the "card" effect */
+  .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     text-align: center;
     display: block;
     font-size: 17px;
-    
     background-color: rgb(193, 212, 16);
     transition: 0.3s;
     height: 70px;
@@ -134,10 +126,7 @@ button:hover {
     width: 50%;
     position: fixed;
     z-index: 1; 
-    
     padding-top: 20px;
-    
-    /* padding-top: 20px; */
   }
   
   .Left{
@@ -146,7 +135,6 @@ button:hover {
     left:0;
     padding: 10px;
     display: center;
-    /* justify-content: space-between; */
     overflow:scroll;  
   }
   .Right{
@@ -156,28 +144,9 @@ button:hover {
     justify-content: space-between;
     overflow:scroll;
   }
-  /* .check {
-    text-align:center;
-    margin: 0px 0px 0px 0px;
-    font-size: large;
-    background-color: lightcoral;
-  } */
-  /* .checkboxlabel {
-    border:1px solid #ccc;
-    padding:10px;
-    margin:0 0 10px;
-    display:block; 
-  }
-  
-  .checkboxlabel:hover {
-    background:#eee;
-    cursor:pointer;
-  } */
   .checkboxes {
     text-align:center;
     margin: 0px;
-    
-    
   }
   .checkboxesinput{
     margin:0px 100px 0px 100px;
@@ -187,12 +156,10 @@ button:hover {
     margin: 0px 0x 0px 3px;
     font-weight: bold;
     font-size:16px;
-    
   }
   .accountinfodiv{
     margin: 0px 0x 0px 3px;
     font-weight: bold;
     font-size:20px;
-    
   }
 } 

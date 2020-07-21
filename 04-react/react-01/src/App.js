@@ -17,7 +17,7 @@ class App extends Component {
 
 
   onPushMe = () => {
-    console.log("You pushed me");
+    
 
     this.setState({
       counter: this.state.counter + 1
@@ -26,7 +26,7 @@ class App extends Component {
     this.setState({
       myState: "now: " + this.state.counter
     });
-    console.log(this.state.counter);
+    
     
   };
 

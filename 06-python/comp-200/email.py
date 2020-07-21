@@ -9,7 +9,6 @@
 class myClass():
 	# First example: Have user input their names via terminal:
 	def inputName(self):
-		c = myClass()
 		first_name = input("Hello! Please enter your first name: ")
 		last_name = input("Now, please enter your last name: ")
 		output = (first_name + last_name + "@evolveu.ca")
@@ -18,7 +17,6 @@ class myClass():
 	
 	# Second example: Have hard-coded names input via arguments:
 	def argsName(self, first_name, last_name):
-		c = myClass()
 		output = (first_name + last_name + "@evolveu.ca")
 		print(output)
 		return output
