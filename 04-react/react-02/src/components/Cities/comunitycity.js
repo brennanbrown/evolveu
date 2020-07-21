@@ -170,25 +170,35 @@ class City {
     }
     
     populationSize() {
-        const thepopulation = this.population;
-        if (thepopulation > 1 && thepopulation < 100) {
+        const cityPopulation = this.population;
+        if (cityPopulation < 0) {
+            return "[Error! Negative Population]";
+        }
+        else if (cityPopulation == 0) {
+            return "Ghost Town"
+        }
+        else if (cityPopulation >= 1 && cityPopulation < 100) {
             return "Hamlet"
         }
-        else if (thepopulation >= 100 && thepopulation < 1000) {
+        else if (cityPopulation >= 100 && cityPopulation < 1000) {
             return "Village";
         }
-        else if (thepopulation >= 1000 && thepopulation < 20000) {
+        else if (cityPopulation >= 1000 && cityPopulation < 20000) {
             return "Town";
         }
-        else if (thepopulation >= 20000 && thepopulation <= 100000) {
+        else if (cityPopulation >= 20000 && cityPopulation <= 100000) {
             return " Large Town";
         }
-        else {
+        else if (cityPopulation <= 100000) {
             return "City";
+        }
+        else {
+            return "[Error! Undefined]";
         }
     }
     
 }
+
 const fetchCities = {
     
     url: "http://localhost:5000/",
@@ -214,4 +224,5 @@ const fetchCities = {
         return json;
     },
 }
+
 export default { Community, City, fetchCities }

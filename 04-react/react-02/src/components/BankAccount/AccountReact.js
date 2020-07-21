@@ -91,17 +91,17 @@ class AccountCTRL extends Component {
                 return (
                     
                     <div className="account-details" onClick={this.clickMe}>
-                    
+                    <p>Application #3 is Bank Accounts</p><br/>
                     <p><strong>Total Accounts Value:
-                            </strong>${this.state.totalArray[0]}</p>
+                            </strong> ${this.state.totalArray[0]} </p>
                     <p><strong>Total Number of Accounts:
-                            </strong>{this.state.totalArray[1]}</p>
+                            </strong> {this.state.totalArray[1]} </p>
                     
-                    <p><strong>Smallest Account Name:</strong>{this.state.totalArray[2]} 
-                        <strong>Value:</strong>${this.state.totalArray[3]}</p>
+                    <p><strong>Smallest Account Name: </strong>{this.state.totalArray[2]} 
+                        <strong> Value: </strong>${this.state.totalArray[3]}</p>
                     
-                    <p><strong>Largest Account Name:</strong>{this.state.totalArray[4]} 
-                        <strong>Value:</strong>${this.state.totalArray[5]}</p>
+                    <p><strong>Largest Account Name: </strong>{this.state.totalArray[4]} 
+                        <strong> Value: </strong>${this.state.totalArray[5]}</p>
                     
                     <h3>Account Registration</h3>
                     <div><label>Account Name: </label>

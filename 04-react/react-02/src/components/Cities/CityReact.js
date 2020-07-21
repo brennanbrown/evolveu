@@ -18,22 +18,30 @@ function whichSphere(latitude) {
     else return "on the Equator.";
 }
 
-function populationSize(thepopulation) {
-    
-    if (thepopulation > 1 && thepopulation < 100) {
+function populationSize(cityPopulation) {
+    if (cityPopulation < 0) {
+        return "[Error! Negative Population]";
+    }
+    else if (cityPopulation == 0) {
+        return "Ghost Town"
+    }
+    else if (cityPopulation >= 1 && cityPopulation < 100) {
         return "Hamlet"
     }
-    if (thepopulation >= 100 && thepopulation < 1000) {
+    else if (cityPopulation >= 100 && cityPopulation < 1000) {
         return "Village";
     }
-    if (thepopulation >= 1000 && thepopulation < 20000) {
+    else if (cityPopulation >= 1000 && cityPopulation < 20000) {
         return "Town";
     }
-    if (thepopulation >= 20000 && thepopulation <= 100000) {
+    else if (cityPopulation >= 20000 && cityPopulation <= 100000) {
         return " Large Town";
     }
-    if (thepopulation > 100000) {
+    else if (cityPopulation <= 100000) {
         return "City";
+    }
+    else {
+        return "[Error! Undefined]";
     }
 }
 
@@ -153,6 +161,7 @@ class CityCTRL extends Component {
         render() {
             return (
                 <div onClick={this.clickMe}>
+                <p>Application #4 is Cities and Population</p><br/>
 
                 <p><strong>Total Population: </strong>{this.state.populationArray[0]}</p>
                 <p><strong>Total Number of Cities: </strong>{this.state.populationArray[1]} </p>

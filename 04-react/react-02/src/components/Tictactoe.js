@@ -9,7 +9,7 @@ function Square(props) {
         </button>
     );
 }
-  
+
 class Board extends React.Component {
     renderSquare(i) {
         return (
@@ -19,7 +19,7 @@ class Board extends React.Component {
             />
         );
     }
-      
+
     render() {
         return (
             <div>
@@ -42,7 +42,7 @@ class Board extends React.Component {
         );
     }
 }
-      
+
 class Game extends React.Component {
     constructor(props) {
         super(props);
@@ -72,14 +72,14 @@ class Game extends React.Component {
             xIsNext: !this.state.xIsNext,
         });
     }
-          
+
     jumpTo(step) {
         this.setState({
             stepNumber: step,
             xIsNext: (step % 2) === 0,
         });
     }
-          
+
     render() {
         const history = this.state.history;
         const current = history[this.state.stepNumber];
@@ -95,15 +95,16 @@ class Game extends React.Component {
                 </li>
             );
         });
-              
+
         let status;
         if (winner) {
             status = "Winner: " + winner;
         } else {
             status = "Next player: " + (this.state.xIsNext ? "X" : "O");
         }
-              
+
         return (
+            
             <div className="game">
                 <div className="game-board">
                     <Board
@@ -111,6 +112,7 @@ class Game extends React.Component {
                         onClick={(i) => this.handleClick(i)}
                     />
                 </div>
+                
                 <div className="game-info">
                     <div>{status}</div>
                     <ol>{moves}</ol>
@@ -119,18 +121,8 @@ class Game extends React.Component {
         );
     }
 }
-            
-            
-// ========================================
-            
-// ReactDOM.render(
-//   <Game />,
-//   document.getElementById("root")
-// );
-            
-function TictacGame(props) {
-              
-              
+        
+function Tictactoe(props) {
     return (
         <div>
             <div className="AppTicTacToe App">
@@ -142,7 +134,7 @@ function TictacGame(props) {
         </div>
     );
 }
-              
+
 function calculateWinner(squares) {
     const lines = [
         [0, 1, 2],
@@ -163,4 +155,4 @@ function calculateWinner(squares) {
     return null;
 }
               
-export default TictacGame;
+export default Tictactoe;

@@ -11,7 +11,7 @@ test("Our DoublyLinkedList Class", () => {
     expect(ourList.get()).toBe("(Currently Empty)");
     
     ourList.append(120, "Lets learn React");
-    expect(ourList.get().id).toBe(undefined);
+    expect(ourList.get().id).toBe("k1");
     
     expect(ourList.nextNode().id).toBe("k1");
     expect(ourList.nextNode().id).toBe("k1");

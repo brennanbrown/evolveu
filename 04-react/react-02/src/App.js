@@ -1,11 +1,12 @@
 import React, { useState } from "react";
-import Account from "./components/BankAccount/AccountReact";
-import City from "./components/Cities/CityReact";
+
 import c140b from "./components/c140b";
 import Starter from "./components/Starter";
-import TictacGame from "./components/Tictactoe";
+import Tictactoe from "./components/Tictactoe";
+import Account from "./components/BankAccount/AccountReact";
+import City from "./components/Cities/CityReact";
 import ToDo from "./components/LinkedList/LinkedListReact";
-// import ToDoApp from "./components/ToDoList/index";
+
 import one from "./one.svg";
 import two from "./two.svg";
 import three from "./three.svg";
@@ -27,19 +28,12 @@ function App() {
     
         let appName = "";
         const appKey = Number(e.target.getAttribute("ikey"));
-    
-        // alert(e.target.id)
-    
-    
-    
-        setCount(count + 1);
-    
+        setCount(count + 1)
+        // Requires Deprication:
         appName = c140b.appList.find(element => appKey === element.key).appName;
-    
-        setMessage(`Call Application #${appKey} Name is ${appName}`);
+        setMessage(`Application #${appKey} is ${appName}`);
         setAppToRun(appName);
     }
-  
     return (
         <div className="App">
             <header className="App-header">
@@ -83,7 +77,7 @@ function App() {
                 }
                 {appToRun === "Tictactoe" &&
                 <div>
-                    <TictacGame sMessageArea={messageArea} />
+                    <Tictactoe sMessageArea={messageArea} />
                 </div>
                 }
                 {appToRun === "Account" &&
