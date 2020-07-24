@@ -34,20 +34,19 @@ You can choose your own application but there must be at least 3 related tables 
     - `pip freeze > requirements.txt`
     - `pip install -r requirements.txt` if installing on a new device/location
 
-### Simple Flask Application
+
+## Creating a Flask Project
 
 * Create a `main` module
     - Instaniate a Flask application object
     - Create a default route to display data to the UI
 * Run and inspect the application
     - `flask run`
-
-## Creating a Flask Project
-
 * Creating the project structure
     - Directories for templates, static data, etc.
     - Create an application package `__init__.py`
     - Refactor the `main.py` module
 * Running and configuring the development enviornment
+    - Create `config.py` and `routes.py`
 * Creating the home page of the application
 * Creating navigation menus and routing patterns
