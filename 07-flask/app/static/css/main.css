@@ -8,7 +8,18 @@
 }
 
 header {
-    text-align: center;
+    background-image: url("../images/background.jpg")!important;
+    background-position: center center;
+    background-repeat: none;
+    background-attachment: fixed;
+    background-size: cover;
+
+}
+
+header h1 {
+    margin-top: -20px;
+    color: white;
+    font-size: 4rem;
 }
 
 li {
@@ -30,12 +41,8 @@ a:hover {
 }
 
 hr {
-    width: 100%;
-    height:4px;
-    margin-left: auto;
-    margin-right: auto;
     background-color: #536591;
-    border: 0 none;
+    margin-top: 0px;
 }
 
 input[type=text], input[type=password] {
@@ -57,13 +64,6 @@ input[type=text]:focus, input[type=password]:focus {
     padding:5px;
     border-bottom:2px solid #0f0f0f;
 }
-.bottom-container {
-    background: #333;
-    padding:5px;
-    border-top:2px solid #0f0f0f;
-    position:absolute;
-    bottom:0;
-}
 
 .container-term {
     width:80%;
@@ -71,12 +71,18 @@ input[type=text]:focus, input[type=password]:focus {
     margin-right: auto;
     text-align: left;
 }
+
+.content {
+    min-height: calc(100vh - 144px);
+}
+
 footer {
-    text-align: center;
+    background-color: #333;
     color: white;
-    padding: 5px;
-    margin-top: 10px;
-    bottom: 0px;
+    padding-bottom: 10px;
+    padding-top: 20px;
+    margin-top: 50px;
+    position: sticky;
 }
 
 .btn-submit {
@@ -96,4 +102,3 @@ footer {
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     background-color: #536591;
 }
-

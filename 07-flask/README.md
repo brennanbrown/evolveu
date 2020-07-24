@@ -7,7 +7,7 @@ You can choose your own application but there must be at least 3 related tables 
 ## Prerequisites
 
 * A good understanding of web development (HTML, CSS, JavaScript)
-* Basic knowledge of Pythin and NoSQL database systems
+* Basic knowledge of Python and NoSQL database systems
 * Familar with Flask framework for front-end development
 * Object-oriented Programming (OOP) paradigm
 * Model-View-Controller (MVC) paradigm
@@ -19,14 +19,14 @@ You can choose your own application but there must be at least 3 related tables 
 * Ensure you have Python3, pip, and venv
     - Self-upgrade pip with `python3 -m pip install --upgrade pip`
 * Creation of the project folder
-* Creation of the virutal enviornment using `venv`
+* Creation of the virutal environment using `venv`
     - `python3 -m venv env`
     - `. env/bin/activate`
-    -  `deactivate` to exit the virtual enviornment
+    -  `deactivate` to exit the virtual environment
 * Install Flask to virtual enviornment
     - `pip3 install flask`
 * Setup enviornment variables
-    - `touch .flaskenv` to create the enviornment variables
+    - `touch .flaskenv` to create the environment variables
     - `pip3 install python-dotenv` will allow enviornment variables to be envoked
 * Install the Flask-WTF extension
     - `pip3 install flask-wtf` for web forms within Flask
@@ -58,3 +58,11 @@ You can choose your own application but there must be at least 3 related tables 
     - Usage of `route()` decorator to bind a function to one or more URL patterns
       - Eg. `https://domain.com/`, `https://domain.com/index`, `https://domain.com/home`
     - Usage of Jinga delimiters, eg. `{% ... %}` or `{# ... #}`
+
+## Jinja Templates
+
+* Usage of Jinja's inheritance logic
+* Creating the base template
+    - Using template inheritance to create child templates 
+* Passing data to the view using props
+* Access data via the request and response objects

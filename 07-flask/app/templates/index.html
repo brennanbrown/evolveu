@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
 
-{% include "includes/head.html" %}
-
-<body>
-
-<header class="container-fluid text-center top-container">
-    <h1>Welcome to Brennan's Flask School!</h1>
-</header>
-
-<div class="container">
-    
-    {% include "includes/nav.html" %}
-
+{% block content %}
     <div class="row">
         <div class="col-md-12 text-center">
             {% if login %}
@@ -24,10 +12,4 @@
             {% endif %}
             </div>
     </div>
-    
-</div>
-
-{% include "includes/footer.html" %}
-
-</body>
-</html>
+{% endblock %}

@@ -1,0 +1,78 @@
+    {% extends "layout.html" %}
+    
+    {% block content %}
+    <h1>Course Offerings</h1>
+
+    <!--  Display the Term and Year here --->
+    <h3>Term: Autumn 2020</h3>
+
+    <div>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th scope="col">Course ID</th>
+                <th scope="col">Title</th>
+                <th scope="col">Description</th>
+                <th scope="col">Credits</th>
+                <th scope="col">Term</th>
+                <th scope="col">Enroll</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            <!-- Construct the rest of courses here -->
+            <tr>
+                <td scope='row'>1111</td>
+                <td>PYT 101</td>
+                <td>Introduction to Python</td>
+                <td>3</td>
+                <td>Fall, Spring</td>
+                <td>
+                    <button>Enroll</button>
+                </td>
+            </tr>
+            <tr>
+                <td scope='row'>2222</td>
+                <td>JAV 201</td>
+                <td>Intermediate Java Programming</td>
+                <td>4</td>
+                <td>Spring</td>
+                <td>
+                    <button>Enroll</button>
+                </td>
+            </tr>
+            <tr>
+                <td scope='row'>3333</td>
+                <td>PHP 202</td>
+                <td>Advanced PHP Programming</td>
+                <td>4</td>
+                <td>Fall</td>
+                <td>
+                    <button>Enroll</button>
+                </td>
+            </tr>
+            <tr>
+                <td scope='row'>4444</td>
+                <td>ANG 101</td>
+                <td>Introduction to Angular</td>
+                <td>3</td>
+                <td>Fall, Spring</td>
+                <td>
+                    <button>Enroll</button>
+                </td>
+            </tr>
+            <tr>
+                <td scope='row'>5555</td>
+                <td>JAV 301</td>
+                <td>Advanced Java Programming</td>
+                <td>4</td>
+                <td>Fall</td>
+                <td>
+                    <button>Enroll</button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+{% endblock %}
