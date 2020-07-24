@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+{% include "includes/head.html" %}
+
+<body>
+
+<header class="container-fluid text-center top-container">
+    <h1>Welcome to Brennan's Flask School!</h1>
+</header>
+
+<div class="container">
+    
+    {% include "includes/nav.html" %}
+
+    <div class="row">
+        <div class="col-md-12 text-center">
+            {% if login %}
+            <h3>Let's get started.</h3>
+            <p>Thanks for signing up here!</p>
+            {% else %}
+            <h3>Let's get started.</h3>
+            <p>Already registered? <a href='login.html'>Login</a></p>
+            {% endif %}
+            </div>
+    </div>
+    
+</div>
+
+{% include "includes/footer.html" %}
+
+</body>
+</html>

@@ -49,4 +49,12 @@ You can choose your own application but there must be at least 3 related tables 
 * Running and configuring the development enviornment
     - Create `config.py` and `routes.py`
 * Creating the home page of the application
+    - Create the template for `index.html`
+    - Importating the `render_template` function from the Flask module
+    - Usage of the **Jinja** template expression
+    - Usage of the `include` directive to include external files
 * Creating navigation menus and routing patterns
+    - Usage of `url_for` function for resolving links 
+    - Usage of `route()` decorator to bind a function to one or more URL patterns
+      - Eg. `https://domain.com/`, `https://domain.com/index`, `https://domain.com/home`
+    - Usage of Jinga delimiters, eg. `{% ... %}` or `{# ... #}`
