@@ -1,3 +1,5 @@
+# COMP-220: Python File IO
+
 ## Exercise - Reading a file
 
 One of Python’s strengths is reading data from a file. We have created several files so far. Let’s read one of those files right now.
