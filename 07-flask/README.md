@@ -1,5 +1,13 @@
 # Comp 250: Exercise - Full Stack
 
+- [Comp 250: Exercise - Full Stack](#comp-250-exercise---full-stack)
+  - [Prerequisites](#prerequisites)
+  - [Configuration](#configuration)
+  - [Creating a Flask Project](#creating-a-flask-project)
+  - [Jinja Templates](#jinja-templates)
+  - [Data and Objects](#data-and-objects)
+  - [Working with Databases](#working-with-databases)
+
 Using all your skills in your kitbag: JavaScript, React.js, PostgreSQL, python, and flask build a Full Stack Application.
 
 You can choose your own application but there must be at least 3 related tables and it must be an SPA (Single Page Application). You could use the same application from the SQL exercise. The application must include some CRUD functionality.
@@ -69,3 +77,57 @@ You can choose your own application but there must be at least 3 related tables 
     - Using the `For` directive
     - Building tables with JSON data
 * Access data via the request and response objects
+    - URL variables
+    - HTTP Methods (GET, POST)
+    - Global Objects: Request and Response (JSON API Format)
+
+## Data and Objects
+
+**Request Object:**
+
+* Accessing Query String (GET)
+    - `request.args.get(<field_name>)`
+        - If you put a get function and you get something from the curly string and, if that ID with that token is not there, then you will get a message saying none, so it doesn't crash your site. 
+    - `request.args[<field_name>]`
+        - If you're using the array method, that means you're very specific and assuming you will guarantee that that variable has to be there; if it's not, it'll crash the site, so you don't want that as well.
+* Accessing Form Data (POST)
+    - `request.form.get(<field_name>)`
+    - `request.form[<field_name>]`
+
+**Response Object:**
+
+The Response object is usually used for creating APIs and Flask has this class of response that gives you six parameters that you can use:
+
+```python
+class flask.Response(
+    # Most commonly used parameters:
+    response = None,
+    mimetype = None,
+    content_type = None,
+    
+    status = None,
+    headers = None,
+    direct_passthrough = False)
+```
+
+**URL Variables:**
+
+* Routing patterns (Eg. `domain.com/page/variable`)
+* Creating a URL variable
+* Setting default data to a URL variable
+* Passing a URL variable to a template
+
+**GET Method:**
+
+* Create forms using the GET method
+* Create the form template
+* Create the form route (URL pattern)
+* Accesssing form data via the GET method
+
+**POST Method:**
+
+* Updating the enrollment form using POST method
+* Adding the GET and POST methods to route
+* Acessing form data using the form object
+
+## Working with Databases

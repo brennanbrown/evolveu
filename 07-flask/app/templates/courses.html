@@ -4,7 +4,7 @@
 <h1>Course Offerings</h1>
 
 <!--  Display the Term and Year here --->
-<h3>Term: Autumn 2020</h3>
+<h3>Term: {{ term }}</h3>
 
 <div>
     <table class="table table-hover">
@@ -29,7 +29,13 @@
             <td>{{ data["credits"] }}</td>
             <td>{{ data["term"] }}</td>
             <td>
-                <button>Enroll</button>
+                <!-- Passes this data to the /enrollment page. -->
+                <form action="{{url_for('enrollment')}}" method="POST">
+                    <input type="hidden" name="courseID" value="{{data['courseID']}}">
+                    <input type="hidden" name="title" value="{{data['title']}}">
+                    <input type="hidden" name="term" value="{{data['term']}}">
+                    <button>Enroll</button>
+                </form>
             </td>
         </tr>
         {% endfor %}
