@@ -65,4 +65,7 @@ You can choose your own application but there must be at least 3 related tables 
 * Creating the base template
     - Using template inheritance to create child templates 
 * Passing data to the view using props
+    - Data from the source to the view
+    - Using the `For` directive
+    - Building tables with JSON data
 * Access data via the request and response objects
