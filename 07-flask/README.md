@@ -4,11 +4,11 @@
   - [Prerequisites](#prerequisites)
   - [Configuration](#configuration)
   - [Creating a Flask Project](#creating-a-flask-project)
-  - [Jinja Templates](#jinja-templates)
+    - [Jinja Templates](#jinja-templates)
   - [Data and Objects](#data-and-objects)
-  - [Working with Databases](#working-with-databases)
+  - [Database Configuration](#database-configuration)
 
-Using all your skills in your kitbag: JavaScript, React.js, PostgreSQL, python, and flask build a Full Stack Application.
+Using all your skills in your kitbag: JavaScript, React.js, MongoDB, Python, and Flask build a Full Stack Application.
 
 You can choose your own application but there must be at least 3 related tables and it must be an SPA (Single Page Application). You could use the same application from the SQL exercise. The application must include some CRUD functionality.
 
@@ -67,7 +67,7 @@ You can choose your own application but there must be at least 3 related tables 
       - Eg. `https://domain.com/`, `https://domain.com/index`, `https://domain.com/home`
     - Usage of Jinga delimiters, eg. `{% ... %}` or `{# ... #}`
 
-## Jinja Templates
+### Jinja Templates
 
 * Usage of Jinja's inheritance logic
 * Creating the base template
@@ -130,4 +130,39 @@ class flask.Response(
 * Adding the GET and POST methods to route
 * Acessing form data using the form object
 
-## Working with Databases
+## Database Configuration
+
+> See: https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/ and https://www.mongodb.com/try/download/compass
+
+* Utilize the MongoDB database system with Flask
+    - `sudo systemctl start mongod` 
+    - `mongodb-compass`
+    - `pip install flask-mongoengine`
+    - Update `requirements.txt`: `pip freeze > requirements.txt`
+* Set up and connect to the new database:
+    - Import the newly installed MongoEngine: `From flask_mongoengine import MongoEngine` 
+    - Set up a MongoDB database: `MONGODB_SETTINGS = { "db" : "DATABASE_NAME" }` 
+    - Initialize the database object: `db = Mongo Engine(); db.init_app(app)`
+* Connecting to the database:
+    - Connecting to the MongoDB via the MongoEngine object
+    - Intergrate a user collection using a user model class
+    - Insert sample user document (data) to a collection
+    - Display the collection back to the view
+* Creating the documents and data:
+    - Insert documents within the collections
+    - Use of MongoDB shell commands:
+        - Create collections (tables): `db.createCollection( <collection> )`
+        - Insert an entry into a collection: `db.<collection>.insert( { ... } )`
+        - Insert multiple entries into a collection: `db.<collection>.insertMany( {...} )`
+    - Insert JSON data using the `mongoexport.exe` via the command line:
+        - `mongoimport --db <DB> -collection <collection> --file <file>`
+        - Shortcut version: `mongoimport --d <DB> -c <collection> --file <file>`
+* Creating the data models:
+
+```python
+class ModelName(db.Document):
+    field1 = db.IntField()
+    field2 = db.StringField()
+    # ...
+    fieldn = db.StringField()
+```

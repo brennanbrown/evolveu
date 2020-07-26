@@ -1,5 +1,6 @@
-from app import app
+from app import app, db
 from flask import render_template, request, Response, json
+from app.models import User, Course, Enrollment
 
 course_data = [
     {
@@ -60,7 +61,11 @@ def login():
 @app.route("/courses/")
 @app.route("/courses/<term>")
 def courses(term = "Autumn 2020"):
-    courses_page = render_template("courses.html", course_data = course_data, courses = True, term = term)
+    courses_page = render_template(
+        "courses.html", 
+        course_data = course_data, 
+        courses = True, 
+        term = term)
     return courses_page
 
 @app.route("/register")
@@ -73,7 +78,10 @@ def enrollment():
     id = request.form.get("courseID")
     title = request.form.get("title")
     term = request.form.get("term")
-    enrollment_page = render_template("enrollment.html", enrollment = True, data={"id":id, "title":title, "term":term})
+    enrollment_page = render_template(
+        "enrollment.html", 
+        enrollment = True, 
+        data={"id":id, "title":title, "term":term})
     return enrollment_page
 
 @app.route("/api/")
@@ -88,6 +96,31 @@ def api(idx=None):
     return Response(
         json.dumps(j_data), 
         mimetype="application/json")
+
+# Display DB via the browser:
+@app.route("/user")
+def user():
+
+    users = User.objects.all()
+    user_page = render_template("user.html", users=users)
+    return user_page
+
+def mock_users():
+    User(
+        user_id = 1, 
+        first_name = "Jane", 
+        last_name = "Testname", 
+        email = "jane_testname@flaskschool.com",
+        password = "fake_password1"
+    ).save()
+    
+    User(
+        user_id = 2, 
+        first_name = "John", 
+        last_name = "Testname", 
+        email = "john_testname@flaskschool.com",
+        password = "fake_password2"
+    ).save()
 
 def test_function():
     return "Success!"

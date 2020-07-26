@@ -1,0 +1,42 @@
+[
+    {
+        "courseID": "1111",
+        "title": "PYT 101",
+        "description": "Introduction to Python",
+        "credits": "3",
+        "term": "Fall, Spring"
+    
+    },
+    {
+        "courseID": "2222",
+        "title": "JAV 201",
+        "description": "Intermediate Java Programming",
+        "credits": "4",
+        "term": "Spring"
+    
+    },
+    {
+        "courseID": "3333",
+        "title": "PHP 202",
+        "description": "Advanced PHP Programming",
+        "credits": "4",
+        "term": "Fall"
+    
+    },
+    {
+        "courseID": "4444",
+        "title": "ANG 101",
+        "description": "Introduction to Angular",
+        "credits": "3",
+        "term": "Fall, Spring"
+    
+    },
+    {
+        "courseID": "5555",
+        "title": "JAV 301",
+        "description": "Advanced Java Programming",
+        "credits": "4",
+        "term": "Fall"
+    
+    }
+]
