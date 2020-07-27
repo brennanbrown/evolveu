@@ -1,38 +1,68 @@
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-This file must be viewed from [github](https://github.com/larryevolveu/reference). Do not view from an editor.
+## Available Scripts
 
-This is the "Getting Started" repository for the EvovleU Full Stack Development program. It is a baseline to demonstrate:
+In the project directory, you can run:
 
-- development environment
-- development tools
-- best practices
+### `npm start`
 
-## Required Tools
+Runs the app in the development mode.<br />
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The following tools are required to run the sample project:
+The page will reload if you make edits.<br />
+You will also see any lint errors in the console.
 
-- git - If you do not have git installed, install with default parameters. See [git](https://git-scm.com). To check, enter:
-```sh
-git --version
-```
-- Node - If you do not have Node installed, install the LTS version (left). See [node](https://nodejs.org/en/). To check, enter: 
-```sh
-node -v
-```
-- VSCode - If you do not have VSCode installed see [VSCode](https://code.visualstudio.com/).
-- live-server - is a little development server with live reload capability. 
-```sh
-npm install -g live-server
-```
+### `npm test`
 
-## Clone this Repository
+Launches the test runner in the interactive watch mode.<br />
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-For the following instructions use your command line. In Windows, it could be dos or PowerShell. For mac and Linux use terminal.
+### `npm run build`
 
-1. Clone this repository. In your command line move to the directory that you would like to use as your base code directory. For the course it must be 'code'. This command will add a directory called 'reference' below the directory you are in.
-```sh
-git clone https://github.com/larryevolveu/reference.git
-```
+Builds the app for production to the `build` folder.<br />
+It correctly bundles React in production mode and optimizes the build for the best performance.
 
-This repository has a number of projects within it. Each folder is a project. See the README.md in each folder for further instructions. 
+The build is minified and the filenames include the hashes.<br />
+Your app is ready to be deployed!
 
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+## Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
+
+### Code Splitting
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+
+### Analyzing the Bundle Size
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+
+### Making a Progressive Web App
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+
+### Advanced Configuration
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+
+### Deployment
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+
+### `npm run build` fails to minify
+
+This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
