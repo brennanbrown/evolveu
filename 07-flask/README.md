@@ -8,10 +8,7 @@
   - [Data and Objects](#data-and-objects)
   - [Database Configuration](#database-configuration)
   - [Web Forms and Security](#web-forms-and-security)
-
-Using all your skills in your kitbag: JavaScript, React.js, MongoDB, Python, and Flask build a Full Stack Application.
-
-You can choose your own application but there must be at least 3 related tables and it must be an SPA (Single Page Application). You could use the same application from the SQL exercise. The application must include some CRUD functionality.
+  - [Database Connection](#database-connection)
 
 ## Prerequisites
 
@@ -207,6 +204,9 @@ class LoginForm(FlaskForm):
     - Retrieving flash messages using the `get_flashed_messages()` (view)
     - Validation of forms and displaying error messages
     - Update the login route to capture form data
+
+## Database Connection
+
 * Processing form data and updating the database
     -  Processing form data for database updating with validation
     -  Update the login and registration route to interact with the database
@@ -215,7 +215,12 @@ class LoginForm(FlaskForm):
           -  Hashing: `generate_password_hash('password')
           -  Unhashing: `check_password_hash(password, 'password')
     -  Inserting data and verifying the database using the Compass interface
-* Creating the courses and enrollment pages
+* Creation of the courses and enrollment pages
     - Querying course data from the database
     - Populate the course template with this data
+    - Perform join queries on muliple collections using `$aggregate`.
+        - `$lookup`: Performs a left outer join.
+        - `$match`: Filters documents.
+        - `$unwind`: Deconstructs an array field
+
 * Creating sessions and user authentication

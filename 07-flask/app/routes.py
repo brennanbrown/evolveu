@@ -2,50 +2,6 @@ from app import app, db
 from flask import render_template, request, Response, json, redirect, flash, url_for, session
 from app.models import User, Course, Enrollment
 from app.forms import LoginForm, RegisterForm
-
-course_data = [
-    {
-        "courseID": "1111",
-        "title": "PYT 101",
-        "description": "Introduction to Python",
-        "credits": "3",
-        "term": "Fall, Spring"
-    
-    },
-    {
-        "courseID": "2222",
-        "title": "JAV 201",
-        "description": "Intermediate Java Programming",
-        "credits": "4",
-        "term": "Spring"
-    
-    },
-    {
-        "courseID": "3333",
-        "title": "PHP 202",
-        "description": "Advanced PHP Programming",
-        "credits": "4",
-        "term": "Fall"
-    
-    },
-    {
-        "courseID": "4444",
-        "title": "ANG 101",
-        "description": "Introduction to Angular",
-        "credits": "3",
-        "term": "Fall, Spring"
-    
-    },
-    {
-        "courseID": "5555",
-        "title": "JAV 301",
-        "description": "Advanced Java Programming",
-        "credits": "4",
-        "term": "Fall"
-    
-    }
-]
-
 # Decorates the underlying definition or function.
 @app.route("/")
 @app.route("/index")
@@ -83,10 +39,14 @@ def login():
 
 @app.route("/courses/")
 @app.route("/courses/<term>")
-def courses(term = "Autumn 2020"):
+def courses(term = None,):
+    if term is None:
+        term = "Autumn 2020"
+    # Sorts courses by their ID.
+    classes = Course.objects.order_by("+courseID")
     courses_page = render_template(
         "courses.html", 
-        course_data = course_data, 
+        course_data = classes, 
         courses = True, 
         term = term)
     return courses_page
@@ -129,13 +89,25 @@ def register():
 
 @app.route("/enrollment", methods=["GET", "POST"])
 def enrollment():
-    id = request.form.get("courseID")
-    title = request.form.get("title")
+    courseID = request.form.get("courseID")
+    courseTitle = request.form.get("title")
+    user_id = 2
+
+    if courseID:
+        if Enrollment.objects(user_id = user_id, courseID = courseID):
+            flash(f"Oops! You are already enrolled in the course {courseTitle}!", "warning")
+            return redirect(url_for("courses"))
+        else:
+            Enrollment(user_id = user_id, courseID = courseID)
+            flash(f"You are now enrolled in {courseTitle}!", "success")
+
+    classes = None;
+
     term = request.form.get("term")
     enrollment_page = render_template(
         "enrollment.html", 
         enrollment = True, 
-        data={"id":id, "title":title, "term":term})
+        classes = classes)
     return enrollment_page
 
 @app.route("/api/")
@@ -143,9 +115,9 @@ def enrollment():
 # If no index, default to /api/
 def api(idx=None):
     if (idx == None):
-        j_data = course_data
+        j_data = Course.objects
     else:
-        j_data = course_data[int(idx)]
+        j_data = Course.objects[int(idx)]
     
     return Response(
         json.dumps(j_data), 
