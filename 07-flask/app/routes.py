@@ -1,6 +1,7 @@
 from app import app, db
-from flask import render_template, request, Response, json
+from flask import render_template, request, Response, json, redirect, flash
 from app.models import User, Course, Enrollment
+from app.forms import LoginForm, RegisterForm
 
 course_data = [
     {
@@ -53,9 +54,20 @@ def Index():
     index_page = render_template("index.html", index = True)
     return index_page
 
-@app.route("/login")
+@app.route("/login", methods=["GET", "POST"])
 def login():
-    login_page = render_template("login.html", login = True)
+    form = LoginForm()
+    if form.validate_on_submit():
+        if request.form.get("email") == "test@flaskschool.com":
+            flash("You are successfully logged in!", "success")
+            return redirect("/index")
+        else:
+            flash("Sorry! Something went wrong. Try again.", "danger")
+    login_page = render_template(
+        "login.html", 
+        title="Login", 
+        form = form, 
+        login = True)
     return login_page
 
 @app.route("/courses/")
@@ -100,27 +112,9 @@ def api(idx=None):
 # Display DB via the browser:
 @app.route("/user")
 def user():
-
     users = User.objects.all()
     user_page = render_template("user.html", users=users)
     return user_page
-
-def mock_users():
-    User(
-        user_id = 1, 
-        first_name = "Jane", 
-        last_name = "Testname", 
-        email = "jane_testname@flaskschool.com",
-        password = "fake_password1"
-    ).save()
-    
-    User(
-        user_id = 2, 
-        first_name = "John", 
-        last_name = "Testname", 
-        email = "john_testname@flaskschool.com",
-        password = "fake_password2"
-    ).save()
 
 def test_function():
     return "Success!"

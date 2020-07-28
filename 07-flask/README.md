@@ -7,6 +7,7 @@
     - [Jinja Templates](#jinja-templates)
   - [Data and Objects](#data-and-objects)
   - [Database Configuration](#database-configuration)
+  - [Web Forms and Security](#web-forms-and-security)
 
 Using all your skills in your kitbag: JavaScript, React.js, MongoDB, Python, and Flask build a Full Stack Application.
 
@@ -158,6 +159,7 @@ class flask.Response(
         - `mongoimport --db <DB> -collection <collection> --file <file>`
         - Shortcut version: `mongoimport --d <DB> -c <collection> --file <file>`
 * Creating the data models:
+    - Models for each collection (Eg. User, Courses, Enrollment, etc.)
 
 ```python
 class ModelName(db.Document):
@@ -166,3 +168,44 @@ class ModelName(db.Document):
     # ...
     fieldn = db.StringField()
 ```
+
+## Web Forms and Security
+
+* Install and configure Flask-WTF and Flask-Security extensions:
+    - Flask-WTF is an extension for the WTForms Library
+        - WTForms provides a clean way to generate HTML form fields
+        - In addition, maintains a separation of code and presentation (similar to MVC)
+        - `pip install flask-wtf`
+    - Flask-Security provides common security and authentication features:
+        - Session-bassed authentication
+        - Password hashing
+        - Basic HTTP and token-based authentications
+        - User registration and login tracking (w/ Flask-Login)
+        - Supports data persistency for Flask-SQLAlchemy, Flask-MongoEngine, flask-peewee, and PonyORM
+        - `pip install flask-security`
+
+```python
+# Example login.html in Jinja:
+<form>
+    # Generates a CSRF token.
+    {{ form.hidden_tag() }}
+    {{ form.username }}
+    {{ form.email    }}
+    {{ form.password }}
+</form>
+
+# Example forms.py
+class LoginForm(FlaskForm):
+    email = StringField('Email')
+    password = StringField('Password')
+    submit = SubmitField('Login')
+```
+
+* Creating the login and registration pages
+    - Creation of form classes and updating the templates using the WTForms library
+    - Creation of alert messages using the `flash()` method
+    - Validation of forms and displaying error messages via form
+    - Update the login route to capture form data
+* Processing form data and updating the database
+* Creating the courses and enrollment pages
+* Creating sessions and user authentication
