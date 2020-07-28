@@ -57,14 +57,17 @@ def Index():
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get("username"):
-        return redirect(url_for("index"))
+        return redirect(url_for("Index"))
     form = LoginForm()
     if form.validate_on_submit():
         email    = form.email.data
         password = form.password.data
-
-        user = User.objects(email=email).first()
-        if user and user.get_password(password):
+        # Compares the form email to the database.
+        # .first() will only return a single object,
+        # not the entire array.
+        user = User.objects(email = email).first()
+        # Retrieves the hashed password:
+        if (user and user.get_password(password)):
             flash(f"{user.first_name}, you are successfully logged in!", "success")
             session["user_id"] = user.user_id
             session["username"] = user.first_name
@@ -88,12 +91,15 @@ def courses(term = "Autumn 2020"):
         term = term)
     return courses_page
 
-@app.route("/register")
+@app.route("/register", methods=["POST", "GET"])
 def register():
     if session.get("username"):
-        return redirect(url_for("index"))
+        return redirect(url_for("Index"))
     form = RegisterForm()
     if form.validate_on_submit():
+        # Determines the ID by counting
+        # amount of current entries,
+        # and then just adds one.
         user_id  = User.objects.count()
         user_id += 1
 
@@ -102,16 +108,23 @@ def register():
         first_name = form.first_name.data
         last_name  = form.last_name.data
 
+        # Adds the properties to the new entry.
         user = User(
             user_id = user_id,
             email = email, 
             first_name = first_name, 
             last_name = last_name)
         user.set_password(password)
+
+        # Saves new entry to database.
         user.save()
         flash("You are successfully registered!","success")
-        return redirect(url_for("index"))
-    register_page = render_template("register.html", title="Register", form=form, register=True)
+        return redirect(url_for("Index"))
+    register_page = render_template(
+        "register.html", 
+        title = "Register", 
+        form = form, 
+        register = True)
     return register_page
 
 @app.route("/enrollment", methods=["GET", "POST"])

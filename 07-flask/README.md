@@ -209,9 +209,13 @@ class LoginForm(FlaskForm):
     - Update the login route to capture form data
 * Processing form data and updating the database
     -  Processing form data for database updating with validation
+    -  Update the login and registration route to interact with the database
     -  Hash passwords using the **Werkseug** library (A WSGI web app library)
           -  `pip install werkzeug`
           -  Hashing: `generate_password_hash('password')
           -  Unhashing: `check_password_hash(password, 'password')
+    -  Inserting data and verifying the database using the Compass interface
 * Creating the courses and enrollment pages
+    - Querying course data from the database
+    - Populate the course template with this data
 * Creating sessions and user authentication
