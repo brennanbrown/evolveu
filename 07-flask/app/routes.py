@@ -2,7 +2,10 @@ from app import app, db
 from flask import render_template, request, Response, json, redirect, flash, url_for, session
 from app.models import User, Course, Enrollment
 from app.forms import LoginForm, RegisterForm
-# Decorates the underlying definition or function.
+
+
+#     ----- INDEX -----     #
+
 @app.route("/")
 @app.route("/index")
 @app.route("/home")
@@ -10,9 +13,13 @@ def Index():
     index_page = render_template("index.html", index = True)
     return index_page
 
+
+#     ----- LOGIN -----     #
+
 @app.route("/login", methods=["GET", "POST"])
 def login():
     if session.get("username"):
+        flash(f"You are already logged in.", "success")
         return redirect(url_for("Index"))
     form = LoginForm()
     if form.validate_on_submit():
@@ -37,6 +44,19 @@ def login():
         login = True)
     return login_page
 
+
+#     ----- LOGOUT -----     #
+
+@app.route("/logout")
+def logout():
+    session["user_id"] = False
+    session.pop("username", None)
+    flash(f"You have been logged out.", "info")
+    return redirect(url_for("Index"))
+
+
+#     ----- COURSES -----     #
+
 @app.route("/courses/")
 @app.route("/courses/<term>")
 def courses(term = None,):
@@ -51,9 +71,12 @@ def courses(term = None,):
         term = term)
     return courses_page
 
+#     ----- REGISTRATION -----     #
+
 @app.route("/register", methods=["POST", "GET"])
 def register():
     if session.get("username"):
+        flash(f"You are already registered.", "success")
         return redirect(url_for("Index"))
     form = RegisterForm()
     if form.validate_on_submit():
@@ -87,18 +110,25 @@ def register():
         register = True)
     return register_page
 
+
+#     ----- ENROLLMENT -----     #
+
 @app.route("/enrollment", methods=["GET", "POST"])
 def enrollment():
+    if not session.get("username"):
+        flash(f"You need to log in to view your schedule.", "warning")
+        return redirect(url_for("login"))
+
     courseID = request.form.get("courseID")
     courseTitle = request.form.get("title")
-    user_id = 2
+    user_id = session.get("user_id")
 
     if courseID:
         if Enrollment.objects(user_id = user_id, courseID = courseID):
             flash(f"Oops! You are already enrolled in the course {courseTitle}!", "warning")
             return redirect(url_for("courses"))
         else:
-            Enrollment(user_id = user_id, courseID = courseID)
+            Enrollment(user_id = user_id, courseID = courseID).save()
             flash(f"You are now enrolled in {courseTitle}!", "success")
 
     classes = list( User.objects.aggregate(*[
@@ -138,12 +168,14 @@ def enrollment():
         }
     ]))
 
-    term = request.form.get("term")
     enrollment_page = render_template(
         "enrollment.html", 
         enrollment = True, 
         classes = classes)
     return enrollment_page
+
+
+#     ----- API -----     #
 
 @app.route("/api/")
 @app.route("/api/<idx>")
@@ -157,6 +189,9 @@ def api(idx=None):
     return Response(
         json.dumps(j_data), 
         mimetype="application/json")
+
+
+#     ----- USER -----     #
 
 # Display DB via the browser:
 @app.route("/user")

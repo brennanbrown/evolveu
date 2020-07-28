@@ -122,3 +122,13 @@ footer {
 .error-message {
     color: #ff5e5e;
 }
+
+.user {
+    float: right;
+    position: absolute;
+    font-size: 16px;
+    right: 20px;
+    top: 10em;
+    color: white;
+    font-weight: bold;
+}

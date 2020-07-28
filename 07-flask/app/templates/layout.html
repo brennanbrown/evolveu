@@ -9,11 +9,18 @@
 
     <header class="text-center jumbotron jumbotron-fluid container-fluid full-width align-middler">
         <h1>Brennan's Flask School 🎓</h1>
+        {% if session["username"] %}
+        <span class="user">
+            Welcome, {{ session["username"]}}!
+        </span>
+        {% endif %}
     </header>
 
     <div class="container">
         
         {% include "includes/nav.html" %}
+
+
 
         {% with messages = get_flashed_messages(with_categories=true) %}
             {% if messages %}

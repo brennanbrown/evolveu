@@ -9,6 +9,7 @@
         
         {% if not classes %}
         <h3>You are not enrolled in any class.</h3>
+        <h4>Visit the <a href="{{ url_for('courses') }}">courses</a> page to enroll in courses!</h4>
         {% else %}
         <h3>You are enrolled in:</h3>
         
@@ -27,11 +28,11 @@
                 <!-- Construct the rest of courses here -->
                 {% for class in classes %}
                 <tr>
-                    <td scope='row'>{{ class.r2["courseID"] }}</td>
-                    <td>{{ class.r2["title"] }}</td>
-                    <td>{{ class.r2["description"] }}</td>
-                    <td>{{ class.r2["credits"] }}</td>
-                    <td>{{ class.r2["term"] }}</td>                        
+                    <td scope='row'>{{ class.result_2["courseID"] }}</td>
+                    <td>{{ class.result_2["title"] }}</td>
+                    <td>{{ class.result_2["description"] }}</td>
+                    <td>{{ class.result_2["credits"] }}</td>
+                    <td>{{ class.result_2["term"] }}</td>                        
                 </tr>
                 {% endfor %}
                 

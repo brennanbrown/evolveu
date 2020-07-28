@@ -4,7 +4,7 @@
 <h1>Welcome!</h1>
 <div class="row">
     <div class="col-md-12 text-center font-bold">
-        {% if login %}
+        {% if session["username"] %}
         
         <h3><mark>Let's get started.</mark></h3>
         <p>Thanks for signing up here!</p>
@@ -12,7 +12,7 @@
         {% else %}
         
         <h3><mark>Let's get started.</mark></h3>
-        <p>Already registered? <a href='login.html'>Login</a></p>
+        <p>Already registered? <a href="{{ url_for('login') }}">Login</a></p>
         
         {% endif %}
     </div>
@@ -34,7 +34,7 @@
                 class="d-block w-100" alt="Photo by Annie Spratt on Unsplash">
                 <div class="carousel-caption d-none d-md-block">
                     <h5>Learn Valuable Tech Skills.</h5>
-                    <p>Recieve an education not only in coding, but in computer science, with design patterns and algorithms.</p>
+                    <p>Recieve an education not only in coding, but within computer science and theory, with design patterns and algorithms.</p>
                 </div>
             </div>
             <div class="carousel-item">

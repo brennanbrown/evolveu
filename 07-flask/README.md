@@ -10,6 +10,7 @@
   - [Web Forms and Security](#web-forms-and-security)
   - [Database Connection](#database-connection)
   - [Data Aggregation](#data-aggregation)
+  - [State Management](#state-management)
 
 ## Prerequisites
 
@@ -309,5 +310,28 @@ class LoginForm(FlaskForm):
   "courseID": 1
 }
 ```
+## State Management
 
-* Creating sessions and user authentication
+* Usage of Flask-Session for state management and user authentication
+    - The `session` object stores information that's specific to a user
+    - Implementation is on top of cookies, and signs cookies crpytographically
+    - Creationg of Logout and Enrollment routes with sessions.
+* More secure alternative: Flask-Login extension
+    - Mangaing user logged-in state using a `user_loader()` function
+    - Using the LoginManager class to manage login state 
+    - Implementing the "remember me" feature
+    - Restricting access to protected pages with`@login_required`
+    - Logging out users using the `logout_user()` function
+    - See more: https://flask-login.readthedocs.io/en/latest/
+* Generate secure secret key from command-line:
+    - `python3 -c "import os; print(os.urandom(16))"`  
+
+```python
+# UrlSegment via the Parameters Property:
+
+session['key'] = value # Setting a session
+session.get('key')     # Getting a session
+
+session.pop('key', None) # Destroying a session
+session['key'] = False   # Destroying a session
+```
