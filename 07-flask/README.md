@@ -9,6 +9,7 @@
   - [Database Configuration](#database-configuration)
   - [Web Forms and Security](#web-forms-and-security)
   - [Database Connection](#database-connection)
+  - [Data Aggregation](#data-aggregation)
 
 ## Prerequisites
 
@@ -222,5 +223,91 @@ class LoginForm(FlaskForm):
         - `$lookup`: Performs a left outer join.
         - `$match`: Filters documents.
         - `$unwind`: Deconstructs an array field
+
+## Data Aggregation
+
+* Usage of the MongoDB aggregation framework using the Compass interface
+* Creation of the aggregation pipeline to process data in three stages
+    - `$lookup`, `$match`, `$unwind`, `$sort`
+
+**Example Pipeline:**
+
+```js
+/**
+ * 1. First $lookup Example:
+ *
+ * from: The target collection.
+ * localField: The local join field.
+ * foreignField: The target join field.
+ * as: The name for the results.
+ * pipeline: The pipeline to run on the joined collection.
+ * let: Optional variables to use in the pipeline field stages.
+ */
+{
+  from: 'enrollment',
+  localField: 'user_id',
+  foreignField: 'user_id',
+  as: 'result_1'
+}
+```
+
+```js
+/**
+ * 2. First $unwind Example:
+ *
+ * path: Path to the array field.
+ * includeArrayIndex: Optional name for index.
+ * preserveNullAndEmptyArrays: Optional
+ *   toggle to unwind null and empty values.
+ */
+{
+  path: '$result_1',
+  includeArrayIndex: 'string',
+  preserveNullAndEmptyArrays: false
+}
+```
+
+```js
+/**
+ * 3. Second $lookup Example:
+ *
+ */
+{
+  from: 'course',
+  localField: 'result_1.courseID',
+  foreignField: 'courseID',
+  as: 'result_2'
+}
+```
+
+```js
+/**
+ * 4. Second $unwind Example:
+ */
+{
+  path: '$result_2',
+  preserveNullAndEmptyArrays: false
+}
+```
+
+```js
+/**
+ * 5. $match Example:
+ * query: The query in MQL.
+ */
+{
+  'user_id': user_id
+}
+```
+
+```js
+/**
+ * 6. $sort Example:
+ * Provide any number of field/order pairs.
+ */
+{
+  "courseID": 1
+}
+```
 
 * Creating sessions and user authentication

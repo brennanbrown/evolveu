@@ -101,7 +101,42 @@ def enrollment():
             Enrollment(user_id = user_id, courseID = courseID)
             flash(f"You are now enrolled in {courseTitle}!", "success")
 
-    classes = None;
+    classes = list( User.objects.aggregate(*[
+        {
+            '$lookup': {
+                'from': 'enrollment', 
+                'localField': 'user_id', 
+                'foreignField': 'user_id', 
+                'as': 'result_1'
+            }
+        }, {
+            '$unwind': {
+                'path': '$result_1', 
+                'includeArrayIndex': 'string', 
+                'preserveNullAndEmptyArrays': False
+            }
+        }, {
+            '$lookup': {
+                'from': 'course', 
+                'localField': 'result_1.courseID', 
+                'foreignField': 'courseID', 
+                'as': 'result_2'
+            }
+        }, {
+            '$unwind': {
+                'path': '$result_2', 
+                'preserveNullAndEmptyArrays': False
+            }
+        }, {
+            '$match': {
+                'user_id': user_id
+            }
+        }, {
+            '$sort': {
+                'courseID': 1
+            }
+        }
+    ]))
 
     term = request.form.get("term")
     enrollment_page = render_template(
