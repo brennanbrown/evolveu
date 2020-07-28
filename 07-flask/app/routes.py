@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template, request, Response, json, redirect, flash
+from flask import render_template, request, Response, json, redirect, flash, url_for, session
 from app.models import User, Course, Enrollment
 from app.forms import LoginForm, RegisterForm
 
@@ -46,7 +46,7 @@ course_data = [
     }
 ]
 
-# Decorate the underlying definition or function
+# Decorates the underlying definition or function.
 @app.route("/")
 @app.route("/index")
 @app.route("/home")
@@ -56,13 +56,21 @@ def Index():
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
+    if session.get("username"):
+        return redirect(url_for("index"))
     form = LoginForm()
     if form.validate_on_submit():
-        if request.form.get("email") == "test@flaskschool.com":
-            flash("You are successfully logged in!", "success")
+        email    = form.email.data
+        password = form.password.data
+
+        user = User.objects(email=email).first()
+        if user and user.get_password(password):
+            flash(f"{user.first_name}, you are successfully logged in!", "success")
+            session["user_id"] = user.user_id
+            session["username"] = user.first_name
             return redirect("/index")
         else:
-            flash("Sorry! Something went wrong. Try again.", "danger")
+            flash("Sorry, something went wrong.","danger")
     login_page = render_template(
         "login.html", 
         title="Login", 
@@ -82,7 +90,28 @@ def courses(term = "Autumn 2020"):
 
 @app.route("/register")
 def register():
-    register_page = render_template("register.html", register = True)
+    if session.get("username"):
+        return redirect(url_for("index"))
+    form = RegisterForm()
+    if form.validate_on_submit():
+        user_id  = User.objects.count()
+        user_id += 1
+
+        email      = form.email.data
+        password   = form.password.data
+        first_name = form.first_name.data
+        last_name  = form.last_name.data
+
+        user = User(
+            user_id = user_id,
+            email = email, 
+            first_name = first_name, 
+            last_name = last_name)
+        user.set_password(password)
+        user.save()
+        flash("You are successfully registered!","success")
+        return redirect(url_for("index"))
+    register_page = render_template("register.html", title="Register", form=form, register=True)
     return register_page
 
 @app.route("/enrollment", methods=["GET", "POST"])

@@ -142,7 +142,7 @@ class flask.Response(
     - Update `requirements.txt`: `pip freeze > requirements.txt`
 * Set up and connect to the new database:
     - Import the newly installed MongoEngine: `From flask_mongoengine import MongoEngine` 
-    - Set up a MongoDB database: `MONGODB_SETTINGS = { "db" : "DATABASE_NAME" }` 
+    - Set up a MongoDB database: `MONGODB_SETTINGS = { 'db' : 'DATABASE_NAME' }` 
     - Initialize the database object: `db = Mongo Engine(); db.init_app(app)`
 * Connecting to the database:
     - Connecting to the MongoDB via the MongoEngine object
@@ -203,9 +203,15 @@ class LoginForm(FlaskForm):
 
 * Creating the login and registration pages
     - Creation of form classes and updating the templates using the WTForms library
-    - Creation of alert messages using the `flash()` method
-    - Validation of forms and displaying error messages via form
+    - Creation of alert messages using the `flash()` method (source)
+    - Retrieving flash messages using the `get_flashed_messages()` (view)
+    - Validation of forms and displaying error messages
     - Update the login route to capture form data
 * Processing form data and updating the database
+    -  Processing form data for database updating with validation
+    -  Hash passwords using the **Werkseug** library (A WSGI web app library)
+          -  `pip install werkzeug`
+          -  Hashing: `generate_password_hash('password')
+          -  Unhashing: `check_password_hash(password, 'password')
 * Creating the courses and enrollment pages
 * Creating sessions and user authentication

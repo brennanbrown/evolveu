@@ -46,7 +46,7 @@ hr {
 }
 
 input[type=text], input[type=password] {
-    width: 70%;
+    width: 100%;
     padding: 7px;
     margin: 5px 0 22px 0;
     display: inline-block;
@@ -105,4 +105,8 @@ footer {
 
 .nav-pills .nav-link.active, .nav-pills .show > .nav-link {
     background-color: #536591;
+}
+
+.error-message {
+    color: #ff5e5e;
 }
