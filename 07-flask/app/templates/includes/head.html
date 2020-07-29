@@ -6,11 +6,11 @@
         content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
     />
 
-    <title>Flask School {{title}}</title>
+    <title>Brennan's Flask School</title>
     
     <meta 
     name="description" 
-    content="Just a generic Flask-based application and website."
+    content="A demonstrative school application, using Flask and NoSQL."
     >
     <link rel="stylesheet" href="{{ url_for('static', filename = '/css/normalize.css') }}"/>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" 
@@ -30,4 +30,10 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@700&Open+Sans:wght@400;600&display=swap" rel="stylesheet"> 
     <link rel="stylesheet" href="{{ url_for('static', filename = '/css/main.css') }}"/>
+
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename = '/fav/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename = '/fav/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename = '/fav/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename = '/site.webmanifest') }}">
+
 </head>

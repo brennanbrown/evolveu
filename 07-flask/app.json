@@ -7,13 +7,14 @@
     "python", 
     "flask", 
     "nosql" ],
+  "success_url": "/home",
   "env": {
     "MONGO_URI": {
       "description": "The URI to connect to the MongoDB.",
       "value": "mongodb://localhost:27017/FLASK_Enrollment"
     },
     "SECRET_KEY": {
-      "description": "The secret key for the Django application.",
+      "description": "The secret key for the Flask application.",
       "generator": "secret"
     }
   },
