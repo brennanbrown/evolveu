@@ -1,0 +1,37 @@
+    {% extends "layout.html" %}
+    
+    {% block content %}
+    <h1>{{title}}</h1>
+    
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form name="login" action="" method="post" novalidate>
+                <legend>Login to your account here:</legend>
+                {{ form.hidden_tag() }}
+                <p>
+                    {{ form.email.label }}<br>
+                    {{ form.email(size=35) }}<br>
+                    
+                    {% for error in form.email.errors %}
+                    <span class="error-message">
+                        {{ error }}
+                    </span>
+                    {% endfor %}
+                </p>
+                <p>
+                    {{ form.password.label }}<br>
+                    {{ form.password(size=50) }}<br>
+                    
+                    {% for error in form.password.errors %}
+                    <span class="error-message">
+                        {{ error }}
+                    </span>
+                    {% endfor %}
+                </p>
+                <p class="text-center font-weight-bold">
+                    {{ form.submit() }}<br>
+                </p>
+            </form>
+        </div>
+    </div>
+    {% endblock %}
