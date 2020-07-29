@@ -1,0 +1,28 @@
+{
+  "name": "Brennan's Flask School",
+  "description": "A demonstrative school application, using Flask and NoSQL.",
+  "image": "heroku/python",
+  "repository": "https://github.com/brennanbrown/cohort4",
+  "keywords": [
+    "python", 
+    "flask", 
+    "nosql" ],
+  "env": {
+    "MONGO_URI": {
+      "description": "The URI to connect to the MongoDB.",
+      "value": "mongodb://localhost:27017/FLASK_Enrollment"
+    },
+    "SECRET_KEY": {
+      "description": "The secret key for the Django application.",
+      "generator": "secret"
+    }
+  },
+  "environments": {
+    "test": {
+      "scripts": {
+        "test-setup": "python3 main.py",
+        "test": "pytest -s -v"
+      }
+    }
+  }
+}
