@@ -8,6 +8,8 @@
     - [Built With](#built-with)
   - [Getting Started](#getting-started)
     - [Prerequisites](#prerequisites)
+      - [Python installation on Ubuntu](#python-installation-on-ubuntu)
+      - [MongoDB installation on Ubuntu](#mongodb-installation-on-ubuntu)
   - [Installation](#installation)
     - [Virtual Environment (`venv`)](#virtual-environment-venv)
     - [Running the project](#running-the-project)
@@ -48,7 +50,7 @@ For development, you will need Python 3.6 or higher, pip, venv, and MongoDB inst
 * Model-View-ViewMode (MVVM) paradigm
 * Knowledge and use of the Command-line Interface (CLI)
 
-- #### Python installation on Ubuntu
+#### Python installation on Ubuntu
 
 Check first to see if you have the tools required already installed:
 
@@ -67,7 +69,7 @@ If you need to update `pip`, you can make it using `pip`! Cool right? After runn
 
     $ python3 -m pip install --upgrade pip
 
-- #### MongoDB installation on Ubuntu
+#### MongoDB installation on Ubuntu
 
 If you prefer working with the command line, here's [how to install MongoDB on Ubuntu](https://docs.mongodb.com/manual/tutorial/install-mongodb-on-ubuntu/), if you'd prefer a GUI interface, try downloading [MongoDB Compass](https://www.mongodb.com/try/download/compass).
 
@@ -96,7 +98,7 @@ Please note for sake of ease, his project is set to work with the default config
 
 You can ensure that you're in your new virutal Environment if you see `(env)` prepend your bash shell:
 
-    $ (env) user@ubuntu:~/flask$ 
+    (env) user@ubuntu:~/flask$ 
 
 ### Running the project
 
