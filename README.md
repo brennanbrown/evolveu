@@ -25,6 +25,12 @@
 
 This website is a mock application for registering for an online school, and enroll in specific web development courses. It utilizes Flask for the back-end, and MongoDB's MQL for the collections (database). This is currently being deployed on [Heroku](https://dashboard.heroku.com/) under a free Dyno plan, so I apologize for any issues regarding speed or connectivity!
 
+On this website, you are able to:
+
+- Register for an account.
+- Login to that account.
+- Enroll in specific classes, and have them be assoicated with your account.
+
 For more information about specific areas of this project, please refer to my **[personal notes](https://github.com/brennanbrown/cohort4/blob/flask/NOTES.md)**.
 
 ### Built With
