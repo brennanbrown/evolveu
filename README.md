@@ -31,7 +31,7 @@ On this website, you are able to:
 - Login to that account.
 - Enroll in specific classes, and have them be assoicated with your account.
 
-For more information about specific areas of this project, please refer to my **[personal notes](https://github.com/brennanbrown/cohort4/blob/flask/NOTES.md)**.
+For more information about specific areas of this project, please refer to my **[personal notes](https://github.com/brennanbrown/evolveu/blob/flask/NOTES.md)**.
 
 ### Built With
 
@@ -115,7 +115,7 @@ Once the server has started up, you can visit it at [localhost:5000/](localhost:
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/brennanbrown/cohort4/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/brennanbrown/evolveu/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -138,4 +138,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Brennan K. Brown - [@brennankbrown](https://twitter.com/brennanbrown) - [mail@brennanbrown.ca](mailto:mail@brennanbrown.ca)
 
-Project Link: [https://github.com/brennanbrown/cohort4](https://github.com/brennanbrown/cohort4/tree/flask)
+Project Link: [https://github.com/brennanbrown/cohort4](https://github.com/brennanbrown/evolveu/tree/flask)
