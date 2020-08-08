@@ -25,13 +25,7 @@
 
 This website is a mock application for registering for an online school, and enroll in specific web development courses. It utilizes Flask for the back-end, and MongoDB's MQL for the collections (database). This is currently being deployed on [Heroku](https://dashboard.heroku.com/) under a free Dyno plan, so I apologize for any issues regarding speed or connectivity!
 
-On this website, you are able to:
-
-- Register for an account.
-- Login to that account.
-- Enroll in specific classes, and have them be assoicated with your account.
-
-For more information about specific areas of this project, please refer to my **[personal notes](https://github.com/brennanbrown/evolveu/blob/flask/NOTES.md)**.
+For more information about specific areas of this project, please refer to my **[personal notes](https://github.com/brennanbrown/cohort4/blob/flask/NOTES.md)**.
 
 ### Built With
 
@@ -93,8 +87,8 @@ Please note for sake of ease, his project is set to work with the default config
 
 ## Installation
 
-    $ git clone --single-branch --branch flask https://github.com/brennanbrown/cohort4.git
-    $ cd cohort4
+    $ git clone --single-branch --branch flask https://github.com/brennanbrown/evolveu.git
+    $ cd evolveu
 
 ### Virtual Environment (`venv`)
 
@@ -138,4 +132,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Brennan K. Brown - [@brennankbrown](https://twitter.com/brennanbrown) - [mail@brennanbrown.ca](mailto:mail@brennanbrown.ca)
 
-Project Link: [https://github.com/brennanbrown/cohort4](https://github.com/brennanbrown/evolveu/tree/flask)
+Project Link: [https://github.com/brennanbrown/evolveu](https://github.com/brennanbrown/evolveu/tree/flask)
