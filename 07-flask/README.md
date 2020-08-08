@@ -87,8 +87,8 @@ Please note for sake of ease, his project is set to work with the default config
 
 ## Installation
 
-    $ git clone --single-branch --branch flask https://github.com/brennanbrown/cohort4.git
-    $ cd cohort4
+    $ git clone --single-branch --branch flask https://github.com/brennanbrown/evolveu.git
+    $ cd evolveu
 
 ### Virtual Environment (`venv`)
 
@@ -109,7 +109,7 @@ Once the server has started up, you can visit it at [localhost:5000/](localhost:
 <!-- ROADMAP -->
 ## Roadmap
 
-See the [open issues](https://github.com/brennanbrown/cohort4/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/brennanbrown/evolveu/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 ## Contributing
@@ -132,4 +132,4 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Brennan K. Brown - [@brennankbrown](https://twitter.com/brennanbrown) - [mail@brennanbrown.ca](mailto:mail@brennanbrown.ca)
 
-Project Link: [https://github.com/brennanbrown/cohort4](https://github.com/brennanbrown/cohort4/tree/flask)
+Project Link: [https://github.com/brennanbrown/evolveu](https://github.com/brennanbrown/evolveu/tree/flask)
