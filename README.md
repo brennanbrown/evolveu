@@ -1,6 +1,6 @@
-# EvolveU Curriculum
+# EvolveU / InceptionU Curriculum
 
-EvolveU is a full-time program in Calgary, Alberta. The material blends technology, people, and process skills into one fully integrated experience. During my time with the program, I learned coding languages and frameworks such as; Python, JavaScript, Flask, Bootstrap, OpenPyXL, HTML/CSS, JavaScript, SQLAlchemy, and REACT.js  and non-technical skills such as; critical thinking, working in teams, design thinking, and workplace readiness. The classroom is designed to simulate a agile working environment, and includes daily stand-ups, weekly sprints, and weekly retrospectives.
+EvolveU / InceptionU is a full-time program in Calgary, Alberta. The material blends technology, people, and process skills into one fully integrated experience. During my time with the program, I learned coding languages and frameworks such as; Python, JavaScript, Flask, Bootstrap, OpenPyXL, HTML/CSS, JavaScript, SQLAlchemy, and REACT.js  and non-technical skills such as; critical thinking, working in teams, design thinking, and workplace readiness. The classroom is designed to simulate a agile working environment, and includes daily stand-ups, weekly sprints, and weekly retrospectives.
 
 The Full Stack Developer program is designed to develop the technical skills needed to become a Full Stack Developer, and to help learners adopt a growth mindset to future-proof themselves in an ever-changing digital economy. A Full Stack Developer is a person who has the skills to do back-end development work (coding, databases design, and programming) and front-end development work (design and UX/UI). 
 
