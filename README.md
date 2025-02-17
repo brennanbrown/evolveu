@@ -1,6 +1,6 @@
 # EvolveU / InceptionU Curriculum
 
-<h3 align="center"><b>⭒❃.✮:▹:wave: Hi! I'm <a href="https://github.com/brennanbrown">Brennan</a>, an EvolveU alumni. Wanna hire me? <a href="https://brennanbrown.ca">Click here!</a>◃:✮.❃⭒</b></h3>
+<h3 align="center"><b>⭒❃.✮:▹Hi! I'm <a href="https://github.com/brennanbrown">Brennan</a>, an EvolveU alumni. Wanna hire me? <a href="https://brennanbrown.ca">Click here!</a>◃:✮.❃⭒</b></h3>
 
 EvolveU / InceptionU is a full-time program in Calgary, Alberta. The material blends technology, people, and process skills into one fully integrated experience. During my time with the program, I learned coding languages and frameworks such as; Python, JavaScript, Flask, Bootstrap, OpenPyXL, HTML/CSS, JavaScript, SQLAlchemy, and REACT.js  and non-technical skills such as; critical thinking, working in teams, design thinking, and workplace readiness. The classroom is designed to simulate a agile working environment, and includes daily stand-ups, weekly sprints, and weekly retrospectives.
 
