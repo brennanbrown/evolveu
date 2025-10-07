@@ -1,99 +1,61 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>07-flask | EvolveU Documentation</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { color: #008000; } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { color: #008000; font-weight: bold; } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="doc-style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 07: Flask Full-Stack | EvolveU Documentation</title>
+    <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doc-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
-<body>
-<header id="title-block-header">
-<h1 class="title">07-flask | EvolveU Documentation</h1>
-</header>
+<body class="doc-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
+                    <span class="logo">📚</span>
+                    <span class="brand-text">EvolveU Docs</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="INDEX.html" class="nav-link">All Modules</a>
+                <a href="https://github.com/brennanbrown/evolveu" target="_blank" class="nav-link">GitHub</a>
+                <a href="https://brennanbrown.ca" target="_blank" class="btn btn-primary">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="doc-container">
+        <!-- Sidebar -->
+        <aside class="doc-sidebar">
+            <h3>Modules</h3>
+            <nav class="doc-nav">
+                <a href="00-testing.html" class="doc-nav-link">00 - Testing Fundamentals</a>
+                <a href="01-getting-started.html" class="doc-nav-link">01 - Getting Started</a>
+                <a href="02-dom.html" class="doc-nav-link">02 - DOM Manipulation</a>
+                <a href="03-objects.html" class="doc-nav-link">03 - Objects & APIs</a>
+                <a href="04-react.html" class="doc-nav-link">04 - React Applications</a>
+                <a href="05-api.html" class="doc-nav-link">05 - Flask API Server</a>
+                <a href="06-python.html" class="doc-nav-link">06 - Python Fundamentals</a>
+                <a href="07-flask.html" class="doc-nav-link">07 - Flask Full-Stack</a>
+            </nav>
+            
+            <h3 style="margin-top: 2rem;">Resources</h3>
+            <nav class="doc-nav">
+                <a href="README.html" class="doc-nav-link">Getting Started</a>
+                <a href="INDEX.html" class="doc-nav-link">Documentation Index</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="doc-content">
+            <article class="markdown-body">
 <h1 id="module-07-flask-full-stack-application">Module 07: Flask
 Full-Stack Application</h1>
 <p><strong>Learning Focus:</strong> Production Flask apps, MongoDB
@@ -169,48 +131,46 @@ Deployment:
 Pattern</h3>
 <p><strong>Problem</strong>: Direct app instantiation makes testing
 difficult</p>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ BAD: Global app instance</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">&#39;/&#39;</span>)</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> index():</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&#39;Hello&#39;</span></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="va">__name__</span> <span class="op">==</span> <span class="st">&#39;__main__&#39;</span>:</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    app.run()</span></code></pre></div>
+<pre class="python"><code># ❌ BAD: Global app instance
+from flask import Flask
+app = Flask(__name__)
+
+@app.route(&#39;/&#39;)
+def index():
+    return &#39;Hello&#39;
+
+if __name__ == &#39;__main__&#39;:
+    app.run()</code></pre>
 <p><strong>Solution</strong>: Factory function creates app</p>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ GOOD: Factory pattern (app/__init__.py)</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Flask</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_mongoengine <span class="im">import</span> MongoEngine</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>db <span class="op">=</span> MongoEngine()</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_app(config_name<span class="op">=</span><span class="st">&#39;default&#39;</span>):</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="co">    Application factory function</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Args:</span></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">        config_name: Configuration to use (dev, test, prod)</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns:</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a><span class="co">        Configured Flask app</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    app <span class="op">=</span> Flask(<span class="va">__name__</span>)</span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Load configuration</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    app.config.from_object(<span class="ss">f&#39;config.</span><span class="sc">{</span>config_name<span class="sc">}</span><span class="ss">&#39;</span>)</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize extensions</span></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a>    db.init_app(app)</span>
-<span id="cb5-24"><a href="#cb5-24" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-25"><a href="#cb5-25" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Register blueprints</span></span>
-<span id="cb5-26"><a href="#cb5-26" aria-hidden="true" tabindex="-1"></a>    <span class="im">from</span> .routes <span class="im">import</span> main_bp</span>
-<span id="cb5-27"><a href="#cb5-27" aria-hidden="true" tabindex="-1"></a>    app.register_blueprint(main_bp)</span>
-<span id="cb5-28"><a href="#cb5-28" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb5-29"><a href="#cb5-29" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> app</span></code></pre></div>
+<pre class="python"><code># ✅ GOOD: Factory pattern (app/__init__.py)
+from flask import Flask
+from flask_mongoengine import MongoEngine
+
+db = MongoEngine()
+
+def create_app(config_name=&#39;default&#39;):
+    &quot;&quot;&quot;
+    Application factory function
+    
+    Args:
+        config_name: Configuration to use (dev, test, prod)
+    
+    Returns:
+        Configured Flask app
+    &quot;&quot;&quot;
+    app = Flask(__name__)
+    
+    # Load configuration
+    app.config.from_object(f&#39;config.{config_name}&#39;)
+    
+    # Initialize extensions
+    db.init_app(app)
+    
+    # Register blueprints
+    from .routes import main_bp
+    app.register_blueprint(main_bp)
+    
+    return app</code></pre>
 <p><strong>Benefits</strong>:</p>
 <ul>
 <li>Multiple app instances for testing</li>
@@ -220,342 +180,333 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a hr
 </ul>
 <h3 id="2-mongodb--mongoengine">2. MongoDB &amp; MongoEngine</h3>
 <p><strong>Traditional SQL</strong> (PostgreSQL, MySQL):</p>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode sql"><code class="sourceCode sql"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">-- Structured tables</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">CREATE</span> <span class="kw">TABLE</span> users (</span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">id</span> SERIAL <span class="kw">PRIMARY</span> <span class="kw">KEY</span>,</span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    username <span class="dt">VARCHAR</span>(<span class="dv">50</span>),</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    email <span class="dt">VARCHAR</span>(<span class="dv">100</span>)</span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>);</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">-- Rigid schema</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">INSERT</span> <span class="kw">INTO</span> users (username, email) <span class="kw">VALUES</span> (<span class="st">&#39;brennan&#39;</span>, <span class="st">&#39;b@example.com&#39;</span>);</span></code></pre></div>
+<pre class="sql"><code>-- Structured tables
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    username VARCHAR(50),
+    email VARCHAR(100)
+);
+
+-- Rigid schema
+INSERT INTO users (username, email) VALUES (&#39;brennan&#39;, &#39;b@example.com&#39;);</code></pre>
 <p><strong>NoSQL MongoDB</strong>:</p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Flexible documents</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;_id&quot;</span><span class="op">:</span> <span class="fu">ObjectId</span>(<span class="st">&quot;...&quot;</span>)<span class="op">,</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;username&quot;</span><span class="op">:</span> <span class="st">&quot;brennan&quot;</span><span class="op">,</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;email&quot;</span><span class="op">:</span> <span class="st">&quot;b@example.com&quot;</span><span class="op">,</span></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;profile&quot;</span><span class="op">:</span> {</span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;age&quot;</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span></span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&quot;city&quot;</span><span class="op">:</span> <span class="st">&quot;Calgary&quot;</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;tags&quot;</span><span class="op">:</span> [<span class="st">&quot;developer&quot;</span><span class="op">,</span> <span class="st">&quot;student&quot;</span>]</span>
-<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a><span class="co">// No fixed schema!</span></span></code></pre></div>
+<pre class="javascript"><code>// Flexible documents
+{
+    &quot;_id&quot;: ObjectId(&quot;...&quot;),
+    &quot;username&quot;: &quot;brennan&quot;,
+    &quot;email&quot;: &quot;b@example.com&quot;,
+    &quot;profile&quot;: {
+        &quot;age&quot;: 25,
+        &quot;city&quot;: &quot;Calgary&quot;
+    },
+    &quot;tags&quot;: [&quot;developer&quot;, &quot;student&quot;]
+}
+
+// No fixed schema!</code></pre>
 <p><strong>MongoEngine ODM</strong>:</p>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mongoengine <span class="im">import</span> Document, StringField, IntField</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(Document):</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">    User model - maps to MongoDB collection</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">    &quot;&quot;&quot;</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> StringField(required<span class="op">=</span><span class="va">True</span>, unique<span class="op">=</span><span class="va">True</span>, max_length<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    email <span class="op">=</span> StringField(required<span class="op">=</span><span class="va">True</span>, unique<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    password_hash <span class="op">=</span> StringField(required<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># OOP methods</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_password(<span class="va">self</span>, password):</span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.password_hash <span class="op">=</span> generate_password_hash(password)</span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> check_password(<span class="va">self</span>, password):</span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> check_password_hash(<span class="va">self</span>.password_hash, password)</span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Usage</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> User(username<span class="op">=</span><span class="st">&#39;brennan&#39;</span>, email<span class="op">=</span><span class="st">&#39;b@example.com&#39;</span>)</span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>user.set_password(<span class="st">&#39;secret123&#39;</span>)</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>user.save()  <span class="co"># Saves to MongoDB</span></span>
-<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Query</span></span>
-<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>user <span class="op">=</span> User.objects(username<span class="op">=</span><span class="st">&#39;brennan&#39;</span>).first()</span></code></pre></div>
+<pre class="python"><code>from mongoengine import Document, StringField, IntField
+
+class User(Document):
+    &quot;&quot;&quot;
+    User model - maps to MongoDB collection
+    &quot;&quot;&quot;
+    username = StringField(required=True, unique=True, max_length=50)
+    email = StringField(required=True, unique=True)
+    password_hash = StringField(required=True)
+    
+    # OOP methods
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+    
+    def check_password(self, password):
+        return check_password_hash(self.password_hash, password)
+
+# Usage
+user = User(username=&#39;brennan&#39;, email=&#39;b@example.com&#39;)
+user.set_password(&#39;secret123&#39;)
+user.save()  # Saves to MongoDB
+
+# Query
+user = User.objects(username=&#39;brennan&#39;).first()</code></pre>
 <h3 id="3-authentication-with-flask-login">3. Authentication with
 Flask-Login</h3>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_login <span class="im">import</span> LoginManager, UserMixin, login_user, logout_user, login_required</span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Setup</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>login_manager <span class="op">=</span> LoginManager()</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>login_manager.init_app(app)</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co"># User loader callback</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="at">@login_manager.user_loader</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> load_user(user_id):</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> User.objects(<span class="bu">id</span><span class="op">=</span>user_id).first()</span>
-<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Login route</span></span>
-<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">&#39;/login&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;POST&#39;</span>])</span>
-<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> login():</span>
-<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a>    username <span class="op">=</span> request.form.get(<span class="st">&#39;username&#39;</span>)</span>
-<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> request.form.get(<span class="st">&#39;password&#39;</span>)</span>
-<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> User.objects(username<span class="op">=</span>username).first()</span>
-<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> user <span class="kw">and</span> user.check_password(password):</span>
-<span id="cb9-21"><a href="#cb9-21" aria-hidden="true" tabindex="-1"></a>        login_user(user)  <span class="co"># Creates session</span></span>
-<span id="cb9-22"><a href="#cb9-22" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> redirect(<span class="st">&#39;/dashboard&#39;</span>)</span>
-<span id="cb9-23"><a href="#cb9-23" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb9-24"><a href="#cb9-24" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&#39;Invalid credentials&#39;</span>, <span class="dv">401</span></span>
-<span id="cb9-25"><a href="#cb9-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-26"><a href="#cb9-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Protected route</span></span>
-<span id="cb9-27"><a href="#cb9-27" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">&#39;/dashboard&#39;</span>)</span>
-<span id="cb9-28"><a href="#cb9-28" aria-hidden="true" tabindex="-1"></a><span class="at">@login_required</span>  <span class="co"># Decorator requires authentication</span></span>
-<span id="cb9-29"><a href="#cb9-29" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> dashboard():</span>
-<span id="cb9-30"><a href="#cb9-30" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="ss">f&#39;Welcome </span><span class="sc">{</span>current_user<span class="sc">.</span>username<span class="sc">}</span><span class="ss">&#39;</span></span>
-<span id="cb9-31"><a href="#cb9-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-32"><a href="#cb9-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Logout</span></span>
-<span id="cb9-33"><a href="#cb9-33" aria-hidden="true" tabindex="-1"></a><span class="at">@app.route</span>(<span class="st">&#39;/logout&#39;</span>)</span>
-<span id="cb9-34"><a href="#cb9-34" aria-hidden="true" tabindex="-1"></a><span class="at">@login_required</span></span>
-<span id="cb9-35"><a href="#cb9-35" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> logout():</span>
-<span id="cb9-36"><a href="#cb9-36" aria-hidden="true" tabindex="-1"></a>    logout_user()  <span class="co"># Destroys session</span></span>
-<span id="cb9-37"><a href="#cb9-37" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> redirect(<span class="st">&#39;/&#39;</span>)</span></code></pre></div>
+<pre class="python"><code>from flask_login import LoginManager, UserMixin, login_user, logout_user, login_required
+
+# Setup
+login_manager = LoginManager()
+login_manager.init_app(app)
+
+# User loader callback
+@login_manager.user_loader
+def load_user(user_id):
+    return User.objects(id=user_id).first()
+
+# Login route
+@app.route(&#39;/login&#39;, methods=[&#39;POST&#39;])
+def login():
+    username = request.form.get(&#39;username&#39;)
+    password = request.form.get(&#39;password&#39;)
+    
+    user = User.objects(username=username).first()
+    
+    if user and user.check_password(password):
+        login_user(user)  # Creates session
+        return redirect(&#39;/dashboard&#39;)
+    
+    return &#39;Invalid credentials&#39;, 401
+
+# Protected route
+@app.route(&#39;/dashboard&#39;)
+@login_required  # Decorator requires authentication
+def dashboard():
+    return f&#39;Welcome {current_user.username}&#39;
+
+# Logout
+@app.route(&#39;/logout&#39;)
+@login_required
+def logout():
+    logout_user()  # Destroys session
+    return redirect(&#39;/&#39;)</code></pre>
 <h3 id="4-environment-configuration">4. Environment Configuration</h3>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># config.py</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> os</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Config:</span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Base configuration&quot;&quot;&quot;</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    SECRET_KEY <span class="op">=</span> os.environ.get(<span class="st">&#39;SECRET_KEY&#39;</span>) <span class="kw">or</span> <span class="st">&#39;dev-secret-key&#39;</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    MONGODB_SETTINGS <span class="op">=</span> {</span>
-<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;db&#39;</span>: <span class="st">&#39;myapp&#39;</span>,</span>
-<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;host&#39;</span>: <span class="st">&#39;localhost&#39;</span>,</span>
-<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;port&#39;</span>: <span class="dv">27017</span></span>
-<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> DevelopmentConfig(Config):</span>
-<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Development configuration&quot;&quot;&quot;</span></span>
-<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a>    DEBUG <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>    TESTING <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> TestingConfig(Config):</span>
-<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Testing configuration&quot;&quot;&quot;</span></span>
-<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>    DEBUG <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a>    TESTING <span class="op">=</span> <span class="va">True</span></span>
-<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a>    MONGODB_SETTINGS <span class="op">=</span> {</span>
-<span id="cb10-23"><a href="#cb10-23" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;db&#39;</span>: <span class="st">&#39;myapp_test&#39;</span>,</span>
-<span id="cb10-24"><a href="#cb10-24" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;host&#39;</span>: <span class="st">&#39;localhost&#39;</span>,</span>
-<span id="cb10-25"><a href="#cb10-25" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;port&#39;</span>: <span class="dv">27017</span></span>
-<span id="cb10-26"><a href="#cb10-26" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb10-27"><a href="#cb10-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-28"><a href="#cb10-28" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> ProductionConfig(Config):</span>
-<span id="cb10-29"><a href="#cb10-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Production configuration&quot;&quot;&quot;</span></span>
-<span id="cb10-30"><a href="#cb10-30" aria-hidden="true" tabindex="-1"></a>    DEBUG <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb10-31"><a href="#cb10-31" aria-hidden="true" tabindex="-1"></a>    TESTING <span class="op">=</span> <span class="va">False</span></span>
-<span id="cb10-32"><a href="#cb10-32" aria-hidden="true" tabindex="-1"></a>    MONGODB_SETTINGS <span class="op">=</span> {</span>
-<span id="cb10-33"><a href="#cb10-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;db&#39;</span>: os.environ.get(<span class="st">&#39;MONGODB_DB&#39;</span>),</span>
-<span id="cb10-34"><a href="#cb10-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;host&#39;</span>: os.environ.get(<span class="st">&#39;MONGODB_URI&#39;</span>),</span>
-<span id="cb10-35"><a href="#cb10-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;username&#39;</span>: os.environ.get(<span class="st">&#39;MONGODB_USER&#39;</span>),</span>
-<span id="cb10-36"><a href="#cb10-36" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;password&#39;</span>: os.environ.get(<span class="st">&#39;MONGODB_PASSWORD&#39;</span>)</span>
-<span id="cb10-37"><a href="#cb10-37" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb10-38"><a href="#cb10-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb10-39"><a href="#cb10-39" aria-hidden="true" tabindex="-1"></a><span class="co"># Map config names to classes</span></span>
-<span id="cb10-40"><a href="#cb10-40" aria-hidden="true" tabindex="-1"></a>config <span class="op">=</span> {</span>
-<span id="cb10-41"><a href="#cb10-41" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;development&#39;</span>: DevelopmentConfig,</span>
-<span id="cb10-42"><a href="#cb10-42" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;testing&#39;</span>: TestingConfig,</span>
-<span id="cb10-43"><a href="#cb10-43" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;production&#39;</span>: ProductionConfig,</span>
-<span id="cb10-44"><a href="#cb10-44" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;default&#39;</span>: DevelopmentConfig</span>
-<span id="cb10-45"><a href="#cb10-45" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="python"><code># config.py
+import os
+
+class Config:
+    &quot;&quot;&quot;Base configuration&quot;&quot;&quot;
+    SECRET_KEY = os.environ.get(&#39;SECRET_KEY&#39;) or &#39;dev-secret-key&#39;
+    MONGODB_SETTINGS = {
+        &#39;db&#39;: &#39;myapp&#39;,
+        &#39;host&#39;: &#39;localhost&#39;,
+        &#39;port&#39;: 27017
+    }
+
+class DevelopmentConfig(Config):
+    &quot;&quot;&quot;Development configuration&quot;&quot;&quot;
+    DEBUG = True
+    TESTING = False
+
+class TestingConfig(Config):
+    &quot;&quot;&quot;Testing configuration&quot;&quot;&quot;
+    DEBUG = False
+    TESTING = True
+    MONGODB_SETTINGS = {
+        &#39;db&#39;: &#39;myapp_test&#39;,
+        &#39;host&#39;: &#39;localhost&#39;,
+        &#39;port&#39;: 27017
+    }
+
+class ProductionConfig(Config):
+    &quot;&quot;&quot;Production configuration&quot;&quot;&quot;
+    DEBUG = False
+    TESTING = False
+    MONGODB_SETTINGS = {
+        &#39;db&#39;: os.environ.get(&#39;MONGODB_DB&#39;),
+        &#39;host&#39;: os.environ.get(&#39;MONGODB_URI&#39;),
+        &#39;username&#39;: os.environ.get(&#39;MONGODB_USER&#39;),
+        &#39;password&#39;: os.environ.get(&#39;MONGODB_PASSWORD&#39;)
+    }
+
+# Map config names to classes
+config = {
+    &#39;development&#39;: DevelopmentConfig,
+    &#39;testing&#39;: TestingConfig,
+    &#39;production&#39;: ProductionConfig,
+    &#39;default&#39;: DevelopmentConfig
+}</code></pre>
 <hr />
 <h2 id="code-examples">Code Examples</h2>
 <h3 id="modelspy---database-models">models.py - Database Models</h3>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> app <span class="im">import</span> db</span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> datetime <span class="im">import</span> datetime</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> werkzeug.security <span class="im">import</span> generate_password_hash, check_password_hash</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(db.Document):</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;User model&quot;&quot;&quot;</span></span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>    user_id <span class="op">=</span> db.IntField(required<span class="op">=</span><span class="va">True</span>, unique<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>    first_name <span class="op">=</span> db.StringField(max_length<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>    last_name <span class="op">=</span> db.StringField(max_length<span class="op">=</span><span class="dv">50</span>)</span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>    email <span class="op">=</span> db.StringField(required<span class="op">=</span><span class="va">True</span>, unique<span class="op">=</span><span class="va">True</span>, max_length<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb11-11"><a href="#cb11-11" aria-hidden="true" tabindex="-1"></a>    password <span class="op">=</span> db.StringField(required<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-12"><a href="#cb11-12" aria-hidden="true" tabindex="-1"></a>    created_at <span class="op">=</span> db.DateTimeField(default<span class="op">=</span>datetime.utcnow)</span>
-<span id="cb11-13"><a href="#cb11-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-14"><a href="#cb11-14" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> {</span>
-<span id="cb11-15"><a href="#cb11-15" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;collection&#39;</span>: <span class="st">&#39;users&#39;</span>,</span>
-<span id="cb11-16"><a href="#cb11-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;indexes&#39;</span>: [<span class="st">&#39;user_id&#39;</span>, <span class="st">&#39;email&#39;</span>]</span>
-<span id="cb11-17"><a href="#cb11-17" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-18"><a href="#cb11-18" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-19"><a href="#cb11-19" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> set_password(<span class="va">self</span>, password):</span>
-<span id="cb11-20"><a href="#cb11-20" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Hash and store password&quot;&quot;&quot;</span></span>
-<span id="cb11-21"><a href="#cb11-21" aria-hidden="true" tabindex="-1"></a>        <span class="va">self</span>.password <span class="op">=</span> generate_password_hash(password)</span>
-<span id="cb11-22"><a href="#cb11-22" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-23"><a href="#cb11-23" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> check_password(<span class="va">self</span>, password):</span>
-<span id="cb11-24"><a href="#cb11-24" aria-hidden="true" tabindex="-1"></a>        <span class="co">&quot;&quot;&quot;Verify password&quot;&quot;&quot;</span></span>
-<span id="cb11-25"><a href="#cb11-25" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> check_password_hash(<span class="va">self</span>.password, password)</span>
-<span id="cb11-26"><a href="#cb11-26" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-27"><a href="#cb11-27" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb11-28"><a href="#cb11-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&#39;&lt;User </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>email<span class="sc">}</span><span class="ss">&gt;&#39;</span></span>
-<span id="cb11-29"><a href="#cb11-29" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-30"><a href="#cb11-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-31"><a href="#cb11-31" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Course(db.Document):</span>
-<span id="cb11-32"><a href="#cb11-32" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Course model&quot;&quot;&quot;</span></span>
-<span id="cb11-33"><a href="#cb11-33" aria-hidden="true" tabindex="-1"></a>    course_id <span class="op">=</span> db.IntField(required<span class="op">=</span><span class="va">True</span>, unique<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-34"><a href="#cb11-34" aria-hidden="true" tabindex="-1"></a>    course_name <span class="op">=</span> db.StringField(required<span class="op">=</span><span class="va">True</span>, max_length<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb11-35"><a href="#cb11-35" aria-hidden="true" tabindex="-1"></a>    instructor <span class="op">=</span> db.StringField(max_length<span class="op">=</span><span class="dv">100</span>)</span>
-<span id="cb11-36"><a href="#cb11-36" aria-hidden="true" tabindex="-1"></a>    credits <span class="op">=</span> db.IntField(min_value<span class="op">=</span><span class="dv">1</span>, max_value<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb11-37"><a href="#cb11-37" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-38"><a href="#cb11-38" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> {</span>
-<span id="cb11-39"><a href="#cb11-39" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;collection&#39;</span>: <span class="st">&#39;courses&#39;</span>,</span>
-<span id="cb11-40"><a href="#cb11-40" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;indexes&#39;</span>: [<span class="st">&#39;course_id&#39;</span>]</span>
-<span id="cb11-41"><a href="#cb11-41" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-42"><a href="#cb11-42" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-43"><a href="#cb11-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb11-44"><a href="#cb11-44" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&#39;&lt;Course </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>course_name<span class="sc">}</span><span class="ss">&gt;&#39;</span></span>
-<span id="cb11-45"><a href="#cb11-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-46"><a href="#cb11-46" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb11-47"><a href="#cb11-47" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> Enrollment(db.Document):</span>
-<span id="cb11-48"><a href="#cb11-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Enrollment (Many-to-Many relationship)&quot;&quot;&quot;</span></span>
-<span id="cb11-49"><a href="#cb11-49" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> db.ReferenceField(User, required<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-50"><a href="#cb11-50" aria-hidden="true" tabindex="-1"></a>    course <span class="op">=</span> db.ReferenceField(Course, required<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb11-51"><a href="#cb11-51" aria-hidden="true" tabindex="-1"></a>    enrolled_at <span class="op">=</span> db.DateTimeField(default<span class="op">=</span>datetime.utcnow)</span>
-<span id="cb11-52"><a href="#cb11-52" aria-hidden="true" tabindex="-1"></a>    grade <span class="op">=</span> db.StringField(max_length<span class="op">=</span><span class="dv">2</span>)</span>
-<span id="cb11-53"><a href="#cb11-53" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-54"><a href="#cb11-54" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> {</span>
-<span id="cb11-55"><a href="#cb11-55" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;collection&#39;</span>: <span class="st">&#39;enrollments&#39;</span>,</span>
-<span id="cb11-56"><a href="#cb11-56" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;indexes&#39;</span>: [</span>
-<span id="cb11-57"><a href="#cb11-57" aria-hidden="true" tabindex="-1"></a>            (<span class="st">&#39;user&#39;</span>, <span class="st">&#39;course&#39;</span>)  <span class="co"># Compound index</span></span>
-<span id="cb11-58"><a href="#cb11-58" aria-hidden="true" tabindex="-1"></a>        ]</span>
-<span id="cb11-59"><a href="#cb11-59" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb11-60"><a href="#cb11-60" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb11-61"><a href="#cb11-61" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> <span class="fu">__repr__</span>(<span class="va">self</span>):</span>
-<span id="cb11-62"><a href="#cb11-62" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="ss">f&#39;&lt;Enrollment </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>user<span class="sc">.</span>email<span class="sc">}</span><span class="ss"> - </span><span class="sc">{</span><span class="va">self</span><span class="sc">.</span>course<span class="sc">.</span>course_name<span class="sc">}</span><span class="ss">&gt;&#39;</span></span></code></pre></div>
+<pre class="python"><code>from app import db
+from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
+
+class User(db.Document):
+    &quot;&quot;&quot;User model&quot;&quot;&quot;
+    user_id = db.IntField(required=True, unique=True)
+    first_name = db.StringField(max_length=50)
+    last_name = db.StringField(max_length=50)
+    email = db.StringField(required=True, unique=True, max_length=100)
+    password = db.StringField(required=True)
+    created_at = db.DateTimeField(default=datetime.utcnow)
+    
+    meta = {
+        &#39;collection&#39;: &#39;users&#39;,
+        &#39;indexes&#39;: [&#39;user_id&#39;, &#39;email&#39;]
+    }
+    
+    def set_password(self, password):
+        &quot;&quot;&quot;Hash and store password&quot;&quot;&quot;
+        self.password = generate_password_hash(password)
+    
+    def check_password(self, password):
+        &quot;&quot;&quot;Verify password&quot;&quot;&quot;
+        return check_password_hash(self.password, password)
+    
+    def __repr__(self):
+        return f&#39;&lt;User {self.email}&gt;&#39;
+
+
+class Course(db.Document):
+    &quot;&quot;&quot;Course model&quot;&quot;&quot;
+    course_id = db.IntField(required=True, unique=True)
+    course_name = db.StringField(required=True, max_length=100)
+    instructor = db.StringField(max_length=100)
+    credits = db.IntField(min_value=1, max_value=10)
+    
+    meta = {
+        &#39;collection&#39;: &#39;courses&#39;,
+        &#39;indexes&#39;: [&#39;course_id&#39;]
+    }
+    
+    def __repr__(self):
+        return f&#39;&lt;Course {self.course_name}&gt;&#39;
+
+
+class Enrollment(db.Document):
+    &quot;&quot;&quot;Enrollment (Many-to-Many relationship)&quot;&quot;&quot;
+    user = db.ReferenceField(User, required=True)
+    course = db.ReferenceField(Course, required=True)
+    enrolled_at = db.DateTimeField(default=datetime.utcnow)
+    grade = db.StringField(max_length=2)
+    
+    meta = {
+        &#39;collection&#39;: &#39;enrollments&#39;,
+        &#39;indexes&#39;: [
+            (&#39;user&#39;, &#39;course&#39;)  # Compound index
+        ]
+    }
+    
+    def __repr__(self):
+        return f&#39;&lt;Enrollment {self.user.email} - {self.course.course_name}&gt;&#39;</code></pre>
 <h3 id="routespy---api-endpoints">routes.py - API Endpoints</h3>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask <span class="im">import</span> Blueprint, request, jsonify</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> app.models <span class="im">import</span> User, Course, Enrollment</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask_login <span class="im">import</span> login_required, current_user</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>main_bp <span class="op">=</span> Blueprint(<span class="st">&#39;main&#39;</span>, <span class="va">__name__</span>)</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_function():</span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Test function for basic route testing&quot;&quot;&quot;</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;Success!&quot;</span></span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a><span class="at">@main_bp.route</span>(<span class="st">&#39;/api/users&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>])</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_users():</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Get all users&quot;&quot;&quot;</span></span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>    users <span class="op">=</span> User.objects.<span class="bu">all</span>()</span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify([{</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;user_id&#39;</span>: u.user_id,</span>
-<span id="cb12-17"><a href="#cb12-17" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;first_name&#39;</span>: u.first_name,</span>
-<span id="cb12-18"><a href="#cb12-18" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;last_name&#39;</span>: u.last_name,</span>
-<span id="cb12-19"><a href="#cb12-19" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;email&#39;</span>: u.email</span>
-<span id="cb12-20"><a href="#cb12-20" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">for</span> u <span class="kw">in</span> users]), <span class="dv">200</span></span>
-<span id="cb12-21"><a href="#cb12-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-22"><a href="#cb12-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-23"><a href="#cb12-23" aria-hidden="true" tabindex="-1"></a><span class="at">@main_bp.route</span>(<span class="st">&#39;/api/users/&lt;int:user_id&gt;&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;GET&#39;</span>])</span>
-<span id="cb12-24"><a href="#cb12-24" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> get_user(user_id):</span>
-<span id="cb12-25"><a href="#cb12-25" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Get specific user&quot;&quot;&quot;</span></span>
-<span id="cb12-26"><a href="#cb12-26" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> User.objects(user_id<span class="op">=</span>user_id).first()</span>
-<span id="cb12-27"><a href="#cb12-27" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-28"><a href="#cb12-28" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> user:</span>
-<span id="cb12-29"><a href="#cb12-29" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">&#39;error&#39;</span>: <span class="st">&#39;User not found&#39;</span>}), <span class="dv">404</span></span>
-<span id="cb12-30"><a href="#cb12-30" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-31"><a href="#cb12-31" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({</span>
-<span id="cb12-32"><a href="#cb12-32" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;user_id&#39;</span>: user.user_id,</span>
-<span id="cb12-33"><a href="#cb12-33" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;first_name&#39;</span>: user.first_name,</span>
-<span id="cb12-34"><a href="#cb12-34" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;last_name&#39;</span>: user.last_name,</span>
-<span id="cb12-35"><a href="#cb12-35" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;email&#39;</span>: user.email</span>
-<span id="cb12-36"><a href="#cb12-36" aria-hidden="true" tabindex="-1"></a>    }), <span class="dv">200</span></span>
-<span id="cb12-37"><a href="#cb12-37" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-38"><a href="#cb12-38" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-39"><a href="#cb12-39" aria-hidden="true" tabindex="-1"></a><span class="at">@main_bp.route</span>(<span class="st">&#39;/api/users&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;POST&#39;</span>])</span>
-<span id="cb12-40"><a href="#cb12-40" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> create_user():</span>
-<span id="cb12-41"><a href="#cb12-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Create new user&quot;&quot;&quot;</span></span>
-<span id="cb12-42"><a href="#cb12-42" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> request.get_json()</span>
-<span id="cb12-43"><a href="#cb12-43" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-44"><a href="#cb12-44" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Validation</span></span>
-<span id="cb12-45"><a href="#cb12-45" aria-hidden="true" tabindex="-1"></a>    required <span class="op">=</span> [<span class="st">&#39;user_id&#39;</span>, <span class="st">&#39;first_name&#39;</span>, <span class="st">&#39;last_name&#39;</span>, <span class="st">&#39;email&#39;</span>, <span class="st">&#39;password&#39;</span>]</span>
-<span id="cb12-46"><a href="#cb12-46" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> <span class="bu">all</span>(field <span class="kw">in</span> data <span class="cf">for</span> field <span class="kw">in</span> required):</span>
-<span id="cb12-47"><a href="#cb12-47" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">&#39;error&#39;</span>: <span class="st">&#39;Missing required fields&#39;</span>}), <span class="dv">400</span></span>
-<span id="cb12-48"><a href="#cb12-48" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-49"><a href="#cb12-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if user exists</span></span>
-<span id="cb12-50"><a href="#cb12-50" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> User.objects(email<span class="op">=</span>data[<span class="st">&#39;email&#39;</span>]).first():</span>
-<span id="cb12-51"><a href="#cb12-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">&#39;error&#39;</span>: <span class="st">&#39;Email already exists&#39;</span>}), <span class="dv">400</span></span>
-<span id="cb12-52"><a href="#cb12-52" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-53"><a href="#cb12-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create user</span></span>
-<span id="cb12-54"><a href="#cb12-54" aria-hidden="true" tabindex="-1"></a>    user <span class="op">=</span> User(</span>
-<span id="cb12-55"><a href="#cb12-55" aria-hidden="true" tabindex="-1"></a>        user_id<span class="op">=</span>data[<span class="st">&#39;user_id&#39;</span>],</span>
-<span id="cb12-56"><a href="#cb12-56" aria-hidden="true" tabindex="-1"></a>        first_name<span class="op">=</span>data[<span class="st">&#39;first_name&#39;</span>],</span>
-<span id="cb12-57"><a href="#cb12-57" aria-hidden="true" tabindex="-1"></a>        last_name<span class="op">=</span>data[<span class="st">&#39;last_name&#39;</span>],</span>
-<span id="cb12-58"><a href="#cb12-58" aria-hidden="true" tabindex="-1"></a>        email<span class="op">=</span>data[<span class="st">&#39;email&#39;</span>]</span>
-<span id="cb12-59"><a href="#cb12-59" aria-hidden="true" tabindex="-1"></a>    )</span>
-<span id="cb12-60"><a href="#cb12-60" aria-hidden="true" tabindex="-1"></a>    user.set_password(data[<span class="st">&#39;password&#39;</span>])</span>
-<span id="cb12-61"><a href="#cb12-61" aria-hidden="true" tabindex="-1"></a>    user.save()</span>
-<span id="cb12-62"><a href="#cb12-62" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-63"><a href="#cb12-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">&#39;message&#39;</span>: <span class="st">&#39;User created&#39;</span>, <span class="st">&#39;user_id&#39;</span>: user.user_id}), <span class="dv">201</span></span>
-<span id="cb12-64"><a href="#cb12-64" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-65"><a href="#cb12-65" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-66"><a href="#cb12-66" aria-hidden="true" tabindex="-1"></a><span class="at">@main_bp.route</span>(<span class="st">&#39;/api/enroll&#39;</span>, methods<span class="op">=</span>[<span class="st">&#39;POST&#39;</span>])</span>
-<span id="cb12-67"><a href="#cb12-67" aria-hidden="true" tabindex="-1"></a><span class="at">@login_required</span>  <span class="co"># Must be logged in</span></span>
-<span id="cb12-68"><a href="#cb12-68" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> enroll():</span>
-<span id="cb12-69"><a href="#cb12-69" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Enroll user in course&quot;&quot;&quot;</span></span>
-<span id="cb12-70"><a href="#cb12-70" aria-hidden="true" tabindex="-1"></a>    data <span class="op">=</span> request.get_json()</span>
-<span id="cb12-71"><a href="#cb12-71" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-72"><a href="#cb12-72" aria-hidden="true" tabindex="-1"></a>    course_id <span class="op">=</span> data.get(<span class="st">&#39;course_id&#39;</span>)</span>
-<span id="cb12-73"><a href="#cb12-73" aria-hidden="true" tabindex="-1"></a>    course <span class="op">=</span> Course.objects(course_id<span class="op">=</span>course_id).first()</span>
-<span id="cb12-74"><a href="#cb12-74" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-75"><a href="#cb12-75" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> <span class="kw">not</span> course:</span>
-<span id="cb12-76"><a href="#cb12-76" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">&#39;error&#39;</span>: <span class="st">&#39;Course not found&#39;</span>}), <span class="dv">404</span></span>
-<span id="cb12-77"><a href="#cb12-77" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-78"><a href="#cb12-78" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Check if already enrolled</span></span>
-<span id="cb12-79"><a href="#cb12-79" aria-hidden="true" tabindex="-1"></a>    existing <span class="op">=</span> Enrollment.objects(</span>
-<span id="cb12-80"><a href="#cb12-80" aria-hidden="true" tabindex="-1"></a>        user<span class="op">=</span>current_user.<span class="bu">id</span>,</span>
-<span id="cb12-81"><a href="#cb12-81" aria-hidden="true" tabindex="-1"></a>        course<span class="op">=</span>course.<span class="bu">id</span></span>
-<span id="cb12-82"><a href="#cb12-82" aria-hidden="true" tabindex="-1"></a>    ).first()</span>
-<span id="cb12-83"><a href="#cb12-83" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-84"><a href="#cb12-84" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> existing:</span>
-<span id="cb12-85"><a href="#cb12-85" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> jsonify({<span class="st">&#39;error&#39;</span>: <span class="st">&#39;Already enrolled&#39;</span>}), <span class="dv">400</span></span>
-<span id="cb12-86"><a href="#cb12-86" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-87"><a href="#cb12-87" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create enrollment</span></span>
-<span id="cb12-88"><a href="#cb12-88" aria-hidden="true" tabindex="-1"></a>    enrollment <span class="op">=</span> Enrollment(user<span class="op">=</span>current_user.<span class="bu">id</span>, course<span class="op">=</span>course.<span class="bu">id</span>)</span>
-<span id="cb12-89"><a href="#cb12-89" aria-hidden="true" tabindex="-1"></a>    enrollment.save()</span>
-<span id="cb12-90"><a href="#cb12-90" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb12-91"><a href="#cb12-91" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">&#39;message&#39;</span>: <span class="st">&#39;Enrolled successfully&#39;</span>}), <span class="dv">201</span></span></code></pre></div>
+<pre class="python"><code>from flask import Blueprint, request, jsonify
+from app.models import User, Course, Enrollment
+from flask_login import login_required, current_user
+
+main_bp = Blueprint(&#39;main&#39;, __name__)
+
+def test_function():
+    &quot;&quot;&quot;Test function for basic route testing&quot;&quot;&quot;
+    return &quot;Success!&quot;
+
+@main_bp.route(&#39;/api/users&#39;, methods=[&#39;GET&#39;])
+def get_users():
+    &quot;&quot;&quot;Get all users&quot;&quot;&quot;
+    users = User.objects.all()
+    return jsonify([{
+        &#39;user_id&#39;: u.user_id,
+        &#39;first_name&#39;: u.first_name,
+        &#39;last_name&#39;: u.last_name,
+        &#39;email&#39;: u.email
+    } for u in users]), 200
+
+
+@main_bp.route(&#39;/api/users/&lt;int:user_id&gt;&#39;, methods=[&#39;GET&#39;])
+def get_user(user_id):
+    &quot;&quot;&quot;Get specific user&quot;&quot;&quot;
+    user = User.objects(user_id=user_id).first()
+    
+    if not user:
+        return jsonify({&#39;error&#39;: &#39;User not found&#39;}), 404
+    
+    return jsonify({
+        &#39;user_id&#39;: user.user_id,
+        &#39;first_name&#39;: user.first_name,
+        &#39;last_name&#39;: user.last_name,
+        &#39;email&#39;: user.email
+    }), 200
+
+
+@main_bp.route(&#39;/api/users&#39;, methods=[&#39;POST&#39;])
+def create_user():
+    &quot;&quot;&quot;Create new user&quot;&quot;&quot;
+    data = request.get_json()
+    
+    # Validation
+    required = [&#39;user_id&#39;, &#39;first_name&#39;, &#39;last_name&#39;, &#39;email&#39;, &#39;password&#39;]
+    if not all(field in data for field in required):
+        return jsonify({&#39;error&#39;: &#39;Missing required fields&#39;}), 400
+    
+    # Check if user exists
+    if User.objects(email=data[&#39;email&#39;]).first():
+        return jsonify({&#39;error&#39;: &#39;Email already exists&#39;}), 400
+    
+    # Create user
+    user = User(
+        user_id=data[&#39;user_id&#39;],
+        first_name=data[&#39;first_name&#39;],
+        last_name=data[&#39;last_name&#39;],
+        email=data[&#39;email&#39;]
+    )
+    user.set_password(data[&#39;password&#39;])
+    user.save()
+    
+    return jsonify({&#39;message&#39;: &#39;User created&#39;, &#39;user_id&#39;: user.user_id}), 201
+
+
+@main_bp.route(&#39;/api/enroll&#39;, methods=[&#39;POST&#39;])
+@login_required  # Must be logged in
+def enroll():
+    &quot;&quot;&quot;Enroll user in course&quot;&quot;&quot;
+    data = request.get_json()
+    
+    course_id = data.get(&#39;course_id&#39;)
+    course = Course.objects(course_id=course_id).first()
+    
+    if not course:
+        return jsonify({&#39;error&#39;: &#39;Course not found&#39;}), 404
+    
+    # Check if already enrolled
+    existing = Enrollment.objects(
+        user=current_user.id,
+        course=course.id
+    ).first()
+    
+    if existing:
+        return jsonify({&#39;error&#39;: &#39;Already enrolled&#39;}), 400
+    
+    # Create enrollment
+    enrollment = Enrollment(user=current_user.id, course=course.id)
+    enrollment.save()
+    
+    return jsonify({&#39;message&#39;: &#39;Enrolled successfully&#39;}), 201</code></pre>
 <h3 id="routes_testpy---testing">routes_test.py - Testing</h3>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> app <span class="im">import</span> routes</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> app.models <span class="im">import</span> User, Course, Enrollment</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pytest</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> test_canRoutesBeCalled():</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Test basic route functionality&quot;&quot;&quot;</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    output <span class="op">=</span> routes.test_function()</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">assert</span> output <span class="op">==</span> <span class="st">&quot;Success!&quot;</span></span>
-<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> mock_users():</span>
-<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">&quot;&quot;&quot;Create mock users for testing&quot;&quot;&quot;</span></span>
-<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    User(</span>
-<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>        user_id<span class="op">=</span><span class="dv">1</span>,</span>
-<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>        first_name<span class="op">=</span><span class="st">&quot;Jane&quot;</span>,</span>
-<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>        last_name<span class="op">=</span><span class="st">&quot;Testname&quot;</span>,</span>
-<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>        email<span class="op">=</span><span class="st">&quot;jane_testname@flaskschool.com&quot;</span>,</span>
-<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>        password<span class="op">=</span><span class="st">&quot;fake_password1&quot;</span></span>
-<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    ).save()</span>
-<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>    User(</span>
-<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>        user_id<span class="op">=</span><span class="dv">2</span>,</span>
-<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>        first_name<span class="op">=</span><span class="st">&quot;John&quot;</span>,</span>
-<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>        last_name<span class="op">=</span><span class="st">&quot;Testname&quot;</span>,</span>
-<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>        email<span class="op">=</span><span class="st">&quot;john_testname@flaskschool.com&quot;</span>,</span>
-<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>        password<span class="op">=</span><span class="st">&quot;fake_password2&quot;</span></span>
-<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    ).save()</span>
-<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a><span class="co"># More tests would go here...</span></span></code></pre></div>
+<pre class="python"><code>from app import routes
+from app.models import User, Course, Enrollment
+import pytest
+
+def test_canRoutesBeCalled():
+    &quot;&quot;&quot;Test basic route functionality&quot;&quot;&quot;
+    output = routes.test_function()
+    assert output == &quot;Success!&quot;
+
+def mock_users():
+    &quot;&quot;&quot;Create mock users for testing&quot;&quot;&quot;
+    User(
+        user_id=1,
+        first_name=&quot;Jane&quot;,
+        last_name=&quot;Testname&quot;,
+        email=&quot;jane_testname@flaskschool.com&quot;,
+        password=&quot;fake_password1&quot;
+    ).save()
+    
+    User(
+        user_id=2,
+        first_name=&quot;John&quot;,
+        last_name=&quot;Testname&quot;,
+        email=&quot;john_testname@flaskschool.com&quot;,
+        password=&quot;fake_password2&quot;
+    ).save()
+
+# More tests would go here...</code></pre>
 <hr />
 <h2 id="challenges--learnings">Challenges &amp; Learnings</h2>
 <h3 id="challenge-1-dependency-compatibility">Challenge 1: Dependency
 Compatibility</h3>
 <p><strong>Problem</strong>: Flask 3.x changed internal structure,
 breaking flask-mongoengine</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># flask-mongoengine tries to import:</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> flask.json <span class="im">import</span> JSONEncoder  <span class="co"># Doesn&#39;t exist in Flask 3.x!</span></span></code></pre></div>
+<pre class="python"><code># flask-mongoengine tries to import:
+from flask.json import JSONEncoder  # Doesn&#39;t exist in Flask 3.x!</code></pre>
 <p><strong>Solutions</strong>:</p>
 <ol type="1">
 <li>Downgrade to Flask 2.x</li>
@@ -568,34 +519,31 @@ class="sourceCode python"><code class="sourceCode python"><span id="cb14-1"><a h
 <h3 id="challenge-2-mongodb-setup">Challenge 2: MongoDB Setup</h3>
 <p><strong>Problem</strong>: MongoDB must be running locally or in
 cloud</p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Install MongoDB</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> install mongodb-community</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Start MongoDB</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="ex">brew</span> services start mongodb-community</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Verify it&#39;s running</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="ex">mongo</span> <span class="at">--eval</span> <span class="st">&quot;db.stats()&quot;</span></span></code></pre></div>
+<pre class="bash"><code># Install MongoDB
+brew install mongodb-community
+
+# Start MongoDB
+brew services start mongodb-community
+
+# Verify it&#39;s running
+mongo --eval &quot;db.stats()&quot;</code></pre>
 <p><strong>Cloud Alternative</strong>: MongoDB Atlas (free tier)</p>
 <h3 id="challenge-3-environment-variables">Challenge 3: Environment
 Variables</h3>
 <p><strong>Problem</strong>: Secrets shouldn't be in code</p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># ❌ BAD: Hardcoded secrets</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>MONGODB_URI <span class="op">=</span> <span class="st">&quot;mongodb://user:password@host:27017/db&quot;</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>SECRET_KEY <span class="op">=</span> <span class="st">&quot;my-secret-key-123&quot;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a><span class="co"># ✅ GOOD: Use environment variables</span></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>MONGODB_URI <span class="op">=</span> os.environ.get(<span class="st">&#39;MONGODB_URI&#39;</span>)</span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>SECRET_KEY <span class="op">=</span> os.environ.get(<span class="st">&#39;SECRET_KEY&#39;</span>)</span></code></pre></div>
+<pre class="python"><code># ❌ BAD: Hardcoded secrets
+MONGODB_URI = &quot;mongodb://user:password@host:27017/db&quot;
+SECRET_KEY = &quot;my-secret-key-123&quot;
+
+# ✅ GOOD: Use environment variables
+MONGODB_URI = os.environ.get(&#39;MONGODB_URI&#39;)
+SECRET_KEY = os.environ.get(&#39;SECRET_KEY&#39;)</code></pre>
 <p><strong>Solution</strong>: Use <code>.env</code> file (don't
 commit!)</p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co"># .env (add to .gitignore!)</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="va">MONGODB_URI</span><span class="op">=</span>mongodb://localhost:27017/myapp</span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="va">SECRET_KEY</span><span class="op">=</span>your-secret-key-here</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="va">FLASK_ENV</span><span class="op">=</span>development</span></code></pre></div>
+<pre class="bash"><code># .env (add to .gitignore!)
+MONGODB_URI=mongodb://localhost:27017/myapp
+SECRET_KEY=your-secret-key-here
+FLASK_ENV=development</code></pre>
 <hr />
 <h2 id="key-takeaways">Key Takeaways</h2>
 <h3 id="production-checklist">Production Checklist</h3>
@@ -619,36 +567,33 @@ authorization</label></li>
 </ul>
 <h3 id="best-practices">Best Practices</h3>
 <p><strong>1. Blueprints for Organization</strong></p>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Organize routes by feature</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>app<span class="op">/</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>├── auth<span class="op">/</span>              <span class="co"># Authentication routes</span></span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>│   └── routes.py</span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>├── api<span class="op">/</span>               <span class="co"># API routes</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>│   └── routes.py</span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>└── admin<span class="op">/</span>             <span class="co"># Admin routes</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    └── routes.py</span></code></pre></div>
+<pre class="python"><code># Organize routes by feature
+app/
+├── auth/              # Authentication routes
+│   └── routes.py
+├── api/               # API routes
+│   └── routes.py
+└── admin/             # Admin routes
+    └── routes.py</code></pre>
 <p><strong>2. Database Indexes</strong></p>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">class</span> User(db.Document):</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    email <span class="op">=</span> db.StringField(required<span class="op">=</span><span class="va">True</span>, unique<span class="op">=</span><span class="va">True</span>)</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    meta <span class="op">=</span> {</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>        <span class="st">&#39;indexes&#39;</span>: [</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>            <span class="st">&#39;email&#39;</span>,  <span class="co"># Single field index</span></span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>            (<span class="st">&#39;first_name&#39;</span>, <span class="st">&#39;last_name&#39;</span>)  <span class="co"># Compound index</span></span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>        ]</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>    }</span></code></pre></div>
+<pre class="python"><code>class User(db.Document):
+    email = db.StringField(required=True, unique=True)
+    
+    meta = {
+        &#39;indexes&#39;: [
+            &#39;email&#39;,  # Single field index
+            (&#39;first_name&#39;, &#39;last_name&#39;)  # Compound index
+        ]
+    }</code></pre>
 <p><strong>3. Error Handling</strong></p>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode python"><code class="sourceCode python"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="at">@app.errorhandler</span>(<span class="dv">404</span>)</span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> not_found(error):</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">&#39;error&#39;</span>: <span class="st">&#39;Not found&#39;</span>}), <span class="dv">404</span></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="at">@app.errorhandler</span>(<span class="dv">500</span>)</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> internal_error(error):</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>    db.session.rollback()  <span class="co"># Rollback any failed transactions</span></span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> jsonify({<span class="st">&#39;error&#39;</span>: <span class="st">&#39;Internal server error&#39;</span>}), <span class="dv">500</span></span></code></pre></div>
+<pre class="python"><code>@app.errorhandler(404)
+def not_found(error):
+    return jsonify({&#39;error&#39;: &#39;Not found&#39;}), 404
+
+@app.errorhandler(500)
+def internal_error(error):
+    db.session.rollback()  # Rollback any failed transactions
+    return jsonify({&#39;error&#39;: &#39;Internal server error&#39;}), 500</code></pre>
 <h3 id="security-considerations">Security Considerations</h3>
 <ol type="1">
 <li><strong>Password Hashing</strong>: Never store plain passwords</li>
@@ -714,5 +659,38 @@ architecture!</p>
 <hr />
 <p><strong>🎓 Bootcamp Complete!</strong> Return to <a
 href="./README.md">Documentation Index</a></p>
+            </article>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EvolveU Documentation</h4>
+                    <p>Comprehensive full-stack web development bootcamp documentation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://brennanbrown.ca" target="_blank">Portfolio</a></li>
+                        <li><a href="https://brennanbrown.ca/Resume.pdf" target="_blank">Resume</a></li>
+                        <li><a href="https://github.com/brennanbrown" target="_blank">GitHub</a></li>
+                        <li><a href="https://berryhouse.ca" target="_blank">BerryHouse</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="script.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

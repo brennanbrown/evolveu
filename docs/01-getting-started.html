@@ -1,99 +1,61 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>01-getting-started | EvolveU Documentation</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { color: #008000; } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { color: #008000; font-weight: bold; } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="doc-style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 01: Getting Started | EvolveU Documentation</title>
+    <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doc-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
-<body>
-<header id="title-block-header">
-<h1 class="title">01-getting-started | EvolveU Documentation</h1>
-</header>
+<body class="doc-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
+                    <span class="logo">📚</span>
+                    <span class="brand-text">EvolveU Docs</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="INDEX.html" class="nav-link">All Modules</a>
+                <a href="https://github.com/brennanbrown/evolveu" target="_blank" class="nav-link">GitHub</a>
+                <a href="https://brennanbrown.ca" target="_blank" class="btn btn-primary">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="doc-container">
+        <!-- Sidebar -->
+        <aside class="doc-sidebar">
+            <h3>Modules</h3>
+            <nav class="doc-nav">
+                <a href="00-testing.html" class="doc-nav-link">00 - Testing Fundamentals</a>
+                <a href="01-getting-started.html" class="doc-nav-link">01 - Getting Started</a>
+                <a href="02-dom.html" class="doc-nav-link">02 - DOM Manipulation</a>
+                <a href="03-objects.html" class="doc-nav-link">03 - Objects & APIs</a>
+                <a href="04-react.html" class="doc-nav-link">04 - React Applications</a>
+                <a href="05-api.html" class="doc-nav-link">05 - Flask API Server</a>
+                <a href="06-python.html" class="doc-nav-link">06 - Python Fundamentals</a>
+                <a href="07-flask.html" class="doc-nav-link">07 - Flask Full-Stack</a>
+            </nav>
+            
+            <h3 style="margin-top: 2rem;">Resources</h3>
+            <nav class="doc-nav">
+                <a href="README.html" class="doc-nav-link">Getting Started</a>
+                <a href="INDEX.html" class="doc-nav-link">Documentation Index</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="doc-content">
+            <article class="markdown-body">
 <h1 id="module-01-getting-started-with-javascript">Module 01: Getting
 Started with JavaScript</h1>
 <p><strong>Learning Focus:</strong> JavaScript fundamentals, arrays,
@@ -143,14 +105,13 @@ reduce)</li>
 (2021)</h3>
 <p>Canada uses a <strong>progressive tax system</strong> with multiple
 brackets:</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> TAX_BRACKETS <span class="op">=</span> [</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">max</span><span class="op">:</span> <span class="dv">49020</span><span class="op">,</span> <span class="dt">rate</span><span class="op">:</span> <span class="fl">0.15</span> }<span class="op">,</span>    <span class="co">// 15% on first $49,020</span></span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">max</span><span class="op">:</span> <span class="dv">98040</span><span class="op">,</span> <span class="dt">rate</span><span class="op">:</span> <span class="fl">0.205</span> }<span class="op">,</span>   <span class="co">// 20.5% on next chunk</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">max</span><span class="op">:</span> <span class="dv">151978</span><span class="op">,</span> <span class="dt">rate</span><span class="op">:</span> <span class="fl">0.26</span> }<span class="op">,</span>   <span class="co">// 26% on next chunk</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">max</span><span class="op">:</span> <span class="dv">216511</span><span class="op">,</span> <span class="dt">rate</span><span class="op">:</span> <span class="fl">0.29</span> }<span class="op">,</span>   <span class="co">// 29% on next chunk</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    { <span class="dt">max</span><span class="op">:</span> <span class="kw">Infinity</span><span class="op">,</span> <span class="dt">rate</span><span class="op">:</span> <span class="fl">0.33</span> }  <span class="co">// 33% on remainder</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>const TAX_BRACKETS = [
+    { max: 49020, rate: 0.15 },    // 15% on first $49,020
+    { max: 98040, rate: 0.205 },   // 20.5% on next chunk
+    { max: 151978, rate: 0.26 },   // 26% on next chunk
+    { max: 216511, rate: 0.29 },   // 29% on next chunk
+    { max: Infinity, rate: 0.33 }  // 33% on remainder
+];</code></pre>
 <p><strong>How Progressive Taxation Works:</strong></p>
 <pre><code>Income: $60,000
 
@@ -161,20 +122,19 @@ Bracket 2: $10,980 × 20.5% = $2,250.90
 <strong>over $49,020</strong>.</p>
 <h3 id="2-array-methods-the-holy-trinity">2. Array Methods (The Holy
 Trinity)</h3>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> numbers <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span>]<span class="op">;</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">// MAP: Transform each element</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> doubled <span class="op">=</span> numbers<span class="op">.</span><span class="fu">map</span>(n <span class="kw">=&gt;</span> n <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Result: [2, 4, 6, 8, 10]</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="co">// FILTER: Keep elements that pass test</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> evens <span class="op">=</span> numbers<span class="op">.</span><span class="fu">filter</span>(n <span class="kw">=&gt;</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Result: [2, 4]</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co">// REDUCE: Combine elements into single value</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> sum <span class="op">=</span> numbers<span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> n) <span class="kw">=&gt;</span> total <span class="op">+</span> n<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Result: 15</span></span></code></pre></div>
+<pre class="javascript"><code>const numbers = [1, 2, 3, 4, 5];
+
+// MAP: Transform each element
+const doubled = numbers.map(n =&gt; n * 2);
+// Result: [2, 4, 6, 8, 10]
+
+// FILTER: Keep elements that pass test
+const evens = numbers.filter(n =&gt; n % 2 === 0);
+// Result: [2, 4]
+
+// REDUCE: Combine elements into single value
+const sum = numbers.reduce((total, n) =&gt; total + n, 0);
+// Result: 15</code></pre>
 <p><strong>Why these matter:</strong></p>
 <ul>
 <li><strong>Map</strong>: Transform data (e.g., convert prices to
@@ -183,18 +143,17 @@ USD)</li>
 <li><strong>Reduce</strong>: Aggregation (e.g., total sales)</li>
 </ul>
 <h3 id="3-pure-functions">3. Pure Functions</h3>
-<div class="sourceCode" id="cb4"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ IMPURE: Modifies external state</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">addToTotal</span>(n) {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>    total <span class="op">+=</span> n<span class="op">;</span>  <span class="co">// Side effect!</span></span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total<span class="op">;</span></span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ PURE: No side effects, same input = same output</span></span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">add</span>(a<span class="op">,</span> b) {</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span>  <span class="co">// Predictable!</span></span>
-<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>// ❌ IMPURE: Modifies external state
+let total = 0;
+function addToTotal(n) {
+    total += n;  // Side effect!
+    return total;
+}
+
+// ✅ PURE: No side effects, same input = same output
+function add(a, b) {
+    return a + b;  // Predictable!
+}</code></pre>
 <p><strong>Pure functions are:</strong></p>
 <ul>
 <li>Easier to test</li>
@@ -224,65 +183,64 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-
 └── package.json</code></pre>
 <h3 id="taxjs---the-tax-calculator-most-complex">tax.js - The Tax
 Calculator (Most Complex)</h3>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> TAX <span class="op">=</span> [</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">49020</span><span class="op">,</span> <span class="fl">0.15</span>]<span class="op">,</span></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">98040</span><span class="op">,</span> <span class="fl">0.205</span>]<span class="op">,</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">151978</span><span class="op">,</span> <span class="fl">0.26</span>]<span class="op">,</span></span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    [<span class="dv">216511</span><span class="op">,</span> <span class="fl">0.29</span>]<span class="op">,</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    [<span class="kw">Infinity</span><span class="op">,</span> <span class="fl">0.33</span>]</span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>]<span class="op">;</span></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> taxCalc <span class="op">=</span> {</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Calculate tax for a specific bracket</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    <span class="dt">calcTaxForBracket</span><span class="op">:</span> (previousMax<span class="op">,</span> currentMax<span class="op">,</span> rate<span class="op">,</span> income) <span class="kw">=&gt;</span> {</span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (income <span class="op">&lt;=</span> previousMax) {</span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> <span class="dv">0</span><span class="op">;</span>  <span class="co">// Income doesn&#39;t reach this bracket</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>        <span class="co">// How much income falls in this bracket?</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> taxableInThisBracket <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(income<span class="op">,</span> currentMax) <span class="op">-</span> previousMax<span class="op">;</span></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> taxableInThisBracket <span class="op">*</span> rate<span class="op">;</span></span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Calculate total tax across all brackets</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>    <span class="dt">calcTax</span><span class="op">:</span> (income) <span class="kw">=&gt;</span> {</span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> totalTax <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>        <span class="kw">let</span> previousMax <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>        <span class="co">// Iterate through each bracket</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> TAX<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>            <span class="kw">const</span> [currentMax<span class="op">,</span> rate] <span class="op">=</span> TAX[i]<span class="op">;</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a>            <span class="kw">const</span> taxForBracket <span class="op">=</span> taxCalc<span class="op">.</span><span class="fu">calcTaxForBracket</span>(</span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>                previousMax<span class="op">,</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a>                currentMax<span class="op">,</span></span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>                rate<span class="op">,</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>                income</span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>            )<span class="op">;</span></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>            totalTax <span class="op">+=</span> taxForBracket<span class="op">;</span></span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>            previousMax <span class="op">=</span> currentMax<span class="op">;</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>            </span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>            <span class="co">// Stop if we&#39;ve exceeded income</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (income <span class="op">&lt;=</span> currentMax) <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> totalTax<span class="op">;</span></span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Calculate after-tax income</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a>    <span class="dt">calcTaxWithRemainder</span><span class="op">:</span> (income) <span class="kw">=&gt;</span> {</span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a>        <span class="kw">const</span> tax <span class="op">=</span> taxCalc<span class="op">.</span><span class="fu">calcTax</span>(income)<span class="op">;</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> {</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>            <span class="dt">tax</span><span class="op">:</span> tax<span class="op">,</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>            <span class="dt">afterTax</span><span class="op">:</span> income <span class="op">-</span> tax</span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>        }<span class="op">;</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> taxCalc<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>const TAX = [
+    [49020, 0.15],
+    [98040, 0.205],
+    [151978, 0.26],
+    [216511, 0.29],
+    [Infinity, 0.33]
+];
+
+const taxCalc = {
+    // Calculate tax for a specific bracket
+    calcTaxForBracket: (previousMax, currentMax, rate, income) =&gt; {
+        if (income &lt;= previousMax) {
+            return 0;  // Income doesn&#39;t reach this bracket
+        }
+        
+        // How much income falls in this bracket?
+        const taxableInThisBracket = Math.min(income, currentMax) - previousMax;
+        
+        return taxableInThisBracket * rate;
+    },
+
+    // Calculate total tax across all brackets
+    calcTax: (income) =&gt; {
+        let totalTax = 0;
+        let previousMax = 0;
+
+        // Iterate through each bracket
+        for (let i = 0; i &lt; TAX.length; i++) {
+            const [currentMax, rate] = TAX[i];
+            
+            const taxForBracket = taxCalc.calcTaxForBracket(
+                previousMax,
+                currentMax,
+                rate,
+                income
+            );
+            
+            totalTax += taxForBracket;
+            previousMax = currentMax;
+            
+            // Stop if we&#39;ve exceeded income
+            if (income &lt;= currentMax) break;
+        }
+
+        return totalTax;
+    },
+
+    // Calculate after-tax income
+    calcTaxWithRemainder: (income) =&gt; {
+        const tax = taxCalc.calcTax(income);
+        return {
+            tax: tax,
+            afterTax: income - tax
+        };
+    }
+};
+
+export default taxCalc;</code></pre>
 <p><strong>Key Design Decisions:</strong></p>
 <ol type="1">
 <li><p><strong>Why separate <code>calcTaxForBracket</code>?</strong></p>
@@ -292,11 +250,10 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-
 <li>Reusable logic</li>
 </ul></li>
 <li><p><strong>Why use array destructuring?</strong></p>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> [currentMax<span class="op">,</span> rate] <span class="op">=</span> TAX[i]<span class="op">;</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="co">// Instead of:</span></span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> currentMax <span class="op">=</span> TAX[i][<span class="dv">0</span>]<span class="op">;</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> rate <span class="op">=</span> TAX[i][<span class="dv">1</span>]<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>const [currentMax, rate] = TAX[i];
+// Instead of:
+const currentMax = TAX[i][0];
+const rate = TAX[i][1];</code></pre>
 <p>Cleaner, more readable code.</p></li>
 <li><p><strong>Why
 <code>Math.min(income, currentMax)</code>?</strong></p>
@@ -309,76 +266,70 @@ class="math inline">55, 000<em>i</em><em>n</em><em>b</em><em>r</em><em>a</em><
 </ul></li>
 </ol>
 <h3 id="arrayjs---array-operations">array.js - Array Operations</h3>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> arrayFunctions <span class="op">=</span> {</span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Add element to array and return it</span></span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">addElement</span><span class="op">:</span> (arr<span class="op">,</span> element) <span class="kw">=&gt;</span> {</span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        arr<span class="op">.</span><span class="fu">push</span>(element)<span class="op">;</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> arr<span class="op">;</span>  <span class="co">// ⚠️ </span><span class="al">BUG</span><span class="co"> WAS HERE: Originally didn&#39;t return</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Sum all numbers in array</span></span>
-<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    <span class="dt">sumArray</span><span class="op">:</span> (arr) <span class="kw">=&gt;</span> {</span>
-<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> arr<span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> element) <span class="kw">=&gt;</span> {</span>
-<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> total <span class="op">+</span> element<span class="op">;</span></span>
-<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>        }<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ⚠️ </span><span class="al">BUG</span><span class="co"> WAS HERE: Used global `arr` instead of parameter</span></span>
-<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Remove element at specific index</span></span>
-<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>    <span class="dt">removeElement</span><span class="op">:</span> (arr<span class="op">,</span> index) <span class="kw">=&gt;</span> {</span>
-<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>        arr<span class="op">.</span><span class="fu">splice</span>(index<span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> arr<span class="op">;</span></span>
-<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>const arrayFunctions = {
+    // Add element to array and return it
+    addElement: (arr, element) =&gt; {
+        arr.push(element);
+        return arr;  // ⚠️ BUG WAS HERE: Originally didn&#39;t return
+    },
+
+    // Sum all numbers in array
+    sumArray: (arr) =&gt; {
+        return arr.reduce((total, element) =&gt; {
+            return total + element;
+        }, 0);
+        // ⚠️ BUG WAS HERE: Used global `arr` instead of parameter
+    },
+
+    // Remove element at specific index
+    removeElement: (arr, index) =&gt; {
+        arr.splice(index, 1);
+        return arr;
+    }
+};</code></pre>
 <p><strong>Bug Story: The Global Variable Mistake</strong></p>
 <p>Original broken code:</p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="kw">let</span> arr <span class="op">=</span> []<span class="op">;</span> <span class="co">// Global variable</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>sumArray<span class="op">:</span> (element) <span class="kw">=&gt;</span> {</span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr<span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> num) <span class="kw">=&gt;</span> total <span class="op">+</span> num<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ❌ Uses global `arr`, not the parameter!</span></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>let arr = []; // Global variable
+
+sumArray: (element) =&gt; {
+    return arr.reduce((total, num) =&gt; total + num, 0);
+    // ❌ Uses global `arr`, not the parameter!
+}</code></pre>
 <p>Why this failed:</p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sumArray</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>])<span class="op">;</span>  <span class="co">// Returns 0 (global arr is empty)</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sumArray</span>([<span class="dv">5</span><span class="op">,</span> <span class="dv">5</span>])<span class="op">;</span>     <span class="co">// Still returns 0!</span></span></code></pre></div>
+<pre class="javascript"><code>sumArray([1, 2, 3]);  // Returns 0 (global arr is empty)
+sumArray([5, 5]);     // Still returns 0!</code></pre>
 <p>The fix:</p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>sumArray<span class="op">:</span> (arr) <span class="kw">=&gt;</span> {  <span class="co">// ✅ Use parameter name</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr<span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> element) <span class="kw">=&gt;</span> total <span class="op">+</span> element<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>sumArray: (arr) =&gt; {  // ✅ Use parameter name
+    return arr.reduce((total, element) =&gt; total + element, 0);
+}</code></pre>
 <h3 id="dictjs---dictionaryobject-operations">dict.js -
 Dictionary/Object Operations</h3>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> dictFunctions <span class="op">=</span> {</span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Loop 1: Return value by key</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">returnTheSecondtItemByKey</span><span class="op">:</span> (obj) <span class="kw">=&gt;</span> {</span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> obj[<span class="bu">Object</span><span class="op">.</span><span class="fu">keys</span>(obj)[<span class="dv">1</span>]]<span class="op">;</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Loop 2: Return value when key matches condition</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">returnTheThirdItemByValue</span><span class="op">:</span> (obj) <span class="kw">=&gt;</span> {</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">for</span> (<span class="kw">const</span> key <span class="kw">in</span> obj) {</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>            <span class="cf">if</span> (obj[key] <span class="op">===</span> key) {  <span class="co">// ⚠️ </span><span class="al">BUG</span><span class="co"> WAS HERE</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>                <span class="cf">return</span> obj[key]<span class="op">;</span></span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>            }</span>
-<span id="cb12-13"><a href="#cb12-13" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb12-14"><a href="#cb12-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;error!&quot;</span><span class="op">;</span></span>
-<span id="cb12-15"><a href="#cb12-15" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb12-16"><a href="#cb12-16" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>const dictFunctions = {
+    // Loop 1: Return value by key
+    returnTheSecondtItemByKey: (obj) =&gt; {
+        return obj[Object.keys(obj)[1]];
+    },
+
+    // Loop 2: Return value when key matches condition
+    returnTheThirdItemByValue: (obj) =&gt; {
+        for (const key in obj) {
+            if (obj[key] === key) {  // ⚠️ BUG WAS HERE
+                return obj[key];
+            }
+        }
+        return &quot;error!&quot;;
+    }
+};</code></pre>
 <p><strong>Bug Story: The Always-Returning-Error Loop</strong></p>
 <p>Original broken code:</p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>returnTheThirdItemByValue<span class="op">:</span> (obj) <span class="kw">=&gt;</span> {</span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> key <span class="kw">in</span> obj) {</span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (obj[key] <span class="op">===</span> key) {</span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> obj[key]<span class="op">;</span></span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="st">&quot;error!&quot;</span><span class="op">;</span>  <span class="co">// ❌ WRONG! Returns on first iteration</span></span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>returnTheThirdItemByValue: (obj) =&gt; {
+    for (const key in obj) {
+        if (obj[key] === key) {
+            return obj[key];
+        }
+        return &quot;error!&quot;;  // ❌ WRONG! Returns on first iteration
+    }
+}</code></pre>
 <p>Why this failed:</p>
 <ul>
 <li>The <code>return "error!"</code> was <strong>inside the
@@ -388,170 +339,157 @@ condition failed</li>
 <li>The loop never got a chance to check other keys</li>
 </ul>
 <p>The fix:</p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>returnTheThirdItemByValue<span class="op">:</span> (obj) <span class="kw">=&gt;</span> {</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> key <span class="kw">in</span> obj) {</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (obj[key] <span class="op">===</span> key) {</span>
-<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>            <span class="cf">return</span> obj[key]<span class="op">;</span></span>
-<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>        }</span>
-<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;error!&quot;</span><span class="op">;</span>  <span class="co">// ✅ Outside loop, runs only if nothing found</span></span>
-<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>returnTheThirdItemByValue: (obj) =&gt; {
+    for (const key in obj) {
+        if (obj[key] === key) {
+            return obj[key];
+        }
+    }
+    return &quot;error!&quot;;  // ✅ Outside loop, runs only if nothing found
+}</code></pre>
 <hr />
 <h2 id="testing-strategy">Testing Strategy</h2>
 <h3 id="taxtestjs---tax-calculator-tests">tax.test.js - Tax Calculator
 Tests</h3>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> taxCalc <span class="im">from</span> <span class="st">&quot;./tax.js&quot;</span><span class="op">;</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Testing the function that calculates tax for a single bracket&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Test bracket 1: $49,020 at 15%</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(taxCalc<span class="op">.</span><span class="fu">calcTaxForBracket</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">49020</span><span class="op">,</span> <span class="fl">0.15</span><span class="op">,</span> <span class="dv">30000</span>))</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="dv">4500</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span>  <span class="co">// $30,000 × 15% = $4,500</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Test bracket 2: Income partially in bracket</span></span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(taxCalc<span class="op">.</span><span class="fu">calcTaxForBracket</span>(<span class="dv">49020</span><span class="op">,</span> <span class="dv">98040</span><span class="op">,</span> <span class="fl">0.205</span><span class="op">,</span> <span class="dv">60000</span>))</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>        <span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="fl">2250.9</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span>  <span class="co">// $10,980 × 20.5% = $2,250.90</span></span>
-<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Testing the function that calculates total tax&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Income: $60,000</span></span>
-<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Bracket 1: $49,020 × 15% = $7,353.00</span></span>
-<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Bracket 2: $10,980 × 20.5% = $2,250.90</span></span>
-<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Total: $9,603.90</span></span>
-<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(taxCalc<span class="op">.</span><span class="fu">calcTax</span>(<span class="dv">60000</span>))<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="fl">9603.9</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Edge case: Exactly at bracket boundary</span></span>
-<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(taxCalc<span class="op">.</span><span class="fu">calcTax</span>(<span class="dv">49020</span>))<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="dv">7353</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Testing the function that calculates after-tax income&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> result <span class="op">=</span> taxCalc<span class="op">.</span><span class="fu">calcTaxWithRemainder</span>(<span class="dv">60000</span>)<span class="op">;</span></span>
-<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(result<span class="op">.</span><span class="at">tax</span>)<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="fl">9603.9</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(result<span class="op">.</span><span class="at">afterTax</span>)<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="fl">50396.1</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>import taxCalc from &quot;./tax.js&quot;;
+
+test(&quot;Testing the function that calculates tax for a single bracket&quot;, () =&gt; {
+    // Test bracket 1: $49,020 at 15%
+    expect(taxCalc.calcTaxForBracket(0, 49020, 0.15, 30000))
+        .toBeCloseTo(4500, 1);  // $30,000 × 15% = $4,500
+        
+    // Test bracket 2: Income partially in bracket
+    expect(taxCalc.calcTaxForBracket(49020, 98040, 0.205, 60000))
+        .toBeCloseTo(2250.9, 1);  // $10,980 × 20.5% = $2,250.90
+});
+
+test(&quot;Testing the function that calculates total tax&quot;, () =&gt; {
+    // Income: $60,000
+    // Bracket 1: $49,020 × 15% = $7,353.00
+    // Bracket 2: $10,980 × 20.5% = $2,250.90
+    // Total: $9,603.90
+    expect(taxCalc.calcTax(60000)).toBeCloseTo(9603.9, 1);
+    
+    // Edge case: Exactly at bracket boundary
+    expect(taxCalc.calcTax(49020)).toBeCloseTo(7353, 1);
+});
+
+test(&quot;Testing the function that calculates after-tax income&quot;, () =&gt; {
+    const result = taxCalc.calcTaxWithRemainder(60000);
+    expect(result.tax).toBeCloseTo(9603.9, 1);
+    expect(result.afterTax).toBeCloseTo(50396.1, 1);
+});</code></pre>
 <p><strong>Why <code>toBeCloseTo()</code> instead of
 <code>toBe()</code>?</strong></p>
 <p>JavaScript floating-point arithmetic isn't exact:</p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fl">0.1</span> <span class="op">+</span> <span class="fl">0.2</span> <span class="op">===</span> <span class="fl">0.3</span>  <span class="co">// false! (actually 0.30000000000000004)</span></span></code></pre></div>
+<pre class="javascript"><code>0.1 + 0.2 === 0.3  // false! (actually 0.30000000000000004)</code></pre>
 <p><code>toBeCloseTo(value, decimals)</code> handles this:</p>
-<div class="sourceCode" id="cb17"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(<span class="fl">0.1</span> <span class="op">+</span> <span class="fl">0.2</span>)<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="fl">0.3</span><span class="op">,</span> <span class="dv">10</span>)<span class="op">;</span>  <span class="co">// ✅ Passes</span></span></code></pre></div>
+<pre class="javascript"><code>expect(0.1 + 0.2).toBeCloseTo(0.3, 10);  // ✅ Passes</code></pre>
 <h3 id="arraytestjs---array-tests">array.test.js - Array Tests</h3>
-<div class="sourceCode" id="cb18"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> arrayFunctions <span class="im">from</span> <span class="st">&quot;./array.js&quot;</span><span class="op">;</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Does the addElement function work?&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> arr <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]<span class="op">;</span></span>
-<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> result <span class="op">=</span> arrayFunctions<span class="op">.</span><span class="fu">addElement</span>(arr<span class="op">,</span> <span class="dv">4</span>)<span class="op">;</span></span>
-<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(result)<span class="op">.</span><span class="fu">toEqual</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>])<span class="op">;</span></span>
-<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(result<span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">4</span>)<span class="op">;</span></span>
-<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Does the sumArray function work?&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arrayFunctions<span class="op">.</span><span class="fu">sumArray</span>([<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>]))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">6</span>)<span class="op">;</span></span>
-<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arrayFunctions<span class="op">.</span><span class="fu">sumArray</span>([<span class="dv">0</span>]))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb18-14"><a href="#cb18-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arrayFunctions<span class="op">.</span><span class="fu">sumArray</span>([<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>]))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb18-15"><a href="#cb18-15" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>import arrayFunctions from &quot;./array.js&quot;;
+
+test(&quot;Does the addElement function work?&quot;, () =&gt; {
+    const arr = [1, 2, 3];
+    const result = arrayFunctions.addElement(arr, 4);
+    
+    expect(result).toEqual([1, 2, 3, 4]);
+    expect(result.length).toBe(4);
+});
+
+test(&quot;Does the sumArray function work?&quot;, () =&gt; {
+    expect(arrayFunctions.sumArray([1, 2, 3])).toBe(6);
+    expect(arrayFunctions.sumArray([0])).toBe(0);
+    expect(arrayFunctions.sumArray([-1, 1])).toBe(0);
+});</code></pre>
 <hr />
 <h2 id="bugs-fixed">Bugs Fixed</h2>
 <p>During the 2025 audit, I discovered and fixed <strong>5 critical
 bugs</strong> in this module:</p>
 <h3 id="bug-1-tax-array-indexing">Bug #1: Tax Array Indexing</h3>
-<div class="sourceCode" id="cb19"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ WRONG: Incorrectly accessing tax bracket data</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> previousMax <span class="op">=</span> TAX[i <span class="op">-</span> <span class="dv">1</span>][<span class="dv">1</span>]<span class="op">;</span>  <span class="co">// Gets RATE instead of MAX</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ CORRECT: Access the right index</span></span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> previousMax <span class="op">=</span> TAX[i <span class="op">-</span> <span class="dv">1</span>][<span class="dv">0</span>]<span class="op">;</span>  <span class="co">// Gets MAX value</span></span></code></pre></div>
+<pre class="javascript"><code>// ❌ WRONG: Incorrectly accessing tax bracket data
+const previousMax = TAX[i - 1][1];  // Gets RATE instead of MAX
+
+// ✅ CORRECT: Access the right index
+const previousMax = TAX[i - 1][0];  // Gets MAX value</code></pre>
 <p><strong>Impact:</strong> Calculated wrong tax amounts for all
 brackets after the first.</p>
 <h3 id="bug-2-tax-income-calculation">Bug #2: Tax Income
 Calculation</h3>
-<div class="sourceCode" id="cb20"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ WRONG: Used wrong variable names</span></span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> total_tax_income <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(income<span class="op">,</span> P[<span class="dv">1</span>]) <span class="op">-</span> P[<span class="dv">0</span>]<span class="op">;</span></span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ CORRECT: Use consistent naming</span></span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> total_tax_income <span class="op">=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(income<span class="op">,</span> TAX[i][<span class="dv">0</span>]) <span class="op">-</span> previousMax<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// ❌ WRONG: Used wrong variable names
+const total_tax_income = Math.min(income, P[1]) - P[0];
+
+// ✅ CORRECT: Use consistent naming
+const total_tax_income = Math.min(income, TAX[i][0]) - previousMax;</code></pre>
 <p><strong>Impact:</strong> Logic errors in else-if blocks caused
 incorrect tax calculations.</p>
 <h3 id="bug-3-dictionary-loop-returns-early">Bug #3: Dictionary Loop
 Returns Early</h3>
-<div class="sourceCode" id="cb21"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ WRONG: Always returns &quot;error!&quot; on first iteration</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> key <span class="kw">in</span> obj) {</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (condition) <span class="cf">return</span> value<span class="op">;</span></span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> <span class="st">&quot;error!&quot;</span><span class="op">;</span>  <span class="co">// Inside loop!</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ CORRECT: Return after checking all keys</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">const</span> key <span class="kw">in</span> obj) {</span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (condition) <span class="cf">return</span> value<span class="op">;</span></span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a><span class="cf">return</span> <span class="st">&quot;error!&quot;</span><span class="op">;</span>  <span class="co">// Outside loop</span></span></code></pre></div>
+<pre class="javascript"><code>// ❌ WRONG: Always returns &quot;error!&quot; on first iteration
+for (const key in obj) {
+    if (condition) return value;
+    return &quot;error!&quot;;  // Inside loop!
+}
+
+// ✅ CORRECT: Return after checking all keys
+for (const key in obj) {
+    if (condition) return value;
+}
+return &quot;error!&quot;;  // Outside loop</code></pre>
 <p><strong>Impact:</strong> Function never checked beyond first key.</p>
 <h3 id="bug-4-array-function-doesnt-return">Bug #4: Array Function
 Doesn't Return</h3>
-<div class="sourceCode" id="cb22"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ WRONG: Modifies array but doesn&#39;t return it</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>addElement<span class="op">:</span> (arr<span class="op">,</span> element) <span class="kw">=&gt;</span> {</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    arr<span class="op">.</span><span class="fu">push</span>(element)<span class="op">;</span></span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Missing return statement!</span></span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ CORRECT: Return the modified array</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>addElement<span class="op">:</span> (arr<span class="op">,</span> element) <span class="kw">=&gt;</span> {</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    arr<span class="op">.</span><span class="fu">push</span>(element)<span class="op">;</span></span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr<span class="op">;</span></span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>// ❌ WRONG: Modifies array but doesn&#39;t return it
+addElement: (arr, element) =&gt; {
+    arr.push(element);
+    // Missing return statement!
+}
+
+// ✅ CORRECT: Return the modified array
+addElement: (arr, element) =&gt; {
+    arr.push(element);
+    return arr;
+}</code></pre>
 <p><strong>Impact:</strong> Chaining array operations failed.</p>
 <h3 id="bug-5-sumarray-uses-wrong-variable">Bug #5: sumArray Uses Wrong
 Variable</h3>
-<div class="sourceCode" id="cb23"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ WRONG: Uses global `arr` instead of parameter</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>sumArray<span class="op">:</span> (element) <span class="kw">=&gt;</span> {</span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr<span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> num) <span class="kw">=&gt;</span> total <span class="op">+</span> num)<span class="op">;</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ CORRECT: Use function parameter</span></span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>sumArray<span class="op">:</span> (arr) <span class="kw">=&gt;</span> {</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> arr<span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> element) <span class="kw">=&gt;</span> total <span class="op">+</span> element<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>// ❌ WRONG: Uses global `arr` instead of parameter
+sumArray: (element) =&gt; {
+    return arr.reduce((total, num) =&gt; total + num);
+}
+
+// ✅ CORRECT: Use function parameter
+sumArray: (arr) =&gt; {
+    return arr.reduce((total, element) =&gt; total + element, 0);
+}</code></pre>
 <p><strong>Impact:</strong> Always returned 0 or crashed.</p>
 <hr />
 <h2 id="2021-vs-2025-comparison">2021 vs 2025 Comparison</h2>
 <h3 id="coding-style-evolution">Coding Style Evolution</h3>
 <p><strong>2021: Verbose, Imperative</strong></p>
-<div class="sourceCode" id="cb24"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Old style - manual loops</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">sumArray</span>(arr) {</span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> arr<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
-<span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>        total <span class="op">=</span> total <span class="op">+</span> arr[i]<span class="op">;</span></span>
-<span id="cb24-6"><a href="#cb24-6" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb24-7"><a href="#cb24-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total<span class="op">;</span></span>
-<span id="cb24-8"><a href="#cb24-8" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>// Old style - manual loops
+function sumArray(arr) {
+    let total = 0;
+    for (let i = 0; i &lt; arr.length; i++) {
+        total = total + arr[i];
+    }
+    return total;
+}</code></pre>
 <p><strong>2025: Concise, Declarative</strong></p>
-<div class="sourceCode" id="cb25"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Modern style - array methods</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> sumArray <span class="op">=</span> arr <span class="kw">=&gt;</span> arr<span class="op">.</span><span class="fu">reduce</span>((total<span class="op">,</span> n) <span class="kw">=&gt;</span> total <span class="op">+</span> n<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Modern style - array methods
+const sumArray = arr =&gt; arr.reduce((total, n) =&gt; total + n, 0);</code></pre>
 <h3 id="tax-calculator-comparison">Tax Calculator Comparison</h3>
 <p><strong>2021 Approach:</strong></p>
-<div class="sourceCode" id="cb26"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Lots of if-else statements</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">calcTax</span>(income) {</span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (income <span class="op">&lt;=</span> <span class="dv">49020</span>) {</span>
-<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> income <span class="op">*</span> <span class="fl">0.15</span><span class="op">;</span></span>
-<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (income <span class="op">&lt;=</span> <span class="dv">98040</span>) {</span>
-<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">49020</span> <span class="op">*</span> <span class="fl">0.15</span> <span class="op">+</span> (income <span class="op">-</span> <span class="dv">49020</span>) <span class="op">*</span> <span class="fl">0.205</span><span class="op">;</span></span>
-<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    } <span class="cf">else</span> <span class="cf">if</span> (income <span class="op">&lt;=</span> <span class="dv">151978</span>) {</span>
-<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="dv">49020</span> <span class="op">*</span> <span class="fl">0.15</span> <span class="op">+</span> <span class="dv">49020</span> <span class="op">*</span> <span class="fl">0.205</span> <span class="op">+</span> (income <span class="op">-</span> <span class="dv">98040</span>) <span class="op">*</span> <span class="fl">0.26</span><span class="op">;</span></span>
-<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// ... more nested conditions</span></span>
-<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>// Lots of if-else statements
+function calcTax(income) {
+    if (income &lt;= 49020) {
+        return income * 0.15;
+    } else if (income &lt;= 98040) {
+        return 49020 * 0.15 + (income - 49020) * 0.205;
+    } else if (income &lt;= 151978) {
+        return 49020 * 0.15 + 49020 * 0.205 + (income - 98040) * 0.26;
+    }
+    // ... more nested conditions
+}</code></pre>
 <p>Problems:</p>
 <ul>
 <li>Hard to maintain</li>
@@ -560,22 +498,21 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26
 <li>Error-prone</li>
 </ul>
 <p><strong>2025 Approach:</strong></p>
-<div class="sourceCode" id="cb27"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Data-driven with iteration</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> TAX <span class="op">=</span> [[<span class="dv">49020</span><span class="op">,</span> <span class="fl">0.15</span>]<span class="op">,</span> [<span class="dv">98040</span><span class="op">,</span> <span class="fl">0.205</span>]<span class="op">,</span> <span class="op">...</span>]<span class="op">;</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">calcTax</span>(income) {</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> total <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> prev <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> (<span class="kw">const</span> [max<span class="op">,</span> rate] <span class="kw">of</span> TAX) {</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">if</span> (income <span class="op">&lt;=</span> prev) <span class="cf">break</span><span class="op">;</span></span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>        total <span class="op">+=</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">min</span>(income<span class="op">,</span> max) <span class="op">-</span> prev) <span class="op">*</span> rate<span class="op">;</span></span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>        prev <span class="op">=</span> max<span class="op">;</span></span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> total<span class="op">;</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<pre class="javascript"><code>// Data-driven with iteration
+const TAX = [[49020, 0.15], [98040, 0.205], ...];
+
+function calcTax(income) {
+    let total = 0;
+    let prev = 0;
+    
+    for (const [max, rate] of TAX) {
+        if (income &lt;= prev) break;
+        total += Math.min(income, max) - prev) * rate;
+        prev = max;
+    }
+    
+    return total;
+}</code></pre>
 <p>Benefits:</p>
 <ul>
 <li>✅ Easy to update tax brackets (just change data)</li>
@@ -585,18 +522,16 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27
 </ul>
 <h3 id="testing-philosophy">Testing Philosophy</h3>
 <p><strong>2021: Manual Console Testing</strong></p>
-<div class="sourceCode" id="cb28"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Old way - manual verification</span></span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(taxCalc<span class="op">.</span><span class="fu">calcTax</span>(<span class="dv">60000</span>))<span class="op">;</span>  <span class="co">// Eyeball the result</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(taxCalc<span class="op">.</span><span class="fu">calcTax</span>(<span class="dv">100000</span>))<span class="op">;</span> <span class="co">// Check each case manually</span></span></code></pre></div>
+<pre class="javascript"><code>// Old way - manual verification
+console.log(taxCalc.calcTax(60000));  // Eyeball the result
+console.log(taxCalc.calcTax(100000)); // Check each case manually</code></pre>
 <p><strong>2025: Automated Test Suite</strong></p>
-<div class="sourceCode" id="cb29"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Modern way - automated verification</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;calculates tax correctly&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(taxCalc<span class="op">.</span><span class="fu">calcTax</span>(<span class="dv">60000</span>))<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="fl">9603.9</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(taxCalc<span class="op">.</span><span class="fu">calcTax</span>(<span class="dv">100000</span>))<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="fl">17991.9</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(taxCalc<span class="op">.</span><span class="fu">calcTax</span>(<span class="dv">49020</span>))<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="dv">7353</span><span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span>
-<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Modern way - automated verification
+test(&quot;calculates tax correctly&quot;, () =&gt; {
+    expect(taxCalc.calcTax(60000)).toBeCloseTo(9603.9, 1);
+    expect(taxCalc.calcTax(100000)).toBeCloseTo(17991.9, 1);
+    expect(taxCalc.calcTax(49020)).toBeCloseTo(7353, 1);
+});</code></pre>
 <hr />
 <h2 id="key-takeaways">Key Takeaways</h2>
 <h3 id="technical-skills-gained">Technical Skills Gained</h3>
@@ -614,20 +549,17 @@ negative numbers</li>
 </ol>
 <h3 id="problem-solving-patterns">Problem-Solving Patterns</h3>
 <p><strong>Pattern 1: Accumulation</strong></p>
-<div class="sourceCode" id="cb30"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Start with initial value, build up result</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> sum <span class="op">=</span> numbers<span class="op">.</span><span class="fu">reduce</span>((acc<span class="op">,</span> n) <span class="kw">=&gt;</span> acc <span class="op">+</span> n<span class="op">,</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> product <span class="op">=</span> numbers<span class="op">.</span><span class="fu">reduce</span>((acc<span class="op">,</span> n) <span class="kw">=&gt;</span> acc <span class="op">*</span> n<span class="op">,</span> <span class="dv">1</span>)<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Start with initial value, build up result
+const sum = numbers.reduce((acc, n) =&gt; acc + n, 0);
+const product = numbers.reduce((acc, n) =&gt; acc * n, 1);</code></pre>
 <p><strong>Pattern 2: Transformation</strong></p>
-<div class="sourceCode" id="cb31"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Convert each item to new form</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> doubled <span class="op">=</span> numbers<span class="op">.</span><span class="fu">map</span>(n <span class="kw">=&gt;</span> n <span class="op">*</span> <span class="dv">2</span>)<span class="op">;</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> names <span class="op">=</span> users<span class="op">.</span><span class="fu">map</span>(user <span class="kw">=&gt;</span> user<span class="op">.</span><span class="at">name</span>)<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Convert each item to new form
+const doubled = numbers.map(n =&gt; n * 2);
+const names = users.map(user =&gt; user.name);</code></pre>
 <p><strong>Pattern 3: Filtering</strong></p>
-<div class="sourceCode" id="cb32"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Keep only items that pass test</span></span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> evens <span class="op">=</span> numbers<span class="op">.</span><span class="fu">filter</span>(n <span class="kw">=&gt;</span> n <span class="op">%</span> <span class="dv">2</span> <span class="op">===</span> <span class="dv">0</span>)<span class="op">;</span></span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> adults <span class="op">=</span> users<span class="op">.</span><span class="fu">filter</span>(user <span class="kw">=&gt;</span> user<span class="op">.</span><span class="at">age</span> <span class="op">&gt;=</span> <span class="dv">18</span>)<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Keep only items that pass test
+const evens = numbers.filter(n =&gt; n % 2 === 0);
+const adults = users.filter(user =&gt; user.age &gt;= 18);</code></pre>
 <h3 id="common-pitfalls-avoided">Common Pitfalls Avoided</h3>
 <ol type="1">
 <li><strong>Off-by-one errors</strong> in array indexing</li>
@@ -688,5 +620,38 @@ operations)<br />
 <strong>Time Investment:</strong> ~4 hours (including debugging)<br />
 <strong>Next Module:</strong> <a href="./02-dom.md">Module 02: DOM
 Manipulation</a> →</p>
+            </article>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EvolveU Documentation</h4>
+                    <p>Comprehensive full-stack web development bootcamp documentation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://brennanbrown.ca" target="_blank">Portfolio</a></li>
+                        <li><a href="https://brennanbrown.ca/Resume.pdf" target="_blank">Resume</a></li>
+                        <li><a href="https://github.com/brennanbrown" target="_blank">GitHub</a></li>
+                        <li><a href="https://berryhouse.ca" target="_blank">BerryHouse</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="script.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

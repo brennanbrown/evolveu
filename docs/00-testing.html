@@ -1,99 +1,61 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>00-testing | EvolveU Documentation</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-    /* CSS for syntax highlighting */
-    html { -webkit-text-size-adjust: 100%; }
-    pre > code.sourceCode { white-space: pre; position: relative; }
-    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-    pre > code.sourceCode > span:empty { height: 1.2em; }
-    .sourceCode { overflow: visible; }
-    code.sourceCode > span { color: inherit; text-decoration: inherit; }
-    div.sourceCode { margin: 1em 0; }
-    pre.sourceCode { margin: 0; }
-    @media screen {
-    div.sourceCode { overflow: auto; }
-    }
-    @media print {
-    pre > code.sourceCode { white-space: pre-wrap; }
-    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-    }
-    pre.numberSource code
-      { counter-reset: source-line 0; }
-    pre.numberSource code > span
-      { position: relative; left: -4em; counter-increment: source-line; }
-    pre.numberSource code > span > a:first-child::before
-      { content: counter(source-line);
-        position: relative; left: -1em; text-align: right; vertical-align: baseline;
-        border: none; display: inline-block;
-        -webkit-touch-callout: none; -webkit-user-select: none;
-        -khtml-user-select: none; -moz-user-select: none;
-        -ms-user-select: none; user-select: none;
-        padding: 0 4px; width: 4em;
-        color: #aaaaaa;
-      }
-    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
-    div.sourceCode
-      {   }
-    @media screen {
-    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-    }
-    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
-    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-    code span.at { color: #7d9029; } /* Attribute */
-    code span.bn { color: #40a070; } /* BaseN */
-    code span.bu { color: #008000; } /* BuiltIn */
-    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-    code span.ch { color: #4070a0; } /* Char */
-    code span.cn { color: #880000; } /* Constant */
-    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
-    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
-    code span.dt { color: #902000; } /* DataType */
-    code span.dv { color: #40a070; } /* DecVal */
-    code span.er { color: #ff0000; font-weight: bold; } /* Error */
-    code span.ex { } /* Extension */
-    code span.fl { color: #40a070; } /* Float */
-    code span.fu { color: #06287e; } /* Function */
-    code span.im { color: #008000; font-weight: bold; } /* Import */
-    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
-    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
-    code span.op { color: #666666; } /* Operator */
-    code span.ot { color: #007020; } /* Other */
-    code span.pp { color: #bc7a00; } /* Preprocessor */
-    code span.sc { color: #4070a0; } /* SpecialChar */
-    code span.ss { color: #bb6688; } /* SpecialString */
-    code span.st { color: #4070a0; } /* String */
-    code span.va { color: #19177c; } /* Variable */
-    code span.vs { color: #4070a0; } /* VerbatimString */
-    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-  </style>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="doc-style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Module 00: Testing Fundamentals | EvolveU Documentation</title>
+    <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doc-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
-<body>
-<header id="title-block-header">
-<h1 class="title">00-testing | EvolveU Documentation</h1>
-</header>
+<body class="doc-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
+                    <span class="logo">📚</span>
+                    <span class="brand-text">EvolveU Docs</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="INDEX.html" class="nav-link">All Modules</a>
+                <a href="https://github.com/brennanbrown/evolveu" target="_blank" class="nav-link">GitHub</a>
+                <a href="https://brennanbrown.ca" target="_blank" class="btn btn-primary">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="doc-container">
+        <!-- Sidebar -->
+        <aside class="doc-sidebar">
+            <h3>Modules</h3>
+            <nav class="doc-nav">
+                <a href="00-testing.html" class="doc-nav-link">00 - Testing Fundamentals</a>
+                <a href="01-getting-started.html" class="doc-nav-link">01 - Getting Started</a>
+                <a href="02-dom.html" class="doc-nav-link">02 - DOM Manipulation</a>
+                <a href="03-objects.html" class="doc-nav-link">03 - Objects & APIs</a>
+                <a href="04-react.html" class="doc-nav-link">04 - React Applications</a>
+                <a href="05-api.html" class="doc-nav-link">05 - Flask API Server</a>
+                <a href="06-python.html" class="doc-nav-link">06 - Python Fundamentals</a>
+                <a href="07-flask.html" class="doc-nav-link">07 - Flask Full-Stack</a>
+            </nav>
+            
+            <h3 style="margin-top: 2rem;">Resources</h3>
+            <nav class="doc-nav">
+                <a href="README.html" class="doc-nav-link">Getting Started</a>
+                <a href="INDEX.html" class="doc-nav-link">Documentation Index</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="doc-content">
+            <article class="markdown-body">
 <h1 id="module-00-testing-fundamentals">Module 00: Testing
 Fundamentals</h1>
 <p><strong>Learning Focus:</strong> Introduction to automated testing,
@@ -140,18 +102,17 @@ code that <strong>tests our code</strong>.</p>
 <h3 id="1-jest-testing-framework">1. Jest Testing Framework</h3>
 <p>Jest is a JavaScript testing framework created by Facebook. It
 provides:</p>
-<div class="sourceCode" id="cb1"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Basic test structure</span></span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;description of what we&#39;re testing&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Arrange: Set up test data</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> input <span class="op">=</span> <span class="dv">5</span><span class="op">;</span></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Act: Execute the function</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> result <span class="op">=</span> <span class="fu">myFunction</span>(input)<span class="op">;</span></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Assert: Verify the result</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(result)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">10</span>)<span class="op">;</span></span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Basic test structure
+test(&quot;description of what we&#39;re testing&quot;, () =&gt; {
+    // Arrange: Set up test data
+    const input = 5;
+    
+    // Act: Execute the function
+    const result = myFunction(input);
+    
+    // Assert: Verify the result
+    expect(result).toBe(10);
+});</code></pre>
 <p><strong>Why Jest?</strong></p>
 <ul>
 <li>Zero configuration needed for basic projects</li>
@@ -167,37 +128,35 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb1-
 <li><strong>Green</strong>: Write minimal code to pass</li>
 <li><strong>Refactor</strong>: Improve code quality</li>
 </ol>
-<div class="sourceCode" id="cb2"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Step 1: RED - Write failing test</span></span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;should double a number&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">double</span>(<span class="dv">5</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">10</span>)<span class="op">;</span> <span class="co">// ❌ Function doesn&#39;t exist</span></span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Step 2: GREEN - Make it pass</span></span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">double</span>(n) {</span>
-<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> n <span class="op">*</span> <span class="dv">2</span><span class="op">;</span> <span class="co">// ✅ Test passes</span></span>
-<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Step 3: REFACTOR - Improve if needed</span></span>
-<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> double <span class="op">=</span> n <span class="kw">=&gt;</span> n <span class="op">*</span> <span class="dv">2</span><span class="op">;</span> <span class="co">// More concise</span></span></code></pre></div>
+<pre class="javascript"><code>// Step 1: RED - Write failing test
+test(&quot;should double a number&quot;, () =&gt; {
+    expect(double(5)).toBe(10); // ❌ Function doesn&#39;t exist
+});
+
+// Step 2: GREEN - Make it pass
+function double(n) {
+    return n * 2; // ✅ Test passes
+}
+
+// Step 3: REFACTOR - Improve if needed
+const double = n =&gt; n * 2; // More concise</code></pre>
 <h3 id="3-assertions--matchers">3. Assertions &amp; Matchers</h3>
 <p>Jest provides many ways to verify results:</p>
-<div class="sourceCode" id="cb3"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Equality</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(value)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">5</span>)<span class="op">;</span>           <span class="co">// Strict equality (===)</span></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(value)<span class="op">.</span><span class="fu">toEqual</span>({<span class="dt">a</span><span class="op">:</span> <span class="dv">1</span>})<span class="op">;</span>   <span class="co">// Deep equality for objects</span></span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a><span class="co">// Truthiness</span></span>
-<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(value)<span class="op">.</span><span class="fu">toBeTruthy</span>()<span class="op">;</span>      <span class="co">// Any truthy value</span></span>
-<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(value)<span class="op">.</span><span class="fu">toBeFalsy</span>()<span class="op">;</span>       <span class="co">// Any falsy value</span></span>
-<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co">// Numbers</span></span>
-<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(value)<span class="op">.</span><span class="fu">toBeGreaterThan</span>(<span class="dv">3</span>)<span class="op">;</span></span>
-<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(value)<span class="op">.</span><span class="fu">toBeLessThanOrEqual</span>(<span class="dv">10</span>)<span class="op">;</span></span>
-<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a><span class="co">// Arrays</span></span>
-<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(array)<span class="op">.</span><span class="fu">toContain</span>(<span class="st">&#39;item&#39;</span>)<span class="op">;</span></span>
-<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a><span class="fu">expect</span>(array<span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">3</span>)<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Equality
+expect(value).toBe(5);           // Strict equality (===)
+expect(value).toEqual({a: 1});   // Deep equality for objects
+
+// Truthiness
+expect(value).toBeTruthy();      // Any truthy value
+expect(value).toBeFalsy();       // Any falsy value
+
+// Numbers
+expect(value).toBeGreaterThan(3);
+expect(value).toBeLessThanOrEqual(10);
+
+// Arrays
+expect(array).toContain(&#39;item&#39;);
+expect(array.length).toBe(3);</code></pre>
 <hr />
 <h2 id="code-walkthrough">Code Walkthrough</h2>
 <h3 id="file-structure">File Structure</h3>
@@ -209,95 +168,93 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-
 └── jest.config.js       # Jest configuration</code></pre>
 <h3 id="playjs---functions-under-test">play.js - Functions Under
 Test</h3>
-<div class="sourceCode" id="cb5"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> functions <span class="op">=</span> {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Simple addition function</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">add</span><span class="op">:</span> (num1<span class="op">,</span> num2) <span class="kw">=&gt;</span> {</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> num1 <span class="op">+</span> num2<span class="op">;</span></span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Get first DOM element</span></span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>    <span class="dt">returnTheElementFirst</span><span class="op">:</span> (arr) <span class="kw">=&gt;</span> {</span>
-<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> arr[<span class="dv">0</span>]<span class="op">;</span></span>
-<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Get last DOM element</span></span>
-<span id="cb5-13"><a href="#cb5-13" aria-hidden="true" tabindex="-1"></a>    <span class="dt">returnTheElementLast</span><span class="op">:</span> (arr) <span class="kw">=&gt;</span> {</span>
-<span id="cb5-14"><a href="#cb5-14" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> arr[arr<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">;</span></span>
-<span id="cb5-15"><a href="#cb5-15" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
-<span id="cb5-16"><a href="#cb5-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-17"><a href="#cb5-17" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Return entire array</span></span>
-<span id="cb5-18"><a href="#cb5-18" aria-hidden="true" tabindex="-1"></a>    <span class="dt">returnTheArrayItself</span><span class="op">:</span> (arr) <span class="kw">=&gt;</span> {</span>
-<span id="cb5-19"><a href="#cb5-19" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> arr<span class="op">;</span></span>
-<span id="cb5-20"><a href="#cb5-20" aria-hidden="true" tabindex="-1"></a>    }</span>
-<span id="cb5-21"><a href="#cb5-21" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
-<span id="cb5-22"><a href="#cb5-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb5-23"><a href="#cb5-23" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> functions<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>const functions = {
+    // Simple addition function
+    add: (num1, num2) =&gt; {
+        return num1 + num2;
+    },
+
+    // Get first DOM element
+    returnTheElementFirst: (arr) =&gt; {
+        return arr[0];
+    },
+
+    // Get last DOM element
+    returnTheElementLast: (arr) =&gt; {
+        return arr[arr.length - 1];
+    },
+
+    // Return entire array
+    returnTheArrayItself: (arr) =&gt; {
+        return arr;
+    }
+};
+
+export default functions;</code></pre>
 <p><strong>Why these simple functions?</strong><br />
 We start simple to focus on <strong>how to test</strong>, not complex
 logic. Once we understand testing mechanics, we can test anything.</p>
 <h3 id="playtestjs---our-test-suite">play.test.js - Our Test Suite</h3>
-<div class="sourceCode" id="cb6"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> functions <span class="im">from</span> <span class="st">&quot;./play.js&quot;</span><span class="op">;</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co">// Test 1: Verifying the test environment works</span></span>
-<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Testing the plumbing&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="dv">1</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">1</span>)<span class="op">;</span> <span class="co">// Always passes - sanity check</span></span>
-<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Test 2: Testing array access</span></span>
-<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Testing to demonstrate arrays.&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> arr <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span><span class="op">,</span> <span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span><span class="op">,</span> <span class="dv">8</span><span class="op">,</span> <span class="dv">9</span><span class="op">,</span> <span class="dv">10</span>]<span class="op">;</span></span>
-<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Testing array access patterns</span></span>
-<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr<span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">10</span>)<span class="op">;</span>        <span class="co">// Array size</span></span>
-<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr[<span class="dv">0</span>])<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">1</span>)<span class="op">;</span>             <span class="co">// First element</span></span>
-<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr[arr<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>])<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">10</span>)<span class="op">;</span> <span class="co">// Last element</span></span>
-<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a><span class="co">// Test 3: Testing objects (dictionaries)</span></span>
-<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Testing to demonstrate dictionaries.&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a>    <span class="kw">let</span> arr <span class="op">=</span> {</span>
-<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a>        <span class="dv">1</span><span class="op">:</span> <span class="st">&quot;one&quot;</span><span class="op">,</span></span>
-<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a>        <span class="dv">2</span><span class="op">:</span> <span class="st">&quot;two&quot;</span><span class="op">,</span></span>
-<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a>        <span class="dv">3</span><span class="op">:</span> <span class="st">&quot;three&quot;</span></span>
-<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a>    }<span class="op">;</span></span>
-<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Objects use keys, not indices</span></span>
-<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr[<span class="dv">1</span>])<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&quot;one&quot;</span>)<span class="op">;</span></span>
-<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr[<span class="dv">2</span>])<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&quot;two&quot;</span>)<span class="op">;</span></span>
-<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr[<span class="dv">3</span>])<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&quot;three&quot;</span>)<span class="op">;</span></span>
-<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a><span class="co">// Test 4: Testing our actual function</span></span>
-<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Testing the link to play.js&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(functions<span class="op">.</span><span class="fu">add</span>(<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">3</span>)<span class="op">;</span></span>
-<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="co">// Test 5: Complex data structures</span></span>
-<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Testing complex data structures.&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-39"><a href="#cb6-39" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> arr <span class="op">=</span> [<span class="dv">1</span><span class="op">,</span> <span class="dv">2</span><span class="op">,</span> <span class="dv">3</span><span class="op">,</span> <span class="dv">4</span>]<span class="op">;</span></span>
-<span id="cb6-40"><a href="#cb6-40" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-41"><a href="#cb6-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Testing nested arrays</span></span>
-<span id="cb6-42"><a href="#cb6-42" aria-hidden="true" tabindex="-1"></a>    arr<span class="op">.</span><span class="fu">push</span>([<span class="dv">5</span><span class="op">,</span> <span class="dv">6</span><span class="op">,</span> <span class="dv">7</span>])<span class="op">;</span></span>
-<span id="cb6-43"><a href="#cb6-43" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr[<span class="dv">4</span>][<span class="dv">0</span>])<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">5</span>)<span class="op">;</span>  <span class="co">// Nested array access</span></span>
-<span id="cb6-44"><a href="#cb6-44" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr[<span class="dv">4</span>]<span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">3</span>)<span class="op">;</span> <span class="co">// Nested array length</span></span>
-<span id="cb6-45"><a href="#cb6-45" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb6-46"><a href="#cb6-46" aria-hidden="true" tabindex="-1"></a>    arr[<span class="dv">4</span>]<span class="op">.</span><span class="fu">push</span>(<span class="dv">8</span>)<span class="op">;</span></span>
-<span id="cb6-47"><a href="#cb6-47" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(arr[<span class="dv">4</span>][<span class="dv">3</span>])<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">8</span>)<span class="op">;</span>  <span class="co">// After modification</span></span>
-<span id="cb6-48"><a href="#cb6-48" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb6-49"><a href="#cb6-49" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-50"><a href="#cb6-50" aria-hidden="true" tabindex="-1"></a><span class="co">// Test 6: DOM manipulation helper</span></span>
-<span id="cb6-51"><a href="#cb6-51" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Does the first DOM function work?&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-52"><a href="#cb6-52" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> data <span class="op">=</span> [<span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;b&quot;</span><span class="op">,</span> <span class="st">&quot;c&quot;</span>]<span class="op">;</span></span>
-<span id="cb6-53"><a href="#cb6-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(functions<span class="op">.</span><span class="fu">returnTheElementFirst</span>(data))<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&quot;a&quot;</span>)<span class="op">;</span></span>
-<span id="cb6-54"><a href="#cb6-54" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb6-55"><a href="#cb6-55" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb6-56"><a href="#cb6-56" aria-hidden="true" tabindex="-1"></a><span class="co">// Test 7: Another DOM helper</span></span>
-<span id="cb6-57"><a href="#cb6-57" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Does the second DOM function work?&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb6-58"><a href="#cb6-58" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> data <span class="op">=</span> [<span class="st">&quot;a&quot;</span><span class="op">,</span> <span class="st">&quot;b&quot;</span><span class="op">,</span> <span class="st">&quot;c&quot;</span>]<span class="op">;</span></span>
-<span id="cb6-59"><a href="#cb6-59" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(functions<span class="op">.</span><span class="fu">returnTheElementLast</span>(data))<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&quot;c&quot;</span>)<span class="op">;</span></span>
-<span id="cb6-60"><a href="#cb6-60" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>import functions from &quot;./play.js&quot;;
+
+// Test 1: Verifying the test environment works
+test(&quot;Testing the plumbing&quot;, () =&gt; {
+    expect(1).toBe(1); // Always passes - sanity check
+});
+
+// Test 2: Testing array access
+test(&quot;Testing to demonstrate arrays.&quot;, () =&gt; {
+    const arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+    
+    // Testing array access patterns
+    expect(arr.length).toBe(10);        // Array size
+    expect(arr[0]).toBe(1);             // First element
+    expect(arr[arr.length - 1]).toBe(10); // Last element
+});
+
+// Test 3: Testing objects (dictionaries)
+test(&quot;Testing to demonstrate dictionaries.&quot;, () =&gt; {
+    let arr = {
+        1: &quot;one&quot;,
+        2: &quot;two&quot;,
+        3: &quot;three&quot;
+    };
+    
+    // Objects use keys, not indices
+    expect(arr[1]).toBe(&quot;one&quot;);
+    expect(arr[2]).toBe(&quot;two&quot;);
+    expect(arr[3]).toBe(&quot;three&quot;);
+});
+
+// Test 4: Testing our actual function
+test(&quot;Testing the link to play.js&quot;, () =&gt; {
+    expect(functions.add(1, 2)).toBe(3);
+});
+
+// Test 5: Complex data structures
+test(&quot;Testing complex data structures.&quot;, () =&gt; {
+    const arr = [1, 2, 3, 4];
+    
+    // Testing nested arrays
+    arr.push([5, 6, 7]);
+    expect(arr[4][0]).toBe(5);  // Nested array access
+    expect(arr[4].length).toBe(3); // Nested array length
+    
+    arr[4].push(8);
+    expect(arr[4][3]).toBe(8);  // After modification
+});
+
+// Test 6: DOM manipulation helper
+test(&quot;Does the first DOM function work?&quot;, () =&gt; {
+    const data = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+    expect(functions.returnTheElementFirst(data)).toBe(&quot;a&quot;);
+});
+
+// Test 7: Another DOM helper
+test(&quot;Does the second DOM function work?&quot;, () =&gt; {
+    const data = [&quot;a&quot;, &quot;b&quot;, &quot;c&quot;];
+    expect(functions.returnTheElementLast(data)).toBe(&quot;c&quot;);
+});</code></pre>
 <hr />
 <h2 id="testing-strategy">Testing Strategy</h2>
 <h3 id="why-each-test-exists">Why Each Test Exists</h3>
@@ -348,84 +305,76 @@ class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-
 </tbody>
 </table>
 <h3 id="test-organization">Test Organization</h3>
-<div class="sourceCode" id="cb7"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ GOOD: Descriptive test names</span></span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Does the first DOM function work?&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Clear purpose</span></span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ BAD: Vague test names</span></span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;test1&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// What does this test?</span></span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// ✅ GOOD: Descriptive test names
+test(&quot;Does the first DOM function work?&quot;, () =&gt; {
+    // Clear purpose
+});
+
+// ❌ BAD: Vague test names
+test(&quot;test1&quot;, () =&gt; {
+    // What does this test?
+});</code></pre>
 <h3 id="running-tests">Running Tests</h3>
-<div class="sourceCode" id="cb8"><pre
-class="sourceCode bash"><code class="sourceCode bash"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Run all tests</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> test</span>
-<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Run tests in watch mode (auto-rerun on file save)</span></span>
-<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> test <span class="at">--</span> <span class="at">--watch</span></span>
-<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Run tests with coverage report</span></span>
-<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="ex">npm</span> test <span class="at">--</span> <span class="at">--coverage</span></span></code></pre></div>
+<pre class="bash"><code># Run all tests
+npm test
+
+# Run tests in watch mode (auto-rerun on file save)
+npm test -- --watch
+
+# Run tests with coverage report
+npm test -- --coverage</code></pre>
 <hr />
 <h2 id="2021-vs-2025-comparison">2021 vs 2025 Comparison</h2>
 <h3 id="testing-approach">Testing Approach</h3>
 <p><strong>2021: Manual Testing</strong></p>
-<div class="sourceCode" id="cb9"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Old approach - manual browser testing</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">add</span>(a<span class="op">,</span> b) {</span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> a <span class="op">+</span> b<span class="op">;</span></span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">// Open browser console, type:</span></span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>))<span class="op">;</span> <span class="co">// Check output manually</span></span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">add</span>(<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>))<span class="op">;</span> <span class="co">// Test edge case manually</span></span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="fu">add</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">;</span> <span class="co">// Test zero case manually</span></span></code></pre></div>
+<pre class="javascript"><code>// Old approach - manual browser testing
+function add(a, b) {
+    return a + b;
+}
+
+// Open browser console, type:
+console.log(add(2, 3)); // Check output manually
+console.log(add(-1, 1)); // Test edge case manually
+console.log(add(0, 0)); // Test zero case manually</code></pre>
 <p><strong>2025: Automated Testing</strong></p>
-<div class="sourceCode" id="cb10"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Modern approach - automated tests</span></span>
-<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;add function handles all cases&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">5</span>)<span class="op">;</span>      <span class="co">// Positive numbers</span></span>
-<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">0</span>)<span class="op">;</span>     <span class="co">// Negative numbers</span></span>
-<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">0</span>)<span class="op">;</span>      <span class="co">// Zero</span></span>
-<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="fl">1.5</span><span class="op">,</span> <span class="fl">2.5</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">4</span>)<span class="op">;</span>  <span class="co">// Decimals</span></span>
-<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Modern approach - automated tests
+test(&quot;add function handles all cases&quot;, () =&gt; {
+    expect(add(2, 3)).toBe(5);      // Positive numbers
+    expect(add(-1, 1)).toBe(0);     // Negative numbers
+    expect(add(0, 0)).toBe(0);      // Zero
+    expect(add(1.5, 2.5)).toBe(4);  // Decimals
+});</code></pre>
 <h3 id="jest-configuration">Jest Configuration</h3>
 <p><strong>2021: Minimal Setup</strong></p>
-<div class="sourceCode" id="cb11"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// package.json (2021)</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>{</span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="st">&quot;scripts&quot;</span><span class="op">:</span> {</span>
-<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&quot;test&quot;</span><span class="op">:</span> <span class="st">&quot;jest&quot;</span></span>
-<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a><span class="co">// That&#39;s it - no config file needed</span></span></code></pre></div>
+<pre class="javascript"><code>// package.json (2021)
+{
+  &quot;scripts&quot;: {
+    &quot;test&quot;: &quot;jest&quot;
+  }
+}
+// That&#39;s it - no config file needed</code></pre>
 <p><strong>2025: Modern Setup</strong></p>
-<div class="sourceCode" id="cb12"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">// jest.config.js (2025)</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> {</span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">testEnvironment</span><span class="op">:</span> <span class="st">&#39;jsdom&#39;</span><span class="op">,</span>         <span class="co">// Simulate browser</span></span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="dt">setupFiles</span><span class="op">:</span> [<span class="st">&#39;&lt;rootDir&gt;/jest.setup.js&#39;</span>]<span class="op">,</span> <span class="co">// Global setup</span></span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  <span class="dt">collectCoverageFrom</span><span class="op">:</span> [</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;src/**/*.js&#39;</span><span class="op">,</span></span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;!src/**/*.test.js&#39;</span><span class="op">,</span>            <span class="co">// Exclude test files</span></span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  ]<span class="op">,</span></span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> {</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;^.+</span><span class="sc">\\</span><span class="st">.jsx?$&#39;</span><span class="op">:</span> <span class="st">&#39;babel-jest&#39;</span><span class="op">,</span>    <span class="co">// Transpile modern JS</span></span>
-<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// jest.config.js (2025)
+module.exports = {
+  testEnvironment: &#39;jsdom&#39;,         // Simulate browser
+  setupFiles: [&#39;&lt;rootDir&gt;/jest.setup.js&#39;], // Global setup
+  collectCoverageFrom: [
+    &#39;src/**/*.js&#39;,
+    &#39;!src/**/*.test.js&#39;,            // Exclude test files
+  ],
+  transform: {
+    &#39;^.+\\.jsx?$&#39;: &#39;babel-jest&#39;,    // Transpile modern JS
+  }
+};</code></pre>
 <h3 id="module-systems">Module Systems</h3>
 <p><strong>2021: CommonJS</strong></p>
-<div class="sourceCode" id="cb13"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Old style - require/module.exports</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> functions <span class="op">=</span> <span class="pp">require</span>(<span class="st">&#39;./play.js&#39;</span>)<span class="op">;</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> functions<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Old style - require/module.exports
+const functions = require(&#39;./play.js&#39;);
+module.exports = functions;</code></pre>
 <p><strong>2025: ES6 Modules</strong></p>
-<div class="sourceCode" id="cb14"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Modern style - import/export</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> functions <span class="im">from</span> <span class="st">&#39;./play.js&#39;</span><span class="op">;</span></span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> functions<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// Modern style - import/export
+import functions from &#39;./play.js&#39;;
+export default functions;</code></pre>
 <hr />
 <h2 id="key-takeaways">Key Takeaways</h2>
 <h3 id="what-i-learned">What I Learned</h3>
@@ -442,31 +391,29 @@ refactor fearlessly</li>
 <h3 id="common-mistakes-i-made">Common Mistakes I Made</h3>
 <p><strong>Mistake 1: Testing implementation instead of
 behavior</strong></p>
-<div class="sourceCode" id="cb15"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ BAD: Testing internal details</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;uses a for loop&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> code <span class="op">=</span> myFunction<span class="op">.</span><span class="fu">toString</span>()<span class="op">;</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(code)<span class="op">.</span><span class="fu">toContain</span>(<span class="st">&#39;for&#39;</span>)<span class="op">;</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ GOOD: Testing observable behavior</span></span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;returns correct result&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">myFunction</span>([<span class="dv">1</span><span class="op">,</span><span class="dv">2</span><span class="op">,</span><span class="dv">3</span>]))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">6</span>)<span class="op">;</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// ❌ BAD: Testing internal details
+test(&quot;uses a for loop&quot;, () =&gt; {
+    const code = myFunction.toString();
+    expect(code).toContain(&#39;for&#39;);
+});
+
+// ✅ GOOD: Testing observable behavior
+test(&quot;returns correct result&quot;, () =&gt; {
+    expect(myFunction([1,2,3])).toBe(6);
+});</code></pre>
 <p><strong>Mistake 2: Not testing edge cases</strong></p>
-<div class="sourceCode" id="cb16"><pre
-class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ INCOMPLETE: Only happy path</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;add function&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">5</span>)<span class="op">;</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ COMPLETE: Edge cases included</span></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;add function handles edge cases&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="dv">2</span><span class="op">,</span> <span class="dv">3</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">5</span>)<span class="op">;</span>           <span class="co">// Normal case</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">0</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">0</span>)<span class="op">;</span>           <span class="co">// Zero</span></span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="op">-</span><span class="dv">1</span><span class="op">,</span> <span class="dv">1</span>))<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">0</span>)<span class="op">;</span>          <span class="co">// Negative</span></span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(<span class="fu">add</span>(<span class="fl">0.1</span><span class="op">,</span> <span class="fl">0.2</span>))<span class="op">.</span><span class="fu">toBeCloseTo</span>(<span class="fl">0.3</span>)<span class="op">;</span> <span class="co">// Floating point</span></span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<pre class="javascript"><code>// ❌ INCOMPLETE: Only happy path
+test(&quot;add function&quot;, () =&gt; {
+    expect(add(2, 3)).toBe(5);
+});
+
+// ✅ COMPLETE: Edge cases included
+test(&quot;add function handles edge cases&quot;, () =&gt; {
+    expect(add(2, 3)).toBe(5);           // Normal case
+    expect(add(0, 0)).toBe(0);           // Zero
+    expect(add(-1, 1)).toBe(0);          // Negative
+    expect(add(0.1, 0.2)).toBeCloseTo(0.3); // Floating point
+});</code></pre>
 <h3 id="success-metrics">Success Metrics</h3>
 <ul>
 <li>✅ All 7 tests passing</li>
@@ -501,5 +448,38 @@ problems like calculating Canadian taxes!</p>
 <p><strong>Module Status:</strong> ✅ Complete (7/7 tests passing)<br />
 <strong>Key Bugs Fixed:</strong> 0 (clean implementation)<br />
 <strong>Time Investment:</strong> ~2 hours (learning + practice)</p>
+            </article>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EvolveU Documentation</h4>
+                    <p>Comprehensive full-stack web development bootcamp documentation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://brennanbrown.ca" target="_blank">Portfolio</a></li>
+                        <li><a href="https://brennanbrown.ca/Resume.pdf" target="_blank">Resume</a></li>
+                        <li><a href="https://github.com/brennanbrown" target="_blank">GitHub</a></li>
+                        <li><a href="https://berryhouse.ca" target="_blank">BerryHouse</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="script.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>

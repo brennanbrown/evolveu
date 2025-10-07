@@ -1,34 +1,61 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="pandoc" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-  <title>README | EvolveU Documentation</title>
-  <style>
-    code{white-space: pre-wrap;}
-    span.smallcaps{font-variant: small-caps;}
-    div.columns{display: flex; gap: min(4vw, 1.5em);}
-    div.column{flex: auto; overflow-x: auto;}
-    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
-    /* The extra [class] is a hack that increases specificity enough to
-       override a similar rule in reveal.js */
-    ul.task-list[class]{list-style: none;}
-    ul.task-list li input[type="checkbox"] {
-      font-size: inherit;
-      width: 0.8em;
-      margin: 0 0.8em 0.2em -1.6em;
-      vertical-align: middle;
-    }
-    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
-  </style>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="doc-style.css" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Getting Started | EvolveU Documentation</title>
+    <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doc-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 </head>
-<body>
-<header id="title-block-header">
-<h1 class="title">README | EvolveU Documentation</h1>
-</header>
+<body class="doc-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
+                    <span class="logo">📚</span>
+                    <span class="brand-text">EvolveU Docs</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="INDEX.html" class="nav-link">All Modules</a>
+                <a href="https://github.com/brennanbrown/evolveu" target="_blank" class="nav-link">GitHub</a>
+                <a href="https://brennanbrown.ca" target="_blank" class="btn btn-primary">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="doc-container">
+        <!-- Sidebar -->
+        <aside class="doc-sidebar">
+            <h3>Modules</h3>
+            <nav class="doc-nav">
+                <a href="00-testing.html" class="doc-nav-link">00 - Testing Fundamentals</a>
+                <a href="01-getting-started.html" class="doc-nav-link">01 - Getting Started</a>
+                <a href="02-dom.html" class="doc-nav-link">02 - DOM Manipulation</a>
+                <a href="03-objects.html" class="doc-nav-link">03 - Objects & APIs</a>
+                <a href="04-react.html" class="doc-nav-link">04 - React Applications</a>
+                <a href="05-api.html" class="doc-nav-link">05 - Flask API Server</a>
+                <a href="06-python.html" class="doc-nav-link">06 - Python Fundamentals</a>
+                <a href="07-flask.html" class="doc-nav-link">07 - Flask Full-Stack</a>
+            </nav>
+            
+            <h3 style="margin-top: 2rem;">Resources</h3>
+            <nav class="doc-nav">
+                <a href="README.html" class="doc-nav-link">Getting Started</a>
+                <a href="INDEX.html" class="doc-nav-link">Documentation Index</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="doc-content">
+            <article class="markdown-body">
 <h1 id="evolveu-bootcamp-documentation">EvolveU Bootcamp
 Documentation</h1>
 <p><strong>Student:</strong> Brennan<br />
@@ -166,5 +193,38 @@ full-stack engineer.</p>
 <hr />
 <p><strong>Navigation</strong>: Start with <a
 href="./00-testing.md">Module 00: Testing Fundamentals</a> →</p>
+            </article>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EvolveU Documentation</h4>
+                    <p>Comprehensive full-stack web development bootcamp documentation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://brennanbrown.ca" target="_blank">Portfolio</a></li>
+                        <li><a href="https://brennanbrown.ca/Resume.pdf" target="_blank">Resume</a></li>
+                        <li><a href="https://github.com/brennanbrown" target="_blank">GitHub</a></li>
+                        <li><a href="https://berryhouse.ca" target="_blank">BerryHouse</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="script.js"></script>
+    <script>hljs.highlightAll();</script>
 </body>
 </html>
