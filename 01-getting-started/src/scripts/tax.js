@@ -25,10 +25,10 @@ const taxFunc = {
         
         // Calculating the tax owed per bracket, if maximum is met.
         const TAX = [
-            ((48535*100 - 48535*P[1])/(100)),  // BELOW   48K
-            ((48534*100 - 48534*P[2])/(100)),  // 48K  -  97K
-            ((53404*100 - 53404*P[3])/(100)),  // 97K  - 150K
-            ((63895*100 - 63895*P[4])/(100))   // 150K - 214K
+            ((48535*100 - 48535*P[0])/(100)),  // BELOW   48K - 15%
+            ((48534*100 - 48534*P[1])/(100)),  // 48K  -  97K - 20.5%
+            ((53404*100 - 53404*P[2])/(100)),  // 97K  - 150K - 26%
+            ((63895*100 - 63895*P[3])/(100))   // 150K - 214K - 29%
         ]; 
         
         // Calculating the maximum value per bracket.
@@ -47,7 +47,7 @@ const taxFunc = {
             // Uses kiss-and-flip method of percentile sum to calculate taxes.
             r_sum = ((r_sum*100 - r_sum*P[1])/(100));
             // Adds new bracket calculation with prior bracket calculation.
-            let total_tax_income = r_sum + TAX[1];
+            let total_tax_income = r_sum + TAX[0];
             
             // Uses the Math.round function to round calculation to
             // the second decimal place, for monetary value. 

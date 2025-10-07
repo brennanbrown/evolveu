@@ -25,11 +25,8 @@ const dict = {
                 return provName;
             }
         }
-        for (let [key, value] of Object.entries(prov)) {
-            if (key != abb) {
-                return "error!"
-            }
-        }
+        // If no match found, return undefined
+        return undefined;
     }
 }
 
