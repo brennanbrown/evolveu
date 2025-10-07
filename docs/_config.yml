@@ -1,0 +1,49 @@
+# GitHub Pages Configuration
+title: EvolveU Bootcamp Documentation
+description: Comprehensive full-stack web development bootcamp documentation by Brennan Brown
+author: Brennan Brown
+url: https://brennanbrown.github.io
+baseurl: /evolveu
+
+# Theme
+theme: null
+markdown: kramdown
+
+# Exclude from processing
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Include
+include:
+  - _config.yml
+
+# Plugins
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: default
+      author: Brennan Brown
+
+# Social links
+social:
+  github: brennanbrown
+  website: https://brennanbrown.ca
+  business: https://berryhouse.ca
+
+# SEO
+twitter:
+  username: brennankbrown
+  card: summary_large_image
+
+# Google Analytics (optional - add your ID)
+# google_analytics: UA-XXXXXXXXX-X
