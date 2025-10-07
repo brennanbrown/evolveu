@@ -1,0 +1,135 @@
+# Netlify Configuration for EvolveU Documentation
+# Site URL: https://brennan-evolveu.netlify.app
+
+[build]
+  # Publish directory (where your site files are)
+  publish = "docs"
+  
+  # Build command (none needed for static site)
+  command = ""
+
+[build.environment]
+  # Node version (if needed for any build tools)
+  NODE_VERSION = "18"
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    # Security headers
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    
+    # Cache control for static assets
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Redirect rules
+[[redirects]]
+  from = "/README"
+  to = "/README.html"
+  status = 200
+
+[[redirects]]
+  from = "/INDEX"
+  to = "/INDEX.html"
+  status = 200
+
+# Pretty URLs for markdown files
+[[redirects]]
+  from = "/00-testing"
+  to = "/00-testing.html"
+  status = 200
+
+[[redirects]]
+  from = "/01-getting-started"
+  to = "/01-getting-started.html"
+  status = 200
+
+[[redirects]]
+  from = "/02-dom"
+  to = "/02-dom.html"
+  status = 200
+
+[[redirects]]
+  from = "/03-objects"
+  to = "/03-objects.html"
+  status = 200
+
+[[redirects]]
+  from = "/04-react"
+  to = "/04-react.html"
+  status = 200
+
+[[redirects]]
+  from = "/05-api"
+  to = "/05-api.html"
+  status = 200
+
+[[redirects]]
+  from = "/06-python"
+  to = "/06-python.html"
+  status = 200
+
+[[redirects]]
+  from = "/07-flask"
+  to = "/07-flask.html"
+  status = 200
+
+# 404 page
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 404
+
+# Enable pretty URLs (removes .html extension)
+[[redirects]]
+  from = "/*"
+  to = "/:splat.html"
+  status = 200
+  force = false
+
+# Optimize builds
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
+# Plugin: Sitemap generation
+[[plugins]]
+  package = "@netlify/plugin-sitemap"
+
+# Dev server settings (for local testing)
+[dev]
+  command = "python3 -m http.server 8888"
+  targetPort = 8888
+  publish = "docs"
+  autoLaunch = true

@@ -1,0 +1,20 @@
+# Netlify Redirects File
+# https://docs.netlify.com/routing/redirects/
+
+# Pretty URLs - redirect markdown references to HTML
+/README               /README.html              200
+/INDEX                /INDEX.html               200
+/00-testing           /00-testing.html          200
+/01-getting-started   /01-getting-started.html  200
+/02-dom               /02-dom.html              200
+/03-objects           /03-objects.html          200
+/04-react             /04-react.html            200
+/05-api               /05-api.html              200
+/06-python            /06-python.html           200
+/07-flask             /07-flask.html            200
+
+# Legacy GitHub Pages URLs (if migrating)
+/evolveu/*            /:splat                   301
+
+# Fallback to home page for 404s
+/*                    /index.html               404
