@@ -23,10 +23,10 @@ class DoublyLinkedList {
         this.tail = null;
     }
 
-    append(todo,time) {
+    append(time, todo) {
         this.count++;
         const id = "k" + this.count;
-        const node = new Node(id,todo, time);
+        const node = new Node(id, time, todo);
         if (!this.head) {
             this.current = node;
             this.head = node;
@@ -69,7 +69,7 @@ class DoublyLinkedList {
         if (this.head === null) {
             return "(Currently Empty)";
         } else {
-            return this.current.todo;
+            return this.current;
         }
     }
 
@@ -91,10 +91,51 @@ class DoublyLinkedList {
         }
     }
 
-    remove() {
+    remove(id) {
+        // If id is provided, find and remove that specific node
+        if (id) {
+            let current = this.head;
+            while (current) {
+                if (current.id === id) {
+                    // Found the node to remove
+                    if (current === this.head && current === this.tail) {
+                        // Only one node
+                        this.head = null;
+                        this.tail = null;
+                        this.current = null;
+                    } else if (current === this.head) {
+                        // Remove head
+                        this.head = this.head.next;
+                        this.head.prev = null;
+                        if (this.current === current) {
+                            this.current = this.head;
+                        }
+                    } else if (current === this.tail) {
+                        // Remove tail
+                        this.tail = this.tail.prev;
+                        this.tail.next = null;
+                        if (this.current === current) {
+                            this.current = this.tail;
+                        }
+                    } else {
+                        // Remove middle node
+                        current.prev.next = current.next;
+                        current.next.prev = current.prev;
+                        if (this.current === current) {
+                            this.current = current.next;
+                        }
+                    }
+                    this.count--;
+                    return true;
+                }
+                current = current.next;
+            }
+            return false;
+        }
+        
+        // Original remove logic for current node
         if(!this.head) {return null;}
         else if (this.length() === 1){
-            alert ("The last task has been removed!");
             this.head = null;
             this.tail = null;
             this.current = null;
@@ -172,16 +213,15 @@ class DoublyLinkedList {
     }
 
     nextNode() {
-        console.log(this.current.next);
         if (this.tail == null) {
             return "(Currently Empty)";
         }
         else if ((this.current) && (this.current !== this.tail)) {
             this.current = this.current.next;
-            return "(Currently Empty)";
+            return this.current;
         }
         else  {
-            return "(Currently Empty)";
+            return this.current;
         }
     }
 
@@ -191,10 +231,10 @@ class DoublyLinkedList {
         }
         else if ((this.current) && (this.current !== this.head)) {
             this.current = this.current.prev;
-            return this.current.todo;
+            return this.current;
         }
         else if (this.current === this.head) {
-            return "(Currently Empty)";
+            return this.current;
         }
     }
 }

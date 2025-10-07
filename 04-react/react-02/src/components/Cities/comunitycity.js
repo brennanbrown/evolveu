@@ -186,10 +186,10 @@ class City {
         else if (cityPopulation >= 1000 && cityPopulation < 20000) {
             return "Town";
         }
-        else if (cityPopulation >= 20000 && cityPopulation <= 100000) {
+        else if (cityPopulation >= 20000 && cityPopulation < 100000) {
             return " Large Town";
         }
-        else if (cityPopulation <= 100000) {
+        else if (cityPopulation >= 100000) {
             return "City";
         }
         else {
