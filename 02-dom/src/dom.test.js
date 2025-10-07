@@ -1,4 +1,4 @@
-import domfuncs from './domfunc'
+import domfuncs from './dom'
 
 
 test('Does the dom functions work?', () => {

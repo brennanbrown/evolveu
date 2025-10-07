@@ -24,11 +24,11 @@ const functions = {
     
     addAfter(node, text) {
         const div = functions.buildCard(text);
-        node.parentElement.insertBefore(div, node);
+        node.parentElement.insertBefore(div, node.nextSibling);
     },
     addBefore(node, text) {
         const div = functions.buildCard(text);
-        node.parentElement.insertBefore(div, node.nextSibling);
+        node.parentElement.insertBefore(div, node);
     },
     deleteCard(node) {
         node.nextSibling.remove(node);
