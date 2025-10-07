@@ -127,8 +127,9 @@ def save():
 
 @app.route("/clear", methods = ['POST','GET'])
 def clear():
-	global data
+	global data, firstKeyType
 	data = {}
+	firstKeyType = None
 	return jsonify(data), 200
 
 
@@ -149,4 +150,4 @@ def test():
 
 if __name__ == '__main__':
 	print("--- Starting", __file__)
-	app.run(debug=True, use_reloader=True)
+	app.run(debug=False, use_reloader=False, port=5002)
