@@ -15,6 +15,3 @@
 
 # Legacy GitHub Pages URLs (if migrating)
 /evolveu/*            /:splat                   301
-
-# Fallback to home page for 404s
-/*                    /index.html               404
