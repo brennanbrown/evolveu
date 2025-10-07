@@ -1,26 +1,30 @@
 {
-    "name": "jest-p2",
+    "name": "evolveu-getting-started",
     "version": "1.0.0",
-    "description": "",
+    "description": "JavaScript basics for EvolveU bootcamp",
     "main": "index.js",
     "scripts": {
         "test": "jest",
-        "testcov": "jest --coverage",
+        "test:watch": "jest --watch",
+        "test:coverage": "jest --coverage",
         "test1": "jest src/01-getting-started",
         "test1cov": "jest src/01-getting-started --coverage",
-        "testfile": "jest src/01-getting-started/scripts/lfsplay.test.js"
+        "testfile": "jest src/01-getting-started/scripts/lfsplay.test.js",
+        "serve": "live-server"
     },
-    "keywords": [],
-    "author": "",
-    "license": "ISC",
+    "keywords": ["javascript", "basics", "jest"],
+    "author": "Brennan Brown",
+    "license": "MIT",
     "devDependencies": {
-        "@babel/cli": "^7.0.0",
-        "@babel/preset-env": "^7.0.0",
-        "jest": "^29.3.1",
-        "node-fetch": "^3.2.10",
-        "whatwg-fetch": "^3.0.0"
+        "@babel/cli": "^7.25.9",
+        "@babel/core": "^7.25.9",
+        "@babel/preset-env": "^7.25.9",
+        "jest": "^29.7.0",
+        "jest-environment-jsdom": "^29.7.0",
+        "node-fetch": "^3.3.2",
+        "whatwg-fetch": "^3.6.20"
     },
     "dependencies": {
-        "live-server": "^1.2.1"
+        "live-server": "^1.2.2"
     }
 }
