@@ -1,6 +1,6 @@
 const functions = {
     
-    url: "http://127.0.0.1:5000/",
+    url: "http://127.0.0.1:5002/",
     
     retrieveNames(info, i) {
         try {
@@ -22,18 +22,22 @@ const functions = {
     async postData(url = "", info = {}) {
         const response = await fetch(url, {
             method: "POST",
-            mode: "cors",
-            cache: "no-cache",
-            credentials: "same-origin",
             headers: {
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
+                "Accept": "application/json"
             },
-            redirect: "follow",
-            referrer: "no-referrer",
             body: JSON.stringify(info)
         });
         
-        const JSON_DATA = await response.json();
+        const text = await response.text();
+        let JSON_DATA = text ? JSON.parse(text) : {};
+        
+        // If it's an array, just return it (for /all endpoint)
+        if (Array.isArray(JSON_DATA)) {
+            return JSON_DATA;
+        }
+        
+        // For objects, add status information
         JSON_DATA.status = response.status;
         JSON_DATA.statusText = response.statusText;
         return JSON_DATA;

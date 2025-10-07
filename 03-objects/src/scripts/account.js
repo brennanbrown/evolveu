@@ -53,7 +53,10 @@ class AccountController {
     }
     
     isNewAmount(num) {
-        return num;
+        if (typeof num === 'number' && !isNaN(num)) {
+            return num;
+        }
+        return undefined;
     }
     
     largestAccount() {

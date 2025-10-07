@@ -1,5 +1,8 @@
 import functions from "./fetch.js"
-global.fetch = require("node-fetch");
+import fetch from "node-fetch";
+
+// Use real fetch for integration tests
+global.fetch = fetch;
 
 // Created via: https://mockaroo.com/
 const dummyData = [{
@@ -71,7 +74,8 @@ test("Does the retrieveAllNames function work?", () => {
 });
 
 test("Does the retrieveAllNames function work?", () => {
-    let dummyData = functions.infoTestFunc();
-    expect(dummyData.length).toBe(9);
-    
+    // Test with the dummyData directly - no server needed
+    let allNames = functions.retrieveAllNames(dummyData);
+    expect(allNames.length).toBe(8);  // dummyData has 8 entries
+    expect(allNames).toStrictEqual(["Danni", "Cyb", "Trever", "Olly", "Rene", "Minnnie", "Atlante", "Yancy"]);
 });

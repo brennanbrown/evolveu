@@ -36,7 +36,7 @@ class City {
     
     classification() {
         try {
-            if (this.population > 100000) {
+            if (this.population >= 100000) {
                 return "City";
             } if (this.population >= 20000 && this.population < 100000) {
                 return "Large Town";
@@ -56,7 +56,7 @@ class City {
 class Community {
     
     constructor() {
-        this.url = 'http://localhost:5000/';
+        this.url = 'http://localhost:5002/';
         this.comms = [];
     }
     
@@ -69,7 +69,7 @@ class Community {
                 i = data.sort((a, b) => { return b.key - a.key });
                 i = i[0].key;
             }
-            let myCity = new City(city, latitude, longitude, population, i + 1);
+            let myCity = new City(city, population, latitude, longitude, i + 1);
             data = await functions.postData(this.url + 'add', myCity);
             if (data.status === 200) {
                 return data;
@@ -100,20 +100,19 @@ class Community {
     
     async updatePopulation(city) {
         try {
-            let data = await functions.postData(this.url + 'all');
+            let data = await functions.postData(this.url + 'update', { 
+                key: city.key, 
+                name: city.name, 
+                latitude: city.latitude, 
+                longitude: city.longitude, 
+                population: city.population });
             if (data.status === 200) {
-                data = await functions.postData(this.url + 'update', { 
-                    key: city.key, 
-                    name: city.name, 
-                    latitude: city.latitude, 
-                    longitude: city.longitude, 
-                    population: city.population });
-                    return data;
-                } return 'SERVER ERROR';
-            } catch (error) {
-                console.error("Error:", error);
-            }
+                return data;
+            } return 'SERVER ERROR';
+        } catch (error) {
+            console.error("Error:", error);
         }
+    }
         
         whichHemiphere(city) {
             try {
@@ -158,7 +157,7 @@ class Community {
                 if (data.length > 0) {
                     let population = data.map(testCity => testCity.population);
                     population = population.reduce((a, b) => (Number(a) + Number(b)));
-                    return Number(pop).toLocaleString();
+                    return Number(population).toLocaleString();
                 } return 'ERROR';
             } catch (error) {
                 console.error("Error:", error);
