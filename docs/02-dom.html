@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>02-dom | EvolveU Documentation</title>
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+    /* CSS for syntax highlighting */
+    html { -webkit-text-size-adjust: 100%; }
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { color: #008000; } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { color: #008000; font-weight: bold; } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="doc-style.css" />
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">02-dom | EvolveU Documentation</h1>
+</header>
+<h1 id="module-02-dom-manipulation">Module 02: DOM Manipulation</h1>
+<p><strong>Learning Focus:</strong> Document Object Model (DOM), dynamic
+HTML manipulation, and programmatic UI updates</p>
+<h2 id="table-of-contents">Table of Contents</h2>
+<ol type="1">
+<li><a href="#module-overview">Module Overview</a></li>
+<li><a href="#core-concepts">Core Concepts</a></li>
+<li><a href="#code-walkthrough">Code Walkthrough</a></li>
+<li><a href="#testing-strategy">Testing Strategy</a></li>
+<li><a href="#bugs-fixed">Bugs Fixed</a></li>
+<li><a href="#2021-vs-2025-comparison">2021 vs 2025 Comparison</a></li>
+<li><a href="#key-takeaways">Key Takeaways</a></li>
+</ol>
+<hr />
+<h2 id="module-overview">Module Overview</h2>
+<h3 id="what-were-building">What We're Building</h3>
+<p>This module introduces <strong>DOM manipulation</strong>—the ability
+to dynamically create, modify, and delete HTML elements using
+JavaScript. We build helper functions that:</p>
+<ul>
+<li>Create new DOM elements</li>
+<li>Insert elements before existing ones</li>
+<li>Insert elements after existing ones</li>
+<li>Append elements to containers</li>
+</ul>
+<h3 id="why-dom-manipulation-matters">Why DOM Manipulation Matters</h3>
+<p>Every modern web application needs to update the UI dynamically:</p>
+<ul>
+<li><strong>Social Media</strong>: New posts appear without page
+reload</li>
+<li><strong>E-commerce</strong>: Shopping cart updates instantly</li>
+<li><strong>Gmail</strong>: Emails load and display dynamically</li>
+<li><strong>Google Maps</strong>: Map pins added/removed on-the-fly</li>
+</ul>
+<p>Without DOM manipulation, we'd need full page reloads for every
+change—slow and jarring UX.</p>
+<hr />
+<h2 id="core-concepts">Core Concepts</h2>
+<h3 id="1-what-is-the-dom">1. What is the DOM?</h3>
+<p>The <strong>Document Object Model</strong> is a tree representation
+of HTML:</p>
+<div class="sourceCode" id="cb1"><pre
+class="sourceCode html"><code class="sourceCode html"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- HTML --&gt;</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;</span><span class="kw">div</span><span class="ot"> id</span><span class="op">=</span><span class="st">&quot;container&quot;</span><span class="dt">&gt;</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">h1</span><span class="dt">&gt;</span>Title<span class="dt">&lt;/</span><span class="kw">h1</span><span class="dt">&gt;</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>    <span class="dt">&lt;</span><span class="kw">p</span><span class="dt">&gt;</span>Content<span class="dt">&lt;/</span><span class="kw">p</span><span class="dt">&gt;</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="dt">&lt;/</span><span class="kw">div</span><span class="dt">&gt;</span></span></code></pre></div>
+<pre><code>DOM Tree:
+    div#container
+    ├── h1 (Title)
+    └── p (Content)</code></pre>
+<p>JavaScript can traverse and modify this tree:</p>
+<div class="sourceCode" id="cb3"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> container <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;container&#39;</span>)<span class="op">;</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>container<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&#39;&lt;h2&gt;New Title&lt;/h2&gt;&#39;</span><span class="op">;</span>  <span class="co">// Modified!</span></span></code></pre></div>
+<h3 id="2-creating-elements">2. Creating Elements</h3>
+<div class="sourceCode" id="cb4"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Create a new element</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> newDiv <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Set attributes</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>newDiv<span class="op">.</span><span class="at">id</span> <span class="op">=</span> <span class="st">&#39;myDiv&#39;</span><span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>newDiv<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">&#39;card&#39;</span><span class="op">;</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a><span class="co">// Set content</span></span>
+<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>newDiv<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">&#39;Hello World&#39;</span><span class="op">;</span></span>
+<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>newDiv<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="st">&#39;&lt;strong&gt;Bold text&lt;/strong&gt;&#39;</span><span class="op">;</span></span>
+<span id="cb4-11"><a href="#cb4-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb4-12"><a href="#cb4-12" aria-hidden="true" tabindex="-1"></a><span class="co">// Result:</span></span>
+<span id="cb4-13"><a href="#cb4-13" aria-hidden="true" tabindex="-1"></a><span class="co">// &lt;div id=&quot;myDiv&quot; class=&quot;card&quot;&gt;&lt;strong&gt;Bold text&lt;/strong&gt;&lt;/div&gt;</span></span></code></pre></div>
+<h3 id="3-insertion-methods">3. Insertion Methods</h3>
+<div class="sourceCode" id="cb5"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> parent <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;container&#39;</span>)<span class="op">;</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> newElement <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;p&#39;</span>)<span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co">// Method 1: Append to end</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>parent<span class="op">.</span><span class="fu">appendChild</span>(newElement)<span class="op">;</span></span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a><span class="co">// Method 2: Insert before specific child</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> referenceElement <span class="op">=</span> parent<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>parent<span class="op">.</span><span class="fu">insertBefore</span>(newElement<span class="op">,</span> referenceElement)<span class="op">;</span></span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-11"><a href="#cb5-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Method 3: Insert after (no native method!)</span></span>
+<span id="cb5-12"><a href="#cb5-12" aria-hidden="true" tabindex="-1"></a><span class="co">// This is why we build our own helper functions</span></span></code></pre></div>
+<h3 id="4-selecting-elements">4. Selecting Elements</h3>
+<div class="sourceCode" id="cb6"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co">// By ID (returns single element)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> el <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;myId&#39;</span>)<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a><span class="co">// By class (returns collection)</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> els <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementsByClassName</span>(<span class="st">&#39;myClass&#39;</span>)<span class="op">;</span></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="co">// By CSS selector (returns first match)</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> el <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;.myClass&#39;</span>)<span class="op">;</span></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a><span class="co">// By CSS selector (returns all matches)</span></span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> els <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">&#39;.myClass&#39;</span>)<span class="op">;</span></span></code></pre></div>
+<hr />
+<h2 id="code-walkthrough">Code Walkthrough</h2>
+<h3 id="file-structure">File Structure</h3>
+<pre><code>02-dom/
+├── src/
+│   ├── dom.js          # DOM manipulation functions
+│   ├── dom.test.js     # Tests using jsdom
+│   └── index.html      # Visual testing page
+├── jest.config.js      # Configure jsdom environment
+└── package.json</code></pre>
+<h3 id="domjs---core-dom-functions">dom.js - Core DOM Functions</h3>
+<div class="sourceCode" id="cb8"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> domFunctions <span class="op">=</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">     * Get a DOM element by ID</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> id - The element ID</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@returns</span><span class="co"> {HTMLElement} The DOM element</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>    <span class="dt">getById</span><span class="op">:</span> (id) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(id)<span class="op">;</span></span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a><span class="co">     * Create a new DOM element</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> type - Element type (div, p, span, etc.)</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@returns</span><span class="co"> {HTMLElement} New element</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>    <span class="dt">createNewDomElement</span><span class="op">:</span> (type) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(type)<span class="op">;</span></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a><span class="co">     * Set text content of an element</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> element - Target element</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> text - Text to set</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@returns</span><span class="co"> {HTMLElement} The modified element</span></span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a>    <span class="dt">changeText</span><span class="op">:</span> (element<span class="op">,</span> text) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>        element<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> text<span class="op">;</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> element<span class="op">;</span></span>
+<span id="cb8-29"><a href="#cb8-29" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb8-30"><a href="#cb8-30" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-31"><a href="#cb8-31" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb8-32"><a href="#cb8-32" aria-hidden="true" tabindex="-1"></a><span class="co">     * Set ID attribute of an element</span></span>
+<span id="cb8-33"><a href="#cb8-33" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> element - Target element</span></span>
+<span id="cb8-34"><a href="#cb8-34" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> id - ID to set</span></span>
+<span id="cb8-35"><a href="#cb8-35" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@returns</span><span class="co"> {HTMLElement} The modified element</span></span>
+<span id="cb8-36"><a href="#cb8-36" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb8-37"><a href="#cb8-37" aria-hidden="true" tabindex="-1"></a>    <span class="dt">changeId</span><span class="op">:</span> (element<span class="op">,</span> id) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-38"><a href="#cb8-38" aria-hidden="true" tabindex="-1"></a>        element<span class="op">.</span><span class="at">id</span> <span class="op">=</span> id<span class="op">;</span></span>
+<span id="cb8-39"><a href="#cb8-39" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> element<span class="op">;</span></span>
+<span id="cb8-40"><a href="#cb8-40" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb8-41"><a href="#cb8-41" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-42"><a href="#cb8-42" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb8-43"><a href="#cb8-43" aria-hidden="true" tabindex="-1"></a><span class="co">     * Add a class to an element</span></span>
+<span id="cb8-44"><a href="#cb8-44" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> element - Target element</span></span>
+<span id="cb8-45"><a href="#cb8-45" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{string}</span><span class="co"> className - Class to add</span></span>
+<span id="cb8-46"><a href="#cb8-46" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@returns</span><span class="co"> {HTMLElement} The modified element</span></span>
+<span id="cb8-47"><a href="#cb8-47" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb8-48"><a href="#cb8-48" aria-hidden="true" tabindex="-1"></a>    <span class="dt">addClass</span><span class="op">:</span> (element<span class="op">,</span> className) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-49"><a href="#cb8-49" aria-hidden="true" tabindex="-1"></a>        element<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">add</span>(className)<span class="op">;</span></span>
+<span id="cb8-50"><a href="#cb8-50" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> element<span class="op">;</span></span>
+<span id="cb8-51"><a href="#cb8-51" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb8-52"><a href="#cb8-52" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-53"><a href="#cb8-53" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb8-54"><a href="#cb8-54" aria-hidden="true" tabindex="-1"></a><span class="co">     * Insert element BEFORE a reference element</span></span>
+<span id="cb8-55"><a href="#cb8-55" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> newElement - Element to insert</span></span>
+<span id="cb8-56"><a href="#cb8-56" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> referenceElement - Existing element</span></span>
+<span id="cb8-57"><a href="#cb8-57" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb8-58"><a href="#cb8-58" aria-hidden="true" tabindex="-1"></a>    <span class="dt">addBefore</span><span class="op">:</span> (newElement<span class="op">,</span> referenceElement) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-59"><a href="#cb8-59" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ⚠️ </span><span class="al">BUG</span><span class="co"> WAS HERE: Logic was swapped with addAfter</span></span>
+<span id="cb8-60"><a href="#cb8-60" aria-hidden="true" tabindex="-1"></a>        referenceElement<span class="op">.</span><span class="at">parentNode</span><span class="op">.</span><span class="fu">insertBefore</span>(</span>
+<span id="cb8-61"><a href="#cb8-61" aria-hidden="true" tabindex="-1"></a>            newElement<span class="op">,</span></span>
+<span id="cb8-62"><a href="#cb8-62" aria-hidden="true" tabindex="-1"></a>            referenceElement</span>
+<span id="cb8-63"><a href="#cb8-63" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span></span>
+<span id="cb8-64"><a href="#cb8-64" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb8-65"><a href="#cb8-65" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-66"><a href="#cb8-66" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb8-67"><a href="#cb8-67" aria-hidden="true" tabindex="-1"></a><span class="co">     * Insert element AFTER a reference element</span></span>
+<span id="cb8-68"><a href="#cb8-68" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> newElement - Element to insert</span></span>
+<span id="cb8-69"><a href="#cb8-69" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> referenceElement - Existing element</span></span>
+<span id="cb8-70"><a href="#cb8-70" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb8-71"><a href="#cb8-71" aria-hidden="true" tabindex="-1"></a>    <span class="dt">addAfter</span><span class="op">:</span> (newElement<span class="op">,</span> referenceElement) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-72"><a href="#cb8-72" aria-hidden="true" tabindex="-1"></a>        <span class="co">// ⚠️ </span><span class="al">BUG</span><span class="co"> WAS HERE: Logic was swapped with addBefore</span></span>
+<span id="cb8-73"><a href="#cb8-73" aria-hidden="true" tabindex="-1"></a>        referenceElement<span class="op">.</span><span class="at">parentNode</span><span class="op">.</span><span class="fu">insertBefore</span>(</span>
+<span id="cb8-74"><a href="#cb8-74" aria-hidden="true" tabindex="-1"></a>            newElement<span class="op">,</span></span>
+<span id="cb8-75"><a href="#cb8-75" aria-hidden="true" tabindex="-1"></a>            referenceElement<span class="op">.</span><span class="at">nextSibling</span></span>
+<span id="cb8-76"><a href="#cb8-76" aria-hidden="true" tabindex="-1"></a>        )<span class="op">;</span></span>
+<span id="cb8-77"><a href="#cb8-77" aria-hidden="true" tabindex="-1"></a>    }<span class="op">,</span></span>
+<span id="cb8-78"><a href="#cb8-78" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-79"><a href="#cb8-79" aria-hidden="true" tabindex="-1"></a>    <span class="co">/**</span></span>
+<span id="cb8-80"><a href="#cb8-80" aria-hidden="true" tabindex="-1"></a><span class="co">     * Append element as last child of parent</span></span>
+<span id="cb8-81"><a href="#cb8-81" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> newElement - Element to add</span></span>
+<span id="cb8-82"><a href="#cb8-82" aria-hidden="true" tabindex="-1"></a><span class="co">     * </span><span class="an">@param</span><span class="co"> </span><span class="cv">{HTMLElement}</span><span class="co"> parentElement - Parent container</span></span>
+<span id="cb8-83"><a href="#cb8-83" aria-hidden="true" tabindex="-1"></a><span class="co">     */</span></span>
+<span id="cb8-84"><a href="#cb8-84" aria-hidden="true" tabindex="-1"></a>    <span class="dt">addLast</span><span class="op">:</span> (newElement<span class="op">,</span> parentElement) <span class="kw">=&gt;</span> {</span>
+<span id="cb8-85"><a href="#cb8-85" aria-hidden="true" tabindex="-1"></a>        parentElement<span class="op">.</span><span class="fu">appendChild</span>(newElement)<span class="op">;</span></span>
+<span id="cb8-86"><a href="#cb8-86" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb8-87"><a href="#cb8-87" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span>
+<span id="cb8-88"><a href="#cb8-88" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-89"><a href="#cb8-89" aria-hidden="true" tabindex="-1"></a><span class="im">export</span> <span class="im">default</span> domFunctions<span class="op">;</span></span></code></pre></div>
+<p><strong>Key Design Decisions:</strong></p>
+<ol type="1">
+<li><p><strong>Why return the element?</strong></p>
+<div class="sourceCode" id="cb9"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Allows method chaining</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;div&#39;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">changeText</span>(element<span class="op">,</span> <span class="st">&#39;Hello&#39;</span>)</span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>    <span class="op">.</span><span class="fu">addClass</span>(element<span class="op">,</span> <span class="st">&#39;card&#39;</span>)<span class="op">;</span></span></code></pre></div></li>
+<li><p><strong>Why <code>insertBefore</code> for
+<code>addAfter</code>?</strong></p>
+<ul>
+<li>JavaScript has <code>insertBefore()</code> but no
+<code>insertAfter()</code></li>
+<li>We simulate <code>addAfter</code> by inserting before the
+<code>nextSibling</code></li>
+</ul>
+<div class="sourceCode" id="cb10"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Insert after means: insert before the next element</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>parent<span class="op">.</span><span class="fu">insertBefore</span>(newEl<span class="op">,</span> referenceEl<span class="op">.</span><span class="at">nextSibling</span>)<span class="op">;</span></span></code></pre></div></li>
+<li><p><strong>Why use <code>classList.add()</code>?</strong></p>
+<div class="sourceCode" id="cb11"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ GOOD: Preserves existing classes</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">classList</span><span class="op">.</span><span class="fu">add</span>(<span class="st">&#39;new-class&#39;</span>)<span class="op">;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ BAD: Overwrites existing classes</span></span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">&#39;new-class&#39;</span><span class="op">;</span></span></code></pre></div></li>
+</ol>
+<hr />
+<h2 id="testing-strategy">Testing Strategy</h2>
+<h3 id="jestconfigjs---setting-up-jsdom">jest.config.js - Setting Up
+jsdom</h3>
+<div class="sourceCode" id="cb12"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>module<span class="op">.</span><span class="at">exports</span> <span class="op">=</span> {</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="dt">testEnvironment</span><span class="op">:</span> <span class="st">&#39;jsdom&#39;</span><span class="op">,</span>  <span class="co">// Simulate browser DOM</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="dt">transform</span><span class="op">:</span> {</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">&#39;^.+</span><span class="sc">\\</span><span class="st">.jsx?$&#39;</span><span class="op">:</span> <span class="st">&#39;babel-jest&#39;</span><span class="op">,</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>}<span class="op">;</span></span></code></pre></div>
+<p><strong>Why jsdom?</strong></p>
+<ul>
+<li>Jest runs in Node.js (no browser)</li>
+<li>jsdom creates a fake DOM in memory</li>
+<li>We can test DOM operations without opening a browser</li>
+</ul>
+<h3 id="domtestjs---test-suite">dom.test.js - Test Suite</h3>
+<div class="sourceCode" id="cb13"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> domFunctions <span class="im">from</span> <span class="st">&quot;./dom.js&quot;</span><span class="op">;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Does the dom functions work?&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Create container element</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> parent <span class="op">=</span> domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">changeId</span>(parent<span class="op">,</span> <span class="st">&#39;parent&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Create first child</span></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> first <span class="op">=</span> domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;p&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">changeText</span>(first<span class="op">,</span> <span class="st">&#39;First&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">changeId</span>(first<span class="op">,</span> <span class="st">&#39;first&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Append first child to parent</span></span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">addLast</span>(first<span class="op">,</span> parent)<span class="op">;</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Verify structure</span></span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">id</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;parent&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span><span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">1</span>)<span class="op">;</span></span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">textContent</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;First&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Does the addBefore function work?&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Setup: parent with one child</span></span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> parent <span class="op">=</span> domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> existing <span class="op">=</span> domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;p&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">changeId</span>(existing<span class="op">,</span> <span class="st">&#39;existing&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">addLast</span>(existing<span class="op">,</span> parent)<span class="op">;</span></span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Add new element BEFORE existing</span></span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> newElement <span class="op">=</span> domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;span&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">changeId</span>(newElement<span class="op">,</span> <span class="st">&#39;new&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">addBefore</span>(newElement<span class="op">,</span> existing)<span class="op">;</span></span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Verify order</span></span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span><span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">id</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;new&#39;</span>)<span class="op">;</span>      <span class="co">// New is first</span></span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span>[<span class="dv">1</span>]<span class="op">.</span><span class="at">id</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;existing&#39;</span>)<span class="op">;</span> <span class="co">// Existing is second</span></span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;Does the after function work?&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Setup: parent with one child</span></span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> parent <span class="op">=</span> domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> existing <span class="op">=</span> domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;p&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">changeId</span>(existing<span class="op">,</span> <span class="st">&#39;existing&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">addLast</span>(existing<span class="op">,</span> parent)<span class="op">;</span></span>
+<span id="cb13-46"><a href="#cb13-46" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-47"><a href="#cb13-47" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Add new element AFTER existing</span></span>
+<span id="cb13-48"><a href="#cb13-48" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> newElement <span class="op">=</span> domFunctions<span class="op">.</span><span class="fu">createNewDomElement</span>(<span class="st">&#39;span&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-49"><a href="#cb13-49" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">changeId</span>(newElement<span class="op">,</span> <span class="st">&#39;new&#39;</span>)<span class="op">;</span></span>
+<span id="cb13-50"><a href="#cb13-50" aria-hidden="true" tabindex="-1"></a>    domFunctions<span class="op">.</span><span class="fu">addAfter</span>(newElement<span class="op">,</span> existing)<span class="op">;</span></span>
+<span id="cb13-51"><a href="#cb13-51" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb13-52"><a href="#cb13-52" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Verify order</span></span>
+<span id="cb13-53"><a href="#cb13-53" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span><span class="op">.</span><span class="at">length</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="dv">2</span>)<span class="op">;</span></span>
+<span id="cb13-54"><a href="#cb13-54" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">id</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;existing&#39;</span>)<span class="op">;</span> <span class="co">// Existing is first</span></span>
+<span id="cb13-55"><a href="#cb13-55" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span>[<span class="dv">1</span>]<span class="op">.</span><span class="at">id</span>)<span class="op">.</span><span class="fu">toBe</span>(<span class="st">&#39;new&#39;</span>)<span class="op">;</span>      <span class="co">// New is second</span></span>
+<span id="cb13-56"><a href="#cb13-56" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<p><strong>Testing Philosophy:</strong></p>
+<p>Each test follows the <strong>Arrange-Act-Assert</strong>
+pattern:</p>
+<ol type="1">
+<li><strong>Arrange</strong>: Set up DOM structure</li>
+<li><strong>Act</strong>: Perform DOM operation</li>
+<li><strong>Assert</strong>: Verify expected outcome</li>
+</ol>
+<hr />
+<h2 id="bugs-fixed">Bugs Fixed</h2>
+<h3 id="bug-1-import-path-typo">Bug #1: Import Path Typo</h3>
+<div class="sourceCode" id="cb14"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ WRONG: Incorrect filename</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> domFunctions <span class="im">from</span> <span class="st">&quot;./domfunc.js&quot;</span><span class="op">;</span></span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ CORRECT: Match actual filename</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> domFunctions <span class="im">from</span> <span class="st">&quot;./dom.js&quot;</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Impact:</strong> Tests couldn't find the module, all tests
+failed to run.</p>
+<p><strong>How it happened:</strong> Likely a typo when creating the
+test file.</p>
+<p><strong>Lesson:</strong> Always verify import paths match actual file
+names.</p>
+<h3 id="bug-2-addbeforeaddafter-logic-swapped">Bug #2:
+addBefore/addAfter Logic Swapped</h3>
+<p>This was the most interesting bug—the logic was completely
+backwards!</p>
+<div class="sourceCode" id="cb15"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ WRONG: Functions did the opposite of their names</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>addBefore<span class="op">:</span> (newElement<span class="op">,</span> referenceElement) <span class="kw">=&gt;</span> {</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    <span class="co">// This actually inserts AFTER!</span></span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>    referenceElement<span class="op">.</span><span class="at">parentNode</span><span class="op">.</span><span class="fu">insertBefore</span>(</span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>        newElement<span class="op">,</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>        referenceElement<span class="op">.</span><span class="at">nextSibling</span></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>addAfter<span class="op">:</span> (newElement<span class="op">,</span> referenceElement) <span class="kw">=&gt;</span> {</span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>    <span class="co">// This actually inserts BEFORE!</span></span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>    referenceElement<span class="op">.</span><span class="at">parentNode</span><span class="op">.</span><span class="fu">insertBefore</span>(</span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>        newElement<span class="op">,</span></span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>        referenceElement</span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb15-17"><a href="#cb15-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-18"><a href="#cb15-18" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ CORRECT: Swap the implementations</span></span>
+<span id="cb15-19"><a href="#cb15-19" aria-hidden="true" tabindex="-1"></a>addBefore<span class="op">:</span> (newElement<span class="op">,</span> referenceElement) <span class="kw">=&gt;</span> {</span>
+<span id="cb15-20"><a href="#cb15-20" aria-hidden="true" tabindex="-1"></a>    referenceElement<span class="op">.</span><span class="at">parentNode</span><span class="op">.</span><span class="fu">insertBefore</span>(</span>
+<span id="cb15-21"><a href="#cb15-21" aria-hidden="true" tabindex="-1"></a>        newElement<span class="op">,</span></span>
+<span id="cb15-22"><a href="#cb15-22" aria-hidden="true" tabindex="-1"></a>        referenceElement</span>
+<span id="cb15-23"><a href="#cb15-23" aria-hidden="true" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb15-24"><a href="#cb15-24" aria-hidden="true" tabindex="-1"></a>}<span class="op">,</span></span>
+<span id="cb15-25"><a href="#cb15-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-26"><a href="#cb15-26" aria-hidden="true" tabindex="-1"></a>addAfter<span class="op">:</span> (newElement<span class="op">,</span> referenceElement) <span class="kw">=&gt;</span> {</span>
+<span id="cb15-27"><a href="#cb15-27" aria-hidden="true" tabindex="-1"></a>    referenceElement<span class="op">.</span><span class="at">parentNode</span><span class="op">.</span><span class="fu">insertBefore</span>(</span>
+<span id="cb15-28"><a href="#cb15-28" aria-hidden="true" tabindex="-1"></a>        newElement<span class="op">,</span></span>
+<span id="cb15-29"><a href="#cb15-29" aria-hidden="true" tabindex="-1"></a>        referenceElement<span class="op">.</span><span class="at">nextSibling</span></span>
+<span id="cb15-30"><a href="#cb15-30" aria-hidden="true" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb15-31"><a href="#cb15-31" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Visual representation of the bug:</strong></p>
+<pre><code>Before Bug Fix:
+Called addBefore() → Element appears AFTER
+Called addAfter() → Element appears BEFORE
+
+After Bug Fix:
+Called addBefore() → Element appears BEFORE ✓
+Called addAfter() → Element appears AFTER ✓</code></pre>
+<p><strong>How to avoid this:</strong></p>
+<ol type="1">
+<li>Write tests first (TDD)</li>
+<li>Use descriptive variable names</li>
+<li>Add comments explaining the logic</li>
+</ol>
+<hr />
+<h2 id="2021-vs-2025-comparison">2021 vs 2025 Comparison</h2>
+<h3 id="dom-manipulation-approaches">DOM Manipulation Approaches</h3>
+<p><strong>2021: Direct DOM Manipulation</strong></p>
+<div class="sourceCode" id="cb17"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Old way - direct HTML strings</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> container <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;app&#39;</span>)<span class="op">;</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>container<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> <span class="vs">`</span></span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;div class=&quot;card&quot;&gt;</span></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;h2&gt;</span><span class="sc">${</span>title<span class="sc">}</span><span class="vs">&lt;/h2&gt;</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a><span class="vs">        &lt;p&gt;</span><span class="sc">${</span>description<span class="sc">}</span><span class="vs">&lt;/p&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a><span class="vs">    &lt;/div&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a><span class="vs">`</span><span class="op">;</span></span></code></pre></div>
+<p><strong>Problems with 2021 approach:</strong></p>
+<ul>
+<li>❌ Security risk (XSS attacks)</li>
+<li>❌ Loses event listeners</li>
+<li>❌ Destroys existing elements</li>
+<li>❌ No type safety</li>
+</ul>
+<p><strong>2025: Programmatic DOM Creation</strong></p>
+<div class="sourceCode" id="cb18"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Modern way - create elements programmatically</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> card <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>card<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">&#39;card&#39;</span><span class="op">;</span></span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> title <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;h2&#39;</span>)<span class="op">;</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>title<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> titleText<span class="op">;</span>  <span class="co">// Safe from XSS</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> desc <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;p&#39;</span>)<span class="op">;</span></span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>desc<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> descriptionText<span class="op">;</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-11"><a href="#cb18-11" aria-hidden="true" tabindex="-1"></a>card<span class="op">.</span><span class="fu">appendChild</span>(title)<span class="op">;</span></span>
+<span id="cb18-12"><a href="#cb18-12" aria-hidden="true" tabindex="-1"></a>card<span class="op">.</span><span class="fu">appendChild</span>(desc)<span class="op">;</span></span>
+<span id="cb18-13"><a href="#cb18-13" aria-hidden="true" tabindex="-1"></a>container<span class="op">.</span><span class="fu">appendChild</span>(card)<span class="op">;</span></span></code></pre></div>
+<p><strong>Benefits of 2025 approach:</strong></p>
+<ul>
+<li>✅ XSS-safe (textContent escapes HTML)</li>
+<li>✅ Preserves event listeners</li>
+<li>✅ Fine-grained control</li>
+<li>✅ Better for testing</li>
+</ul>
+<h3 id="modern-frameworks-reactvue">Modern Frameworks (React/Vue)</h3>
+<p><strong>Why we still learn vanilla DOM:</strong> Even though React
+exists, understanding the DOM is crucial:</p>
+<div class="sourceCode" id="cb19"><pre
+class="sourceCode jsx"><code class="sourceCode javascriptreact"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co">// React abstracts DOM manipulation</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">Card</span>({ title<span class="op">,</span> description }) {</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> (</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;div</span> <span class="ot">className</span><span class="op">=</span><span class="st">&quot;card&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;h2&gt;</span><span class="va">{</span>title<span class="va">}</span><span class="kw">&lt;/h2&gt;</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>            <span class="kw">&lt;p&gt;</span><span class="va">{</span>description<span class="va">}</span><span class="kw">&lt;/p&gt;</span></span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>        <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    )<span class="op">;</span></span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>But React compiles to:</strong></p>
+<div class="sourceCode" id="cb20"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Similar to what we write manually!</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>React<span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;div&#39;</span><span class="op">,</span> { <span class="dt">className</span><span class="op">:</span> <span class="st">&#39;card&#39;</span> }<span class="op">,</span></span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>    React<span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;h2&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> title)<span class="op">,</span></span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>    React<span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;p&#39;</span><span class="op">,</span> <span class="kw">null</span><span class="op">,</span> description)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>)<span class="op">;</span></span></code></pre></div>
+<p>Understanding vanilla DOM helps you:</p>
+<ul>
+<li>Debug React issues</li>
+<li>Optimize performance</li>
+<li>Work with web components</li>
+<li>Understand what frameworks do under the hood</li>
+</ul>
+<h3 id="testing-evolution">Testing Evolution</h3>
+<p><strong>2021: Manual Browser Testing</strong></p>
+<div class="sourceCode" id="cb21"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Old way - open browser, look at page</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">testAddBefore</span>() {</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> parent <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;test-container&#39;</span>)<span class="op">;</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> existing <span class="op">=</span> parent<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>]<span class="op">;</span></span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> newEl <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;span&#39;</span>)<span class="op">;</span></span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addBefore</span>(newEl<span class="op">,</span> existing)<span class="op">;</span></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Manually inspect page in browser</span></span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="bu">console</span><span class="op">.</span><span class="fu">log</span>(<span class="st">&#39;Check if span is before existing element&#39;</span>)<span class="op">;</span></span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>2025: Automated jsdom Testing</strong></p>
+<div class="sourceCode" id="cb22"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Modern way - automated tests</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a><span class="fu">test</span>(<span class="st">&quot;addBefore inserts element correctly&quot;</span><span class="op">,</span> () <span class="kw">=&gt;</span> {</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> parent <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> existing <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;p&#39;</span>)<span class="op">;</span></span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>    parent<span class="op">.</span><span class="fu">appendChild</span>(existing)<span class="op">;</span></span>
+<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> newEl <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;span&#39;</span>)<span class="op">;</span></span>
+<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">addBefore</span>(newEl<span class="op">,</span> existing)<span class="op">;</span></span>
+<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">// Automated assertion</span></span>
+<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span>[<span class="dv">0</span>])<span class="op">.</span><span class="fu">toBe</span>(newEl)<span class="op">;</span></span>
+<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>    <span class="fu">expect</span>(parent<span class="op">.</span><span class="at">children</span>[<span class="dv">1</span>])<span class="op">.</span><span class="fu">toBe</span>(existing)<span class="op">;</span></span>
+<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span></code></pre></div>
+<hr />
+<h2 id="key-takeaways">Key Takeaways</h2>
+<h3 id="core-skills-developed">Core Skills Developed</h3>
+<ol type="1">
+<li><p><strong>DOM Tree Navigation</strong></p>
+<div class="sourceCode" id="cb23"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">parentNode</span>        <span class="co">// Go up</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">children</span>          <span class="co">// Go down</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">nextSibling</span>       <span class="co">// Go right</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">previousSibling</span>   <span class="co">// Go left</span></span></code></pre></div></li>
+<li><p><strong>Element Creation Pipeline</strong></p>
+<div class="sourceCode" id="cb24"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>Create → Configure → Insert</span></code></pre></div></li>
+<li><p><strong>Safe Content Updates</strong></p>
+<div class="sourceCode" id="cb25"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ Safe from XSS</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> userInput<span class="op">;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ Dangerous!</span></span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">innerHTML</span> <span class="op">=</span> userInput<span class="op">;</span></span></code></pre></div></li>
+<li><p><strong>Testing DOM Code</strong></p>
+<ul>
+<li>Use jsdom for unit tests</li>
+<li>Create minimal DOM structures</li>
+<li>Test insertion order carefully</li>
+</ul></li>
+</ol>
+<h3 id="common-patterns">Common Patterns</h3>
+<p><strong>Pattern 1: Builder Functions</strong></p>
+<div class="sourceCode" id="cb26"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="kw">function</span> <span class="fu">createCard</span>(title<span class="op">,</span> content) {</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> card <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;div&#39;</span>)<span class="op">;</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>    card<span class="op">.</span><span class="at">className</span> <span class="op">=</span> <span class="st">&#39;card&#39;</span><span class="op">;</span></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> h2 <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;h2&#39;</span>)<span class="op">;</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>    h2<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> title<span class="op">;</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> p <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;p&#39;</span>)<span class="op">;</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>    p<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> content<span class="op">;</span></span>
+<span id="cb26-10"><a href="#cb26-10" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-11"><a href="#cb26-11" aria-hidden="true" tabindex="-1"></a>    card<span class="op">.</span><span class="fu">appendChild</span>(h2)<span class="op">;</span></span>
+<span id="cb26-12"><a href="#cb26-12" aria-hidden="true" tabindex="-1"></a>    card<span class="op">.</span><span class="fu">appendChild</span>(p)<span class="op">;</span></span>
+<span id="cb26-13"><a href="#cb26-13" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb26-14"><a href="#cb26-14" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> card<span class="op">;</span></span>
+<span id="cb26-15"><a href="#cb26-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p><strong>Pattern 2: Bulk Operations</strong></p>
+<div class="sourceCode" id="cb27"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Create multiple elements efficiently</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> items <span class="op">=</span> [<span class="st">&#39;Apple&#39;</span><span class="op">,</span> <span class="st">&#39;Banana&#39;</span><span class="op">,</span> <span class="st">&#39;Cherry&#39;</span>]<span class="op">;</span></span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fragment <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createDocumentFragment</span>()<span class="op">;</span></span>
+<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>items<span class="op">.</span><span class="fu">forEach</span>(item <span class="kw">=&gt;</span> {</span>
+<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> li <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;li&#39;</span>)<span class="op">;</span></span>
+<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>    li<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> item<span class="op">;</span></span>
+<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>    fragment<span class="op">.</span><span class="fu">appendChild</span>(li)<span class="op">;</span></span>
+<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>})<span class="op">;</span></span>
+<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a><span class="co">// Single reflow/repaint</span></span>
+<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a>list<span class="op">.</span><span class="fu">appendChild</span>(fragment)<span class="op">;</span></span></code></pre></div>
+<p><strong>Pattern 3: Template Cloning</strong></p>
+<div class="sourceCode" id="cb28"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="co">// Clone template instead of creating from scratch</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> template <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">&#39;card-template&#39;</span>)<span class="op">;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> clone <span class="op">=</span> template<span class="op">.</span><span class="at">content</span><span class="op">.</span><span class="fu">cloneNode</span>(<span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>clone<span class="op">.</span><span class="fu">querySelector</span>(<span class="st">&#39;.title&#39;</span>)<span class="op">.</span><span class="at">textContent</span> <span class="op">=</span> <span class="st">&#39;New Title&#39;</span><span class="op">;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>container<span class="op">.</span><span class="fu">appendChild</span>(clone)<span class="op">;</span></span></code></pre></div>
+<h3 id="performance-considerations">Performance Considerations</h3>
+<p><strong>Minimize Reflows:</strong></p>
+<div class="sourceCode" id="cb29"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ BAD: Multiple reflows</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">1000</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> li <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;li&#39;</span>)<span class="op">;</span></span>
+<span id="cb29-4"><a href="#cb29-4" aria-hidden="true" tabindex="-1"></a>    list<span class="op">.</span><span class="fu">appendChild</span>(li)<span class="op">;</span>  <span class="co">// Reflow every time!</span></span>
+<span id="cb29-5"><a href="#cb29-5" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-6"><a href="#cb29-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb29-7"><a href="#cb29-7" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ GOOD: Single reflow</span></span>
+<span id="cb29-8"><a href="#cb29-8" aria-hidden="true" tabindex="-1"></a><span class="kw">const</span> fragment <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createDocumentFragment</span>()<span class="op">;</span></span>
+<span id="cb29-9"><a href="#cb29-9" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (<span class="kw">let</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> <span class="dv">1000</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb29-10"><a href="#cb29-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">const</span> li <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">createElement</span>(<span class="st">&#39;li&#39;</span>)<span class="op">;</span></span>
+<span id="cb29-11"><a href="#cb29-11" aria-hidden="true" tabindex="-1"></a>    fragment<span class="op">.</span><span class="fu">appendChild</span>(li)<span class="op">;</span></span>
+<span id="cb29-12"><a href="#cb29-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb29-13"><a href="#cb29-13" aria-hidden="true" tabindex="-1"></a>list<span class="op">.</span><span class="fu">appendChild</span>(fragment)<span class="op">;</span>  <span class="co">// One reflow</span></span></code></pre></div>
+<p><strong>Batch Style Changes:</strong></p>
+<div class="sourceCode" id="cb30"><pre
+class="sourceCode javascript"><code class="sourceCode javascript"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co">// ❌ BAD: Multiple style recalculations</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">width</span> <span class="op">=</span> <span class="st">&#39;100px&#39;</span><span class="op">;</span>   <span class="co">// Recalc</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">height</span> <span class="op">=</span> <span class="st">&#39;200px&#39;</span><span class="op">;</span>  <span class="co">// Recalc</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">color</span> <span class="op">=</span> <span class="st">&#39;red&#39;</span><span class="op">;</span>     <span class="co">// Recalc</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="co">// ✅ GOOD: Single recalculation</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>element<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">cssText</span> <span class="op">=</span> <span class="st">&#39;width: 100px; height: 200px; color: red;&#39;</span><span class="op">;</span></span></code></pre></div>
+<hr />
+<h2 id="further-learning">Further Learning</h2>
+<h3 id="practice-exercises">Practice Exercises</h3>
+<ol type="1">
+<li><p><strong>Dynamic List Builder:</strong></p>
+<ul>
+<li>Create function that builds unordered list from array</li>
+<li>Add click handlers to each item</li>
+<li>Implement delete functionality</li>
+</ul></li>
+<li><p><strong>Table Generator:</strong></p>
+<ul>
+<li>Create table from 2D array</li>
+<li>Add sorting by column</li>
+<li>Implement cell editing</li>
+</ul></li>
+<li><p><strong>Modal Creator:</strong></p>
+<ul>
+<li>Build reusable modal component</li>
+<li>Add open/close animations</li>
+<li>Handle keyboard (ESC to close)</li>
+</ul></li>
+</ol>
+<h3 id="real-world-applications">Real-World Applications</h3>
+<ul>
+<li><strong>Todo Lists</strong>: Add/remove/edit items dynamically</li>
+<li><strong>Forms</strong>: Add form fields on demand</li>
+<li><strong>Galleries</strong>: Load images dynamically</li>
+<li><strong>Comments</strong>: Add new comments without page reload</li>
+<li><strong>Notifications</strong>: Show toast messages</li>
+</ul>
+<h3 id="recommended-resources">Recommended Resources</h3>
+<ul>
+<li><a
+href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model">MDN
+DOM API</a></li>
+<li><a href="https://javascript.info/document">JavaScript.info -
+Document</a></li>
+<li><a
+href="https://developer.mozilla.org/en-US/docs/Web/Web_Components">Web
+Components</a></li>
+</ul>
+<h3 id="next-steps">Next Steps</h3>
+<p>Now that we understand DOM manipulation, we're ready for
+<strong>object-oriented programming</strong> and <strong>API
+integration</strong> in <a href="./03-objects.md">Module 03: Objects
+&amp; API Integration</a> →</p>
+<hr />
+<p><strong>Module Status:</strong> ✅ Complete (3/3 tests passing)<br />
+<strong>Key Bugs Fixed:</strong> 2 (import path, swapped logic)<br />
+<strong>Time Investment:</strong> ~2 hours<br />
+<strong>Key Skill:</strong> Understanding the foundation that powers all
+frontend frameworks</p>
+</body>
+</html>
