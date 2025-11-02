@@ -209,7 +209,7 @@ While this is a personal learning portfolio, suggestions and improvements are we
 **Brennan Brown**
 - Website: [brennanbrown.ca](https://brennanbrown.ca)
 - GitHub: [@brennanbrown](https://github.com/brennanbrown)
-- LinkedIn: [brennanbrown](https://linkedin.com/in/brennanbrown)
+- LinkedIn: [brennankbrown](https://linkedin.com/in/brennankbrown)
 
 ## 🙏 Acknowledgments
 
