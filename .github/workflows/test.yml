@@ -1,0 +1,30 @@
+name: 'Test Workflow'
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Show project structure
+        run: |
+          echo "Project structure:"
+          find . -name "package.json" -not -path "./node_modules/*" | head -10
+          echo ""
+          echo "Python requirements:"
+          find . -name "requirements*.txt" | head -5
+          
+      - name: Check security files
+        run: |
+          echo "Security configuration files:"
+          ls -la .github/
+          echo ""
+          echo "Workflows:"
+          ls -la .github/workflows/
+          echo ""
+          echo "Documentation:"
+          ls -la SECURITY*.md VERIFICATION.md
