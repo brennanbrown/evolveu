@@ -129,7 +129,7 @@ HTMLFOOTER
     echo "✓ Created ${html_file}"
 }
 
-# Convert all module files
+# Convert all module files (NOTE: index.html is the hero landing page - DO NOT overwrite)
 create_html_page "README.md" "README.html" "Getting Started"
 create_html_page "INDEX.md" "INDEX.html" "Documentation Index"
 create_html_page "00-testing.md" "00-testing.html" "Module 00: Testing Fundamentals"
