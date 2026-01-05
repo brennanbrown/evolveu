@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Index | EvolveU Documentation</title>
+    <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="doc-style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
+</head>
+<body class="doc-page">
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">
+                <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
+                    <span class="logo">📚</span>
+                    <span class="brand-text">EvolveU Docs</span>
+                </a>
+            </div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="INDEX.html" class="nav-link">All Modules</a>
+                <a href="https://github.com/brennanbrown/evolveu" target="_blank" class="nav-link">GitHub</a>
+                <a href="https://brennanbrown.ca" target="_blank" class="btn btn-primary">Portfolio</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="doc-container">
+        <!-- Sidebar -->
+        <aside class="doc-sidebar">
+            <h3>Modules</h3>
+            <nav class="doc-nav">
+                <a href="00-testing.html" class="doc-nav-link">00 - Testing Fundamentals</a>
+                <a href="01-getting-started.html" class="doc-nav-link">01 - Getting Started</a>
+                <a href="02-dom.html" class="doc-nav-link">02 - DOM Manipulation</a>
+                <a href="03-objects.html" class="doc-nav-link">03 - Objects & APIs</a>
+                <a href="04-react.html" class="doc-nav-link">04 - React Applications</a>
+                <a href="05-api.html" class="doc-nav-link">05 - Flask API Server</a>
+                <a href="06-python.html" class="doc-nav-link">06 - Python Fundamentals</a>
+                <a href="07-flask.html" class="doc-nav-link">07 - Flask Full-Stack</a>
+            </nav>
+            
+            <h3 style="margin-top: 2rem;">Resources</h3>
+            <nav class="doc-nav">
+                <a href="README.html" class="doc-nav-link">Getting Started</a>
+                <a href="INDEX.html" class="doc-nav-link">Documentation Index</a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="doc-content">
+            <article class="markdown-body">
+<h1 id="complete-documentation-index">Complete Documentation Index</h1>
+<p><strong>Total Documentation:</strong> 5,843 lines across 9 markdown
+files<br />
+<strong>Coverage:</strong> 100% of bootcamp modules<br />
+<strong>Last Updated:</strong> October 2025</p>
+<hr />
+<h2 id="quick-navigation">Quick Navigation</h2>
+<table>
+<thead>
+<tr>
+<th>Module</th>
+<th>Topic</th>
+<th>Lines</th>
+<th>Tests</th>
+<th>Bugs Fixed</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a href="./README.md">README</a></td>
+<td>Overview &amp; Introduction</td>
+<td>94</td>
+<td>-</td>
+<td>-</td>
+<td>✅</td>
+</tr>
+<tr>
+<td><a href="./00-testing.md">00-testing</a></td>
+<td>Jest &amp; TDD Fundamentals</td>
+<td>410</td>
+<td>7/7 ✅</td>
+<td>0</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><a href="./01-getting-started.md">01-getting-started</a></td>
+<td>JavaScript Basics &amp; Tax Calculator</td>
+<td>639</td>
+<td>8/8 ✅</td>
+<td>5</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><a href="./02-dom.md">02-dom</a></td>
+<td>DOM Manipulation</td>
+<td>679</td>
+<td>3/3 ✅</td>
+<td>2</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><a href="./03-objects.md">03-objects</a></td>
+<td>OOP &amp; API Integration</td>
+<td>1,054</td>
+<td>30/30 ✅</td>
+<td>14</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><a href="./04-react.md">04-react</a></td>
+<td>React Components &amp; Hooks</td>
+<td>774</td>
+<td>11/11 ✅</td>
+<td>7</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><a href="./05-api.md">05-api</a></td>
+<td>Flask REST API Server</td>
+<td>599</td>
+<td>-</td>
+<td>2</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><a href="./06-python.md">06-python</a></td>
+<td>Python Fundamentals</td>
+<td>475</td>
+<td>0</td>
+<td>0</td>
+<td>✅ Complete</td>
+</tr>
+<tr>
+<td><a href="./07-flask.md">07-flask</a></td>
+<td>Production Flask App</td>
+<td>636</td>
+<td>0</td>
+<td>0</td>
+<td>⚠️ Blocked</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Total:</strong> 5,843 lines | 59 passing tests | 28 bugs
+documented &amp; fixed</p>
+<hr />
+<h2 id="learning-path">Learning Path</h2>
+<h3 id="phase-1-fundamentals-weeks-1-2">Phase 1: Fundamentals (Weeks
+1-2)</h3>
+<ol type="1">
+<li><p><strong>Start Here:</strong> <a href="./00-testing.md">Module 00:
+Testing</a></p>
+<ul>
+<li>Learn TDD philosophy</li>
+<li>Master Jest basics</li>
+<li>Understand test anatomy</li>
+</ul></li>
+<li><p><strong>Next:</strong> <a href="./01-getting-started.md">Module
+01: Getting Started</a></p>
+<ul>
+<li>JavaScript arrays &amp; objects</li>
+<li>Functions &amp; scope</li>
+<li>Real-world problem solving (tax calculator)</li>
+</ul></li>
+</ol>
+<h3 id="phase-2-frontend-weeks-3-4">Phase 2: Frontend (Weeks 3-4)</h3>
+<ol start="3" type="1">
+<li><p><strong>DOM Mastery:</strong> <a href="./02-dom.md">Module 02:
+DOM Manipulation</a></p>
+<ul>
+<li>Create/modify elements</li>
+<li>Event handling</li>
+<li>Dynamic UI updates</li>
+</ul></li>
+<li><p><strong>OOP &amp; APIs:</strong> <a href="./03-objects.md">Module
+03: Objects &amp; Integration</a></p>
+<ul>
+<li>Classes &amp; inheritance</li>
+<li>REST API communication</li>
+<li>Async/await patterns</li>
+<li>Full-stack integration</li>
+</ul></li>
+</ol>
+<h3 id="phase-3-modern-frontend-weeks-5-6">Phase 3: Modern Frontend
+(Weeks 5-6)</h3>
+<ol start="5" type="1">
+<li><strong>React:</strong> <a href="./04-react.md">Module 04: React
+Applications</a>
+<ul>
+<li>Component-based architecture</li>
+<li>State management</li>
+<li>Hooks &amp; lifecycle</li>
+<li>Class vs function components</li>
+</ul></li>
+</ol>
+<h3 id="phase-4-backend-weeks-7-8">Phase 4: Backend (Weeks 7-8)</h3>
+<ol start="6" type="1">
+<li><p><strong>API Server:</strong> <a href="./05-api.md">Module 05:
+Flask API</a></p>
+<ul>
+<li>RESTful design</li>
+<li>CRUD operations</li>
+<li>CORS handling</li>
+<li>Error management</li>
+</ul></li>
+<li><p><strong>Python:</strong> <a href="./06-python.md">Module 06:
+Python Fundamentals</a></p>
+<ul>
+<li>Python syntax</li>
+<li>File I/O</li>
+<li>CSV processing</li>
+<li>Data manipulation</li>
+</ul></li>
+<li><p><strong>Production:</strong> <a href="./07-flask.md">Module 07:
+Flask Full-Stack</a></p>
+<ul>
+<li>MongoDB integration</li>
+<li>Authentication</li>
+<li>Deployment</li>
+<li>Production patterns</li>
+</ul></li>
+</ol>
+<hr />
+<h2 id="by-topic">By Topic</h2>
+<h3 id="testing--quality">Testing &amp; Quality</h3>
+<ul>
+<li><a href="./00-testing.md">Testing Fundamentals</a> - Jest, TDD,
+assertions</li>
+<li><a href="./03-objects.md#testing-strategy">Integration Testing</a> -
+Full-stack testing</li>
+<li><a href="./04-react.md#testing-strategy">React Testing</a> -
+Component testing</li>
+</ul>
+<h3 id="javascript">JavaScript</h3>
+<ul>
+<li><a href="./01-getting-started.md">Basics</a> - Arrays, objects,
+functions</li>
+<li><a href="./02-dom.md">DOM</a> - Manipulation, events</li>
+<li><a href="./03-objects.md">OOP</a> - Classes, inheritance</li>
+<li><a href="./03-objects.md#async-await-pattern">Async</a> - Promises,
+async/await</li>
+</ul>
+<h3 id="react">React</h3>
+<ul>
+<li><a href="./04-react.md#component-syntax">Components</a> - Class vs
+function</li>
+<li><a href="./04-react.md#hooks-the-game-changer">Hooks</a> - useState,
+useEffect</li>
+<li><a href="./04-react.md#common-patterns">Patterns</a> - Best
+practices</li>
+</ul>
+<h3 id="backend">Backend</h3>
+<ul>
+<li><a href="./05-api.md">Flask API</a> - REST endpoints</li>
+<li><a href="./06-python.md">Python</a> - Language fundamentals</li>
+<li><a href="./07-flask.md#mongodb--mongoengine">MongoDB</a> - NoSQL
+database</li>
+<li><a
+href="./07-flask.md#authentication-with-flask-login">Authentication</a>
+- User sessions</li>
+</ul>
+<h3 id="architecture">Architecture</h3>
+<ul>
+<li><a href="./03-objects.md#api-integration">Client-Server</a> - REST
+communication</li>
+<li><a href="./07-flask.md#architecture-overview">Full-Stack</a> -
+Production patterns</li>
+<li><a href="./07-flask.md#application-factory-pattern">Factory
+Pattern</a> - Flask apps</li>
+</ul>
+<hr />
+<h2 id="key-code-examples">Key Code Examples</h2>
+<h3 id="javascript-patterns">JavaScript Patterns</h3>
+<pre class="javascript"><code>// Module 01: Tax calculation with progressive brackets
+const TAX = [[49020, 0.15], [98040, 0.205], ...];
+function calcTax(income) { /* ... */ }
+
+// Module 02: DOM creation pipeline
+const element = document.createElement(&#39;div&#39;);
+element.textContent = &#39;Hello&#39;;
+parent.appendChild(element);
+
+// Module 03: Async API calls
+async function getCities() {
+    const response = await fetch(url);
+    const data = await response.json();
+    return data;
+}
+
+// Module 04: React hooks
+function Component() {
+    const [state, setState] = useState(0);
+    useEffect(() =&gt; { /* side effects */ }, []);
+    return &lt;div&gt;{state}&lt;/div&gt;;
+}</code></pre>
+<h3 id="pythonflask-patterns">Python/Flask Patterns</h3>
+<pre class="python"><code># Module 05: Flask route
+@app.route(&#39;/api/data&#39;, methods=[&#39;POST&#39;])
+def handle_data():
+    data = request.get_json()
+    return jsonify(result), 200
+
+# Module 06: File processing
+with open(&#39;data.csv&#39;, &#39;r&#39;) as file:
+    for line in file:
+        process(line)
+
+# Module 07: MongoDB model
+class User(db.Document):
+    username = db.StringField(required=True)
+    email = db.StringField(unique=True)</code></pre>
+<hr />
+<h2 id="bug-fixes-reference">Bug Fixes Reference</h2>
+<h3 id="critical-bugs-prevented-functionality">Critical Bugs (prevented
+functionality)</h3>
+<ol type="1">
+<li><strong>[Module 03]</strong> City constructor parameter order -
+wrong data types</li>
+<li><strong>[Module 03]</strong> updatePopulation unnecessary check -
+updates never executed</li>
+<li><strong>[Module 03]</strong> Port 5000 conflict - API calls blocked
+by system service</li>
+<li><strong>[Module 04]</strong> Linked List parameter swap - data
+corruption</li>
+<li><strong>[Module 04]</strong> get() return type - tests expect node,
+got string</li>
+</ol>
+<h3 id="logic-bugs-incorrect-calculations">Logic Bugs (incorrect
+calculations)</h3>
+<ol type="1">
+<li><strong>[Module 01]</strong> Tax bracket indexing - wrong tax
+amounts</li>
+<li><strong>[Module 01]</strong> Dictionary loop early return - only
+checked first item</li>
+<li><strong>[Module 03]</strong> Classification threshold - 100k
+population undefined</li>
+<li><strong>[Module 04]</strong> Population size logic - excluded
+exactly 100k</li>
+</ol>
+<h3 id="configuration-bugs-environment-issues">Configuration Bugs
+(environment issues)</h3>
+<ol type="1">
+<li><strong>[Module 02]</strong> Import path typo - tests couldn't
+run</li>
+<li><strong>[Module 03]</strong> Flask clear endpoint - state leaked
+between tests</li>
+<li><strong>[Module 05]</strong> Debug mode hanging - server not
+responsive</li>
+</ol>
+<p><strong>Full bug details available in each module's
+documentation.</strong></p>
+<hr />
+<h2 id="2021-vs-2025-evolution">2021 vs 2025 Evolution</h2>
+<h3 id="major-technology-shifts">Major Technology Shifts</h3>
+<table>
+<thead>
+<tr>
+<th>Aspect</th>
+<th>2021</th>
+<th>2025</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>React</strong></td>
+<td>Class components</td>
+<td>Function components + Hooks</td>
+</tr>
+<tr>
+<td><strong>JavaScript</strong></td>
+<td>CommonJS (require)</td>
+<td>ES6 Modules (import)</td>
+</tr>
+<tr>
+<td><strong>Async</strong></td>
+<td>Callbacks → Promises</td>
+<td>Async/await everywhere</td>
+</tr>
+<tr>
+<td><strong>Testing</strong></td>
+<td>Manual browser</td>
+<td>Automated Jest/pytest</td>
+</tr>
+<tr>
+<td><strong>Build Tools</strong></td>
+<td>Webpack</td>
+<td>Vite (10x faster)</td>
+</tr>
+<tr>
+<td><strong>Flask</strong></td>
+<td>1.x</td>
+<td>3.x (breaking changes)</td>
+</tr>
+<tr>
+<td><strong>Python</strong></td>
+<td>3.7</td>
+<td>3.13 (type hints standard)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="best-practices-evolution">Best Practices Evolution</h3>
+<p><strong>Testing:</strong></p>
+<ul>
+<li>2021: Afterthought, manual clicking</li>
+<li>2025: TDD, automated CI/CD</li>
+</ul>
+<p><strong>State Management:</strong></p>
+<ul>
+<li>2021: this.setState(), class lifecycle</li>
+<li>2025: useState(), useEffect()</li>
+</ul>
+<p><strong>API Design:</strong></p>
+<ul>
+<li>2021: Minimal error handling</li>
+<li>2025: Comprehensive validation, status codes</li>
+</ul>
+<p><strong>Security:</strong></p>
+<ul>
+<li>2021: Basic CORS</li>
+<li>2025: HTTPS, rate limiting, input sanitization</li>
+</ul>
+<hr />
+<h2 id="statistics">Statistics</h2>
+<h3 id="code-metrics">Code Metrics</h3>
+<ul>
+<li><strong>Total Tests:</strong> 59 passing</li>
+<li><strong>Test Files:</strong> 12</li>
+<li><strong>Code Files:</strong> 40+</li>
+<li><strong>Lines of Code:</strong> ~5,000+</li>
+<li><strong>Dependencies:</strong> 50+ npm + pip packages</li>
+</ul>
+<h3 id="time-investment">Time Investment</h3>
+<ul>
+<li>Module 00: ~2 hours</li>
+<li>Module 01: ~4 hours</li>
+<li>Module 02: ~2 hours</li>
+<li>Module 03: ~8 hours (most complex)</li>
+<li>Module 04: ~6 hours</li>
+<li>Module 05: ~3 hours</li>
+<li>Module 06: ~2 hours</li>
+<li>Module 07: ~4 hours</li>
+<li><strong>Total:</strong> ~31 hours of focused learning</li>
+</ul>
+<h3 id="technologies-mastered">Technologies Mastered</h3>
+<ul>
+<li>✅ JavaScript ES6+</li>
+<li>✅ Jest testing framework</li>
+<li>✅ DOM manipulation</li>
+<li>✅ Object-oriented programming</li>
+<li>✅ REST API integration</li>
+<li>✅ React (hooks, components, state)</li>
+<li>✅ Python fundamentals</li>
+<li>✅ Flask web framework</li>
+<li>✅ MongoDB (basics)</li>
+<li>✅ Git version control</li>
+</ul>
+<hr />
+<h2 id="how-to-use-this-documentation">How to Use This
+Documentation</h2>
+<h3 id="for-learning-first-time">For Learning (First Time)</h3>
+<ol type="1">
+<li>Read modules in order (00 → 07)</li>
+<li>Code along with examples</li>
+<li>Run tests to verify understanding</li>
+<li>Complete practice exercises</li>
+<li>Build personal projects</li>
+</ol>
+<h3 id="for-reference-experienced">For Reference (Experienced)</h3>
+<ol type="1">
+<li>Use topic index for quick lookup</li>
+<li>Jump to specific sections</li>
+<li>Copy code patterns</li>
+<li>Review bug fixes for debugging tips</li>
+<li>Compare 2021 vs 2025 sections</li>
+</ol>
+<h3 id="for-interview-prep">For Interview Prep</h3>
+<ol type="1">
+<li>Review <a href="./README.md">Key Takeaways</a> in each module</li>
+<li>Practice explaining concepts out loud</li>
+<li>Recreate projects from memory</li>
+<li>Focus on <a href="./04-react.md#common-patterns">Common
+Patterns</a></li>
+<li>Study architecture decisions</li>
+</ol>
+<hr />
+<h2 id="additional-resources">Additional Resources</h2>
+<h3 id="recommended-reading-order">Recommended Reading Order</h3>
+<ol type="1">
+<li>Official documentation (always primary source)</li>
+<li>Module-specific resources (linked in each doc)</li>
+<li>Practice projects</li>
+<li>Open-source codebases</li>
+</ol>
+<h3 id="community">Community</h3>
+<ul>
+<li>Stack Overflow (for debugging)</li>
+<li>GitHub Discussions (for patterns)</li>
+<li>Dev.to (for tutorials)</li>
+<li>Reddit (r/learnprogramming, r/javascript, r/flask)</li>
+</ul>
+<h3 id="practice-platforms">Practice Platforms</h3>
+<ul>
+<li>LeetCode (algorithms)</li>
+<li>Frontend Mentor (UI projects)</li>
+<li>CodeWars (challenges)</li>
+<li>Real-world projects (best learning!)</li>
+</ul>
+<hr />
+<h2 id="contributing-to-this-documentation">Contributing to This
+Documentation</h2>
+<p>Found an error? Want to add examples? Here's how:</p>
+<ol type="1">
+<li><strong>Fork the repository</strong></li>
+<li><strong>Make changes</strong> to relevant .md file</li>
+<li><strong>Test examples</strong> - ensure code works</li>
+<li><strong>Update index</strong> if adding new sections</li>
+<li><strong>Submit pull request</strong> with description</li>
+</ol>
+<p><strong>Guidelines:</strong></p>
+<ul>
+<li>Use consistent formatting</li>
+<li>Include code examples</li>
+<li>Explain the "why," not just the "what"</li>
+<li>Add visual diagrams where helpful</li>
+<li>Reference line numbers for code snippets</li>
+</ul>
+<hr />
+<h2 id="changelog">Changelog</h2>
+<h3 id="october-2025---complete-documentation-overhaul">October 2025 -
+Complete Documentation Overhaul</h3>
+<ul>
+<li>✅ Created comprehensive markdown docs for all 8 modules</li>
+<li>✅ Documented 28 bugs fixed during audit</li>
+<li>✅ Added 2021 vs 2025 comparisons</li>
+<li>✅ Included 200+ code examples</li>
+<li>✅ Explained architectural decisions</li>
+<li>✅ Added practice exercises</li>
+<li>✅ Created this index for navigation</li>
+</ul>
+<h3 id="march-2021---original-bootcamp">March 2021 - Original
+Bootcamp</h3>
+<ul>
+<li>✅ Completed all modules</li>
+<li>✅ Built full-stack applications</li>
+<li>✅ Learned JavaScript + Python + React + Flask</li>
+</ul>
+<hr />
+<h2 id="license--credits">License &amp; Credits</h2>
+<p><strong>Author:</strong> Brennan<br />
+<strong>Program:</strong> EvolveU Full-Stack Web Development
+Bootcamp<br />
+<strong>Cohort:</strong> 2021<br />
+<strong>Documentation Created:</strong> October 2025</p>
+<p>This documentation is part of my learning journey and portfolio. All
+code examples are MIT licensed for educational use.</p>
+<p><strong>Special Thanks:</strong></p>
+<ul>
+<li>EvolveU instructors and mentors</li>
+<li>Open-source community</li>
+<li>Stack Overflow contributors</li>
+<li>MDN documentation team</li>
+</ul>
+<hr />
+<p><strong>Happy Learning! 🚀</strong></p>
+<p>Start your journey: <a href="./00-testing.md">Module 00: Testing
+Fundamentals</a> →</p>
+            </article>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>EvolveU Documentation</h4>
+                    <p>Comprehensive full-stack web development bootcamp documentation.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://brennanbrown.ca" target="_blank">Portfolio</a></li>
+                        <li><a href="https://brennanbrown.ca/Resume.pdf" target="_blank">Resume</a></li>
+                        <li><a href="https://github.com/brennanbrown" target="_blank">GitHub</a></li>
+                        <li><a href="https://berryhouse.ca" target="_blank">BerryHouse</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/python.min.js"></script>
+    <script src="script.js"></script>
+    <script>hljs.highlightAll();</script>
+</body>
+</html>

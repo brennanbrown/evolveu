@@ -3,7 +3,7 @@
 
 # Pretty URLs - redirect markdown references to HTML
 /README               /README.html              200
-/INDEX                /INDEX.html               200
+/INDEX                /documentation-index.html 200
 /00-testing           /00-testing.html          200
 /01-getting-started   /01-getting-started.html  200
 /02-dom               /02-dom.html              200

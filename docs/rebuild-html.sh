@@ -131,7 +131,7 @@ HTMLFOOTER
 
 # Convert all module files (NOTE: index.html is the hero landing page - DO NOT overwrite)
 create_html_page "README.md" "README.html" "Getting Started"
-create_html_page "INDEX.md" "INDEX.html" "Documentation Index"
+create_html_page "INDEX.md" "documentation-index.html" "Documentation Index"
 create_html_page "00-testing.md" "00-testing.html" "Module 00: Testing Fundamentals"
 create_html_page "01-getting-started.md" "01-getting-started.html" "Module 01: Getting Started"
 create_html_page "02-dom.md" "02-dom.html" "Module 02: DOM Manipulation"

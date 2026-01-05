@@ -48,7 +48,7 @@
 
 [[redirects]]
   from = "/INDEX"
-  to = "/INDEX.html"
+  to = "/documentation-index.html"
   status = 200
 
 # Pretty URLs for markdown files
