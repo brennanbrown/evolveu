@@ -1,0 +1,57 @@
+version: 2
+updates:
+  # Enable version updates for npm
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 10
+    
+  # Enable version updates for pip
+  - package-ecosystem: "pip"
+    directory: "/07-flask"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+
+  # React projects
+  - package-ecosystem: "npm"
+    directory: "/04-react/react-00"
+    schedule:
+      interval: "weekly"
+      
+  - package-ecosystem: "npm"
+    directory: "/04-react/react-01"
+    schedule:
+      interval: "weekly"
+      
+  - package-ecosystem: "npm"
+    directory: "/04-react/react-02"
+    schedule:
+      interval: "weekly"
+      
+  - package-ecosystem: "npm"
+    directory: "/04-react/react-03"
+    schedule:
+      interval: "weekly"
+      
+  # JavaScript modules
+  - package-ecosystem: "npm"
+    directory: "/00-testing"
+    schedule:
+      interval: "weekly"
+      
+  - package-ecosystem: "npm"
+    directory: "/01-getting-started"
+    schedule:
+      interval: "weekly"
+      
+  - package-ecosystem: "npm"
+    directory: "/02-dom"
+    schedule:
+      interval: "weekly"
+      
+  - package-ecosystem: "npm"
+    directory: "/03-objects"
+    schedule:
+      interval: "weekly"

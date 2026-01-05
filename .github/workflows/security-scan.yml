@@ -1,0 +1,39 @@
+name: 'Security Scan'
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: '0 2 * * 1'  # Weekly on Monday at 2 AM UTC
+
+jobs:
+  security-scan:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        
+      - name: Run npm audit
+        run: |
+          for dir in 04-react/*/ 00-testing/ 01-getting-started/ 02-dom/ 03-objects/; do
+            if [ -f "$dir/package.json" ]; then
+              echo "Scanning $dir"
+              cd "$dir"
+              npm audit --audit-level moderate || true
+              cd - > /dev/null
+            fi
+          done
+          
+      - name: Run pip audit
+        run: |
+          pip install pip-audit
+          for req in $(find . -name "requirements*.txt"); do
+            echo "Scanning $req"
+            pip audit -r "$req" || true
+          done
+          
+      - name: Run CodeQL Analysis
+        uses: github/codeql-action/analyze@v2
+        with:
+          languages: javascript, python
