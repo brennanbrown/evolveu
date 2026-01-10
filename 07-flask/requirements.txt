@@ -13,7 +13,7 @@ pymongo==4.10.1
 dnspython==2.7.0
 
 # Security
-Flask-Security-Too==5.5.2
+Flask-Security-Too==5.7.1
 passlib==1.7.4
 email-validator==2.2.0
 itsdangerous==2.2.0
