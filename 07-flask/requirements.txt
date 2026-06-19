@@ -41,7 +41,7 @@ coverage==7.6.9
 # Dependencies
 attrs==24.3.0
 idna==3.10
-importlib-metadata==8.5.0
+importlib-metadata==8.7.1
 packaging==24.2
 pytz==2024.2
 six==1.17.0
