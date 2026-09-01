@@ -14,13 +14,13 @@
 | [00-testing](./00-testing.md) | Jest & TDD Fundamentals | 410 | 7/7  | 0 |  Complete |
 | [01-getting-started](./01-getting-started.md) | JavaScript Basics & Tax Calculator | 639 | 8/8  | 5 |  Complete |
 | [02-dom](./02-dom.md) | DOM Manipulation | 679 | 3/3  | 2 |  Complete |
-| [03-objects](./03-objects.md) | OOP & API Integration | 1,054 | 30/30  | 14 |  Complete |
-| [04-react](./04-react.md) | React Components & Hooks | 774 | 11/11  | 7 |  Complete |
-| [05-api](./05-api.md) | Flask REST API Server | 599 | - | 2 |  Complete |
-| [06-python](./06-python.md) | Python Fundamentals | 475 | 0 | 0 |  Complete |
-| [07-flask](./07-flask.md) | Production Flask App | 636 | 12/12 | 2 | Complete |
+| [03-objects](./03-objects.md) | OOP & API Integration | 1,075 | 30/30  | 14 |  Complete |
+| [04-react](./04-react.md) | React Components & Hooks | 892 | 11/11  | 7 |  Complete |
+| [05-api](./05-api.md) | Flask REST API Server | 751 | 9/9  | 2 |  Complete |
+| [06-python](./06-python.md) | Python Fundamentals | 623 | 171/171 | 0 |  Complete |
+| [07-flask](./07-flask.md) | Production Flask App | 673 | 12/12 | 2 | Complete |
 
-**Total:** 5,843 lines | 240+ passing tests | 28 bugs documented & fixed
+**Total:** 5,836 lines | 251 passing tests | 32 bugs documented & fixed
 
 ---
 

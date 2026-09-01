@@ -80,9 +80,9 @@ Each module document follows a consistent structure:
 
 ## Repository Statistics
 
-- **Total Tests Written**: 240+ passing tests
-- **Bugs Fixed During Audit**: 28 bugs
-- **Lines of Code**: ~5,000+ across all modules
+- **Total Tests Written**: 251 passing tests
+- **Bugs Fixed During Audit**: 32 bugs
+- **Lines of Code**: ~5,836 lines of documentation, plus module source code
 - **Technologies Used**: JavaScript, React, Python, Flask, Jest, pytest, MongoDB
 
 ## Acknowledgments
