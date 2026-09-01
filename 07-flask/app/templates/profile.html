@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1>Your Profile</h1>
+
+<div class="row">
+    <div class="col-md-6">
+        <h3>Account Details</h3>
+        <ul class="list-group">
+            <li class="list-group-item"><strong>User ID:</strong> {{ user.user_id }}</li>
+            <li class="list-group-item"><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</li>
+            <li class="list-group-item"><strong>Email:</strong> {{ user.email }}</li>
+        </ul>
+    </div>
+
+    <div class="col-md-6">
+        <h3>Your Schedule</h3>
+        {% if enrollments %}
+        <table class="table table-hover">
+            <thead>
+                <tr>
+                    <th>Course ID</th>
+                    <th>Title</th>
+                    <th>Credits</th>
+                    <th>Term</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for enrollment in enrollments %}
+                <tr>
+                    <td>{{ enrollment.course.courseID }}</td>
+                    <td><a href="{{ url_for('course_detail', course_id=enrollment.course.courseID) }}">{{ enrollment.course.title }}</a></td>
+                    <td>{{ enrollment.course.credits }}</td>
+                    <td>{{ enrollment.course.term }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>You are not enrolled in any courses yet. <a href="{{ url_for('courses') }}">Browse courses</a></p>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}

@@ -18,7 +18,7 @@
 | [04-react](./04-react.md) | React Components & Hooks | 774 | 11/11  | 7 |  Complete |
 | [05-api](./05-api.md) | Flask REST API Server | 599 | - | 2 |  Complete |
 | [06-python](./06-python.md) | Python Fundamentals | 475 | 0 | 0 |  Complete |
-| [07-flask](./07-flask.md) | Production Flask App | 636 | 0 | 0 | ️ Blocked |
+| [07-flask](./07-flask.md) | Production Flask App | 636 | 12/12 | 2 | Complete |
 
 **Total:** 5,843 lines | 240+ passing tests | 28 bugs documented & fixed
 

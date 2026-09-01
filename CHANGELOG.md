@@ -20,6 +20,12 @@ This release updates the 2021 EvolveU bootcamp portfolio to September 2026, comp
 - **Documentation build pipeline**
   - Added Font Awesome 6.5.1 for iconography across the docs site
   - Replaced all emoji placeholders with Font Awesome icons in `docs/index.html`, templates, and build scripts
+- **07-flask module (fully unblocked)**
+  - Switched default database to `mongomock` so the app runs without a real MongoDB
+  - Pinned `Flask==2.2.5` and `Werkzeug==2.3.8` for `flask-mongoengine` and Python 3.14 compatibility
+  - Hardened `User` model: email is now unique/required, password hashing no longer length-limited
+  - Added `/course/<course_id>` detail and `/profile` pages
+  - Expanded `routes_test.py` to 12 passing tests
 - **Year, dates, and statistics**
   - Migrated all documentation from "2021 vs 2025" to "2021 vs 2026"
   - Updated copyright and "Last Updated" dates to 2026

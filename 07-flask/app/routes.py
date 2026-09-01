@@ -1,5 +1,5 @@
 from app import app, db
-from flask import render_template, request, Response, json, redirect, flash, url_for, session
+from flask import render_template, request, Response, json, jsonify, redirect, flash, url_for, session
 from app.models import User, Course, Enrollment
 from app.forms import LoginForm, RegisterForm
 
@@ -30,7 +30,7 @@ def login():
         # not the entire array.
         user = User.objects(email = email).first()
         # Retrieves the hashed password:
-        if (user and user.get_password(password)):
+        if (user and user.check_password(password)):
             flash(f"{user.first_name}, you are successfully logged in!", "success")
             session["user_id"] = user.user_id
             session["username"] = user.first_name
@@ -70,6 +70,17 @@ def courses(term = None,):
         courses = True, 
         term = term)
     return courses_page
+
+@app.route("/course/<course_id>")
+def course_detail(course_id):
+    course = Course.objects(courseID=course_id).first()
+    if not course:
+        flash(f"Course '{course_id}' not found.", "danger")
+        return redirect(url_for("courses"))
+    return render_template(
+        "course.html",
+        course = course,
+        courses = True)
 
 #     ----- REGISTRATION -----     #
 
@@ -175,20 +186,46 @@ def enrollment():
     return enrollment_page
 
 
+#     ----- PROFILE -----     #
+
+@app.route("/profile")
+def profile():
+    if not session.get("username"):
+        flash(f"You need to log in to view your profile.", "warning")
+        return redirect(url_for("login"))
+
+    user = User.objects(user_id = session.get("user_id")).first()
+    if not user:
+        flash(f"User not found.", "danger")
+        return redirect(url_for("Index"))
+
+    enrollments = []
+    for e in Enrollment.objects(user_id = user.user_id):
+        course = Course.objects(courseID = e.courseID).first()
+        if course:
+            enrollments.append({"course": course})
+
+    return render_template(
+        "profile.html",
+        user = user,
+        enrollments = enrollments,
+        profile = True)
+
+
 #     ----- API -----     #
 
 @app.route("/api/")
 @app.route("/api/<idx>")
-# If no index, default to /api/
 def api(idx=None):
-    if (idx == None):
-        j_data = Course.objects
+    if idx is None:
+        j_data = Course.objects.to_json()
     else:
-        j_data = Course.objects[int(idx)]
-    
-    return Response(
-        json.dumps(j_data), 
-        mimetype="application/json")
+        course = Course.objects(courseID=idx).first()
+        if course is None:
+            return jsonify({"msg": f"Course '{idx}' not found"}), 404
+        j_data = course.to_json()
+
+    return Response(j_data, mimetype="application/json")
 
 
 #     ----- USER -----     #

@@ -81,13 +81,18 @@ integration, authentication, and deployment</p>
 <li>Deployment configuration (Heroku)</li>
 </ul>
 <h3 id="current-status">Current Status</h3>
-<p>️ <strong>Note</strong>: This module has dependency compatibility
-issues discovered during the 2026 audit:</p>
-<pre><code>ImportError: cannot import name &#39;JSONEncoder&#39; from &#39;flask.json&#39;</code></pre>
-<p><strong>Root cause</strong>: <code>flask-mongoengine 1.0.0</code> is
-incompatible with Flask 3.x</p>
-<p><strong>Workaround</strong>: Use Flask 2.x or wait for
-flask-mongoengine update</p>
+<p><strong>Fixed in 2026</strong>: The dependency compatibility issues
+discovered during the 2026 audit have been resolved. The module now
+uses:</p>
+<ul>
+<li><code>Flask==2.2.5</code> and <code>Werkzeug==2.3.8</code> for
+<code>flask-mongoengine 1.0.0</code> compatibility on Python 3.14</li>
+<li><code>mongomock</code> as a local in-memory MongoDB replacement, so
+the app and tests run without a real MongoDB instance</li>
+<li>A cleaned <code>requirements.txt</code> with conflicting and unused
+packages removed</li>
+</ul>
+<pre><code>python -m pytest  # 12 passed</code></pre>
 <hr />
 <h2 id="architecture-overview">Architecture Overview</h2>
 <h3 id="project-structure">Project Structure</h3>
@@ -609,10 +614,10 @@ this)</li>
 <h2 id="further-learning">Further Learning</h2>
 <h3 id="next-steps">Next Steps</h3>
 <ol type="1">
-<li><strong>Complete Module</strong>: Fix dependency issues, run
-tests</li>
-<li><strong>Add Features</strong>: User profiles, password reset, email
-verification</li>
+<li><strong>Add Production Features</strong>: Password reset, email
+verification, persistent MongoDB deployment</li>
+<li><strong>Expand Pages</strong>: Course detail and user profile pages
+are already implemented</li>
 <li><strong>Deploy</strong>: Heroku, AWS, or DigitalOcean</li>
 <li><strong>Scale</strong>: Add caching (Redis), load balancing</li>
 </ol>
@@ -637,9 +642,10 @@ Docs</a></li>
 <hr />
 <h2 id="conclusion">Conclusion</h2>
 <p>Module 07 represents the culmination of the bootcamp—a
-<strong>production-grade full-stack application</strong>. While we
-encountered compatibility issues during the 2026 audit, the
-architectural patterns and concepts remain valuable:</p>
+<strong>production-grade full-stack application</strong>. The 2026 audit
+resolved the dependency issues, and the module is now fully runnable in
+development using <code>mongomock</code>. The architectural patterns and
+concepts remain valuable:</p>
 <ul>
 <li>Application factory pattern</li>
 <li>Database ORM/ODM</li>
@@ -651,12 +657,12 @@ architectural patterns and concepts remain valuable:</p>
 <p>These patterns transfer to <strong>any</strong> web framework,
 whether Flask, Django, FastAPI, Express, or Rails.</p>
 <hr />
-<p><strong>Module Status:</strong> ️ Blocked (dependency issues)<br />
-<strong>Key Concepts:</strong> Factory pattern, MongoDB,
-authentication<br />
+<p><strong>Module Status:</strong> Complete (12/12 tests passing)<br />
+<strong>Key Concepts:</strong> Factory pattern, MongoDB, authentication,
+in-memory testing with mongomock<br />
 <strong>Time Investment:</strong> ~4 hours (setup + learning)<br />
-<strong>Key Achievement:</strong> Understanding production-grade Flask
-architecture!</p>
+<strong>Key Achievement:</strong> Fully runnable production-grade Flask
+application!</p>
 <hr />
 <p>** Bootcamp Complete!** Return to <a href="./README.md">Documentation
 Index</a></p>
