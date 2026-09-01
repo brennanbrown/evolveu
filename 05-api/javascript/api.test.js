@@ -5,7 +5,7 @@ global.fetch = require('node-fetch');
     These are destructive tests. The URL will have its data
     blown away.
 
-    These tests were created to give a fairly comprehensive example
+    These tests were created to give a fairly  example
     on how to interact with an API. It does the full CRUD. Comments
     are appreciated.
 */

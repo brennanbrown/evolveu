@@ -192,7 +192,7 @@ def calculate_average_population(data):
 
 def get_population_stats(data):
     """
-    Get comprehensive population statistics.
+    Get  population statistics.
     
     Args:
         data: List of community dictionaries

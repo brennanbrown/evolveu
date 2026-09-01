@@ -604,7 +604,7 @@ def add():
     return jsonify(data)
 ```
 
-**2025: Comprehensive**
+**2025: **
 ```python
 @app.route("/add", methods=['POST'])
 def add():

@@ -7,7 +7,7 @@
 
 ## Overview
 
-This documentation provides a comprehensive walkthrough of my journey through the EvolveU Full-Stack Web Development bootcamp. Each module represents a critical milestone in my learning path, from basic JavaScript fundamentals to building full-stack applications with React and Flask.
+This documentation provides a  walkthrough of my journey through the EvolveU Full-Stack Web Development bootcamp. Each module represents a critical milestone in my learning path, from basic JavaScript fundamentals to building full-stack applications with React and Flask.
 
 The documentation is structured to reflect my learning process, explaining not just **what** the code does, but **why** we made specific architectural decisions, how the tests validate our implementations, and most importantly, how the landscape of web development has evolved between 2021 and 2025.
 

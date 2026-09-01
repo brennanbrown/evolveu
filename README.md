@@ -9,7 +9,7 @@
 
 ## 👋 About
 
-Hi! I'm [**Brennan Brown**](https://github.com/brennanbrown), an EvolveU alumni. This repository showcases the comprehensive curriculum I completed during the full-time bootcamp in Calgary, Alberta.
+Hi! I'm [**Brennan Brown**](https://github.com/brennanbrown), an EvolveU alumni. This repository showcases the  curriculum I completed during the full-time bootcamp in Calgary, Alberta.
 
 **Want to hire me?** Check out my [portfolio website](https://brennanbrown.ca) or connect with me on [LinkedIn](https://linkedin.com/in/brennanbrown).
 
@@ -185,7 +185,7 @@ This repository has been updated with the latest stable versions:
 
 ## 🧪 Running Tests
 
-All modules include comprehensive test suites:
+All modules include test suites:
 
 ```bash
 # JavaScript modules
@@ -213,7 +213,7 @@ While this is a personal learning portfolio, suggestions and improvements are we
 
 ## 🙏 Acknowledgments
 
-- **EvolveU / InceptionU** for the comprehensive curriculum
+- **EvolveU / InceptionU** for the  curriculum
 - All instructors and mentors who supported my learning journey
 - Fellow bootcamp participants for collaboration and peer learning
 

@@ -13,7 +13,7 @@ This release brings the 2021 bootcamp portfolio up to 2025 standards with the la
 
 ### Added
 - **Documentation**
-  - Comprehensive `SECURITY.md` with vulnerability reporting guidelines
+  -  `SECURITY.md` with vulnerability reporting guidelines
   - Detailed `CONTRIBUTING.md` with contribution guidelines
   - `LICENSE` file (MIT License)
   - This `CHANGELOG.md` file
@@ -21,7 +21,7 @@ This release brings the 2021 bootcamp portfolio up to 2025 standards with the la
 
 - **Configuration Files**
   - `babel.config.js` for all JavaScript modules (00-testing, 01-getting-started, 02-dom, 03-objects)
-  - Modern `.gitignore` with comprehensive patterns for Node.js and Python projects
+  - Modern `.gitignore` with  patterns for Node.js and Python projects
 
 ### Changed
 
@@ -119,7 +119,7 @@ This release brings the 2021 bootcamp portfolio up to 2025 standards with the la
 
 ### Security
 - Updated all packages to latest stable versions to address known CVEs
-- Added comprehensive security policy document
+- Added  security policy document
 - Improved `.gitignore` to prevent accidental exposure of sensitive files
 
 ### Documentation

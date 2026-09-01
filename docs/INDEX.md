@@ -207,7 +207,7 @@ class User(db.Document):
 
 **API Design:**
 - 2021: Minimal error handling
-- 2025: Comprehensive validation, status codes
+- 2025:  validation, status codes
 
 **Security:**
 - 2021: Basic CORS
@@ -318,7 +318,7 @@ Found an error? Want to add examples? Here's how:
 ## Changelog
 
 ### October 2025 - Complete Documentation Overhaul
-- ✅ Created comprehensive markdown docs for all 8 modules
+- ✅ Created  markdown docs for all 8 modules
 - ✅ Documented 28 bugs fixed during audit
 - ✅ Added 2021 vs 2025 comparisons
 - ✅ Included 200+ code examples
