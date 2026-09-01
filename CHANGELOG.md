@@ -7,7 +7,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [2025.1.0] - 2025-10-06
 
-### 🎉 Major Update - Modernization & Security
+### Major Update - Modernization & Security
 
 This release brings the 2021 bootcamp portfolio up to 2025 standards with the latest stable versions of all dependencies.
 
