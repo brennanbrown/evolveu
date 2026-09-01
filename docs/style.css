@@ -101,6 +101,13 @@ body {
 
 .logo {
     font-size: 1.75rem;
+    color: #F0C129;
+}
+
+.logo i,
+.card-icon i,
+.module-status i {
+    color: #F0C129;
 }
 
 .nav-links {

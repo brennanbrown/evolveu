@@ -7,6 +7,7 @@
     <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="doc-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                    <span class="logo">📚</span>
+                    <span class="logo"><i class="fas fa-book"></i></span>
                     <span class="brand-text">EvolveU Docs</span>
                 </a>
             </div>
@@ -66,7 +67,7 @@ Jest framework, and Test-Driven Development (TDD)</p>
 <li><a href="#core-concepts">Core Concepts</a></li>
 <li><a href="#code-walkthrough">Code Walkthrough</a></li>
 <li><a href="#testing-strategy">Testing Strategy</a></li>
-<li><a href="#2021-vs-2025-comparison">2021 vs 2025 Comparison</a></li>
+<li><a href="#2021-vs-2026-comparison">2021 vs 2026 Comparison</a></li>
 <li><a href="#key-takeaways">Key Takeaways</a></li>
 </ol>
 <hr />
@@ -81,10 +82,10 @@ works correctly</strong> through automated tests.</p>
 browser and click around to see if things worked. This approach has
 several problems:</p>
 <ul>
-<li>❌ Time-consuming (refresh, click, check, repeat)</li>
-<li>❌ Error-prone (easy to forget edge cases)</li>
-<li>❌ Not scalable (can't test 100 functions manually)</li>
-<li>❌ Regression bugs (breaking old features when adding new ones)</li>
+<li>Time-consuming (refresh, click, check, repeat)</li>
+<li>Error-prone (easy to forget edge cases)</li>
+<li>Not scalable (can't test 100 functions manually)</li>
+<li>Regression bugs (breaking old features when adding new ones)</li>
 </ul>
 <p>Automated testing solves all of these problems by letting us write
 code that <strong>tests our code</strong>.</p>
@@ -130,12 +131,12 @@ test(&quot;description of what we&#39;re testing&quot;, () =&gt; {
 </ol>
 <pre class="javascript"><code>// Step 1: RED - Write failing test
 test(&quot;should double a number&quot;, () =&gt; {
-    expect(double(5)).toBe(10); // ❌ Function doesn&#39;t exist
+    expect(double(5)).toBe(10); //  Function doesn&#39;t exist
 });
 
 // Step 2: GREEN - Make it pass
 function double(n) {
-    return n * 2; // ✅ Test passes
+    return n * 2; //  Test passes
 }
 
 // Step 3: REFACTOR - Improve if needed
@@ -305,12 +306,12 @@ test(&quot;Does the second DOM function work?&quot;, () =&gt; {
 </tbody>
 </table>
 <h3 id="test-organization">Test Organization</h3>
-<pre class="javascript"><code>// ✅ GOOD: Descriptive test names
+<pre class="javascript"><code>//  GOOD: Descriptive test names
 test(&quot;Does the first DOM function work?&quot;, () =&gt; {
     // Clear purpose
 });
 
-// ❌ BAD: Vague test names
+//  BAD: Vague test names
 test(&quot;test1&quot;, () =&gt; {
     // What does this test?
 });</code></pre>
@@ -324,7 +325,7 @@ npm test -- --watch
 # Run tests with coverage report
 npm test -- --coverage</code></pre>
 <hr />
-<h2 id="2021-vs-2025-comparison">2021 vs 2025 Comparison</h2>
+<h2 id="2021-vs-2026-comparison">2021 vs 2026 Comparison</h2>
 <h3 id="testing-approach">Testing Approach</h3>
 <p><strong>2021: Manual Testing</strong></p>
 <pre class="javascript"><code>// Old approach - manual browser testing
@@ -336,7 +337,7 @@ function add(a, b) {
 console.log(add(2, 3)); // Check output manually
 console.log(add(-1, 1)); // Test edge case manually
 console.log(add(0, 0)); // Test zero case manually</code></pre>
-<p><strong>2025: Automated Testing</strong></p>
+<p><strong>2026: Automated Testing</strong></p>
 <pre class="javascript"><code>// Modern approach - automated tests
 test(&quot;add function handles all cases&quot;, () =&gt; {
     expect(add(2, 3)).toBe(5);      // Positive numbers
@@ -353,8 +354,8 @@ test(&quot;add function handles all cases&quot;, () =&gt; {
   }
 }
 // That&#39;s it - no config file needed</code></pre>
-<p><strong>2025: Modern Setup</strong></p>
-<pre class="javascript"><code>// jest.config.js (2025)
+<p><strong>2026: Modern Setup</strong></p>
+<pre class="javascript"><code>// jest.config.js (2026)
 module.exports = {
   testEnvironment: &#39;jsdom&#39;,         // Simulate browser
   setupFiles: [&#39;&lt;rootDir&gt;/jest.setup.js&#39;], // Global setup
@@ -371,7 +372,7 @@ module.exports = {
 <pre class="javascript"><code>// Old style - require/module.exports
 const functions = require(&#39;./play.js&#39;);
 module.exports = functions;</code></pre>
-<p><strong>2025: ES6 Modules</strong></p>
+<p><strong>2026: ES6 Modules</strong></p>
 <pre class="javascript"><code>// Modern style - import/export
 import functions from &#39;./play.js&#39;;
 export default functions;</code></pre>
@@ -391,23 +392,23 @@ refactor fearlessly</li>
 <h3 id="common-mistakes-i-made">Common Mistakes I Made</h3>
 <p><strong>Mistake 1: Testing implementation instead of
 behavior</strong></p>
-<pre class="javascript"><code>// ❌ BAD: Testing internal details
+<pre class="javascript"><code>//  BAD: Testing internal details
 test(&quot;uses a for loop&quot;, () =&gt; {
     const code = myFunction.toString();
     expect(code).toContain(&#39;for&#39;);
 });
 
-// ✅ GOOD: Testing observable behavior
+//  GOOD: Testing observable behavior
 test(&quot;returns correct result&quot;, () =&gt; {
     expect(myFunction([1,2,3])).toBe(6);
 });</code></pre>
 <p><strong>Mistake 2: Not testing edge cases</strong></p>
-<pre class="javascript"><code>// ❌ INCOMPLETE: Only happy path
+<pre class="javascript"><code>//  INCOMPLETE: Only happy path
 test(&quot;add function&quot;, () =&gt; {
     expect(add(2, 3)).toBe(5);
 });
 
-// ✅ COMPLETE: Edge cases included
+//  COMPLETE: Edge cases included
 test(&quot;add function handles edge cases&quot;, () =&gt; {
     expect(add(2, 3)).toBe(5);           // Normal case
     expect(add(0, 0)).toBe(0);           // Zero
@@ -416,11 +417,11 @@ test(&quot;add function handles edge cases&quot;, () =&gt; {
 });</code></pre>
 <h3 id="success-metrics">Success Metrics</h3>
 <ul>
-<li>✅ All 7 tests passing</li>
-<li>✅ 100% code coverage</li>
-<li>✅ Tests run in &lt; 1 second</li>
-<li>✅ Clear test descriptions</li>
-<li>✅ No console.log() debugging needed</li>
+<li>All 7 tests passing</li>
+<li>100% code coverage</li>
+<li>Tests run in &lt; 1 second</li>
+<li>Clear test descriptions</li>
+<li>No console.log() debugging needed</li>
 </ul>
 <hr />
 <h2 id="further-learning">Further Learning</h2>
@@ -445,7 +446,7 @@ Development by Martin Fowler</a></li>
 Started</a></strong> to apply these testing principles to real-world
 problems like calculating Canadian taxes!</p>
 <hr />
-<p><strong>Module Status:</strong> ✅ Complete (7/7 tests passing)<br />
+<p><strong>Module Status:</strong> Complete (7/7 tests passing)<br />
 <strong>Key Bugs Fixed:</strong> 0 (clean implementation)<br />
 <strong>Time Investment:</strong> ~2 hours (learning + practice)</p>
             </article>
@@ -471,7 +472,7 @@ problems like calculating Canadian taxes!</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+                <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
             </div>
         </div>
     </footer>

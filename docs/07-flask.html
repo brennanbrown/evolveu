@@ -7,6 +7,7 @@
     <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="doc-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                    <span class="logo">📚</span>
+                    <span class="logo"><i class="fas fa-book"></i></span>
                     <span class="brand-text">EvolveU Docs</span>
                 </a>
             </div>
@@ -80,8 +81,8 @@ integration, authentication, and deployment</p>
 <li>Deployment configuration (Heroku)</li>
 </ul>
 <h3 id="current-status">Current Status</h3>
-<p>⚠️ <strong>Note</strong>: This module has dependency compatibility
-issues discovered during the 2025 audit:</p>
+<p>️ <strong>Note</strong>: This module has dependency compatibility
+issues discovered during the 2026 audit:</p>
 <pre><code>ImportError: cannot import name &#39;JSONEncoder&#39; from &#39;flask.json&#39;</code></pre>
 <p><strong>Root cause</strong>: <code>flask-mongoengine 1.0.0</code> is
 incompatible with Flask 3.x</p>
@@ -131,7 +132,7 @@ Deployment:
 Pattern</h3>
 <p><strong>Problem</strong>: Direct app instantiation makes testing
 difficult</p>
-<pre class="python"><code># ❌ BAD: Global app instance
+<pre class="python"><code>#  BAD: Global app instance
 from flask import Flask
 app = Flask(__name__)
 
@@ -142,7 +143,7 @@ def index():
 if __name__ == &#39;__main__&#39;:
     app.run()</code></pre>
 <p><strong>Solution</strong>: Factory function creates app</p>
-<pre class="python"><code># ✅ GOOD: Factory pattern (app/__init__.py)
+<pre class="python"><code>#  GOOD: Factory pattern (app/__init__.py)
 from flask import Flask
 from flask_mongoengine import MongoEngine
 
@@ -531,11 +532,11 @@ mongo --eval &quot;db.stats()&quot;</code></pre>
 <h3 id="challenge-3-environment-variables">Challenge 3: Environment
 Variables</h3>
 <p><strong>Problem</strong>: Secrets shouldn't be in code</p>
-<pre class="python"><code># ❌ BAD: Hardcoded secrets
+<pre class="python"><code>#  BAD: Hardcoded secrets
 MONGODB_URI = &quot;mongodb://user:password@host:27017/db&quot;
 SECRET_KEY = &quot;my-secret-key-123&quot;
 
-# ✅ GOOD: Use environment variables
+#  GOOD: Use environment variables
 MONGODB_URI = os.environ.get(&#39;MONGODB_URI&#39;)
 SECRET_KEY = os.environ.get(&#39;SECRET_KEY&#39;)</code></pre>
 <p><strong>Solution</strong>: Use <code>.env</code> file (don't
@@ -637,7 +638,7 @@ Docs</a></li>
 <h2 id="conclusion">Conclusion</h2>
 <p>Module 07 represents the culmination of the bootcamp—a
 <strong>production-grade full-stack application</strong>. While we
-encountered compatibility issues during the 2025 audit, the
+encountered compatibility issues during the 2026 audit, the
 architectural patterns and concepts remain valuable:</p>
 <ul>
 <li>Application factory pattern</li>
@@ -650,15 +651,15 @@ architectural patterns and concepts remain valuable:</p>
 <p>These patterns transfer to <strong>any</strong> web framework,
 whether Flask, Django, FastAPI, Express, or Rails.</p>
 <hr />
-<p><strong>Module Status:</strong> ⚠️ Blocked (dependency issues)<br />
+<p><strong>Module Status:</strong> ️ Blocked (dependency issues)<br />
 <strong>Key Concepts:</strong> Factory pattern, MongoDB,
 authentication<br />
 <strong>Time Investment:</strong> ~4 hours (setup + learning)<br />
 <strong>Key Achievement:</strong> Understanding production-grade Flask
 architecture!</p>
 <hr />
-<p><strong>🎓 Bootcamp Complete!</strong> Return to <a
-href="./README.md">Documentation Index</a></p>
+<p>** Bootcamp Complete!** Return to <a href="./README.md">Documentation
+Index</a></p>
             </article>
         </main>
     </div>
@@ -682,7 +683,7 @@ href="./README.md">Documentation Index</a></p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+                <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
             </div>
         </div>
     </footer>

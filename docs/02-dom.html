@@ -7,6 +7,7 @@
     <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="doc-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                    <span class="logo">📚</span>
+                    <span class="logo"><i class="fas fa-book"></i></span>
                     <span class="brand-text">EvolveU Docs</span>
                 </a>
             </div>
@@ -66,7 +67,7 @@ HTML manipulation, and programmatic UI updates</p>
 <li><a href="#code-walkthrough">Code Walkthrough</a></li>
 <li><a href="#testing-strategy">Testing Strategy</a></li>
 <li><a href="#bugs-fixed">Bugs Fixed</a></li>
-<li><a href="#2021-vs-2025-comparison">2021 vs 2025 Comparison</a></li>
+<li><a href="#2021-vs-2026-comparison">2021 vs 2026 Comparison</a></li>
 <li><a href="#key-takeaways">Key Takeaways</a></li>
 </ol>
 <hr />
@@ -217,7 +218,7 @@ const els = document.querySelectorAll(&#39;.myClass&#39;);</code></pre>
      * @param {HTMLElement} referenceElement - Existing element
      */
     addBefore: (newElement, referenceElement) =&gt; {
-        // ⚠️ BUG WAS HERE: Logic was swapped with addAfter
+        // ️ BUG WAS HERE: Logic was swapped with addAfter
         referenceElement.parentNode.insertBefore(
             newElement,
             referenceElement
@@ -230,7 +231,7 @@ const els = document.querySelectorAll(&#39;.myClass&#39;);</code></pre>
      * @param {HTMLElement} referenceElement - Existing element
      */
     addAfter: (newElement, referenceElement) =&gt; {
-        // ⚠️ BUG WAS HERE: Logic was swapped with addBefore
+        // ️ BUG WAS HERE: Logic was swapped with addBefore
         referenceElement.parentNode.insertBefore(
             newElement,
             referenceElement.nextSibling
@@ -266,10 +267,10 @@ domFunctions.createNewDomElement(&#39;div&#39;)
 <pre class="javascript"><code>// Insert after means: insert before the next element
 parent.insertBefore(newEl, referenceEl.nextSibling);</code></pre></li>
 <li><p><strong>Why use <code>classList.add()</code>?</strong></p>
-<pre class="javascript"><code>// ✅ GOOD: Preserves existing classes
+<pre class="javascript"><code>//  GOOD: Preserves existing classes
 element.classList.add(&#39;new-class&#39;);
 
-// ❌ BAD: Overwrites existing classes
+//  BAD: Overwrites existing classes
 element.className = &#39;new-class&#39;;</code></pre></li>
 </ol>
 <hr />
@@ -356,10 +357,10 @@ pattern:</p>
 <hr />
 <h2 id="bugs-fixed">Bugs Fixed</h2>
 <h3 id="bug-1-import-path-typo">Bug #1: Import Path Typo</h3>
-<pre class="javascript"><code>// ❌ WRONG: Incorrect filename
+<pre class="javascript"><code>//  WRONG: Incorrect filename
 import domFunctions from &quot;./domfunc.js&quot;;
 
-// ✅ CORRECT: Match actual filename
+//  CORRECT: Match actual filename
 import domFunctions from &quot;./dom.js&quot;;</code></pre>
 <p><strong>Impact:</strong> Tests couldn't find the module, all tests
 failed to run.</p>
@@ -371,7 +372,7 @@ names.</p>
 addBefore/addAfter Logic Swapped</h3>
 <p>This was the most interesting bug—the logic was completely
 backwards!</p>
-<pre class="javascript"><code>// ❌ WRONG: Functions did the opposite of their names
+<pre class="javascript"><code>//  WRONG: Functions did the opposite of their names
 addBefore: (newElement, referenceElement) =&gt; {
     // This actually inserts AFTER!
     referenceElement.parentNode.insertBefore(
@@ -388,7 +389,7 @@ addAfter: (newElement, referenceElement) =&gt; {
     );
 }
 
-// ✅ CORRECT: Swap the implementations
+//  CORRECT: Swap the implementations
 addBefore: (newElement, referenceElement) =&gt; {
     referenceElement.parentNode.insertBefore(
         newElement,
@@ -408,8 +409,8 @@ Called addBefore() → Element appears AFTER
 Called addAfter() → Element appears BEFORE
 
 After Bug Fix:
-Called addBefore() → Element appears BEFORE ✓
-Called addAfter() → Element appears AFTER ✓</code></pre>
+Called addBefore() → Element appears BEFORE 
+Called addAfter() → Element appears AFTER </code></pre>
 <p><strong>How to avoid this:</strong></p>
 <ol type="1">
 <li>Write tests first (TDD)</li>
@@ -417,7 +418,7 @@ Called addAfter() → Element appears AFTER ✓</code></pre>
 <li>Add comments explaining the logic</li>
 </ol>
 <hr />
-<h2 id="2021-vs-2025-comparison">2021 vs 2025 Comparison</h2>
+<h2 id="2021-vs-2026-comparison">2021 vs 2026 Comparison</h2>
 <h3 id="dom-manipulation-approaches">DOM Manipulation Approaches</h3>
 <p><strong>2021: Direct DOM Manipulation</strong></p>
 <pre class="javascript"><code>// Old way - direct HTML strings
@@ -430,12 +431,12 @@ container.innerHTML = `
 `;</code></pre>
 <p><strong>Problems with 2021 approach:</strong></p>
 <ul>
-<li>❌ Security risk (XSS attacks)</li>
-<li>❌ Loses event listeners</li>
-<li>❌ Destroys existing elements</li>
-<li>❌ No type safety</li>
+<li>Security risk (XSS attacks)</li>
+<li>Loses event listeners</li>
+<li>Destroys existing elements</li>
+<li>No type safety</li>
 </ul>
-<p><strong>2025: Programmatic DOM Creation</strong></p>
+<p><strong>2026: Programmatic DOM Creation</strong></p>
 <pre class="javascript"><code>// Modern way - create elements programmatically
 const card = document.createElement(&#39;div&#39;);
 card.className = &#39;card&#39;;
@@ -449,12 +450,12 @@ desc.textContent = descriptionText;
 card.appendChild(title);
 card.appendChild(desc);
 container.appendChild(card);</code></pre>
-<p><strong>Benefits of 2025 approach:</strong></p>
+<p><strong>Benefits of 2026 approach:</strong></p>
 <ul>
-<li>✅ XSS-safe (textContent escapes HTML)</li>
-<li>✅ Preserves event listeners</li>
-<li>✅ Fine-grained control</li>
-<li>✅ Better for testing</li>
+<li>XSS-safe (textContent escapes HTML)</li>
+<li>Preserves event listeners</li>
+<li>Fine-grained control</li>
+<li>Better for testing</li>
 </ul>
 <h3 id="modern-frameworks-reactvue">Modern Frameworks (React/Vue)</h3>
 <p><strong>Why we still learn vanilla DOM:</strong> Even though React
@@ -493,7 +494,7 @@ function testAddBefore() {
     // Manually inspect page in browser
     console.log(&#39;Check if span is before existing element&#39;);
 }</code></pre>
-<p><strong>2025: Automated jsdom Testing</strong></p>
+<p><strong>2026: Automated jsdom Testing</strong></p>
 <pre class="javascript"><code>// Modern way - automated tests
 test(&quot;addBefore inserts element correctly&quot;, () =&gt; {
     const parent = document.createElement(&#39;div&#39;);
@@ -519,10 +520,10 @@ element.previousSibling   // Go left</code></pre></li>
 <li><p><strong>Element Creation Pipeline</strong></p>
 <pre class="javascript"><code>Create → Configure → Insert</code></pre></li>
 <li><p><strong>Safe Content Updates</strong></p>
-<pre class="javascript"><code>// ✅ Safe from XSS
+<pre class="javascript"><code>//  Safe from XSS
 element.textContent = userInput;
 
-// ❌ Dangerous!
+//  Dangerous!
 element.innerHTML = userInput;</code></pre></li>
 <li><p><strong>Testing DOM Code</strong></p>
 <ul>
@@ -569,13 +570,13 @@ clone.querySelector(&#39;.title&#39;).textContent = &#39;New Title&#39;;
 container.appendChild(clone);</code></pre>
 <h3 id="performance-considerations">Performance Considerations</h3>
 <p><strong>Minimize Reflows:</strong></p>
-<pre class="javascript"><code>// ❌ BAD: Multiple reflows
+<pre class="javascript"><code>//  BAD: Multiple reflows
 for (let i = 0; i &lt; 1000; i++) {
     const li = document.createElement(&#39;li&#39;);
     list.appendChild(li);  // Reflow every time!
 }
 
-// ✅ GOOD: Single reflow
+//  GOOD: Single reflow
 const fragment = document.createDocumentFragment();
 for (let i = 0; i &lt; 1000; i++) {
     const li = document.createElement(&#39;li&#39;);
@@ -583,12 +584,12 @@ for (let i = 0; i &lt; 1000; i++) {
 }
 list.appendChild(fragment);  // One reflow</code></pre>
 <p><strong>Batch Style Changes:</strong></p>
-<pre class="javascript"><code>// ❌ BAD: Multiple style recalculations
+<pre class="javascript"><code>//  BAD: Multiple style recalculations
 element.style.width = &#39;100px&#39;;   // Recalc
 element.style.height = &#39;200px&#39;;  // Recalc
 element.style.color = &#39;red&#39;;     // Recalc
 
-// ✅ GOOD: Single recalculation
+//  GOOD: Single recalculation
 element.style.cssText = &#39;width: 100px; height: 200px; color: red;&#39;;</code></pre>
 <hr />
 <h2 id="further-learning">Further Learning</h2>
@@ -638,7 +639,7 @@ Components</a></li>
 integration</strong> in <a href="./03-objects.md">Module 03: Objects
 &amp; API Integration</a> →</p>
 <hr />
-<p><strong>Module Status:</strong> ✅ Complete (3/3 tests passing)<br />
+<p><strong>Module Status:</strong> Complete (3/3 tests passing)<br />
 <strong>Key Bugs Fixed:</strong> 2 (import path, swapped logic)<br />
 <strong>Time Investment:</strong> ~2 hours<br />
 <strong>Key Skill:</strong> Understanding the foundation that powers all
@@ -666,7 +667,7 @@ frontend frameworks</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+                <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
             </div>
         </div>
     </footer>

@@ -3,7 +3,7 @@
 # Properly rebuild HTML files with full template structure
 # This creates beautiful, navigable documentation pages
 
-echo "🔨 Rebuilding HTML documentation pages..."
+echo " Rebuilding HTML documentation pages..."
 echo ""
 
 cd "$(dirname "$0")"
@@ -30,6 +30,7 @@ create_html_page() {
     <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="doc-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -41,7 +42,7 @@ create_html_page() {
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                    <span class="logo">📚</span>
+                    <span class="logo"><i class="fas fa-book"></i></span>
                     <span class="brand-text">EvolveU Docs</span>
                 </a>
             </div>
@@ -109,7 +110,7 @@ HTMLTEMPLATE
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+                <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
             </div>
         </div>
     </footer>
@@ -126,7 +127,7 @@ HTMLFOOTER
     # Replace title placeholder
     sed -i '' "s/TITLE_PLACEHOLDER/${title}/g" "${html_file}"
     
-    echo "✓ Created ${html_file}"
+    echo " Created ${html_file}"
 }
 
 # Convert all module files (NOTE: index.html is the hero landing page - DO NOT overwrite)
@@ -145,5 +146,5 @@ create_html_page "07-flask.md" "07-flask.html" "Module 07: Flask Full-Stack"
 rm -f /tmp/body.html
 
 echo ""
-echo "✅ All HTML files rebuilt with proper styling and navigation!"
+echo " All HTML files rebuilt with proper styling and navigation!"
 echo ""

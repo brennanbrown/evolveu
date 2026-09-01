@@ -7,7 +7,7 @@
 2. [Core Concepts](#core-concepts)
 3. [Code Walkthrough](#code-walkthrough)
 4. [Testing Strategy](#testing-strategy)
-5. [2021 vs 2025 Comparison](#2021-vs-2025-comparison)
+5. [2021 vs 2026 Comparison](#2021-vs-2026-comparison)
 6. [Key Takeaways](#key-takeaways)
 
 ---
@@ -20,10 +20,10 @@ Module 00 serves as the foundation for the entire bootcamp by introducing automa
 ### Why Testing Matters
 In 2021, when I first started coding, I would manually refresh the browser and click around to see if things worked. This approach has several problems:
 
-- ❌ Time-consuming (refresh, click, check, repeat)
-- ❌ Error-prone (easy to forget edge cases)
-- ❌ Not scalable (can't test 100 functions manually)
-- ❌ Regression bugs (breaking old features when adding new ones)
+-  Time-consuming (refresh, click, check, repeat)
+-  Error-prone (easy to forget edge cases)
+-  Not scalable (can't test 100 functions manually)
+-  Regression bugs (breaking old features when adding new ones)
 
 Automated testing solves all of these problems by letting us write code that **tests our code**.
 
@@ -73,12 +73,12 @@ TDD follows a simple cycle:
 ```javascript
 // Step 1: RED - Write failing test
 test("should double a number", () => {
-    expect(double(5)).toBe(10); // ❌ Function doesn't exist
+    expect(double(5)).toBe(10); //  Function doesn't exist
 });
 
 // Step 2: GREEN - Make it pass
 function double(n) {
-    return n * 2; // ✅ Test passes
+    return n * 2; //  Test passes
 }
 
 // Step 3: REFACTOR - Improve if needed
@@ -236,12 +236,12 @@ test("Does the second DOM function work?", () => {
 ### Test Organization
 
 ```javascript
-// ✅ GOOD: Descriptive test names
+//  GOOD: Descriptive test names
 test("Does the first DOM function work?", () => {
     // Clear purpose
 });
 
-// ❌ BAD: Vague test names
+//  BAD: Vague test names
 test("test1", () => {
     // What does this test?
 });
@@ -262,7 +262,7 @@ npm test -- --coverage
 
 ---
 
-## 2021 vs 2025 Comparison
+## 2021 vs 2026 Comparison
 
 ### Testing Approach
 
@@ -279,7 +279,7 @@ console.log(add(-1, 1)); // Test edge case manually
 console.log(add(0, 0)); // Test zero case manually
 ```
 
-**2025: Automated Testing**
+**2026: Automated Testing**
 ```javascript
 // Modern approach - automated tests
 test("add function handles all cases", () => {
@@ -303,9 +303,9 @@ test("add function handles all cases", () => {
 // That's it - no config file needed
 ```
 
-**2025: Modern Setup**
+**2026: Modern Setup**
 ```javascript
-// jest.config.js (2025)
+// jest.config.js (2026)
 module.exports = {
   testEnvironment: 'jsdom',         // Simulate browser
   setupFiles: ['<rootDir>/jest.setup.js'], // Global setup
@@ -328,7 +328,7 @@ const functions = require('./play.js');
 module.exports = functions;
 ```
 
-**2025: ES6 Modules**
+**2026: ES6 Modules**
 ```javascript
 // Modern style - import/export
 import functions from './play.js';
@@ -350,13 +350,13 @@ export default functions;
 
 **Mistake 1: Testing implementation instead of behavior**
 ```javascript
-// ❌ BAD: Testing internal details
+//  BAD: Testing internal details
 test("uses a for loop", () => {
     const code = myFunction.toString();
     expect(code).toContain('for');
 });
 
-// ✅ GOOD: Testing observable behavior
+//  GOOD: Testing observable behavior
 test("returns correct result", () => {
     expect(myFunction([1,2,3])).toBe(6);
 });
@@ -364,12 +364,12 @@ test("returns correct result", () => {
 
 **Mistake 2: Not testing edge cases**
 ```javascript
-// ❌ INCOMPLETE: Only happy path
+//  INCOMPLETE: Only happy path
 test("add function", () => {
     expect(add(2, 3)).toBe(5);
 });
 
-// ✅ COMPLETE: Edge cases included
+//  COMPLETE: Edge cases included
 test("add function handles edge cases", () => {
     expect(add(2, 3)).toBe(5);           // Normal case
     expect(add(0, 0)).toBe(0);           // Zero
@@ -380,11 +380,11 @@ test("add function handles edge cases", () => {
 
 ### Success Metrics
 
-- ✅ All 7 tests passing
-- ✅ 100% code coverage
-- ✅ Tests run in < 1 second
-- ✅ Clear test descriptions
-- ✅ No console.log() debugging needed
+-  All 7 tests passing
+-  100% code coverage
+-  Tests run in < 1 second
+-  Clear test descriptions
+-  No console.log() debugging needed
 
 ---
 
@@ -405,6 +405,6 @@ Move to **[Module 01: Getting Started](./01-getting-started.md)** to apply these
 
 ---
 
-**Module Status:** ✅ Complete (7/7 tests passing)  
+**Module Status:**  Complete (7/7 tests passing)  
 **Key Bugs Fixed:** 0 (clean implementation)  
 **Time Investment:** ~2 hours (learning + practice)

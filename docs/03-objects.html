@@ -7,6 +7,7 @@
     <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="doc-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                    <span class="logo">📚</span>
+                    <span class="logo"><i class="fas fa-book"></i></span>
                     <span class="brand-text">EvolveU Docs</span>
                 </a>
             </div>
@@ -68,7 +69,7 @@ REST APIs, async/await, and full-stack integration</p>
 <li><a href="#api-integration">API Integration</a></li>
 <li><a href="#testing-strategy">Testing Strategy</a></li>
 <li><a href="#bugs-fixed">Bugs Fixed</a></li>
-<li><a href="#2021-vs-2025-comparison">2021 vs 2025 Comparison</a></li>
+<li><a href="#2021-vs-2026-comparison">2021 vs 2026 Comparison</a></li>
 <li><a href="#key-takeaways">Key Takeaways</a></li>
 </ol>
 <hr />
@@ -201,7 +202,7 @@ fetchData(url, function(data) {
         });
     });
 });</code></pre>
-<p><strong>The Solution: Async/Await (2025)</strong></p>
+<p><strong>The Solution: Async/Await (2026)</strong></p>
 <pre class="javascript"><code>// Modern way - linear code
 async function workflow() {
     const data = await fetchData(url);
@@ -336,7 +337,7 @@ myAccount.display();         // &quot;Brennan: $1300&quot;</code></pre>
         if (pop &lt; 1000) return &#39;Village&#39;;
         if (pop &lt; 20000) return &#39;Town&#39;;
         if (pop &lt; 100000) return &#39;Large Town&#39;;
-        if (pop &gt;= 100000) return &#39;City&#39;;  // ⚠️ BUG WAS HERE: used &gt;
+        if (pop &gt;= 100000) return &#39;City&#39;;  // ️ BUG WAS HERE: used &gt;
         
         return &#39;ERROR&#39;;
     }
@@ -363,7 +364,7 @@ class Community {
 
     /**
      * Create a new city and store it on the server
-     * ⚠️ This method had THE MOST bugs!
+     * ️ This method had THE MOST bugs!
      */
     async createCity(city, latitude, longitude, population) {
         try {
@@ -380,7 +381,7 @@ class Community {
             }
             
             // 2. Create new city with next key
-            // ⚠️ BUG WAS HERE: Parameter order was wrong!
+            // ️ BUG WAS HERE: Parameter order was wrong!
             let myCity = new City(city, population, latitude, longitude, i + 1);
             
             // 3. Send to server
@@ -457,7 +458,7 @@ class Community {
      */
     async updatePopulation(city) {
         try {
-            // ⚠️ BUG WAS HERE: Had unnecessary /all check
+            // ️ BUG WAS HERE: Had unnecessary /all check
             let data = await functions.postData(this.url + &#39;update&#39;, {
                 key: city.key,
                 name: city.name,
@@ -516,7 +517,7 @@ Functions</h3>
         
         const text = await response.text();
         
-        // ⚠️ BUG WAS HERE: Empty responses caused JSON.parse to fail
+        // ️ BUG WAS HERE: Empty responses caused JSON.parse to fail
         let JSON_DATA = text ? JSON.parse(text) : {};
         
         // If it&#39;s an array, just return it (for /all endpoint)
@@ -618,12 +619,12 @@ def delete():
 def clear():
     global data, firstKeyType
     data = {}
-    firstKeyType = None  # ⚠️ BUG WAS HERE: Didn&#39;t reset this
+    firstKeyType = None  # ️ BUG WAS HERE: Didn&#39;t reset this
     return jsonify(data), 200
 
 if __name__ == &#39;__main__&#39;:
     print(&quot;--- Starting&quot;, __file__)
-    # ⚠️ Changed: debug=False to prevent hanging
+    # ️ Changed: debug=False to prevent hanging
     app.run(debug=False, use_reloader=False, port=5002)</code></pre>
 <hr />
 <h2 id="testing-strategy">Testing Strategy</h2>
@@ -722,14 +723,14 @@ test(&quot;Does the updatePopulation function work?&quot;, async () =&gt; {
 me detail the critical ones:</p>
 <h3 id="bug-1-city-constructor-parameter-order">Bug #1: City Constructor
 Parameter Order</h3>
-<pre class="javascript"><code>// ❌ WRONG: createCity passes parameters in wrong order
+<pre class="javascript"><code>//  WRONG: createCity passes parameters in wrong order
 async createCity(city, latitude, longitude, population) {
     let myCity = new City(city, latitude, longitude, population, key);
     //                         ↑         ↑          ↑
     //                      WRONG     WRONG      WRONG
 }
 
-// ✅ CORRECT: Match City constructor signature
+//  CORRECT: Match City constructor signature
 async createCity(city, latitude, longitude, population) {
     let myCity = new City(city, population, latitude, longitude, key);
     //                         ↑           ↑          ↑
@@ -739,7 +740,7 @@ async createCity(city, latitude, longitude, population) {
 population and vice versa!</p>
 <h3 id="bug-2-updatepopulation-unnecessary-check">Bug #2:
 updatePopulation Unnecessary Check</h3>
-<pre class="javascript"><code>// ❌ WRONG: Checks /all status, but /all returns array!
+<pre class="javascript"><code>//  WRONG: Checks /all status, but /all returns array!
 async updatePopulation(city) {
     let data = await functions.postData(this.url + &#39;all&#39;);
     if (data.status === 200) {  // Arrays don&#39;t have .status!
@@ -747,7 +748,7 @@ async updatePopulation(city) {
     }
 }
 
-// ✅ CORRECT: Remove unnecessary check
+//  CORRECT: Remove unnecessary check
 async updatePopulation(city) {
     let data = await functions.postData(this.url + &#39;update&#39;, cityData);
     if (data.status === 200) {  // Now checking the right response
@@ -758,34 +759,34 @@ async updatePopulation(city) {
 always failed.</p>
 <h3 id="bug-3-classification-threshold">Bug #3: Classification
 Threshold</h3>
-<pre class="javascript"><code>// ❌ WRONG: City classification uses &gt; instead of &gt;=
+<pre class="javascript"><code>//  WRONG: City classification uses &gt; instead of &gt;=
 if (pop &gt; 100000) return &#39;City&#39;;
 
 // Results: 100,000 population returns undefined!
 
-// ✅ CORRECT: Use &gt;=
+//  CORRECT: Use &gt;=
 if (pop &gt;= 100000) return &#39;City&#39;;</code></pre>
 <p><strong>Impact:</strong> Cities with exactly 100,000 people fell
 through all conditions.</p>
 <h3 id="bug-4-empty-json-response-handling">Bug #4: Empty JSON Response
 Handling</h3>
-<pre class="javascript"><code>// ❌ WRONG: Fails when response is empty
+<pre class="javascript"><code>//  WRONG: Fails when response is empty
 const json = await response.json();  // Throws on empty body!
 
-// ✅ CORRECT: Handle empty responses
+//  CORRECT: Handle empty responses
 const text = await response.text();
 const json = text ? JSON.parse(text) : {};</code></pre>
 <p><strong>Impact:</strong> Crashed when Flask returned 200 with empty
 body.</p>
 <h3 id="bug-5-array-vs-object-response">Bug #5: Array vs Object
 Response</h3>
-<pre class="javascript"><code>// ❌ WRONG: Always adds status, even to arrays
+<pre class="javascript"><code>//  WRONG: Always adds status, even to arrays
 let JSON_DATA = await response.json();
 JSON_DATA.status = response.status;  // Adds to array!
 
 // Result: [{city}, {city}].status = 200 (weird!)
 
-// ✅ CORRECT: Only add status to objects
+//  CORRECT: Only add status to objects
 if (Array.isArray(JSON_DATA)) {
     return JSON_DATA;  // Arrays don&#39;t need status
 } else {
@@ -795,22 +796,22 @@ if (Array.isArray(JSON_DATA)) {
 <p><strong>Impact:</strong> Tests failed because
 <code>data.status</code> was undefined for array responses.</p>
 <h3 id="bug-6-port-5000-conflict">Bug #6: Port 5000 Conflict</h3>
-<pre class="javascript"><code>// ❌ WRONG: Port 5000 is used by macOS ControlCenter!
+<pre class="javascript"><code>//  WRONG: Port 5000 is used by macOS ControlCenter!
 url: &quot;http://127.0.0.1:5000/&quot;  // Connection refused!
 
-// ✅ CORRECT: Use port 5002
+//  CORRECT: Use port 5002
 url: &quot;http://127.0.0.1:5002/&quot;</code></pre>
 <p><strong>Impact:</strong> Fetch requests returned 403 Forbidden from
 system service.</p>
 <h3 id="bug-7-flask-clear-endpoint">Bug #7: Flask Clear Endpoint</h3>
-<pre class="python"><code># ❌ WRONG: Doesn&#39;t reset firstKeyType
+<pre class="python"><code>#  WRONG: Doesn&#39;t reset firstKeyType
 @app.route(&quot;/clear&quot;)
 def clear():
     global data
     data = {}
     return jsonify(data), 200
 
-# ✅ CORRECT: Reset all global state
+#  CORRECT: Reset all global state
 @app.route(&quot;/clear&quot;)
 def clear():
     global data, firstKeyType
@@ -820,7 +821,7 @@ def clear():
 <p><strong>Impact:</strong> State leaked between tests, causing
 unpredictable failures.</p>
 <hr />
-<h2 id="2021-vs-2025-comparison">2021 vs 2025 Comparison</h2>
+<h2 id="2021-vs-2026-comparison">2021 vs 2026 Comparison</h2>
 <h3 id="async-patterns">Async Patterns</h3>
 <p><strong>2021: Promises &amp; Callbacks</strong></p>
 <pre class="javascript"><code>// Old way - promise chains
@@ -837,7 +838,7 @@ function getCities() {
             console.error(error);
         });
 }</code></pre>
-<p><strong>2025: Async/Await</strong></p>
+<p><strong>2026: Async/Await</strong></p>
 <pre class="javascript"><code>// Modern way - sequential syntax
 async function getCities() {
     try {
@@ -860,7 +861,7 @@ function City(name, population) {
 City.prototype.show = function() {
     return this.name;
 };</code></pre>
-<p><strong>2025: ES6 Classes</strong></p>
+<p><strong>2026: ES6 Classes</strong></p>
 <pre class="javascript"><code>// Modern way - class keyword
 class City {
     constructor(name, population) {
@@ -877,7 +878,7 @@ class City {
 <pre class="javascript"><code>// Old way
 const City = require(&#39;./city&#39;);
 module.exports = City;</code></pre>
-<p><strong>2025: ES6 Modules</strong></p>
+<p><strong>2026: ES6 Modules</strong></p>
 <pre class="javascript"><code>// Modern way
 import { City } from &#39;./city.js&#39;;
 export { City };</code></pre>
@@ -894,7 +895,7 @@ fetch(url, {
     referrer: &#39;no-referrer&#39;,
     body: JSON.stringify(data)
 });</code></pre>
-<p><strong>2025: Simplified</strong></p>
+<p><strong>2026: Simplified</strong></p>
 <pre class="javascript"><code>// Modern way - just the essentials
 fetch(url, {
     method: &#39;POST&#39;,
@@ -1001,8 +1002,7 @@ Tutorial</a></li>
 <strong>modern frontend frameworks</strong> in <a
 href="./04-react.md">Module 04: React Applications</a> →</p>
 <hr />
-<p><strong>Module Status:</strong> ✅ Complete (30/30 tests
-passing)<br />
+<p><strong>Module Status:</strong> Complete (30/30 tests passing)<br />
 <strong>Key Bugs Fixed:</strong> 14 (parameter order, response handling,
 port conflicts)<br />
 <strong>Time Investment:</strong> ~8 hours (most complex module)<br />
@@ -1031,7 +1031,7 @@ with working API integration!</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+                <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
             </div>
         </div>
     </footer>

@@ -8,7 +8,7 @@
 3. [Code Walkthrough](#code-walkthrough)
 4. [Testing Strategy](#testing-strategy)
 5. [Bugs Fixed](#bugs-fixed)
-6. [2021 vs 2025 Comparison](#2021-vs-2025-comparison)
+6. [2021 vs 2026 Comparison](#2021-vs-2026-comparison)
 7. [Key Takeaways](#key-takeaways)
 
 ---
@@ -187,7 +187,7 @@ const domFunctions = {
      * @param {HTMLElement} referenceElement - Existing element
      */
     addBefore: (newElement, referenceElement) => {
-        // ⚠️ BUG WAS HERE: Logic was swapped with addAfter
+        // ️ BUG WAS HERE: Logic was swapped with addAfter
         referenceElement.parentNode.insertBefore(
             newElement,
             referenceElement
@@ -200,7 +200,7 @@ const domFunctions = {
      * @param {HTMLElement} referenceElement - Existing element
      */
     addAfter: (newElement, referenceElement) => {
-        // ⚠️ BUG WAS HERE: Logic was swapped with addBefore
+        // ️ BUG WAS HERE: Logic was swapped with addBefore
         referenceElement.parentNode.insertBefore(
             newElement,
             referenceElement.nextSibling
@@ -240,10 +240,10 @@ export default domFunctions;
 
 3. **Why use `classList.add()`?**
    ```javascript
-   // ✅ GOOD: Preserves existing classes
+   //  GOOD: Preserves existing classes
    element.classList.add('new-class');
    
-   // ❌ BAD: Overwrites existing classes
+   //  BAD: Overwrites existing classes
    element.className = 'new-class';
    ```
 
@@ -343,10 +343,10 @@ Each test follows the **Arrange-Act-Assert** pattern:
 ### Bug #1: Import Path Typo
 
 ```javascript
-// ❌ WRONG: Incorrect filename
+//  WRONG: Incorrect filename
 import domFunctions from "./domfunc.js";
 
-// ✅ CORRECT: Match actual filename
+//  CORRECT: Match actual filename
 import domFunctions from "./dom.js";
 ```
 
@@ -361,7 +361,7 @@ import domFunctions from "./dom.js";
 This was the most interesting bug—the logic was completely backwards!
 
 ```javascript
-// ❌ WRONG: Functions did the opposite of their names
+//  WRONG: Functions did the opposite of their names
 addBefore: (newElement, referenceElement) => {
     // This actually inserts AFTER!
     referenceElement.parentNode.insertBefore(
@@ -378,7 +378,7 @@ addAfter: (newElement, referenceElement) => {
     );
 }
 
-// ✅ CORRECT: Swap the implementations
+//  CORRECT: Swap the implementations
 addBefore: (newElement, referenceElement) => {
     referenceElement.parentNode.insertBefore(
         newElement,
@@ -402,8 +402,8 @@ Called addBefore() → Element appears AFTER
 Called addAfter() → Element appears BEFORE
 
 After Bug Fix:
-Called addBefore() → Element appears BEFORE ✓
-Called addAfter() → Element appears AFTER ✓
+Called addBefore() → Element appears BEFORE 
+Called addAfter() → Element appears AFTER 
 ```
 
 **How to avoid this:**
@@ -413,7 +413,7 @@ Called addAfter() → Element appears AFTER ✓
 
 ---
 
-## 2021 vs 2025 Comparison
+## 2021 vs 2026 Comparison
 
 ### DOM Manipulation Approaches
 
@@ -430,12 +430,12 @@ container.innerHTML = `
 ```
 
 **Problems with 2021 approach:**
-- ❌ Security risk (XSS attacks)
-- ❌ Loses event listeners
-- ❌ Destroys existing elements
-- ❌ No type safety
+-  Security risk (XSS attacks)
+-  Loses event listeners
+-  Destroys existing elements
+-  No type safety
 
-**2025: Programmatic DOM Creation**
+**2026: Programmatic DOM Creation**
 ```javascript
 // Modern way - create elements programmatically
 const card = document.createElement('div');
@@ -452,11 +452,11 @@ card.appendChild(desc);
 container.appendChild(card);
 ```
 
-**Benefits of 2025 approach:**
-- ✅ XSS-safe (textContent escapes HTML)
-- ✅ Preserves event listeners
-- ✅ Fine-grained control
-- ✅ Better for testing
+**Benefits of 2026 approach:**
+-  XSS-safe (textContent escapes HTML)
+-  Preserves event listeners
+-  Fine-grained control
+-  Better for testing
 
 ### Modern Frameworks (React/Vue)
 
@@ -506,7 +506,7 @@ function testAddBefore() {
 }
 ```
 
-**2025: Automated jsdom Testing**
+**2026: Automated jsdom Testing**
 ```javascript
 // Modern way - automated tests
 test("addBefore inserts element correctly", () => {
@@ -544,10 +544,10 @@ test("addBefore inserts element correctly", () => {
 
 3. **Safe Content Updates**
    ```javascript
-   // ✅ Safe from XSS
+   //  Safe from XSS
    element.textContent = userInput;
    
-   // ❌ Dangerous!
+   //  Dangerous!
    element.innerHTML = userInput;
    ```
 
@@ -606,13 +606,13 @@ container.appendChild(clone);
 
 **Minimize Reflows:**
 ```javascript
-// ❌ BAD: Multiple reflows
+//  BAD: Multiple reflows
 for (let i = 0; i < 1000; i++) {
     const li = document.createElement('li');
     list.appendChild(li);  // Reflow every time!
 }
 
-// ✅ GOOD: Single reflow
+//  GOOD: Single reflow
 const fragment = document.createDocumentFragment();
 for (let i = 0; i < 1000; i++) {
     const li = document.createElement('li');
@@ -623,12 +623,12 @@ list.appendChild(fragment);  // One reflow
 
 **Batch Style Changes:**
 ```javascript
-// ❌ BAD: Multiple style recalculations
+//  BAD: Multiple style recalculations
 element.style.width = '100px';   // Recalc
 element.style.height = '200px';  // Recalc
 element.style.color = 'red';     // Recalc
 
-// ✅ GOOD: Single recalculation
+//  GOOD: Single recalculation
 element.style.cssText = 'width: 100px; height: 200px; color: red;';
 ```
 
@@ -673,7 +673,7 @@ Now that we understand DOM manipulation, we're ready for **object-oriented progr
 
 ---
 
-**Module Status:** ✅ Complete (3/3 tests passing)  
+**Module Status:**  Complete (3/3 tests passing)  
 **Key Bugs Fixed:** 2 (import path, swapped logic)  
 **Time Investment:** ~2 hours  
 **Key Skill:** Understanding the foundation that powers all frontend frameworks

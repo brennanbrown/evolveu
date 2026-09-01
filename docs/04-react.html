@@ -7,6 +7,7 @@
     <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="doc-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                    <span class="logo">📚</span>
+                    <span class="logo"><i class="fas fa-book"></i></span>
                     <span class="brand-text">EvolveU Docs</span>
                 </a>
             </div>
@@ -65,7 +66,7 @@ fundamentals, state management, and modern hooks</p>
 <li><a href="#core-concepts">Core Concepts</a></li>
 <li><a href="#project-walkthroughs">Project Walkthroughs</a></li>
 <li><a href="#bugs-fixed">Bugs Fixed</a></li>
-<li><a href="#2021-vs-2025-evolution">2021 vs 2025 Evolution</a></li>
+<li><a href="#2021-vs-2026-evolution">2021 vs 2026 Evolution</a></li>
 <li><a href="#key-takeaways">Key Takeaways</a></li>
 </ol>
 <hr />
@@ -136,7 +137,7 @@ class Welcome extends React.Component {
     }
 }
 
-// 2025 Style: Function Component with Hooks
+// 2026 Style: Function Component with Hooks
 function Welcome() {
     const [count, setCount] = useState(0);
     return &lt;h1&gt;Count: {count}&lt;/h1&gt;;
@@ -321,7 +322,7 @@ class DoublyLinkedList {
     }
 
     // Add node to end of list
-    append(time, todo) {  // ⚠️ BUG WAS HERE: params were swapped
+    append(time, todo) {  // ️ BUG WAS HERE: params were swapped
         this.count++;
         const id = &quot;k&quot; + this.count;
         const node = new Node(id, time, todo);
@@ -343,7 +344,7 @@ class DoublyLinkedList {
     }
 
     // Get current node
-    get() {  // ⚠️ BUG WAS HERE: returned .todo instead of node
+    get() {  // ️ BUG WAS HERE: returned .todo instead of node
         if (this.head === null) {
             return &quot;(Currently Empty)&quot;;
         }
@@ -351,7 +352,7 @@ class DoublyLinkedList {
     }
 
     // Move to next node
-    nextNode() {  // ⚠️ BUG WAS HERE: returned string instead of node
+    nextNode() {  // ️ BUG WAS HERE: returned string instead of node
         if (this.tail == null) {
             return &quot;(Currently Empty)&quot;;
         }
@@ -365,7 +366,7 @@ class DoublyLinkedList {
     }
 
     // Move to previous node
-    prevNode() {  // ⚠️ BUG WAS HERE: returned string instead of node
+    prevNode() {  // ️ BUG WAS HERE: returned string instead of node
         if (this.head == null) {
             return &quot;(Currently Empty)&quot;;
         }
@@ -379,7 +380,7 @@ class DoublyLinkedList {
     }
 
     // Remove node by ID
-    remove(id) {  // ⚠️ BUG WAS HERE: didn&#39;t accept ID parameter
+    remove(id) {  // ️ BUG WAS HERE: didn&#39;t accept ID parameter
         if (id) {
             let current = this.head;
             
@@ -445,7 +446,7 @@ export default { Node, DoublyLinkedList };</code></pre>
         this.key = String(key);
     }
 
-    populationSize() {  // ⚠️ BUG WAS HERE: logic error
+    populationSize() {  // ️ BUG WAS HERE: logic error
         const cityPopulation = this.population;
         
         if (cityPopulation &lt; 0) return &quot;[Error! Negative Population]&quot;;
@@ -463,44 +464,44 @@ export default { Node, DoublyLinkedList };</code></pre>
 <h2 id="bugs-fixed">Bugs Fixed</h2>
 <h3 id="react-02-bug-summary-7-bugs">React-02 Bug Summary (7 bugs)</h3>
 <p><strong>Bug #1: Linked List Parameter Order</strong></p>
-<pre class="javascript"><code>// ❌ WRONG
+<pre class="javascript"><code>//  WRONG
 append(todo, time) {
     const node = new Node(id, todo, time);  // Wrong order!
 }
 
-// ✅ CORRECT
+//  CORRECT
 append(time, todo) {
     const node = new Node(id, time, todo);  // Matches Node constructor
 }</code></pre>
 <p><strong>Bug #2: get() Returns Wrong Type</strong></p>
-<pre class="javascript"><code>// ❌ WRONG: Returns string, tests expect node
+<pre class="javascript"><code>//  WRONG: Returns string, tests expect node
 get() {
     return this.current.todo;  // Just the todo property
 }
 
-// ✅ CORRECT: Return full node
+//  CORRECT: Return full node
 get() {
     return this.current;  // The entire node object
 }</code></pre>
 <p><strong>Bug #3-4: nextNode/prevNode Return Types</strong></p>
-<pre class="javascript"><code>// ❌ WRONG: Returns string when should return node
+<pre class="javascript"><code>//  WRONG: Returns string when should return node
 nextNode() {
     this.current = this.current.next;
     return &quot;(Currently Empty)&quot;;  // Wrong!
 }
 
-// ✅ CORRECT: Return the node
+//  CORRECT: Return the node
 nextNode() {
     this.current = this.current.next;
     return this.current;  // The node object
 }</code></pre>
 <p><strong>Bug #5: remove() Missing ID Parameter</strong></p>
-<pre class="javascript"><code>// ❌ WRONG: No way to specify which node to remove
+<pre class="javascript"><code>//  WRONG: No way to specify which node to remove
 remove() {
     // Only removes current node
 }
 
-// ✅ CORRECT: Accept ID parameter
+//  CORRECT: Accept ID parameter
 remove(id) {
     // Find and remove node by ID
     let current = this.head;
@@ -512,19 +513,19 @@ remove(id) {
     }
 }</code></pre>
 <p><strong>Bug #6: populationSize Logic Error</strong></p>
-<pre class="javascript"><code>// ❌ WRONG: 100,000 falls through all conditions
+<pre class="javascript"><code>//  WRONG: 100,000 falls through all conditions
 if (cityPopulation &gt; 100000) return &quot;City&quot;;  // Excludes exactly 100k
 
-// ✅ CORRECT: Use &gt;= for threshold
+//  CORRECT: Use &gt;= for threshold
 if (cityPopulation &gt;= 100000) return &quot;City&quot;;  // Includes 100k</code></pre>
 <p><strong>Bug #7: Test Content Mismatch</strong></p>
-<pre class="javascript"><code>// ❌ WRONG: Tests for text that doesn&#39;t exist
+<pre class="javascript"><code>//  WRONG: Tests for text that doesn&#39;t exist
 expect(getByText(/learn react/i)).toBeInTheDocument();
 
-// ✅ CORRECT: Test for actual content
+//  CORRECT: Test for actual content
 expect(getByText(/Welcome to Brennan&#39;s React Applications!/i)).toBeInTheDocument();</code></pre>
 <hr />
-<h2 id="2021-vs-2025-evolution">2021 vs 2025 Evolution</h2>
+<h2 id="2021-vs-2026-evolution">2021 vs 2026 Evolution</h2>
 <h3 id="component-syntax">Component Syntax</h3>
 <p><strong>2021: Class Components</strong></p>
 <pre class="jsx"><code>class Counter extends React.Component {
@@ -551,7 +552,7 @@ expect(getByText(/Welcome to Brennan&#39;s React Applications!/i)).toBeInTheDocu
         );
     }
 }</code></pre>
-<p><strong>2025: Function Components with Hooks</strong></p>
+<p><strong>2026: Function Components with Hooks</strong></p>
 <pre class="jsx"><code>function Counter() {
     const [count, setCount] = useState(0);
     
@@ -570,10 +571,10 @@ expect(getByText(/Welcome to Brennan&#39;s React Applications!/i)).toBeInTheDocu
 }</code></pre>
 <p><strong>Why the change?</strong></p>
 <ul>
-<li>✅ Less boilerplate</li>
-<li>✅ No <code>this</code> confusion</li>
-<li>✅ Easier to share logic (custom hooks)</li>
-<li>✅ Better TypeScript support</li>
+<li>Less boilerplate</li>
+<li>No <code>this</code> confusion</li>
+<li>Easier to share logic (custom hooks)</li>
+<li>Better TypeScript support</li>
 </ul>
 <h3 id="lifecycle-methods--hooks">Lifecycle Methods → Hooks</h3>
 <p><strong>2021: Lifecycle Methods</strong></p>
@@ -596,7 +597,7 @@ expect(getByText(/Welcome to Brennan&#39;s React Applications!/i)).toBeInTheDocu
         // Fetch logic
     }
 }</code></pre>
-<p><strong>2025: useEffect Hook</strong></p>
+<p><strong>2026: useEffect Hook</strong></p>
 <pre class="jsx"><code>function DataFetcher({ id }) {
     useEffect(() =&gt; {
         fetchData();
@@ -627,7 +628,7 @@ expect(getByText(/Welcome to Brennan&#39;s React Applications!/i)).toBeInTheDocu
     
     // Separate handler for each field...
 }</code></pre>
-<p><strong>2025: Multiple useState</strong></p>
+<p><strong>2026: Multiple useState</strong></p>
 <pre class="jsx"><code>function Form() {
     const [name, setName] = useState(&#39;&#39;);
     const [email, setEmail] = useState(&#39;&#39;);
@@ -646,7 +647,7 @@ expect(getByText(/Welcome to Brennan&#39;s React Applications!/i)).toBeInTheDocu
 # Uses Webpack, Babel
 # ~200MB node_modules
 # 3-5 second dev server startup</code></pre>
-<p><strong>2025: Vite</strong></p>
+<p><strong>2026: Vite</strong></p>
 <pre class="bash"><code>npm create vite@latest my-app -- --template react
 # Uses esbuild, Rollup
 # ~100MB node_modules
@@ -669,7 +670,7 @@ UI</strong>:</p>
 }</code></pre>
 <h3 id="best-practices">Best Practices</h3>
 <p><strong>1. Component Composition</strong></p>
-<pre class="jsx"><code>// ❌ BAD: One giant component
+<pre class="jsx"><code>//  BAD: One giant component
 function App() {
     return (
         &lt;div&gt;
@@ -678,7 +679,7 @@ function App() {
     );
 }
 
-// ✅ GOOD: Small, focused components
+//  GOOD: Small, focused components
 function App() {
     return (
         &lt;div&gt;
@@ -690,12 +691,12 @@ function App() {
     );
 }</code></pre>
 <p><strong>2. Props Destructuring</strong></p>
-<pre class="jsx"><code>// ❌ BAD: Access via props object
+<pre class="jsx"><code>//  BAD: Access via props object
 function Card(props) {
     return &lt;h2&gt;{props.title}&lt;/h2&gt;;
 }
 
-// ✅ GOOD: Destructure in parameters
+//  GOOD: Destructure in parameters
 function Card({ title, description, image }) {
     return (
         &lt;div&gt;
@@ -706,12 +707,12 @@ function Card({ title, description, image }) {
     );
 }</code></pre>
 <p><strong>3. Key Prop for Lists</strong></p>
-<pre class="jsx"><code>// ❌ BAD: No key or index as key
+<pre class="jsx"><code>//  BAD: No key or index as key
 {items.map((item, index) =&gt; (
     &lt;div key={index}&gt;{item}&lt;/div&gt;
 ))}
 
-// ✅ GOOD: Unique ID as key
+//  GOOD: Unique ID as key
 {items.map(item =&gt; (
     &lt;div key={item.id}&gt;{item.name}&lt;/div&gt;
 ))}</code></pre>
@@ -834,7 +835,7 @@ Reference</a></li>
 <strong>backend</strong> in <a href="./05-api.md">Module 05: Flask API
 Server</a> →</p>
 <hr />
-<p><strong>Module Status:</strong> ✅ Complete (11/11 tests passing, 3
+<p><strong>Module Status:</strong> Complete (11/11 tests passing, 3
 skipped integration tests)<br />
 <strong>Key Bugs Fixed:</strong> 7 (mostly in react-02)<br />
 <strong>Time Investment:</strong> ~6 hours<br />
@@ -863,7 +864,7 @@ architecture and the evolution from class to function components!</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+                <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
             </div>
         </div>
     </footer>

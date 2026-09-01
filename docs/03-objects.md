@@ -9,7 +9,7 @@
 4. [API Integration](#api-integration)
 5. [Testing Strategy](#testing-strategy)
 6. [Bugs Fixed](#bugs-fixed)
-7. [2021 vs 2025 Comparison](#2021-vs-2025-comparison)
+7. [2021 vs 2026 Comparison](#2021-vs-2026-comparison)
 8. [Key Takeaways](#key-takeaways)
 
 ---
@@ -168,7 +168,7 @@ fetchData(url, function(data) {
 });
 ```
 
-**The Solution: Async/Await (2025)**
+**The Solution: Async/Await (2026)**
 ```javascript
 // Modern way - linear code
 async function workflow() {
@@ -318,7 +318,7 @@ class City {
         if (pop < 1000) return 'Village';
         if (pop < 20000) return 'Town';
         if (pop < 100000) return 'Large Town';
-        if (pop >= 100000) return 'City';  // ⚠️ BUG WAS HERE: used >
+        if (pop >= 100000) return 'City';  // ️ BUG WAS HERE: used >
         
         return 'ERROR';
     }
@@ -346,7 +346,7 @@ class Community {
 
     /**
      * Create a new city and store it on the server
-     * ⚠️ This method had THE MOST bugs!
+     * ️ This method had THE MOST bugs!
      */
     async createCity(city, latitude, longitude, population) {
         try {
@@ -363,7 +363,7 @@ class Community {
             }
             
             // 2. Create new city with next key
-            // ⚠️ BUG WAS HERE: Parameter order was wrong!
+            // ️ BUG WAS HERE: Parameter order was wrong!
             let myCity = new City(city, population, latitude, longitude, i + 1);
             
             // 3. Send to server
@@ -440,7 +440,7 @@ class Community {
      */
     async updatePopulation(city) {
         try {
-            // ⚠️ BUG WAS HERE: Had unnecessary /all check
+            // ️ BUG WAS HERE: Had unnecessary /all check
             let data = await functions.postData(this.url + 'update', {
                 key: city.key,
                 name: city.name,
@@ -504,7 +504,7 @@ const functions = {
         
         const text = await response.text();
         
-        // ⚠️ BUG WAS HERE: Empty responses caused JSON.parse to fail
+        // ️ BUG WAS HERE: Empty responses caused JSON.parse to fail
         let JSON_DATA = text ? JSON.parse(text) : {};
         
         // If it's an array, just return it (for /all endpoint)
@@ -618,12 +618,12 @@ def delete():
 def clear():
     global data, firstKeyType
     data = {}
-    firstKeyType = None  # ⚠️ BUG WAS HERE: Didn't reset this
+    firstKeyType = None  # ️ BUG WAS HERE: Didn't reset this
     return jsonify(data), 200
 
 if __name__ == '__main__':
     print("--- Starting", __file__)
-    # ⚠️ Changed: debug=False to prevent hanging
+    # ️ Changed: debug=False to prevent hanging
     app.run(debug=False, use_reloader=False, port=5002)
 ```
 
@@ -738,14 +738,14 @@ This module had **14 bugs**—the most of any module! Let me detail the critical
 ### Bug #1: City Constructor Parameter Order
 
 ```javascript
-// ❌ WRONG: createCity passes parameters in wrong order
+//  WRONG: createCity passes parameters in wrong order
 async createCity(city, latitude, longitude, population) {
     let myCity = new City(city, latitude, longitude, population, key);
     //                         ↑         ↑          ↑
     //                      WRONG     WRONG      WRONG
 }
 
-// ✅ CORRECT: Match City constructor signature
+//  CORRECT: Match City constructor signature
 async createCity(city, latitude, longitude, population) {
     let myCity = new City(city, population, latitude, longitude, key);
     //                         ↑           ↑          ↑
@@ -758,7 +758,7 @@ async createCity(city, latitude, longitude, population) {
 ### Bug #2: updatePopulation Unnecessary Check
 
 ```javascript
-// ❌ WRONG: Checks /all status, but /all returns array!
+//  WRONG: Checks /all status, but /all returns array!
 async updatePopulation(city) {
     let data = await functions.postData(this.url + 'all');
     if (data.status === 200) {  // Arrays don't have .status!
@@ -766,7 +766,7 @@ async updatePopulation(city) {
     }
 }
 
-// ✅ CORRECT: Remove unnecessary check
+//  CORRECT: Remove unnecessary check
 async updatePopulation(city) {
     let data = await functions.postData(this.url + 'update', cityData);
     if (data.status === 200) {  // Now checking the right response
@@ -780,12 +780,12 @@ async updatePopulation(city) {
 ### Bug #3: Classification Threshold
 
 ```javascript
-// ❌ WRONG: City classification uses > instead of >=
+//  WRONG: City classification uses > instead of >=
 if (pop > 100000) return 'City';
 
 // Results: 100,000 population returns undefined!
 
-// ✅ CORRECT: Use >=
+//  CORRECT: Use >=
 if (pop >= 100000) return 'City';
 ```
 
@@ -794,10 +794,10 @@ if (pop >= 100000) return 'City';
 ### Bug #4: Empty JSON Response Handling
 
 ```javascript
-// ❌ WRONG: Fails when response is empty
+//  WRONG: Fails when response is empty
 const json = await response.json();  // Throws on empty body!
 
-// ✅ CORRECT: Handle empty responses
+//  CORRECT: Handle empty responses
 const text = await response.text();
 const json = text ? JSON.parse(text) : {};
 ```
@@ -807,13 +807,13 @@ const json = text ? JSON.parse(text) : {};
 ### Bug #5: Array vs Object Response
 
 ```javascript
-// ❌ WRONG: Always adds status, even to arrays
+//  WRONG: Always adds status, even to arrays
 let JSON_DATA = await response.json();
 JSON_DATA.status = response.status;  // Adds to array!
 
 // Result: [{city}, {city}].status = 200 (weird!)
 
-// ✅ CORRECT: Only add status to objects
+//  CORRECT: Only add status to objects
 if (Array.isArray(JSON_DATA)) {
     return JSON_DATA;  // Arrays don't need status
 } else {
@@ -827,10 +827,10 @@ if (Array.isArray(JSON_DATA)) {
 ### Bug #6: Port 5000 Conflict
 
 ```javascript
-// ❌ WRONG: Port 5000 is used by macOS ControlCenter!
+//  WRONG: Port 5000 is used by macOS ControlCenter!
 url: "http://127.0.0.1:5000/"  // Connection refused!
 
-// ✅ CORRECT: Use port 5002
+//  CORRECT: Use port 5002
 url: "http://127.0.0.1:5002/"
 ```
 
@@ -839,14 +839,14 @@ url: "http://127.0.0.1:5002/"
 ### Bug #7: Flask Clear Endpoint
 
 ```python
-# ❌ WRONG: Doesn't reset firstKeyType
+#  WRONG: Doesn't reset firstKeyType
 @app.route("/clear")
 def clear():
     global data
     data = {}
     return jsonify(data), 200
 
-# ✅ CORRECT: Reset all global state
+#  CORRECT: Reset all global state
 @app.route("/clear")
 def clear():
     global data, firstKeyType
@@ -859,7 +859,7 @@ def clear():
 
 ---
 
-## 2021 vs 2025 Comparison
+## 2021 vs 2026 Comparison
 
 ### Async Patterns
 
@@ -881,7 +881,7 @@ function getCities() {
 }
 ```
 
-**2025: Async/Await**
+**2026: Async/Await**
 ```javascript
 // Modern way - sequential syntax
 async function getCities() {
@@ -911,7 +911,7 @@ City.prototype.show = function() {
 };
 ```
 
-**2025: ES6 Classes**
+**2026: ES6 Classes**
 ```javascript
 // Modern way - class keyword
 class City {
@@ -935,7 +935,7 @@ const City = require('./city');
 module.exports = City;
 ```
 
-**2025: ES6 Modules**
+**2026: ES6 Modules**
 ```javascript
 // Modern way
 import { City } from './city.js';
@@ -959,7 +959,7 @@ fetch(url, {
 });
 ```
 
-**2025: Simplified**
+**2026: Simplified**
 ```javascript
 // Modern way - just the essentials
 fetch(url, {
@@ -1069,7 +1069,7 @@ Now that we understand full-stack integration, we're ready for **modern frontend
 
 ---
 
-**Module Status:** ✅ Complete (30/30 tests passing)  
+**Module Status:**  Complete (30/30 tests passing)  
 **Key Bugs Fixed:** 14 (parameter order, response handling, port conflicts)  
 **Time Investment:** ~8 hours (most complex module)  
 **Key Achievement:** Built first full-stack application with working API integration!

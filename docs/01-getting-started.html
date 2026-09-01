@@ -7,6 +7,7 @@
     <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="doc-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                    <span class="logo">📚</span>
+                    <span class="logo"><i class="fas fa-book"></i></span>
                     <span class="brand-text">EvolveU Docs</span>
                 </a>
             </div>
@@ -68,7 +69,7 @@ calculator)</p>
 <li><a href="#code-walkthrough">Code Walkthrough</a></li>
 <li><a href="#testing-strategy">Testing Strategy</a></li>
 <li><a href="#bugs-fixed">Bugs Fixed</a></li>
-<li><a href="#2021-vs-2025-comparison">2021 vs 2025 Comparison</a></li>
+<li><a href="#2021-vs-2026-comparison">2021 vs 2026 Comparison</a></li>
 <li><a href="#key-takeaways">Key Takeaways</a></li>
 </ol>
 <hr />
@@ -143,14 +144,14 @@ USD)</li>
 <li><strong>Reduce</strong>: Aggregation (e.g., total sales)</li>
 </ul>
 <h3 id="3-pure-functions">3. Pure Functions</h3>
-<pre class="javascript"><code>// ❌ IMPURE: Modifies external state
+<pre class="javascript"><code>//  IMPURE: Modifies external state
 let total = 0;
 function addToTotal(n) {
     total += n;  // Side effect!
     return total;
 }
 
-// ✅ PURE: No side effects, same input = same output
+//  PURE: No side effects, same input = same output
 function add(a, b) {
     return a + b;  // Predictable!
 }</code></pre>
@@ -270,7 +271,7 @@ class="math inline">55, 000<em>i</em><em>n</em><em>b</em><em>r</em><em>a</em><
     // Add element to array and return it
     addElement: (arr, element) =&gt; {
         arr.push(element);
-        return arr;  // ⚠️ BUG WAS HERE: Originally didn&#39;t return
+        return arr;  // ️ BUG WAS HERE: Originally didn&#39;t return
     },
 
     // Sum all numbers in array
@@ -278,7 +279,7 @@ class="math inline">55, 000<em>i</em><em>n</em><em>b</em><em>r</em><em>a</em><
         return arr.reduce((total, element) =&gt; {
             return total + element;
         }, 0);
-        // ⚠️ BUG WAS HERE: Used global `arr` instead of parameter
+        // ️ BUG WAS HERE: Used global `arr` instead of parameter
     },
 
     // Remove element at specific index
@@ -293,13 +294,13 @@ class="math inline">55, 000<em>i</em><em>n</em><em>b</em><em>r</em><em>a</em><
 
 sumArray: (element) =&gt; {
     return arr.reduce((total, num) =&gt; total + num, 0);
-    // ❌ Uses global `arr`, not the parameter!
+    //  Uses global `arr`, not the parameter!
 }</code></pre>
 <p>Why this failed:</p>
 <pre class="javascript"><code>sumArray([1, 2, 3]);  // Returns 0 (global arr is empty)
 sumArray([5, 5]);     // Still returns 0!</code></pre>
 <p>The fix:</p>
-<pre class="javascript"><code>sumArray: (arr) =&gt; {  // ✅ Use parameter name
+<pre class="javascript"><code>sumArray: (arr) =&gt; {  //  Use parameter name
     return arr.reduce((total, element) =&gt; total + element, 0);
 }</code></pre>
 <h3 id="dictjs---dictionaryobject-operations">dict.js -
@@ -313,7 +314,7 @@ Dictionary/Object Operations</h3>
     // Loop 2: Return value when key matches condition
     returnTheThirdItemByValue: (obj) =&gt; {
         for (const key in obj) {
-            if (obj[key] === key) {  // ⚠️ BUG WAS HERE
+            if (obj[key] === key) {  // ️ BUG WAS HERE
                 return obj[key];
             }
         }
@@ -327,7 +328,7 @@ Dictionary/Object Operations</h3>
         if (obj[key] === key) {
             return obj[key];
         }
-        return &quot;error!&quot;;  // ❌ WRONG! Returns on first iteration
+        return &quot;error!&quot;;  //  WRONG! Returns on first iteration
     }
 }</code></pre>
 <p>Why this failed:</p>
@@ -345,7 +346,7 @@ condition failed</li>
             return obj[key];
         }
     }
-    return &quot;error!&quot;;  // ✅ Outside loop, runs only if nothing found
+    return &quot;error!&quot;;  //  Outside loop, runs only if nothing found
 }</code></pre>
 <hr />
 <h2 id="testing-strategy">Testing Strategy</h2>
@@ -384,7 +385,7 @@ test(&quot;Testing the function that calculates after-tax income&quot;, () =&gt;
 <p>JavaScript floating-point arithmetic isn't exact:</p>
 <pre class="javascript"><code>0.1 + 0.2 === 0.3  // false! (actually 0.30000000000000004)</code></pre>
 <p><code>toBeCloseTo(value, decimals)</code> handles this:</p>
-<pre class="javascript"><code>expect(0.1 + 0.2).toBeCloseTo(0.3, 10);  // ✅ Passes</code></pre>
+<pre class="javascript"><code>expect(0.1 + 0.2).toBeCloseTo(0.3, 10);  //  Passes</code></pre>
 <h3 id="arraytestjs---array-tests">array.test.js - Array Tests</h3>
 <pre class="javascript"><code>import arrayFunctions from &quot;./array.js&quot;;
 
@@ -403,34 +404,34 @@ test(&quot;Does the sumArray function work?&quot;, () =&gt; {
 });</code></pre>
 <hr />
 <h2 id="bugs-fixed">Bugs Fixed</h2>
-<p>During the 2025 audit, I discovered and fixed <strong>5 critical
+<p>During the 2026 audit, I discovered and fixed <strong>5 critical
 bugs</strong> in this module:</p>
 <h3 id="bug-1-tax-array-indexing">Bug #1: Tax Array Indexing</h3>
-<pre class="javascript"><code>// ❌ WRONG: Incorrectly accessing tax bracket data
+<pre class="javascript"><code>//  WRONG: Incorrectly accessing tax bracket data
 const previousMax = TAX[i - 1][1];  // Gets RATE instead of MAX
 
-// ✅ CORRECT: Access the right index
+//  CORRECT: Access the right index
 const previousMax = TAX[i - 1][0];  // Gets MAX value</code></pre>
 <p><strong>Impact:</strong> Calculated wrong tax amounts for all
 brackets after the first.</p>
 <h3 id="bug-2-tax-income-calculation">Bug #2: Tax Income
 Calculation</h3>
-<pre class="javascript"><code>// ❌ WRONG: Used wrong variable names
+<pre class="javascript"><code>//  WRONG: Used wrong variable names
 const total_tax_income = Math.min(income, P[1]) - P[0];
 
-// ✅ CORRECT: Use consistent naming
+//  CORRECT: Use consistent naming
 const total_tax_income = Math.min(income, TAX[i][0]) - previousMax;</code></pre>
 <p><strong>Impact:</strong> Logic errors in else-if blocks caused
 incorrect tax calculations.</p>
 <h3 id="bug-3-dictionary-loop-returns-early">Bug #3: Dictionary Loop
 Returns Early</h3>
-<pre class="javascript"><code>// ❌ WRONG: Always returns &quot;error!&quot; on first iteration
+<pre class="javascript"><code>//  WRONG: Always returns &quot;error!&quot; on first iteration
 for (const key in obj) {
     if (condition) return value;
     return &quot;error!&quot;;  // Inside loop!
 }
 
-// ✅ CORRECT: Return after checking all keys
+//  CORRECT: Return after checking all keys
 for (const key in obj) {
     if (condition) return value;
 }
@@ -438,13 +439,13 @@ return &quot;error!&quot;;  // Outside loop</code></pre>
 <p><strong>Impact:</strong> Function never checked beyond first key.</p>
 <h3 id="bug-4-array-function-doesnt-return">Bug #4: Array Function
 Doesn't Return</h3>
-<pre class="javascript"><code>// ❌ WRONG: Modifies array but doesn&#39;t return it
+<pre class="javascript"><code>//  WRONG: Modifies array but doesn&#39;t return it
 addElement: (arr, element) =&gt; {
     arr.push(element);
     // Missing return statement!
 }
 
-// ✅ CORRECT: Return the modified array
+//  CORRECT: Return the modified array
 addElement: (arr, element) =&gt; {
     arr.push(element);
     return arr;
@@ -452,18 +453,18 @@ addElement: (arr, element) =&gt; {
 <p><strong>Impact:</strong> Chaining array operations failed.</p>
 <h3 id="bug-5-sumarray-uses-wrong-variable">Bug #5: sumArray Uses Wrong
 Variable</h3>
-<pre class="javascript"><code>// ❌ WRONG: Uses global `arr` instead of parameter
+<pre class="javascript"><code>//  WRONG: Uses global `arr` instead of parameter
 sumArray: (element) =&gt; {
     return arr.reduce((total, num) =&gt; total + num);
 }
 
-// ✅ CORRECT: Use function parameter
+//  CORRECT: Use function parameter
 sumArray: (arr) =&gt; {
     return arr.reduce((total, element) =&gt; total + element, 0);
 }</code></pre>
 <p><strong>Impact:</strong> Always returned 0 or crashed.</p>
 <hr />
-<h2 id="2021-vs-2025-comparison">2021 vs 2025 Comparison</h2>
+<h2 id="2021-vs-2026-comparison">2021 vs 2026 Comparison</h2>
 <h3 id="coding-style-evolution">Coding Style Evolution</h3>
 <p><strong>2021: Verbose, Imperative</strong></p>
 <pre class="javascript"><code>// Old style - manual loops
@@ -474,7 +475,7 @@ function sumArray(arr) {
     }
     return total;
 }</code></pre>
-<p><strong>2025: Concise, Declarative</strong></p>
+<p><strong>2026: Concise, Declarative</strong></p>
 <pre class="javascript"><code>// Modern style - array methods
 const sumArray = arr =&gt; arr.reduce((total, n) =&gt; total + n, 0);</code></pre>
 <h3 id="tax-calculator-comparison">Tax Calculator Comparison</h3>
@@ -497,7 +498,7 @@ function calcTax(income) {
 <li>Difficult to add new brackets</li>
 <li>Error-prone</li>
 </ul>
-<p><strong>2025 Approach:</strong></p>
+<p><strong>2026 Approach:</strong></p>
 <pre class="javascript"><code>// Data-driven with iteration
 const TAX = [[49020, 0.15], [98040, 0.205], ...];
 
@@ -515,17 +516,17 @@ function calcTax(income) {
 }</code></pre>
 <p>Benefits:</p>
 <ul>
-<li>✅ Easy to update tax brackets (just change data)</li>
-<li>✅ Single source of truth</li>
-<li>✅ No code duplication</li>
-<li>✅ Scales to any number of brackets</li>
+<li>Easy to update tax brackets (just change data)</li>
+<li>Single source of truth</li>
+<li>No code duplication</li>
+<li>Scales to any number of brackets</li>
 </ul>
 <h3 id="testing-philosophy">Testing Philosophy</h3>
 <p><strong>2021: Manual Console Testing</strong></p>
 <pre class="javascript"><code>// Old way - manual verification
 console.log(taxCalc.calcTax(60000));  // Eyeball the result
 console.log(taxCalc.calcTax(100000)); // Check each case manually</code></pre>
-<p><strong>2025: Automated Test Suite</strong></p>
+<p><strong>2026: Automated Test Suite</strong></p>
 <pre class="javascript"><code>// Modern way - automated verification
 test(&quot;calculates tax correctly&quot;, () =&gt; {
     expect(taxCalc.calcTax(60000)).toBeCloseTo(9603.9, 1);
@@ -614,7 +615,7 @@ reports</li>
 <li><strong>Forms</strong>: Validate inputs, transform data for API</li>
 </ul>
 <hr />
-<p><strong>Module Status:</strong> ✅ Complete (8/8 tests passing)<br />
+<p><strong>Module Status:</strong> Complete (8/8 tests passing)<br />
 <strong>Key Bugs Fixed:</strong> 5 (tax indexing, loop logic, array
 operations)<br />
 <strong>Time Investment:</strong> ~4 hours (including debugging)<br />
@@ -643,7 +644,7 @@ Manipulation</a> →</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+                <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
             </div>
         </div>
     </footer>

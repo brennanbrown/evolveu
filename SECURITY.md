@@ -2,11 +2,11 @@
 
 ## Supported Versions
 
-This repository contains educational material from a 2021 bootcamp that has been updated with modern dependencies in 2025. As this is primarily a learning portfolio, active security support is limited, but we take security seriously.
+This repository contains educational material from a 2021 bootcamp that has been updated with modern dependencies in 2026. As this is primarily a learning portfolio, active security support is limited, but we take security seriously.
 
 | Version | Supported          |
 | ------- | ------------------ |
-| 2025.x  | :white_check_mark: |
+| 2026.x  | :white_check_mark: |
 | 2021.x  | :x:                |
 
 ## Reporting a Vulnerability
@@ -125,4 +125,4 @@ Thank you for helping keep this educational repository secure!
 
 ---
 
-*Last updated: 2025*
+*Last updated: 2026*

@@ -2,11 +2,11 @@
 
 Thank you for your interest in contributing! While this is primarily a personal learning portfolio from a 2021 bootcamp, contributions that improve the educational value or modernize the codebase are welcome.
 
-## 🎯 Types of Contributions
+##  Types of Contributions
 
 We welcome the following types of contributions:
 
-### ✅ Encouraged
+###  Encouraged
 - **Bug fixes** for broken functionality
 - **Security updates** for vulnerable dependencies
 - **Documentation improvements** for clarity
@@ -15,17 +15,17 @@ We welcome the following types of contributions:
 - **Modernization** of deprecated patterns
 - **Accessibility improvements**
 
-### ⚠️ Proceed with Caution
+### ️ Proceed with Caution
 - **Major refactoring** (discuss first via issue)
 - **New features** (this is a portfolio of completed work)
 - **Style changes** (should follow existing patterns)
 
-### ❌ Not Accepted
+###  Not Accepted
 - **Formatting-only changes** without functional improvements
 - **Changes that deviate** from original learning objectives
 - **Dependencies** not related to the bootcamp curriculum
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### 1. Fork the Repository
 ```bash
@@ -71,7 +71,7 @@ Use descriptive branch names:
 - `test/add-dom-manipulation-tests`
 - `security/update-flask-dependencies`
 
-## 📝 Development Guidelines
+##  Development Guidelines
 
 ### Code Style
 
@@ -171,7 +171,7 @@ Added detailed setup steps for Python 3.12 on macOS and Linux
 to help new contributors get started quickly.
 ```
 
-## 🔄 Pull Request Process
+##  Pull Request Process
 
 ### Before Submitting
 
@@ -225,7 +225,7 @@ git push origin feature/your-feature-name
 - [ ] No merge conflicts
 - [ ] Branch is up-to-date with main
 
-## 🐛 Reporting Bugs
+##  Reporting Bugs
 
 ### Before Reporting
 1. Check existing issues
@@ -261,7 +261,7 @@ If applicable
 Any other information
 ```
 
-## 💡 Suggesting Enhancements
+##  Suggesting Enhancements
 
 ### Enhancement Template
 ```markdown
@@ -278,7 +278,7 @@ Other approaches considered
 Related issues, examples, etc.
 ```
 
-## 📚 Documentation
+##  Documentation
 
 Documentation improvements are highly valued:
 
@@ -288,7 +288,7 @@ Documentation improvements are highly valued:
 - **Troubleshooting guides** for common issues
 - **API documentation** for Flask endpoints
 
-## 🔍 Code Review Process
+##  Code Review Process
 
 1. **Automated Checks:** All PRs run automated tests
 2. **Maintainer Review:** Brennan Brown reviews all PRs
@@ -300,7 +300,7 @@ Documentation improvements are highly valued:
 - Follow-up reviews: Within 3-5 days
 - Merge: After approval and passing all checks
 
-## 📜 Code of Conduct
+##  Code of Conduct
 
 ### Our Standards
 
@@ -318,14 +318,14 @@ Documentation improvements are highly valued:
 - Publishing private information
 - Other unprofessional conduct
 
-## 🏆 Recognition
+##  Recognition
 
 Contributors will be recognized in:
 - Project README acknowledgments
 - Release notes for significant contributions
 - GitHub contributor graph
 
-## 📞 Getting Help
+##  Getting Help
 
 **Questions?**
 - Open a [GitHub Discussion](https://github.com/brennanbrown/evolveu/discussions)
@@ -337,10 +337,10 @@ Contributors will be recognized in:
 - LinkedIn: [brennanbrown](https://linkedin.com/in/brennanbrown)
 - Website: [brennanbrown.ca](https://brennanbrown.ca)
 
-## 🙏 Thank You
+##  Thank You
 
 Your contributions help make this educational resource better for everyone learning full-stack development. Every contribution, no matter how small, is appreciated!
 
 ---
 
-*Last updated: 2025*
+*Last updated: 2026*

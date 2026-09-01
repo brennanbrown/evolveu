@@ -7,13 +7,13 @@
 
 > Portfolio of work completed during the 2021 EvolveU / InceptionU Full Stack Developer bootcamp program
 
-## 👋 About
+##  About
 
 Hi! I'm [**Brennan Brown**](https://github.com/brennanbrown), an EvolveU alumni. This repository showcases the  curriculum I completed during the full-time bootcamp in Calgary, Alberta.
 
 **Want to hire me?** Check out my [portfolio website](https://brennanbrown.ca) or connect with me on [LinkedIn](https://linkedin.com/in/brennanbrown).
 
-## 📚 Program Overview
+##  Program Overview
 
 The EvolveU / InceptionU Full Stack Developer program blends technology, people, and process skills into one fully integrated experience. The curriculum covers modern web development technologies and frameworks:
 
@@ -31,7 +31,7 @@ The EvolveU / InceptionU Full Stack Developer program blends technology, people,
 - Design thinking
 - Workplace readiness
 
-## 📂 Repository Structure
+##  Repository Structure
 
 This monorepo contains 7 modules, each focusing on different aspects of full-stack development:
 
@@ -103,7 +103,7 @@ Each project includes:
 - **Setup:** `pip install -r requirements.txt`
 - **Run tests:** `pytest`
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - **Node.js** 18+ and npm
@@ -140,7 +140,7 @@ npm install
 npm start  # starts dev server on http://localhost:3000
 ```
 
-## 🔧 Available Scripts
+##  Available Scripts
 
 ### JavaScript/React Projects
 - `npm test` - Run Jest tests
@@ -155,7 +155,7 @@ npm start  # starts dev server on http://localhost:3000
 - `pipenv install` - Install dependencies
 - `python app.py` - Run Flask application
 
-## 📦 Dependencies Update (2025)
+##  Dependencies Update (2026)
 
 This repository has been updated with the latest stable versions:
 
@@ -171,7 +171,7 @@ This repository has been updated with the latest stable versions:
 - **Python:** 3.8 → 3.12
 - **All dependencies:** Updated to latest stable versions
 
-## 🌐 Live Demonstrations
+##  Live Demonstrations
 
 **Note:** The original Heroku deployments may no longer be active. To view the projects:
 
@@ -183,7 +183,7 @@ This repository has been updated with the latest stable versions:
 - React Site: `https://react-brennan.herokuapp.com/` ([Source](https://github.com/brennanbrown/evolveu/tree/react))
 - Flask Site: `https://flask-brennan.herokuapp.com/` ([Source](https://github.com/brennanbrown/evolveu/tree/flask))
 
-## 🧪 Running Tests
+##  Running Tests
 
 All modules include test suites:
 
@@ -196,22 +196,22 @@ pytest
 pytest --cov  # with coverage
 ```
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the LICENSE file for details.
 
-## 🤝 Contributing
+##  Contributing
 
 While this is a personal learning portfolio, suggestions and improvements are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for details.
 
-## 📧 Contact
+##  Contact
 
 **Brennan Brown**
 - Website: [brennanbrown.ca](https://brennanbrown.ca)
 - GitHub: [@brennanbrown](https://github.com/brennanbrown)
 - LinkedIn: [brennankbrown](https://linkedin.com/in/brennankbrown)
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - **EvolveU / InceptionU** for the  curriculum
 - All instructors and mentors who supported my learning journey
@@ -219,4 +219,4 @@ While this is a personal learning portfolio, suggestions and improvements are we
 
 ---
 
-*This repository represents work completed in 2021 and has been updated with modern dependencies in 2025 to maintain compatibility and security.*
+*This repository represents work completed in 2021 and has been updated with modern dependencies in 2026 to maintain compatibility and security.*

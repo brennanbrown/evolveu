@@ -3,13 +3,13 @@
 **Student:** Brennan  
 **Program:** Full-Stack Web Development Bootcamp  
 **Original Cohort:** 2021  
-**Update Date:** October 2025  
+**Update Date:** September 2026  
 
 ## Overview
 
 This documentation provides a  walkthrough of my journey through the EvolveU Full-Stack Web Development bootcamp. Each module represents a critical milestone in my learning path, from basic JavaScript fundamentals to building full-stack applications with React and Flask.
 
-The documentation is structured to reflect my learning process, explaining not just **what** the code does, but **why** we made specific architectural decisions, how the tests validate our implementations, and most importantly, how the landscape of web development has evolved between 2021 and 2025.
+The documentation is structured to reflect my learning process, explaining not just **what** the code does, but **why** we made specific architectural decisions, how the tests validate our implementations, and most importantly, how the landscape of web development has evolved between 2021 and 2026.
 
 ## Module Index
 
@@ -29,42 +29,42 @@ The documentation is structured to reflect my learning process, explaining not j
 
 ## Key Themes & Evolution
 
-### 2021 → 2025: Major Shifts
+### 2021 → 2026: Major Shifts
 
 1. **Testing Philosophy**
    - 2021: Tests as afterthought, manual testing
-   - 2025: Test-Driven Development (TDD), automated CI/CD
+   - 2026: Test-Driven Development (TDD), automated CI/CD
 
 2. **React Paradigm**
    - 2021: Class components, lifecycle methods
-   - 2025: Functional components, Hooks (useState, useEffect)
+   - 2026: Functional components, Hooks (useState, useEffect)
 
 3. **API Communication**
    - 2021: XMLHttpRequest, callback hell
-   - 2025: Fetch API, async/await, Promise-based patterns
+   - 2026: Fetch API, async/await, Promise-based patterns
 
 4. **JavaScript Ecosystem**
    - 2021: CommonJS (require/module.exports)
-   - 2025: ES6 Modules (import/export)
+   - 2026: ES6 Modules (import/export)
 
 5. **Development Tools**
    - 2021: Basic npm scripts
-   - 2025: Vite, modern build tools, hot module replacement
+   - 2026: Vite, modern build tools, hot module replacement
 
 6. **Python/Flask**
    - 2021: Flask 1.x, simple CORS
-   - 2025: Flask 3.x, type hints, better security practices
+   - 2026: Flask 3.x, type hints, better security practices
 
 ## Learning Outcomes
 
 By the end of this bootcamp, I developed proficiency in:
 
-- ✅ **JavaScript ES6+**: Modern syntax, async patterns, modules
-- ✅ **Testing**: Jest, pytest, Test-Driven Development
-- ✅ **React**: Component lifecycle, state management, hooks
-- ✅ **Backend Development**: RESTful APIs, database integration
-- ✅ **Full-Stack Architecture**: Client-server communication, CORS, authentication
-- ✅ **Version Control**: Git workflows, debugging, code review
+-  **JavaScript ES6+**: Modern syntax, async patterns, modules
+-  **Testing**: Jest, pytest, Test-Driven Development
+-  **React**: Component lifecycle, state management, hooks
+-  **Backend Development**: RESTful APIs, database integration
+-  **Full-Stack Architecture**: Client-server communication, CORS, authentication
+-  **Version Control**: Git workflows, debugging, code review
 
 ## How to Use This Documentation
 
@@ -75,12 +75,12 @@ Each module document follows a consistent structure:
 3. **Code Walkthrough**: Line-by-line analysis of implementations
 4. **Testing Strategy**: How tests validate functionality
 5. **Common Pitfalls**: Bugs I encountered and how to fix them
-6. **2021 vs 2025**: Evolution of best practices and tooling
+6. **2021 vs 2026**: Evolution of best practices and tooling
 7. **Further Learning**: Resources for deeper exploration
 
 ## Repository Statistics
 
-- **Total Tests Written**: 59 passing tests
+- **Total Tests Written**: 240+ passing tests
 - **Bugs Fixed During Audit**: 28 bugs
 - **Lines of Code**: ~5,000+ across all modules
 - **Technologies Used**: JavaScript, React, Python, Flask, Jest, pytest, MongoDB

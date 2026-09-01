@@ -41,12 +41,16 @@ for file in "${files[@]}"; do
             --css="doc-style.css" \
             --highlight-style=atom-one-dark \
             --metadata title="${file} | EvolveU Documentation" \
+            --include-in-header=<(cat <<'EOF'
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+EOF
+) \
             --include-before-body=<(cat <<'EOF'
 <nav class="navbar">
     <div class="container">
         <div class="nav-brand">
             <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                <span class="logo">📚</span>
+                <span class="logo"><i class="fas fa-book"></i></span>
                 <span class="brand-text">EvolveU Docs</span>
             </a>
         </div>
@@ -61,9 +65,9 @@ for file in "${files[@]}"; do
 EOF
 )
         
-        echo "✓ Created ${file}.html"
+        echo " Created ${file}.html"
     else
-        echo "⚠ Skipping ${file}.md (not found)"
+        echo " Skipping ${file}.md (not found)"
     fi
 done
 

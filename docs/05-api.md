@@ -8,7 +8,7 @@
 3. [Code Walkthrough](#code-walkthrough)
 4. [API Endpoints](#api-endpoints)
 5. [Testing & Debugging](#testing--debugging)
-6. [2021 vs 2025 Comparison](#2021-vs-2025-comparison)
+6. [2021 vs 2026 Comparison](#2021-vs-2026-comparison)
 7. [Key Takeaways](#key-takeaways)
 
 ---
@@ -29,10 +29,10 @@ This server powers the JavaScript frontend from Module 03.
 ### Why Flask?
 
 Flask is a **micro-framework** for Python web development:
-- ✅ Lightweight (minimal boilerplate)
-- ✅ Flexible (add only what you need)
-- ✅ Python-based (easy for beginners)
-- ✅ Great for APIs and microservices
+-  Lightweight (minimal boilerplate)
+-  Flexible (add only what you need)
+-  Python-based (easy for beginners)
+-  Great for APIs and microservices
 
 **Alternatives:**
 - **Django**: Full-featured, more opinionated
@@ -89,7 +89,7 @@ Browser (http://localhost:3000)
     ↓
     Tries to call API (http://localhost:5002)
     ↓
-❌ BLOCKED! Different origin!
+ BLOCKED! Different origin!
 ```
 
 **The Solution:**
@@ -322,14 +322,14 @@ def clear():
     global data, firstKeyType
     
     data = {}
-    firstKeyType = None  # ⚠️ BUG WAS HERE: Didn't reset this
+    firstKeyType = None  # ️ BUG WAS HERE: Didn't reset this
     
     return jsonify(data), 200
 
 
 if __name__ == '__main__':
     print("--- Starting", __file__)
-    # ⚠️ Changed from default to prevent hanging:
+    # ️ Changed from default to prevent hanging:
     # debug=False, use_reloader=False
     app.run(debug=False, use_reloader=False, port=5002)
 ```
@@ -374,8 +374,8 @@ if __name__ == '__main__':
 **Response**: 200 OK (empty body) or 400 Bad Request
 
 **Validation**:
-- ❌ Duplicate key → 400
-- ❌ Inconsistent key type → 400
+-  Duplicate key → 400
+-  Inconsistent key type → 400
 
 ---
 
@@ -558,16 +558,16 @@ has been blocked by CORS policy
 
 **Issue 3: Flask Hanging**
 ```python
-# ❌ WRONG: Debug mode with reloader causes hanging
+#  WRONG: Debug mode with reloader causes hanging
 app.run(debug=True, use_reloader=True)
 
-# ✅ CORRECT: Disable for production/testing
+#  CORRECT: Disable for production/testing
 app.run(debug=False, use_reloader=False)
 ```
 
 ---
 
-## 2021 vs 2025 Comparison
+## 2021 vs 2026 Comparison
 
 ### Flask Version Changes
 
@@ -584,7 +584,7 @@ def after_request(response):
     return response
 ```
 
-**2025: Flask 3.x**
+**2026: Flask 3.x**
 ```python
 from flask import Flask
 from flask_cors import CORS  # Dedicated package
@@ -604,7 +604,7 @@ def add():
     return jsonify(data)
 ```
 
-**2025: **
+**2026: **
 ```python
 @app.route("/add", methods=['POST'])
 def add():
@@ -631,7 +631,7 @@ def add():
 data = {}  # Lost on server restart!
 ```
 
-**2025: Would Use Database**
+**2026: Would Use Database**
 ```python
 # PostgreSQL, MongoDB, SQLite
 from flask_sqlalchemy import SQLAlchemy
@@ -663,28 +663,28 @@ But for learning, in-memory is fine!
 
 **1. Consistent Response Format**
 ```python
-# ✅ GOOD: Always return JSON
+#  GOOD: Always return JSON
 return jsonify({'data': result}), 200
 
-# ❌ BAD: Inconsistent types
+#  BAD: Inconsistent types
 return "Success"  # String
 return {'data': result}  # Dict
 ```
 
 **2. Proper Status Codes**
 ```python
-# ✅ GOOD: Use appropriate codes
+#  GOOD: Use appropriate codes
 return jsonify({}), 201  # Created
 return jsonify({}), 404  # Not Found
 return jsonify({}), 500  # Server Error
 
-# ❌ BAD: Always 200
+#  BAD: Always 200
 return jsonify({'error': 'Not found'}), 200  # Wrong!
 ```
 
 **3. Input Validation**
 ```python
-# ✅ GOOD: Validate everything
+#  GOOD: Validate everything
 def add():
     data = request.get_json()
     
@@ -698,7 +698,7 @@ def add():
 
 **4. Error Logging**
 ```python
-# ✅ GOOD: Log errors for debugging
+#  GOOD: Log errors for debugging
 except Exception as e:
     traceback.print_stack()
     print(f'Error in add(): {e}')
@@ -745,7 +745,7 @@ Continue backend exploration with [Module 06: Python Fundamentals](./06-python.m
 
 ---
 
-**Module Status:** ✅ Complete (Flask server running on port 5002)  
+**Module Status:**  Complete (Flask server running on port 5002)  
 **Key Bugs Fixed:** 2 (clear endpoint, debug mode hanging)  
 **Time Investment:** ~3 hours  
 **Key Achievement:** Built production-ready RESTful API server!

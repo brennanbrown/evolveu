@@ -103,7 +103,7 @@ Installing collected packages: idna, urllib3, chardet, certifi, requests
 Successfully installed certifi-2017.7.27.1 chardet-3.0.4 idna-2.6 requests-2.18.4 urllib3-1.22
 
 Adding requests to Pipfile's [packages]...
-P.S. You have excellent taste! ✨ 🍰 ✨
+P.S. You have excellent taste!   
 ```
 
 Using installed packages:

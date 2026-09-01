@@ -24,10 +24,10 @@ Module 06 focuses on **Python scripting** and **data processing**:
 ### Why Python?
 
 Python is the second language in this bootcamp (after JavaScript):
-- ✅ **Readable syntax**: Looks like pseudocode
-- ✅ **Versatile**: Web, data science, automation, AI
-- ✅ **Great libraries**: NumPy, Pandas, Flask, Django
-- ✅ **Industry standard**: Used at Google, Netflix, NASA
+-  **Readable syntax**: Looks like pseudocode
+-  **Versatile**: Web, data science, automation, AI
+-  **Great libraries**: NumPy, Pandas, Flask, Django
+-  **Industry standard**: Used at Google, Netflix, NASA
 
 **Python vs JavaScript:**
 ```python
@@ -550,11 +550,11 @@ if __name__ == '__main__':
 
 **1. Use Context Managers**
 ```python
-# ✅ GOOD: File auto-closes
+#  GOOD: File auto-closes
 with open('file.txt', 'r') as f:
     data = f.read()
 
-# ❌ BAD: Must remember to close
+#  BAD: Must remember to close
 f = open('file.txt', 'r')
 data = f.read()
 f.close()  # Easy to forget!
@@ -562,10 +562,10 @@ f.close()  # Easy to forget!
 
 **2. List Comprehensions**
 ```python
-# ✅ GOOD: Pythonic and fast
+#  GOOD: Pythonic and fast
 squares = [x**2 for x in range(10)]
 
-# ❌ BAD: Verbose
+#  BAD: Verbose
 squares = []
 for x in range(10):
     squares.append(x**2)
@@ -573,20 +573,20 @@ for x in range(10):
 
 **3. Error Handling**
 ```python
-# ✅ GOOD: Handle exceptions
+#  GOOD: Handle exceptions
 try:
     value = int(user_input)
 except ValueError:
     print("Not a number!")
     value = 0
 
-# ❌ BAD: Crash on bad input
+#  BAD: Crash on bad input
 value = int(user_input)  # Crashes if not a number
 ```
 
 **4. Type Hints (Modern Python)**
 ```python
-# ✅ GOOD: Type hints for clarity
+#  GOOD: Type hints for clarity
 def calculate_tax(income: float) -> float:
     return income * 0.15
 
@@ -617,7 +617,7 @@ Continue Python exploration with [Module 07: Flask Full-Stack](./07-flask.md) �
 
 ---
 
-**Module Status:** ✅ Complete (171/171 tests passing)  
+**Module Status:**  Complete (171/171 tests passing)  
 **Key Files:** basics.py, cantax.py, email_validator.py, file_operations.py, csv_processor.py  
 **Time Investment:** ~6 hours (original incomplete, now fully implemented)  
 **Key Achievement:** Complete Python fundamentals module with  testing!

@@ -7,7 +7,7 @@
 2. [Core Concepts](#core-concepts)
 3. [Project Walkthroughs](#project-walkthroughs)
 4. [Bugs Fixed](#bugs-fixed)
-5. [2021 vs 2025 Evolution](#2021-vs-2025-evolution)
+5. [2021 vs 2026 Evolution](#2021-vs-2026-evolution)
 6. [Key Takeaways](#key-takeaways)
 
 ---
@@ -81,7 +81,7 @@ class Welcome extends React.Component {
     }
 }
 
-// 2025 Style: Function Component with Hooks
+// 2026 Style: Function Component with Hooks
 function Welcome() {
     const [count, setCount] = useState(0);
     return <h1>Count: {count}</h1>;
@@ -292,7 +292,7 @@ class DoublyLinkedList {
     }
 
     // Add node to end of list
-    append(time, todo) {  // ⚠️ BUG WAS HERE: params were swapped
+    append(time, todo) {  // ️ BUG WAS HERE: params were swapped
         this.count++;
         const id = "k" + this.count;
         const node = new Node(id, time, todo);
@@ -314,7 +314,7 @@ class DoublyLinkedList {
     }
 
     // Get current node
-    get() {  // ⚠️ BUG WAS HERE: returned .todo instead of node
+    get() {  // ️ BUG WAS HERE: returned .todo instead of node
         if (this.head === null) {
             return "(Currently Empty)";
         }
@@ -322,7 +322,7 @@ class DoublyLinkedList {
     }
 
     // Move to next node
-    nextNode() {  // ⚠️ BUG WAS HERE: returned string instead of node
+    nextNode() {  // ️ BUG WAS HERE: returned string instead of node
         if (this.tail == null) {
             return "(Currently Empty)";
         }
@@ -336,7 +336,7 @@ class DoublyLinkedList {
     }
 
     // Move to previous node
-    prevNode() {  // ⚠️ BUG WAS HERE: returned string instead of node
+    prevNode() {  // ️ BUG WAS HERE: returned string instead of node
         if (this.head == null) {
             return "(Currently Empty)";
         }
@@ -350,7 +350,7 @@ class DoublyLinkedList {
     }
 
     // Remove node by ID
-    remove(id) {  // ⚠️ BUG WAS HERE: didn't accept ID parameter
+    remove(id) {  // ️ BUG WAS HERE: didn't accept ID parameter
         if (id) {
             let current = this.head;
             
@@ -418,7 +418,7 @@ class City {
         this.key = String(key);
     }
 
-    populationSize() {  // ⚠️ BUG WAS HERE: logic error
+    populationSize() {  // ️ BUG WAS HERE: logic error
         const cityPopulation = this.population;
         
         if (cityPopulation < 0) return "[Error! Negative Population]";
@@ -442,12 +442,12 @@ class City {
 
 **Bug #1: Linked List Parameter Order**
 ```javascript
-// ❌ WRONG
+//  WRONG
 append(todo, time) {
     const node = new Node(id, todo, time);  // Wrong order!
 }
 
-// ✅ CORRECT
+//  CORRECT
 append(time, todo) {
     const node = new Node(id, time, todo);  // Matches Node constructor
 }
@@ -455,12 +455,12 @@ append(time, todo) {
 
 **Bug #2: get() Returns Wrong Type**
 ```javascript
-// ❌ WRONG: Returns string, tests expect node
+//  WRONG: Returns string, tests expect node
 get() {
     return this.current.todo;  // Just the todo property
 }
 
-// ✅ CORRECT: Return full node
+//  CORRECT: Return full node
 get() {
     return this.current;  // The entire node object
 }
@@ -468,13 +468,13 @@ get() {
 
 **Bug #3-4: nextNode/prevNode Return Types**
 ```javascript
-// ❌ WRONG: Returns string when should return node
+//  WRONG: Returns string when should return node
 nextNode() {
     this.current = this.current.next;
     return "(Currently Empty)";  // Wrong!
 }
 
-// ✅ CORRECT: Return the node
+//  CORRECT: Return the node
 nextNode() {
     this.current = this.current.next;
     return this.current;  // The node object
@@ -483,12 +483,12 @@ nextNode() {
 
 **Bug #5: remove() Missing ID Parameter**
 ```javascript
-// ❌ WRONG: No way to specify which node to remove
+//  WRONG: No way to specify which node to remove
 remove() {
     // Only removes current node
 }
 
-// ✅ CORRECT: Accept ID parameter
+//  CORRECT: Accept ID parameter
 remove(id) {
     // Find and remove node by ID
     let current = this.head;
@@ -503,25 +503,25 @@ remove(id) {
 
 **Bug #6: populationSize Logic Error**
 ```javascript
-// ❌ WRONG: 100,000 falls through all conditions
+//  WRONG: 100,000 falls through all conditions
 if (cityPopulation > 100000) return "City";  // Excludes exactly 100k
 
-// ✅ CORRECT: Use >= for threshold
+//  CORRECT: Use >= for threshold
 if (cityPopulation >= 100000) return "City";  // Includes 100k
 ```
 
 **Bug #7: Test Content Mismatch**
 ```javascript
-// ❌ WRONG: Tests for text that doesn't exist
+//  WRONG: Tests for text that doesn't exist
 expect(getByText(/learn react/i)).toBeInTheDocument();
 
-// ✅ CORRECT: Test for actual content
+//  CORRECT: Test for actual content
 expect(getByText(/Welcome to Brennan's React Applications!/i)).toBeInTheDocument();
 ```
 
 ---
 
-## 2021 vs 2025 Evolution
+## 2021 vs 2026 Evolution
 
 ### Component Syntax
 
@@ -553,7 +553,7 @@ class Counter extends React.Component {
 }
 ```
 
-**2025: Function Components with Hooks**
+**2026: Function Components with Hooks**
 ```jsx
 function Counter() {
     const [count, setCount] = useState(0);
@@ -574,10 +574,10 @@ function Counter() {
 ```
 
 **Why the change?**
-- ✅ Less boilerplate
-- ✅ No `this` confusion
-- ✅ Easier to share logic (custom hooks)
-- ✅ Better TypeScript support
+-  Less boilerplate
+-  No `this` confusion
+-  Easier to share logic (custom hooks)
+-  Better TypeScript support
 
 ### Lifecycle Methods → Hooks
 
@@ -604,7 +604,7 @@ class DataFetcher extends React.Component {
 }
 ```
 
-**2025: useEffect Hook**
+**2026: useEffect Hook**
 ```jsx
 function DataFetcher({ id }) {
     useEffect(() => {
@@ -642,7 +642,7 @@ class Form extends React.Component {
 }
 ```
 
-**2025: Multiple useState**
+**2026: Multiple useState**
 ```jsx
 function Form() {
     const [name, setName] = useState('');
@@ -668,7 +668,7 @@ npx create-react-app my-app
 # 3-5 second dev server startup
 ```
 
-**2025: Vite**
+**2026: Vite**
 ```bash
 npm create vite@latest my-app -- --template react
 # Uses esbuild, Rollup
@@ -702,7 +702,7 @@ function Component(props) {
 
 **1. Component Composition**
 ```jsx
-// ❌ BAD: One giant component
+//  BAD: One giant component
 function App() {
     return (
         <div>
@@ -711,7 +711,7 @@ function App() {
     );
 }
 
-// ✅ GOOD: Small, focused components
+//  GOOD: Small, focused components
 function App() {
     return (
         <div>
@@ -726,12 +726,12 @@ function App() {
 
 **2. Props Destructuring**
 ```jsx
-// ❌ BAD: Access via props object
+//  BAD: Access via props object
 function Card(props) {
     return <h2>{props.title}</h2>;
 }
 
-// ✅ GOOD: Destructure in parameters
+//  GOOD: Destructure in parameters
 function Card({ title, description, image }) {
     return (
         <div>
@@ -745,12 +745,12 @@ function Card({ title, description, image }) {
 
 **3. Key Prop for Lists**
 ```jsx
-// ❌ BAD: No key or index as key
+//  BAD: No key or index as key
 {items.map((item, index) => (
     <div key={index}>{item}</div>
 ))}
 
-// ✅ GOOD: Unique ID as key
+//  GOOD: Unique ID as key
 {items.map(item => (
     <div key={item.id}>{item.name}</div>
 ))}
@@ -886,7 +886,7 @@ Now that we understand modern frontend with React, let's explore the **backend**
 
 ---
 
-**Module Status:** ✅ Complete (11/11 tests passing, 3 skipped integration tests)  
+**Module Status:**  Complete (11/11 tests passing, 3 skipped integration tests)  
 **Key Bugs Fixed:** 7 (mostly in react-02)  
 **Time Investment:** ~6 hours  
 **Key Achievement:** Understanding component-based architecture and the evolution from class to function components!

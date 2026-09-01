@@ -8,7 +8,7 @@
 3. [Code Walkthrough](#code-walkthrough)
 4. [Testing Strategy](#testing-strategy)
 5. [Bugs Fixed](#bugs-fixed)
-6. [2021 vs 2025 Comparison](#2021-vs-2025-comparison)
+6. [2021 vs 2026 Comparison](#2021-vs-2026-comparison)
 7. [Key Takeaways](#key-takeaways)
 
 ---
@@ -85,14 +85,14 @@ const sum = numbers.reduce((total, n) => total + n, 0);
 ### 3. Pure Functions
 
 ```javascript
-// ❌ IMPURE: Modifies external state
+//  IMPURE: Modifies external state
 let total = 0;
 function addToTotal(n) {
     total += n;  // Side effect!
     return total;
 }
 
-// ✅ PURE: No side effects, same input = same output
+//  PURE: No side effects, same input = same output
 function add(a, b) {
     return a + b;  // Predictable!
 }
@@ -220,7 +220,7 @@ const arrayFunctions = {
     // Add element to array and return it
     addElement: (arr, element) => {
         arr.push(element);
-        return arr;  // ⚠️ BUG WAS HERE: Originally didn't return
+        return arr;  // ️ BUG WAS HERE: Originally didn't return
     },
 
     // Sum all numbers in array
@@ -228,7 +228,7 @@ const arrayFunctions = {
         return arr.reduce((total, element) => {
             return total + element;
         }, 0);
-        // ⚠️ BUG WAS HERE: Used global `arr` instead of parameter
+        // ️ BUG WAS HERE: Used global `arr` instead of parameter
     },
 
     // Remove element at specific index
@@ -247,7 +247,7 @@ let arr = []; // Global variable
 
 sumArray: (element) => {
     return arr.reduce((total, num) => total + num, 0);
-    // ❌ Uses global `arr`, not the parameter!
+    //  Uses global `arr`, not the parameter!
 }
 ```
 
@@ -259,7 +259,7 @@ sumArray([5, 5]);     // Still returns 0!
 
 The fix:
 ```javascript
-sumArray: (arr) => {  // ✅ Use parameter name
+sumArray: (arr) => {  //  Use parameter name
     return arr.reduce((total, element) => total + element, 0);
 }
 ```
@@ -276,7 +276,7 @@ const dictFunctions = {
     // Loop 2: Return value when key matches condition
     returnTheThirdItemByValue: (obj) => {
         for (const key in obj) {
-            if (obj[key] === key) {  // ⚠️ BUG WAS HERE
+            if (obj[key] === key) {  // ️ BUG WAS HERE
                 return obj[key];
             }
         }
@@ -294,7 +294,7 @@ returnTheThirdItemByValue: (obj) => {
         if (obj[key] === key) {
             return obj[key];
         }
-        return "error!";  // ❌ WRONG! Returns on first iteration
+        return "error!";  //  WRONG! Returns on first iteration
     }
 }
 ```
@@ -312,7 +312,7 @@ returnTheThirdItemByValue: (obj) => {
             return obj[key];
         }
     }
-    return "error!";  // ✅ Outside loop, runs only if nothing found
+    return "error!";  //  Outside loop, runs only if nothing found
 }
 ```
 
@@ -362,7 +362,7 @@ JavaScript floating-point arithmetic isn't exact:
 
 `toBeCloseTo(value, decimals)` handles this:
 ```javascript
-expect(0.1 + 0.2).toBeCloseTo(0.3, 10);  // ✅ Passes
+expect(0.1 + 0.2).toBeCloseTo(0.3, 10);  //  Passes
 ```
 
 ### array.test.js - Array Tests
@@ -389,14 +389,14 @@ test("Does the sumArray function work?", () => {
 
 ## Bugs Fixed
 
-During the 2025 audit, I discovered and fixed **5 critical bugs** in this module:
+During the 2026 audit, I discovered and fixed **5 critical bugs** in this module:
 
 ### Bug #1: Tax Array Indexing
 ```javascript
-// ❌ WRONG: Incorrectly accessing tax bracket data
+//  WRONG: Incorrectly accessing tax bracket data
 const previousMax = TAX[i - 1][1];  // Gets RATE instead of MAX
 
-// ✅ CORRECT: Access the right index
+//  CORRECT: Access the right index
 const previousMax = TAX[i - 1][0];  // Gets MAX value
 ```
 
@@ -404,10 +404,10 @@ const previousMax = TAX[i - 1][0];  // Gets MAX value
 
 ### Bug #2: Tax Income Calculation
 ```javascript
-// ❌ WRONG: Used wrong variable names
+//  WRONG: Used wrong variable names
 const total_tax_income = Math.min(income, P[1]) - P[0];
 
-// ✅ CORRECT: Use consistent naming
+//  CORRECT: Use consistent naming
 const total_tax_income = Math.min(income, TAX[i][0]) - previousMax;
 ```
 
@@ -415,13 +415,13 @@ const total_tax_income = Math.min(income, TAX[i][0]) - previousMax;
 
 ### Bug #3: Dictionary Loop Returns Early
 ```javascript
-// ❌ WRONG: Always returns "error!" on first iteration
+//  WRONG: Always returns "error!" on first iteration
 for (const key in obj) {
     if (condition) return value;
     return "error!";  // Inside loop!
 }
 
-// ✅ CORRECT: Return after checking all keys
+//  CORRECT: Return after checking all keys
 for (const key in obj) {
     if (condition) return value;
 }
@@ -432,13 +432,13 @@ return "error!";  // Outside loop
 
 ### Bug #4: Array Function Doesn't Return
 ```javascript
-// ❌ WRONG: Modifies array but doesn't return it
+//  WRONG: Modifies array but doesn't return it
 addElement: (arr, element) => {
     arr.push(element);
     // Missing return statement!
 }
 
-// ✅ CORRECT: Return the modified array
+//  CORRECT: Return the modified array
 addElement: (arr, element) => {
     arr.push(element);
     return arr;
@@ -449,12 +449,12 @@ addElement: (arr, element) => {
 
 ### Bug #5: sumArray Uses Wrong Variable
 ```javascript
-// ❌ WRONG: Uses global `arr` instead of parameter
+//  WRONG: Uses global `arr` instead of parameter
 sumArray: (element) => {
     return arr.reduce((total, num) => total + num);
 }
 
-// ✅ CORRECT: Use function parameter
+//  CORRECT: Use function parameter
 sumArray: (arr) => {
     return arr.reduce((total, element) => total + element, 0);
 }
@@ -464,7 +464,7 @@ sumArray: (arr) => {
 
 ---
 
-## 2021 vs 2025 Comparison
+## 2021 vs 2026 Comparison
 
 ### Coding Style Evolution
 
@@ -480,7 +480,7 @@ function sumArray(arr) {
 }
 ```
 
-**2025: Concise, Declarative**
+**2026: Concise, Declarative**
 ```javascript
 // Modern style - array methods
 const sumArray = arr => arr.reduce((total, n) => total + n, 0);
@@ -509,7 +509,7 @@ Problems:
 - Difficult to add new brackets
 - Error-prone
 
-**2025 Approach:**
+**2026 Approach:**
 ```javascript
 // Data-driven with iteration
 const TAX = [[49020, 0.15], [98040, 0.205], ...];
@@ -529,10 +529,10 @@ function calcTax(income) {
 ```
 
 Benefits:
-- ✅ Easy to update tax brackets (just change data)
-- ✅ Single source of truth
-- ✅ No code duplication
-- ✅ Scales to any number of brackets
+-  Easy to update tax brackets (just change data)
+-  Single source of truth
+-  No code duplication
+-  Scales to any number of brackets
 
 ### Testing Philosophy
 
@@ -543,7 +543,7 @@ console.log(taxCalc.calcTax(60000));  // Eyeball the result
 console.log(taxCalc.calcTax(100000)); // Check each case manually
 ```
 
-**2025: Automated Test Suite**
+**2026: Automated Test Suite**
 ```javascript
 // Modern way - automated verification
 test("calculates tax correctly", () => {
@@ -633,7 +633,7 @@ These patterns appear everywhere:
 
 ---
 
-**Module Status:** ✅ Complete (8/8 tests passing)  
+**Module Status:**  Complete (8/8 tests passing)  
 **Key Bugs Fixed:** 5 (tax indexing, loop logic, array operations)  
 **Time Investment:** ~4 hours (including debugging)  
 **Next Module:** [Module 02: DOM Manipulation](./02-dom.md) →

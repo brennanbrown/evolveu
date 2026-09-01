@@ -231,4 +231,4 @@ Violations will result in a zero for the assignment.
 
 ---
 
-**Let's build something awesome with Python! 🐍**
+**Let's build something awesome with Python! **

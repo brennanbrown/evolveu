@@ -7,6 +7,7 @@
     <meta name="description" content="EvolveU Full-Stack Bootcamp Documentation">
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="doc-style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
@@ -18,7 +19,7 @@
         <div class="container">
             <div class="nav-brand">
                 <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                    <span class="logo">📚</span>
+                    <span class="logo"><i class="fas fa-book"></i></span>
                     <span class="brand-text">EvolveU Docs</span>
                 </a>
             </div>
@@ -66,7 +67,7 @@ backend development, and CRUD operations</p>
 <li><a href="#code-walkthrough">Code Walkthrough</a></li>
 <li><a href="#api-endpoints">API Endpoints</a></li>
 <li><a href="#testing--debugging">Testing &amp; Debugging</a></li>
-<li><a href="#2021-vs-2025-comparison">2021 vs 2025 Comparison</a></li>
+<li><a href="#2021-vs-2026-comparison">2021 vs 2026 Comparison</a></li>
 <li><a href="#key-takeaways">Key Takeaways</a></li>
 </ol>
 <hr />
@@ -86,10 +87,10 @@ operations for city data:</p>
 <p>Flask is a <strong>micro-framework</strong> for Python web
 development:</p>
 <ul>
-<li>✅ Lightweight (minimal boilerplate)</li>
-<li>✅ Flexible (add only what you need)</li>
-<li>✅ Python-based (easy for beginners)</li>
-<li>✅ Great for APIs and microservices</li>
+<li>Lightweight (minimal boilerplate)</li>
+<li>Flexible (add only what you need)</li>
+<li>Python-based (easy for beginners)</li>
+<li>Great for APIs and microservices</li>
 </ul>
 <p><strong>Alternatives:</strong></p>
 <ul>
@@ -137,7 +138,7 @@ Resource Sharing)</h3>
     ↓
     Tries to call API (http://localhost:5002)
     ↓
-❌ BLOCKED! Different origin!</code></pre>
+ BLOCKED! Different origin!</code></pre>
 <p><strong>The Solution:</strong></p>
 <pre class="python"><code>from flask_cors import CORS
 
@@ -354,14 +355,14 @@ def clear():
     global data, firstKeyType
     
     data = {}
-    firstKeyType = None  # ⚠️ BUG WAS HERE: Didn&#39;t reset this
+    firstKeyType = None  # ️ BUG WAS HERE: Didn&#39;t reset this
     
     return jsonify(data), 200
 
 
 if __name__ == &#39;__main__&#39;:
     print(&quot;--- Starting&quot;, __file__)
-    # ⚠️ Changed from default to prevent hanging:
+    # ️ Changed from default to prevent hanging:
     # debug=False, use_reloader=False
     app.run(debug=False, use_reloader=False, port=5002)</code></pre>
 <hr />
@@ -389,8 +390,8 @@ if __name__ == &#39;__main__&#39;:
 <p><strong>Response</strong>: 200 OK (empty body) or 400 Bad Request</p>
 <p><strong>Validation</strong>:</p>
 <ul>
-<li>❌ Duplicate key → 400</li>
-<li>❌ Inconsistent key type → 400</li>
+<li>Duplicate key → 400</li>
+<li>Inconsistent key type → 400</li>
 </ul>
 <hr />
 <h4 id="post-all-or-get-all">POST /all or GET /all</h4>
@@ -520,13 +521,13 @@ has been blocked by CORS policy</code></pre>
 <p><strong>Solution</strong>: Ensure <code>CORS(app)</code> is in
 web.py</p>
 <p><strong>Issue 3: Flask Hanging</strong></p>
-<pre class="python"><code># ❌ WRONG: Debug mode with reloader causes hanging
+<pre class="python"><code>#  WRONG: Debug mode with reloader causes hanging
 app.run(debug=True, use_reloader=True)
 
-# ✅ CORRECT: Disable for production/testing
+#  CORRECT: Disable for production/testing
 app.run(debug=False, use_reloader=False)</code></pre>
 <hr />
-<h2 id="2021-vs-2025-comparison">2021 vs 2025 Comparison</h2>
+<h2 id="2021-vs-2026-comparison">2021 vs 2026 Comparison</h2>
 <h3 id="flask-version-changes">Flask Version Changes</h3>
 <p><strong>2021: Flask 1.x</strong></p>
 <pre class="python"><code>from flask import Flask
@@ -538,7 +539,7 @@ app = Flask(__name__)
 def after_request(response):
     response.headers.add(&#39;Access-Control-Allow-Origin&#39;, &#39;*&#39;)
     return response</code></pre>
-<p><strong>2025: Flask 3.x</strong></p>
+<p><strong>2026: Flask 3.x</strong></p>
 <pre class="python"><code>from flask import Flask
 from flask_cors import CORS  # Dedicated package
 
@@ -551,7 +552,7 @@ def add():
     data = request.get_json()
     # No try/catch, no validation
     return jsonify(data)</code></pre>
-<p><strong>2025: </strong></p>
+<p>**2026: **</p>
 <pre class="python"><code>@app.route(&quot;/add&quot;, methods=[&#39;POST&#39;])
 def add():
     try:
@@ -571,7 +572,7 @@ def add():
 <h3 id="data-storage">Data Storage</h3>
 <p><strong>2021: In-Memory Dictionary</strong></p>
 <pre class="python"><code>data = {}  # Lost on server restart!</code></pre>
-<p><strong>2025: Would Use Database</strong></p>
+<p><strong>2026: Would Use Database</strong></p>
 <pre class="python"><code># PostgreSQL, MongoDB, SQLite
 from flask_sqlalchemy import SQLAlchemy
 
@@ -596,22 +597,22 @@ logging</li>
 </ol>
 <h3 id="best-practices">Best Practices</h3>
 <p><strong>1. Consistent Response Format</strong></p>
-<pre class="python"><code># ✅ GOOD: Always return JSON
+<pre class="python"><code>#  GOOD: Always return JSON
 return jsonify({&#39;data&#39;: result}), 200
 
-# ❌ BAD: Inconsistent types
+#  BAD: Inconsistent types
 return &quot;Success&quot;  # String
 return {&#39;data&#39;: result}  # Dict</code></pre>
 <p><strong>2. Proper Status Codes</strong></p>
-<pre class="python"><code># ✅ GOOD: Use appropriate codes
+<pre class="python"><code>#  GOOD: Use appropriate codes
 return jsonify({}), 201  # Created
 return jsonify({}), 404  # Not Found
 return jsonify({}), 500  # Server Error
 
-# ❌ BAD: Always 200
+#  BAD: Always 200
 return jsonify({&#39;error&#39;: &#39;Not found&#39;}), 200  # Wrong!</code></pre>
 <p><strong>3. Input Validation</strong></p>
-<pre class="python"><code># ✅ GOOD: Validate everything
+<pre class="python"><code>#  GOOD: Validate everything
 def add():
     data = request.get_json()
     
@@ -622,7 +623,7 @@ def add():
     if type(data[&#39;key&#39;]) != str:
         return jsonify({&#39;error&#39;: &#39;Key must be string&#39;}), 400</code></pre>
 <p><strong>4. Error Logging</strong></p>
-<pre class="python"><code># ✅ GOOD: Log errors for debugging
+<pre class="python"><code>#  GOOD: Log errors for debugging
 except Exception as e:
     traceback.print_stack()
     print(f&#39;Error in add(): {e}&#39;)
@@ -668,7 +669,7 @@ Mega-Tutorial</a></li>
 <p>Continue backend exploration with <a href="./06-python.md">Module 06:
 Python Fundamentals</a> →</p>
 <hr />
-<p><strong>Module Status:</strong> ✅ Complete (Flask server running on
+<p><strong>Module Status:</strong> Complete (Flask server running on
 port 5002)<br />
 <strong>Key Bugs Fixed:</strong> 2 (clear endpoint, debug mode
 hanging)<br />
@@ -698,7 +699,7 @@ server!</p>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+                <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
             </div>
         </div>
     </footer>

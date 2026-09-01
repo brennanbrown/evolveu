@@ -40,6 +40,7 @@ for file in "${files[@]}"; do
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@400;700;900&family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css">
 EOF
 ) \
@@ -49,7 +50,7 @@ EOF
     <div class="container">
         <div class="nav-brand">
             <a href="index.html" style="display: flex; align-items: center; gap: 0.75rem; text-decoration: none; color: inherit;">
-                <span class="logo">📚</span>
+                <span class="logo"><i class="fas fa-book"></i></span>
                 <span class="brand-text">EvolveU Docs</span>
             </a>
         </div>
@@ -106,7 +107,7 @@ EOF
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2025 Brennan Brown. Built with ❤️ for the developer community.</p>
+            <p>&copy; 2026 Brennan Brown. Built for the developer community.</p>
         </div>
     </div>
 </footer>
@@ -117,14 +118,14 @@ EOF
 EOF
 )
         
-        echo "✓ Created ${file}.html"
+        echo " Created ${file}.html"
     else
-        echo "⚠ Skipping ${file}.md (not found)"
+        echo " Skipping ${file}.md (not found)"
     fi
 done
 
 echo ""
-echo "✅ Conversion complete!"
+echo " Conversion complete!"
 echo ""
 echo "HTML files created for all modules."
 echo "You can now commit and push these files."
