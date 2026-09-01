@@ -25,7 +25,7 @@ function App() {
     function myOnClickCount(e) {
         let appName = "";
         const appKey = Number(e.target.getAttribute("ikey"));
-        setCount(count + 1)
+        setCount(prev => prev + 1)
         // Requires Depreciation:
         appName = c140b.appList.find(element => appKey === element.key).appName;
         setMessage(`Application #${appKey} is ${appName}`);

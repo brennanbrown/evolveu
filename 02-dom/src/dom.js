@@ -31,8 +31,7 @@ const functions = {
         node.parentElement.insertBefore(div, node);
     },
     deleteCard(node) {
-        node.nextSibling.remove(node);
-        
+        node.remove();
     }
     
 };

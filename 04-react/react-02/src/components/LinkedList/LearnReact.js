@@ -53,9 +53,9 @@ function TodoForm({ addTodo }) {
                 <input
                     type="number"
                     className="input"
-                    time={time}
+                    value={time}
                     placeholder="enter time"
-                    onChange={e => setValue(e.target.time)}
+                    onChange={e => setTime(e.target.value)}
                 />
             </div>
         </form>

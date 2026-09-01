@@ -61,7 +61,7 @@ test ("Does the first DOM function work?", () => {
     const div = document.createElement("div");
     let text = document.createTextNode("First");
     
-    div.appendChild(document.createTextNode(text));
+    div.appendChild(text);
     const div2 = document.createElement("div");
     
     div.append(div2);
