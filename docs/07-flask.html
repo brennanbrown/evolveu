@@ -78,7 +78,8 @@ integration, authentication, and deployment</p>
 <li>User authentication &amp; authorization</li>
 <li>RESTful API endpoints</li>
 <li>Security best practices</li>
-<li>Deployment configuration (Heroku)</li>
+<li>Deployment configuration (PaaS platforms like AWS, DigitalOcean, or
+Heroku)</li>
 </ul>
 <h3 id="current-status">Current Status</h3>
 <p><strong>Fixed in 2026</strong>: The dependency compatibility issues
@@ -91,6 +92,8 @@ uses:</p>
 the app and tests run without a real MongoDB instance</li>
 <li>A cleaned <code>requirements.txt</code> with conflicting and unused
 packages removed</li>
+<li>The original <code>origin/flask</code> deployment branch is
+preserved in <code>07-flask/flask-branch/</code></li>
 </ul>
 <pre><code>python -m pytest  # 12 passed</code></pre>
 <hr />
@@ -111,7 +114,7 @@ packages removed</li>
 ├── main.py                   # Entry point
 ├── requirements.txt          # Dependencies
 ├── .flaskenv                 # Environment variables
-├── Procfile                  # Heroku deployment
+├── Procfile                  # Process definition for PaaS deployment
 └── README.md</code></pre>
 <h3 id="technology-stack">Technology Stack</h3>
 <pre><code>Frontend:
@@ -129,7 +132,7 @@ Database:
   └── MongoEngine (ODM - Object Document Mapper)
 
 Deployment:
-  └── Heroku (PaaS platform)
+  └── PaaS platforms (e.g., AWS, DigitalOcean, or Heroku)
   └── Gunicorn (WSGI server)</code></pre>
 <hr />
 <h2 id="core-concepts">Core Concepts</h2>
@@ -618,7 +621,8 @@ this)</li>
 verification, persistent MongoDB deployment</li>
 <li><strong>Expand Pages</strong>: Course detail and user profile pages
 are already implemented</li>
-<li><strong>Deploy</strong>: Heroku, AWS, or DigitalOcean</li>
+<li><strong>Deploy</strong>: AWS, DigitalOcean, or another modern
+PaaS</li>
 <li><strong>Scale</strong>: Add caching (Redis), load balancing</li>
 </ol>
 <h3 id="resources">Resources</h3>

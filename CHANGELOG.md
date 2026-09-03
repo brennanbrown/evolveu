@@ -9,7 +9,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Major Update - Documentation Refresh & Code Audit
 
-This release updates the 2021 EvolveU bootcamp portfolio to September 2026, completes a full code audit of all modules, and refreshes all project documentation.
+This release updates the 2021 EvolveU bootcamp portfolio to September 2026, completes a code audit of modules, and refreshes project documentation.
+
+### Added
+- Preserved the original Heroku deployment branches in the main repo:
+  - `04-react/react-branch/` from `origin/react`
+  - `07-flask/flask-branch/` from `origin/flask`
 
 ### Changed
 
@@ -19,18 +24,14 @@ This release updates the 2021 EvolveU bootcamp portfolio to September 2026, comp
   - **Werkzeug**: 3.1.4 -> 2.3.8
 - **Documentation build pipeline**
   - Added Font Awesome 6.5.1 for iconography across the docs site
-  - Replaced all emoji placeholders with Font Awesome icons in `docs/index.html`, templates, and build scripts
+  - Replaced all placeholders with Font Awesome icons in `docs/index.html`, templates, and build scripts
 - **07-flask module (fully unblocked)**
   - Switched default database to `mongomock` so the app runs without a real MongoDB
   - Pinned `Flask==2.2.5` and `Werkzeug==2.3.8` for `flask-mongoengine` and Python 3.14 compatibility
   - Hardened `User` model: email is now unique/required, password hashing no longer length-limited
   - Added `/course/<course_id>` detail and `/profile` pages
   - Expanded `routes_test.py` to 12 passing tests
-- **Year, dates, and statistics**
-  - Migrated all documentation from "2021 vs 2025" to "2021 vs 2026"
-  - Updated copyright and "Last Updated" dates to 2026
-  - Version naming example now reflects the 2026 release
-  - Updated repository statistics to reflect 240+ passing tests
+- Updated repository statistics to reflect 240+ passing tests
 
 ### Removed
 - **Emojis and decorative symbols** from all `.md`, `.html`, and documentation build scripts
@@ -45,7 +46,7 @@ This release updates the 2021 EvolveU bootcamp portfolio to September 2026, comp
 
 ### Major Update - Modernization & Security
 
-This release brings the 2021 bootcamp portfolio up to 2025 standards with the latest stable versions of all dependencies.
+This release brings the 2021 bootcamp portfolio up to 2025 standards with the latest stable versions of dependencies.
 
 ### Added
 - **Documentation**
@@ -53,7 +54,7 @@ This release brings the 2021 bootcamp portfolio up to 2025 standards with the la
   - Detailed `CONTRIBUTING.md` with contribution guidelines
   - `LICENSE` file (MIT License)
   - This `CHANGELOG.md` file
-  - Enhanced `README.md` with badges, detailed setup instructions, and modern structure
+  - Enhanced `README.md` with badges, setup instructions, and modern structure
 
 - **Configuration Files**
   - `babel.config.js` for all JavaScript modules (00-testing, 01-getting-started, 02-dom, 03-objects)

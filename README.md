@@ -173,15 +173,13 @@ This repository has been updated with the latest stable versions:
 
 ##  Live Demonstrations
 
-**Note:** The original Heroku deployments may no longer be active. To view the projects:
+**Note:** Heroku ended its free tier, so the original live deployments are no longer available. To view the projects:
 
 1. Clone this repository
-2. Follow the installation instructions above
-3. Run the projects locally
-
-**Original deployment links:**
-- React Site: `https://react-brennan.herokuapp.com/` ([Source](https://github.com/brennanbrown/evolveu/tree/react))
-- Flask Site: `https://flask-brennan.herokuapp.com/` ([Source](https://github.com/brennanbrown/evolveu/tree/flask))
+2. Open the branch snapshot copied into the main repo:
+   - React demo: `04-react/react-branch/`
+   - Flask demo: `07-flask/flask-branch/`
+3. The original dedicated branches are still on GitHub as `origin/react` and `origin/flask`
 
 ##  Running Tests
 

@@ -852,6 +852,12 @@ function Tabs({ children }) {
 
 ---
 
+## Deployment Snapshot
+
+The original `origin/react` deployment branch has been preserved in `04-react/react-branch/`. It contains the deployable version of the final React application that was previously hosted on Heroku.
+
+---
+
 ## Further Learning
 
 ### Practice Projects

@@ -21,9 +21,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-**[View this project here!](https://flask-brennan.herokuapp.com/)**
+**[View this project locally!](#running-the-project)**
 
-This website is a mock application for registering for an online school, and enroll in specific web development courses. It utilizes Flask for the back-end, and MongoDB's MQL for the collections (database). This is currently being deployed on [Heroku](https://dashboard.heroku.com/) under a free Dyno plan, so I apologize for any issues regarding speed or connectivity!
+This website is a mock application for registering for an online school and enrolling in specific web development courses. It utilizes Flask for the back-end, and MongoDB's MQL for the collections (database). The original Heroku deployment has been retired.
 
 For more information about specific areas of this project, please refer to my **[personal notes](https://github.com/brennanbrown/cohort4/blob/flask/NOTES.md)**.
 

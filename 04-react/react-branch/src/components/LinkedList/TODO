@@ -1,0 +1,20 @@
+June 26:
+- Fix display so it works properly
+- Put current pointer into the state 
+- Add "remove" and "append" button functionality
+- Add newNode and currentNode components
+- Add button component
+
+June 29:
+- Figure out setState for Time and Task.
+-> In order to grab Time and Task from User in <input>
+- Figure out how to get variable "id" from User to delete task.
+- Modularize into separate functions.
+-> 1) LinkedListForm
+-> 2) CurrentList
+-> 3) App
+- Display array from displayNode();
+Note: Do not use <form>
+
+June 30:
+- Website key warnings are resolved

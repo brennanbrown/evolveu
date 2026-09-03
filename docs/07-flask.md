@@ -20,7 +20,7 @@ A **production-ready Flask application** with:
 - User authentication & authorization
 - RESTful API endpoints
 - Security best practices
-- Deployment configuration (Heroku)
+- Deployment configuration (PaaS platforms like AWS, DigitalOcean, or Heroku)
 
 ### Current Status
 
@@ -29,6 +29,7 @@ A **production-ready Flask application** with:
 - `Flask==2.2.5` and `Werkzeug==2.3.8` for `flask-mongoengine 1.0.0` compatibility on Python 3.14
 - `mongomock` as a local in-memory MongoDB replacement, so the app and tests run without a real MongoDB instance
 - A cleaned `requirements.txt` with conflicting and unused packages removed
+- The original `origin/flask` deployment branch is preserved in `07-flask/flask-branch/`
 
 ```
 python -m pytest  # 12 passed
@@ -56,7 +57,7 @@ python -m pytest  # 12 passed
 ├── main.py                   # Entry point
 ├── requirements.txt          # Dependencies
 ├── .flaskenv                 # Environment variables
-├── Procfile                  # Heroku deployment
+├── Procfile                  # Process definition for PaaS deployment
 └── README.md
 ```
 
@@ -78,7 +79,7 @@ Database:
   └── MongoEngine (ODM - Object Document Mapper)
 
 Deployment:
-  └── Heroku (PaaS platform)
+  └── PaaS platforms (e.g., AWS, DigitalOcean, or Heroku)
   └── Gunicorn (WSGI server)
 ```
 
@@ -629,7 +630,7 @@ def internal_error(error):
 
 1. **Add Production Features**: Password reset, email verification, persistent MongoDB deployment
 2. **Expand Pages**: Course detail and user profile pages are already implemented
-3. **Deploy**: Heroku, AWS, or DigitalOcean
+3. **Deploy**: AWS, DigitalOcean, or another modern PaaS
 4. **Scale**: Add caching (Redis), load balancing
 
 ### Resources
